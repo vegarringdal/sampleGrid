@@ -1,18 +1,42 @@
-body, .app {
-    position: absolute;
-    margin: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    --freegrid-font-size: 11px;
-    --freegrid-font-weight: 500;
-    --freegrid-font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-family: var(--freegrid-font-family);
-    font-size: var(--freegrid-font-size);
-    font-weight: var(--freegrid-font-weight);
+body,
+.app {
+  position: absolute;
+  margin: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  --freegrid-font-size: 11px;
+  --freegrid-font-weight: 500;
+  --freegrid-font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: var(--freegrid-font-family);
+  font-size: var(--freegrid-font-size);
+  font-weight: var(--freegrid-font-weight);
 }
 
 .simple-html-grid-menu {
-    z-index: 5060 !important;
+  z-index: 5060 !important;
 }
+
+.new-cell {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  bottom: 0;
+  margin: 0;
+  margin: 0;
+  background-color: rgba(0, 238, 255, 0.815);
+}
+  
+
+.edit-cell {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  bottom: 0;
+  margin: 0;
+  background-color: rgb(238, 255, 0);
+}
+

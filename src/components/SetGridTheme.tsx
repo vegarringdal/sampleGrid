@@ -104,6 +104,8 @@ export function SetGridTheme(props: { enabled: boolean }) {
                     .simple-html-grid .filter-editor-content .grid-button {
                         color: #60a5fa;
                     }
+
+                   
             
                     `)
                 );
@@ -150,6 +152,8 @@ export function SetGridTheme(props: { enabled: boolean }) {
                     .simple-html-grid .filter-editor-content .grid-button {
                         color: #4f46e5;
                     }
+
+                    
                   `)
                 );
             }
