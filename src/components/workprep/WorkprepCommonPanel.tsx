@@ -1,7 +1,7 @@
 import { TabView, TabPanel } from "primereact/tabview";
-import { gridInterface2 } from "../state/gridInterface2";
-import { SimpleGridActions } from "./SimpleGridActions";
-import { SimpleHtmlGrid } from "./SimpleHtmlGrid";
+import { gridInterface2 } from "../../state/gridInterface2";
+import { SimpleGridActions } from "../SimpleGridActions";
+import { SimpleHtmlGrid } from "../SimpleHtmlGrid";
 
 export function WorkprepCommonPanel() {
   return (
