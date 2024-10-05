@@ -1,9 +1,9 @@
 import { Splitter, SplitterPanel } from "primereact/splitter";
 
 import { WorkprepCommonPanel } from "./WorkprepCommonPanel";
-import { gridInterface1 } from "../../state/gridInterface1";
-import { SimpleGridActions } from "../common/SimpleGridActions";
-import { SimpleHtmlGrid } from "../common/SimpleHtmlGrid";
+import { gridInterface1 } from "../../../state/gridInterface1";
+import { SimpleGridActions } from "../../common/SimpleGridActions";
+import { SimpleHtmlGrid } from "../../common/SimpleHtmlGrid";
 
 export function WorkprepCabelsPanel() {
   return (

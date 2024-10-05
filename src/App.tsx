@@ -2,7 +2,7 @@ import "./App.css";
 import { SetGridTheme } from "./components/common/SetGridTheme";
 import { PrimeReactProvider } from "primereact/api";
 import { Menubar } from "primereact/menubar";
-import { WorkprepModule } from "./components/workprep/WorkprepModule";
+import { WorkprepModule } from "./components/modules/workprep/WorkprepModule";
 
 ////////////////////////////////////////////////////////////////////////
 // PS!
@@ -16,6 +16,7 @@ export function App() {
         <Menubar model={[]} className="border-0 rounded-none" />
         <SetGridTheme enabled={true} />
         <div className="w-full flex flex-1">
+          {/* need routing logic to switch modules */}
           <WorkprepModule />
         </div>
         <Menubar model={[]} className="border-0 rounded-none" />
