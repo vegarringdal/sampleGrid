@@ -9,7 +9,10 @@ import { TabView, TabPanel } from "primereact/tabview";
 import { PrimeReactProvider } from "primereact/api";
 import { Menubar } from "primereact/menubar";
 
-// will be a lot of junk here when Im tryign out primereact
+////////////////////////////////////////////////////////////////////////
+// PS!
+// Will be a lot of junk here when Im trying out primereact
+////////////////////////////////////////////////////////////////////////
 
 export function App() {
   return (
@@ -38,11 +41,21 @@ export function App() {
                   />
                 </SplitterPanel>
                 <SplitterPanel
-                  className="flex p-2 overflow-hidden"
+                  className="flex  overflow-hidden"
                   minSize={0}
                   size={20}
                 >
-                  Panel 2
+                  <TabView
+                      className="flex flex-col flex-1 text-sm"
+                      panelContainerClassName="h-full p-0"
+                    >
+                      <TabPanel header="Header x" className="h-full">
+                      
+                      </TabPanel>
+                      <TabPanel header="Header y" className="h-full">
+                        <div className="p-1"> panel2</div>
+                      </TabPanel>
+                    </TabView>
                 </SplitterPanel>
               </Splitter>
             </TabPanel>
