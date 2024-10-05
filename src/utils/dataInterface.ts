@@ -1,10 +1,8 @@
-
 // early... will change my mind here..
 
 // we will need a serviceController Object
 // service controller takes DataInterface to generate datasource/gridconfig
 // and url and enpoints like create new/update/delete/getAll/getOne
-
 
 export type DataInterface = {
   /**
@@ -32,7 +30,7 @@ export type DataInterface = {
   /**
    * col group cells
    */
-  groupCells?: string[][];
+  groupCells: string[][];
 
   /**
    * column width
@@ -125,41 +123,38 @@ export type DataInterfaceColumn = {
   };
 
   /**
-   * default value on new
+   * force value/blue in grid cell if empty
    */
   mandatory?: boolean;
 
-  /**
-   * parent is like cabletype on a drum or company on a person.
-   */
 
   /**
    * parent_view api to use, will bring button on for opening dialog
-   * you need to make sure its added
-   * you also need to set parentViewType, parentTitle, parentFrom, parentColumnTo, parentColumnsFromTo
+   * parent is like cabletype on a drum or company on a person.
    */
-  parentViewApi?: string;
+  parentDataInterface?: {
+    name: string;
+    /**
+     * title on dialog
+     */
+    title: string;
 
-  /**
-   * title on dialog
-   */
-  parentTitle?: string;
+    /**
+     * parent api column to get
+     */
+    columnFrom: string;
 
-  /**
-   * parent api column to get
-   */
-  parentColumnFrom?: string;
+    /**
+     * column to insert value from parent
+     */
+    columnTo: string;
 
-  /**
-   * column to insert value from parent
-   */
-  parentColumnTo?: string;
-
-  /**
-   * parent column to update, using par string,string
-   * [[fromParentColumn, toChildColumn],[fromParentColumn, toChildColumn]]
-   * useful if you have many columns from parent, also depends on view
-   * this is also used when doing copy/paste and you need to update related at the same time
-   */
-  parentColumnsFromTo?: [string, string][];
+    /**
+     * parent column to update, using par string,string
+     * [[fromParentColumn, toChildColumn],[fromParentColumn, toChildColumn]]
+     * useful if you have many columns from parent, also depends on view
+     * this is also used when doing copy/paste and you need to update related at the same time
+     */
+    columnsFromTo?: [string, string][];
+  };
 };
