@@ -17,7 +17,7 @@ export function SimpleGridActions(props: {
         tooltipOptions={{ showDelay: 1000 }}
         className="p-1 h-6 w-6 bg-gray-700 hover:bg-gray-600 text-gray-200 border-0"
         onClick={() => {
-          console.log(props.interface.getDatasource().getChanges());
+          alert("Not implemented")
         }}
       >
         <i className="pi pi-sync"></i>
@@ -173,6 +173,7 @@ export function SimpleGridActions(props: {
         className="p-1 h-6 w-6 bg-gray-700 hover:bg-gray-600 text-gray-200 border-0"
         onClick={() => {
           console.log(props.interface.getDatasource().getChanges());
+          alert("see console log, F12")
         }}
       >
         <i className="pi pi-print"></i>
