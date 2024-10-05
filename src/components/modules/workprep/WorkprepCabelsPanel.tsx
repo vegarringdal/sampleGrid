@@ -1,7 +1,7 @@
 import { Splitter, SplitterPanel } from "primereact/splitter";
 
 import { WorkprepCommonPanel } from "./WorkprepCommonPanel";
-import { gridInterface1 } from "../../../state/gridInterface1";
+import { gridInterface1 } from "../../../data/gridInterface1";
 import { SimpleGridActions } from "../../common/SimpleGridActions";
 import { SimpleHtmlGrid } from "../../common/SimpleHtmlGrid";
 
