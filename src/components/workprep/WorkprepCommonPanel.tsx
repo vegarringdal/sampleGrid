@@ -9,7 +9,11 @@ export function WorkprepCommonPanel() {
       className="flex flex-col flex-1 text-xs"
       panelContainerClassName="h-full p-0"
     >
-      <TabPanel header="Tag Operations" className="h-full">
+      <TabPanel
+        header="Tag Operations"
+        className="h-full"
+        pt={{ headerAction: { className: "p-3" } }}
+      >
         <div className="p-2 flex w-full h-full">
           <SimpleGridActions interface={gridInterface2} />
           <SimpleHtmlGrid
@@ -19,14 +23,30 @@ export function WorkprepCommonPanel() {
           />
         </div>
       </TabPanel>
-      <TabPanel header="Workpack" className="h-full"></TabPanel>
-      <TabPanel header="Task" className="h-full">
+      <TabPanel
+        header="Workpack"
+        className="h-full"
+        pt={{ headerAction: { className: "p-3" } }}
+      ></TabPanel>
+      <TabPanel
+        header="Task"
+        className="h-full"
+        pt={{ headerAction: { className: "p-3" } }}
+      >
         <div className="p-1"> panel2</div>
       </TabPanel>
-      <TabPanel header="Routing" className="h-full">
+      <TabPanel
+        header="Routing"
+        className="h-full"
+        pt={{ headerAction: { className: "p-3" } }}
+      >
         <div className="p-1"> panel2</div>
       </TabPanel>
-      <TabPanel header="Documents" className="h-full">
+      <TabPanel
+        header="Documents"
+        className="h-full"
+        pt={{ headerAction: { className: "p-3" } }}
+      >
         <div className="p-1"> panel2</div>
       </TabPanel>
     </TabView>
