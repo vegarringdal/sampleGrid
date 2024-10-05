@@ -127,7 +127,6 @@ export function SimpleGridActions(props: {
         <i className="pi pi-file-import"></i>
       </Button>
 
-
       <Button
         pt={{
           tooltip: {
@@ -143,6 +142,23 @@ export function SimpleGridActions(props: {
         }}
       >
         <i className="pi pi-save"></i>
+      </Button>
+
+      <Button
+        pt={{
+          tooltip: {
+            root: { className: "text-xs" },
+            text: { className: "p-1" },
+          },
+        }}
+        tooltip="Generate excel file from current list"
+        tooltipOptions={{ showDelay: 1000 }}
+        className="p-1 h-6 w-6 bg-gray-700 hover:bg-gray-600 text-gray-200 border-0"
+        onClick={() => {
+          alert("Not implemented");
+        }}
+      >
+        <i className="pi pi-file-excel"></i>
       </Button>
 
       <Button
