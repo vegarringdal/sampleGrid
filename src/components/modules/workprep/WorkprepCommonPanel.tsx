@@ -36,14 +36,33 @@ export function WorkprepCommonPanel() {
         <div className="p-1"> panel2</div>
       </TabPanel>
       <TabPanel
-        header="Routing"
+        header="Routing all"
+        className="h-full"
+        pt={{ headerAction: { className: "p-3" } }}
+      >
+        <TabPanel
+        header="Routing selected"
+        className="h-full"
+        pt={{ headerAction: { className: "p-3" } }}
+      ></TabPanel>
+        <div className="p-1"> panel2</div>
+      </TabPanel>
+      <TabPanel
+        header="Documents all"
         className="h-full"
         pt={{ headerAction: { className: "p-3" } }}
       >
         <div className="p-1"> panel2</div>
       </TabPanel>
       <TabPanel
-        header="Documents"
+        header="Documents Cable"
+        className="h-full"
+        pt={{ headerAction: { className: "p-3" } }}
+      >
+        <div className="p-1"> panel2</div>
+      </TabPanel>
+      <TabPanel
+        header="Documents Equip"
         className="h-full"
         pt={{ headerAction: { className: "p-3" } }}
       >
