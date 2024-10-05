@@ -1,5 +1,5 @@
 import "./App.css";
-import { SetGridTheme } from "./components/SetGridTheme";
+import { SetGridTheme } from "./components/common/SetGridTheme";
 import { PrimeReactProvider } from "primereact/api";
 import { Menubar } from "primereact/menubar";
 import { WorkprepModule } from "./components/workprep/WorkprepModule";
