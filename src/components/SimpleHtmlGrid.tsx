@@ -28,9 +28,7 @@ export function SimpleHtmlGrid(props: {
       }, 0);
     }
     return () => {
-      if (ref.current) {
-        console.log("unexpected behavior, duplicate grid", ref.current);
-      }
+        
     };
   });
 

@@ -2,12 +2,12 @@ import "./App.css";
 import { SetGridTheme } from "./components/SetGridTheme";
 import { SimpleGridActions } from "./components/SimpleGridActions";
 import { SimpleHtmlGrid } from "./components/SimpleHtmlGrid";
-import { dataSource1 } from "./state/dataSource1";
 import { gridInterface1 } from "./state/gridInterface1";
 import { Splitter, SplitterPanel } from "primereact/splitter";
 import { TabView, TabPanel } from "primereact/tabview";
 import { PrimeReactProvider } from "primereact/api";
 import { Menubar } from "primereact/menubar";
+import { gridInterface2 } from "./state/gridInterface2";
 
 ////////////////////////////////////////////////////////////////////////
 // PS!
@@ -22,10 +22,10 @@ export function App() {
         <SetGridTheme enabled={true} />
         <div className="w-full flex flex-1">
           <TabView
-            className="flex flex-col flex-1 text-sm"
+            className="flex flex-col flex-1 text-xs"
             panelContainerClassName="h-full p-0"
           >
-            <TabPanel header="Header I" className="h-full">
+            <TabPanel header="Cables" className="h-full">
               <Splitter
                 className="flex w-full h-full bg-inherit border-0"
                 pt={{
@@ -34,8 +34,9 @@ export function App() {
                 }}
               >
                 <SplitterPanel className="flex p-2" minSize={10} size={80}>
-                  <SimpleGridActions ds={dataSource1} />
+                  <SimpleGridActions interface={gridInterface1} />
                   <SimpleHtmlGrid
+                    id='1'
                     className="simple-html-grid w-full h-full"
                     interface={gridInterface1}
                   />
@@ -46,20 +47,36 @@ export function App() {
                   size={20}
                 >
                   <TabView
-                      className="flex flex-col flex-1 text-sm"
+                      className="flex flex-col flex-1 text-xs"
                       panelContainerClassName="h-full p-0"
                     >
-                      <TabPanel header="Header x" className="h-full">
-                      
+                      <TabPanel header="Tag Operations" className="h-full">
+                      <div className="p-2 flex w-full h-full">
+                        <SimpleGridActions interface={gridInterface2} />
+                        <SimpleHtmlGrid
+                          id="2"
+                          className="simple-html-grid w-full h-full"
+                          interface={gridInterface2}
+                        />
+                        </div>
                       </TabPanel>
-                      <TabPanel header="Header y" className="h-full">
+                      <TabPanel header="Workpack" className="h-full">
+                        
+                      </TabPanel>
+                      <TabPanel header="Task" className="h-full">
+                        <div className="p-1"> panel2</div>
+                      </TabPanel>
+                      <TabPanel header="Routing" className="h-full">
+                        <div className="p-1"> panel2</div>
+                      </TabPanel>
+                      <TabPanel header="Documents" className="h-full">
                         <div className="p-1"> panel2</div>
                       </TabPanel>
                     </TabView>
                 </SplitterPanel>
               </Splitter>
             </TabPanel>
-            <TabPanel header="Header II" className="h-full">
+            <TabPanel header="Equipment" className="h-full">
               <div className="p-1"> panel2</div>
             </TabPanel>
           </TabView>
