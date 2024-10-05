@@ -39,12 +39,13 @@ export function WorkprepCommonPanel() {
         header="Routing all"
         className="h-full"
         pt={{ headerAction: { className: "p-3" } }}
-      >
-        <TabPanel
+      ></TabPanel>
+      <TabPanel
         header="Routing selected"
         className="h-full"
         pt={{ headerAction: { className: "p-3" } }}
-      ></TabPanel>
+      >
+        {" "}
         <div className="p-1"> panel2</div>
       </TabPanel>
       <TabPanel
