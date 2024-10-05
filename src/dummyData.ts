@@ -6,6 +6,7 @@ export type DummyData = {
   DESCRIPTION: string;
   DOCID: string;
   LINE_EQUIPMENT: string;
+  DATE: Date;
 };
 
 export const DummyRows: DummyData[] = [];
@@ -21,6 +22,7 @@ const DummyRow = {
   DESCRIPTION: "INLET SEP",
   DOCID: "C232-AI-R-DS-0001",
   LINE_EQUIPMENT: "KJSD",
+  DATE: new Date(),
 };
 
 for (let i = 1; i < 10; i++) {

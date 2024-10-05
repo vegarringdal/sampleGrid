@@ -7,22 +7,22 @@ import { useEffect, useRef } from "react";
  */
 
 export function SetGridTheme(props: { enabled: boolean }) {
-    const ref = useRef<any>(null);
-    const darkEnabled = props.enabled;
+  const ref = useRef<any>(null);
+  const darkEnabled = props.enabled;
 
-    useEffect(() => {
-        if (ref.current) {
-            if (darkEnabled === true) {
-                let children = ref.current.childNodes;
-                while (children.length) {
-                    children[0]?.parentNode.removeChild(children[0]);
-                    children = ref.current.childNodes;
-                }
-                /**
-                 * dark mode overrides
-                 */
-                ref.current.append(
-                    document.createTextNode(`
+  useEffect(() => {
+    if (ref.current) {
+      if (darkEnabled === true) {
+        let children = ref.current.childNodes;
+        while (children.length) {
+          children[0]?.parentNode.removeChild(children[0]);
+          children = ref.current.childNodes;
+        }
+        /**
+         * dark mode overrides
+         */
+        ref.current.append(
+          document.createTextNode(`
                     body,
                     .simple-html-grid-menu,
                     .simple-html-grid {
@@ -108,18 +108,18 @@ export function SetGridTheme(props: { enabled: boolean }) {
                    
             
                     `)
-                );
-            } else {
-                let children = ref.current.childNodes;
-                while (children.length) {
-                    children[0]?.parentNode.removeChild(children[0]);
-                    children = ref.current.childNodes;
-                }
-                /**
-                 * light mode overrides
-                 */
-                ref.current.append(
-                    document.createTextNode(`
+        );
+      } else {
+        let children = ref.current.childNodes;
+        while (children.length) {
+          children[0]?.parentNode.removeChild(children[0]);
+          children = ref.current.childNodes;
+        }
+        /**
+         * light mode overrides
+         */
+        ref.current.append(
+          document.createTextNode(`
                     body,
                     .simple-html-grid-header input::placeholder {
                         filter: opacity(1);
@@ -155,10 +155,10 @@ export function SetGridTheme(props: { enabled: boolean }) {
 
                     
                   `)
-                );
-            }
-        }
-    });
+        );
+      }
+    }
+  });
 
-    return <style ref={ref}></style>;
+  return <style ref={ref}></style>;
 }

@@ -11,40 +11,40 @@ import { useEffect, useRef } from "react";
  * PS! editing this with hot reloading will create weird behavior
  */
 export function SimpleHtmlGrid(props: {
-    id?: string;
-    style?: { width?: string; height?: string };
-    interface: GridInterface<any>;
-    className?: string;
-    date?: any;
+  id?: string;
+  style?: { width?: string; height?: string };
+  interface: GridInterface<any>;
+  className?: string;
+  date?: any;
 }) {
-    const ref = useRef<any>(null);
+  const ref = useRef<any>(null);
 
-    useEffect(() => {
-        if (ref.current) {
-            // dom element does not have final size on first call to useEffect
-            setTimeout(() => {
-                ref.current.enableCleanup = true; // fixes issue hmr can generate/or just bad cleanup from react
-                ref.current.connectInterface(props.interface);
-            }, 0);
-        }
-        return () => {
-            if (ref.current) {
-                console.log("unexpected behavior, duplicate grid", ref.current);
-            }
-        };
-    });
+  useEffect(() => {
+    if (ref.current) {
+      // dom element does not have final size on first call to useEffect
+      setTimeout(() => {
+        ref.current.enableCleanup = true; // fixes issue hmr can generate/or just bad cleanup from react
+        ref.current.connectInterface(props.interface);
+      }, 0);
+    }
+    return () => {
+      if (ref.current) {
+        console.log("unexpected behavior, duplicate grid", ref.current);
+      }
+    };
+  });
 
-    return (
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        <simple-html-grid
-            id={props.id}
-            ref={ref}
-            style={{
-                width: props.style?.width,
-                height: props.style?.height
-            }}
-            class={props.className}
-        />
-    );
+  return (
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    <simple-html-grid
+      id={props.id}
+      ref={ref}
+      style={{
+        width: props.style?.width,
+        height: props.style?.height,
+      }}
+      class={props.className}
+    />
+  );
 }

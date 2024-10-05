@@ -6,4 +6,3 @@ import { DummyData, DummyRows } from "../dummyData";
  */
 export const dataSource1 = new Datasource<DummyData>();
 dataSource1.setData(DummyRows);
-

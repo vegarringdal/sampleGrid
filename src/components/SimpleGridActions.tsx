@@ -3,48 +3,45 @@ import { gridInterface1 } from "../state/gridInterface1";
 
 export function SimpleGridActions(props: { ds: Datasource }) {
   return (
-    <div className="flex flex-col p-2 w-32 gap-2">
-
-
-<button
-        className="p-2 bg-indigo-700 hover:bg-indigo-600"
-        onClick={() => {
+    <div className="flex flex-col pr-2 pt-1 gap-2 h-full">
+      <div>
+        <button
+          className="p-1 h-6 w-6 bg-indigo-700 hover:bg-indigo-600"
+          onClick={() => {
             const config = gridInterface1.saveConfig();
             config.readonly = !config.readonly;
             gridInterface1.loadConfig(config);
-        }}
-      >
-        toggle edit 
-      </button>
-
+          }}
+        >
+          <i className="pi pi-pencil"></i>
+        </button>
+      </div>
 
       <button
-        className="p-2 bg-indigo-700 hover:bg-indigo-600"
+        className="p-1 h-6 w-6 bg-indigo-700 hover:bg-indigo-600"
         onClick={() => {
           props.ds.addNewEmpty();
         }}
       >
-        new entity
+        <i className="pi pi-plus"></i>
       </button>
 
-
       <button
-        className="p-2 bg-indigo-700 hover:bg-indigo-600"
+        className="p-1 h-6 w-6 bg-indigo-700 hover:bg-indigo-600"
         onClick={() => {
           props.ds.resetData();
         }}
       >
-        reset all
+        <i className="pi pi-undo"></i>
       </button>
 
-
       <button
-        className="p-2 bg-indigo-700 hover:bg-indigo-600"
+        className="p-1 h-6 w-6 bg-indigo-700 hover:bg-indigo-600"
         onClick={() => {
           console.log(props.ds.getChanges());
         }}
       >
-        print changes
+        <i className="pi pi-print"></i>
       </button>
     </div>
   );
