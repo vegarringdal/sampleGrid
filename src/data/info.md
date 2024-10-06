@@ -48,3 +48,7 @@ Datasources needed
 
 
 might be more I dont remember atm, a lof of stuff under task I dont remember
+
+
+Also need to look into shared datasource datastore for popup etc, so they have own selection etc
+Need this for task/workpack atleast.
