@@ -1,18 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useRef } from "react";
+import { modeStore } from "../../state/mode";
 
 /**
  * dark theme helper for grid
  * this also overrides some defaults in grid so it fits better within the application
  */
 
-export function SetGridTheme(props: { enabled: boolean }) {
+export function SetGridTheme() {
   const ref = useRef<any>(null);
-  const darkEnabled = props.enabled;
+  const modeState = modeStore();
 
   useEffect(() => {
     if (ref.current) {
-      if (darkEnabled === true) {
+      if (modeState.isDarkTheme === true) {
         let children = ref.current.childNodes;
         while (children.length) {
           children[0]?.parentNode.removeChild(children[0]);
