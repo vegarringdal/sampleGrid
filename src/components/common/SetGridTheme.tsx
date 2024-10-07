@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useRef } from "react";
-import { modeStore } from "../../state/mode";
+import { themeStore } from "../../state/theme";
 
 /**
  * dark theme helper for grid
@@ -9,7 +9,7 @@ import { modeStore } from "../../state/mode";
 
 export function SetGridTheme() {
   const ref = useRef<any>(null);
-  const modeState = modeStore();
+  const modeState = themeStore();
 
   useEffect(() => {
     if (ref.current) {

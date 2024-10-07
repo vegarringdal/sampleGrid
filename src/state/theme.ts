@@ -4,6 +4,6 @@ type modeState = {
   isDarkTheme: boolean;
 };
 
-export const modeStore = create<modeState>(() => ({
+export const themeStore = create<modeState>(() => ({
   isDarkTheme: true,
 }));

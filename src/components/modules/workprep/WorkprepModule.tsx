@@ -10,7 +10,7 @@ export function WorkprepModule() {
         pt={{
           panelContainer: {
             className: "h-full",
-          },
+          }
         }}
         className="flex flex-col flex-1 text-xs"
       >

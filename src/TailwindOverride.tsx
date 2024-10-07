@@ -297,9 +297,9 @@ export const TailwindOverride = {
     headerAction: ({ parent, context }) => ({
       className: classNames(
         "items-center cursor-pointer flex overflow-hidden relative select-none text-decoration-none user-select-none", // Flex and overflow styles.
-        "border-b-2 p-5 font-bold rounded-t-md transition-shadow duration-200 m-0", // Border, padding, font, and transition styles.
-        "transition-colors duration-200", // Transition duration style.
-        "focus:outline-none focus:outline-offset-0 focus:shadow-[inset_0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]", // Focus styles.
+        "border-b-2 p-5 font-bold  transition-shadow duration-200 m-0", // Border, padding, font, and transition styles.
+        // disable these annoying styles
+        //"focus:outline-none focus:outline-offset-0 focus:shadow-[inset_0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]", // Focus styles.
         {
           "border-gray-300 bg-white text-gray-700 hover:bg-white hover:border-gray-400 hover:text-gray-600 dark:bg-gray-800 dark:border-blue-900/40 dark:text-white/80 dark:hover:bg-gray-800/80":
             parent != null ? parent.state.activeIndex !== context.index : true, // Condition-based hover styles.

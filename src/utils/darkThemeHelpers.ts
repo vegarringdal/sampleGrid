@@ -1,4 +1,4 @@
-import { modeStore } from "../state/mode";
+import { themeStore } from "../state/theme";
 
 let init = false; // so we dont end up in endless loop
 
@@ -9,7 +9,7 @@ export function initDarkTheme() {
         const initStatus = window.localStorage.getItem("theme");
         if (initStatus === null) {
             window.localStorage.setItem("theme", "Y");
-            modeStore.setState({isDarkTheme:true});
+            themeStore.setState({isDarkTheme:true});
             document.getElementsByTagName("HTML")[0].className = "dark";
         } else {
             if (initStatus !== "Y") {
@@ -17,7 +17,7 @@ export function initDarkTheme() {
             } else {
                 document.getElementsByTagName("HTML")[0].className = "dark";
             }
-            modeStore.setState({isDarkTheme:initStatus === "Y" ? true : false});
+            themeStore.setState({isDarkTheme:initStatus === "Y" ? true : false});
         }
     }
 }
@@ -29,6 +29,6 @@ export function toggleDarkTheme() {
     } else {
         document.getElementsByTagName("HTML")[0].className = "";
     }
-    modeStore.setState({isDarkTheme: darkTheme ? true : false});
+    themeStore.setState({isDarkTheme: darkTheme ? true : false});
     window.localStorage.setItem("theme", darkTheme ? "Y" : "N");
 }
