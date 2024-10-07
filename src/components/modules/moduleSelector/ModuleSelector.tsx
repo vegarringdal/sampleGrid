@@ -88,10 +88,13 @@ export function ModuleSelector() {
     { name: "002457 - some project description", code: "002457" },
   ];
 
+
+  // somethign weird happening with select in unstyled mode
+
   return (
     <div className="flex flex-col flex-1">
       <div className="m-auto w-4/5 mt-10 dark:text-gray-200">
-        <FloatLabel className="w-full">
+        <FloatLabel >
           <Dropdown
             inputId="dd-select"
             value={selectedProject}
