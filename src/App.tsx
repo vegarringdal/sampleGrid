@@ -1,6 +1,5 @@
 import "./App.css";
 import { SetGridTheme } from "./components/common/SetGridTheme";
-import { PrimeReactProvider } from "primereact/api";
 import { Menubar } from "primereact/menubar";
 import { Router } from "./components/router";
 
@@ -12,14 +11,10 @@ import { Router } from "./components/router";
 export function App() {
   return (
     <div className="app flex flex-col flex-1  bg-gray-800">
-      <PrimeReactProvider>
-        <Menubar model={[]} className="border-0 rounded-none" />
-        <SetGridTheme enabled={true} />
-        <Router/>
-        <Menubar model={[]} className="border-0 rounded-none" />
-      </PrimeReactProvider>
+      <Menubar model={[]} className="border-0 rounded-none" />
+      <SetGridTheme enabled={true} />
+      <Router />
+      <Menubar model={[]} className="border-0 rounded-none" />
     </div>
   );
 }
-
-

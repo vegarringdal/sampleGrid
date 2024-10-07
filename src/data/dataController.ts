@@ -46,6 +46,37 @@ export class DataController<T>{
 }
 
 
+export class DataService<T> {
+    
+
+    transformResult(row: T){
+
+    }
+
+    getAll(project: string) {
+
+        return [] as T[]
+    }
+
+    // new
+    post(project: string, data: T){
+
+        return {} as T
+    }
+
+    // delete
+    delete(project: string, id: string){
+
+    }
+    
+    // update
+    patch(project: string, data:T){
+
+    }
+
+}
+
+
 
 
 // so do I define a service and get this to return dataContainer, maybe a event for updates ?
