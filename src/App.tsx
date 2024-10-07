@@ -10,7 +10,7 @@ import { Router } from "./components/router";
 
 export function App() {
   return (
-    <div className="app flex flex-col flex-1  bg-gray-800">
+    <div className="app flex flex-col flex-1 dark:bg-gray-800">
       <Menubar model={[]} className="border-0 rounded-none" />
       <SetGridTheme enabled={true} />
       <Router />

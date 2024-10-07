@@ -8,8 +8,9 @@ import { SimpleHtmlGrid } from "../../common/SimpleHtmlGrid";
 export function WorkprepCabelsPanel() {
   return (
     <Splitter
-      className="flex w-full h-full bg-inherit border-0"
+      className="flex w-full h-full bg-inherit"
       pt={{
+        root: {className: "border-0"},
         gutter: { className: "bg-gray-700" },
         gutterHandler: { className: "bg-gray-600" },
       }}

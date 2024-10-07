@@ -7,24 +7,17 @@ import { PrimeReactProvider } from "primereact/api";
 
 // need to wait for next version to enable, but in tabview
 
-//import { twMerge } from "tailwind-merge";
-//import Tailwind from "primereact/passthrough/tailwind";
+import { twMerge } from "tailwind-merge";
+import Tailwind from "primereact/passthrough/tailwind";
+import { TailwindOverride } from "./TailwindOverride.tsx";
 
-createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <PrimeReactProvider>
-      <App />
-    </PrimeReactProvider>
-  </StrictMode>
-);
 
-/* 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
      <PrimeReactProvider
       value={{
         unstyled: true,
-        pt: Tailwind,
+        pt: Object.assign(Tailwind,TailwindOverride),
         ptOptions: {
           mergeSections: true,
           mergeProps: true,
@@ -36,4 +29,6 @@ createRoot(document.getElementById("root")!).render(
     </PrimeReactProvider>
   </StrictMode>
 );
- */
+
+
+

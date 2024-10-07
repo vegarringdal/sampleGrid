@@ -7,12 +7,15 @@ export function WorkprepCommonPanel() {
   return (
     <TabView
       className="flex flex-col flex-1 text-xs"
-      panelContainerClassName="h-full p-0"
+      pt={{panelContainer: {className:"h-full p-0"}}}
     >
       <TabPanel
         header="Tag Operations"
         className="h-full"
-        
+        pt={{
+          headerAction: { className: "p-3" },
+          content: { className: "h-full" },
+        }}
       >
         <div className="p-2 flex w-full h-full">
           <SimpleGridActions interface={gridInterface2} />
@@ -26,24 +29,36 @@ export function WorkprepCommonPanel() {
       <TabPanel
         header="Workpack"
         className="h-full"
-        
+        pt={{
+          headerAction: { className: "p-3" },
+          content: { className: "h-full" },
+        }}
       ></TabPanel>
       <TabPanel
         header="Task"
         className="h-full"
-        
+        pt={{
+          headerAction: { className: "p-3" },
+          content: { className: "h-full" },
+        }}
       >
         <div className="p-1"> panel2</div>
       </TabPanel>
       <TabPanel
         header="Routing all"
         className="h-full"
-        
+        pt={{
+          headerAction: { className: "p-3" },
+          content: { className: "h-full" },
+        }}
       ></TabPanel>
       <TabPanel
         header="Routing selected"
         className="h-full"
-        
+        pt={{
+          headerAction: { className: "p-3" },
+          content: { className: "h-full" },
+        }}
       >
         {" "}
         <div className="p-1"> panel2</div>
@@ -51,21 +66,30 @@ export function WorkprepCommonPanel() {
       <TabPanel
         header="Documents all"
         className="h-full"
-        
+        pt={{
+          headerAction: { className: "p-3" },
+          content: { className: "h-full" },
+        }}
       >
         <div className="p-1"> panel2</div>
       </TabPanel>
       <TabPanel
         header="Documents Cable"
         className="h-full"
-        
+        pt={{
+          headerAction: { className: "p-3" },
+          content: { className: "h-full" },
+        }}
       >
         <div className="p-1"> panel2</div>
       </TabPanel>
       <TabPanel
         header="Documents Equip"
         className="h-full"
-        
+        pt={{
+          headerAction: { className: "p-3" },
+          content: { className: "h-full" },
+        }}
       >
         <div className="p-1"> panel2</div>
       </TabPanel>
