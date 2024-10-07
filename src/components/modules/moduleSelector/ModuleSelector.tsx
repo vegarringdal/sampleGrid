@@ -3,9 +3,9 @@ import { Column } from "primereact/column";
 import { DataTable } from "primereact/datatable";
 import { Dropdown } from "primereact/dropdown";
 import { FloatLabel } from "primereact/floatlabel";
-import { classNames } from "primereact/utils";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+
 
 export function ModuleSelector() {
   const [selectedProject, setSelectedProject] = useState<{
@@ -90,51 +90,35 @@ export function ModuleSelector() {
 
   return (
     <div className="flex flex-col flex-1">
-      <div className="m-auto w-4/5 mt-10 text-gray-200">
-        <FloatLabel>
+      <div className="m-auto w-4/5 mt-10 dark:text-gray-200">
+        <FloatLabel className="w-full">
           <Dropdown
-            inputId="project-select"
+            inputId="dd-select"
             value={selectedProject}
             onChange={(e) => setSelectedProject(e.value)}
             options={projects}
             optionLabel="name"
-            className="w-full dark:w-full"
-           
-           
+            className="w-full text-xs"
+            
           />
-          <label htmlFor="project-select">Select a Project</label>
+          <label htmlFor="dd-select">Select a Project</label>
         </FloatLabel>
       </div>
 
       <div className="m-auto w-4/5 mt-5 flex-1">
         <DataTable value={modules} size="small" className="text-sm">
-          <Column
-            field="name"
-            header="Module Name"
-            className="w-1/5 text-sm"
-          ></Column>
-          <Column
-            field="userGroup"
-            header="Module User Group"
-            className="w-1/5 text-sm"
-          ></Column>
-          <Column
-            field="desciption"
-            header="About module"
-            className="w-2/5 text-sm"
-          ></Column>
-          <Column
-            header=""
+        <Column
+         
+            className="text-sm w-1/12"
+       
+
             body={(rowData) => {
               return (
                 <Button
                   title="Open"
                   pt={{
-                    root: { className: "p-1" },
-                    tooltip: {
-                      root: { className: "text-xs" },
-                      text: { className: "p-1" },
-                    },
+                    root: { className: "p-1 text-sm " }
+                    
                   }}
                   disabled={!selectedProject}
                   onClick={() => rowData.nav(selectedProject?.code)}
@@ -144,6 +128,22 @@ export function ModuleSelector() {
               );
             }}
           ></Column>
+          <Column
+            field="name"
+            header="Module Name"
+            className="w-2/12 text-sm"
+          ></Column>
+          <Column
+            field="userGroup"
+            header="Module User Group"
+            className="w-3/12 text-sm"
+          ></Column>
+          <Column
+            field="desciption"
+            header="About module"
+            className="w-6/5 text-sm"
+          ></Column>
+         
         </DataTable>
       </div>
     </div>

@@ -2,8 +2,8 @@
 export default {
   mode: "jit",
   content: [
-    "./src/**/*.{html,tsx}",
-    "./node_modules/primereact/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{html,tsx,ts}",
+      "./index.html}"
   ],
   darkMode: "class", // or 'media' or 'class'
   theme: {

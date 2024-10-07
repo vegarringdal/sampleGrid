@@ -2,7 +2,8 @@ import "./App.css";
 import { SetGridTheme } from "./components/common/SetGridTheme";
 import { Menubar } from "primereact/menubar";
 import { Router } from "./components/router";
-import { initDarkTheme } from "./utils/darkThemeHelpers";
+import { initDarkTheme, toggleDarkTheme } from "./utils/darkThemeHelpers";
+import { Button } from "primereact/button";
 
 initDarkTheme();
 ////////////////////////////////////////////////////////////////////////
@@ -14,6 +15,24 @@ export function App() {
   return (
     <div className="app flex flex-col flex-1 dark:bg-gray-800">
       <Menubar
+        end={
+          <Button
+            pt={{
+              root: { className: "p-1" },
+              tooltip: {
+                root: { className: "text-xs" },
+                text: { className: "p-1" },
+              },
+            }}
+            tooltip="toogle mode"
+            tooltipOptions={{ showDelay: 1000 }}
+            onClick={() => {
+              toggleDarkTheme();
+            }}
+          >
+            <i className="pi pi-sun"></i>
+          </Button>
+        }
         model={[]}
         pt={{ root: { className: "rounded-none border-0" } }}
       />

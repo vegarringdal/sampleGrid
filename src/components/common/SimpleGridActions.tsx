@@ -127,20 +127,6 @@ export function SimpleGridActions(props: {
       >
         <i className="pi pi-print"></i>
       </Button>
-
-
-      <Button
-        pt={pt}
-        tooltip="toogle mode"
-        tooltipOptions={{ showDelay: 1000 }}
-        onClick={() => {
-          toggleDarkTheme()
-        }}
-      >
-        <i className="pi pi-sun"></i>
-      </Button>
-
-
     </div>
   );
 }
