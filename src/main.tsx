@@ -3,10 +3,22 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import "primeicons/primeicons.css";
 import { App } from "./App.tsx";
-import { twMerge } from "tailwind-merge";
 import { PrimeReactProvider } from "primereact/api";
-import Tailwind from "primereact/passthrough/tailwind";
 
+// need to wait for next version to enable, but in tabview
+
+//import { twMerge } from "tailwind-merge";
+//import Tailwind from "primereact/passthrough/tailwind";
+
+createRoot(document.getElementById("root")!).render(
+  <StrictMode>
+    <PrimeReactProvider>
+      <App />
+    </PrimeReactProvider>
+  </StrictMode>
+);
+
+/* 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
      <PrimeReactProvider
@@ -24,3 +36,4 @@ createRoot(document.getElementById("root")!).render(
     </PrimeReactProvider>
   </StrictMode>
 );
+ */
