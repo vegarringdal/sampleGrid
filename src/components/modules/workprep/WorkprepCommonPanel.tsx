@@ -14,7 +14,7 @@ export function WorkprepCommonPanel() {
         className="h-full"
         pt={{
           headerAction: { className: "p-3" },
-          content: { className: "h-full" },
+          content: { className: "h-full p-0" },
         }}
       >
         <div className="p-2 flex w-full h-full">
@@ -31,7 +31,7 @@ export function WorkprepCommonPanel() {
         className="h-full"
         pt={{
           headerAction: { className: "p-3" },
-          content: { className: "h-full" },
+          content: { className: "h-full p-0" },
         }}
       ></TabPanel>
       <TabPanel
@@ -39,7 +39,7 @@ export function WorkprepCommonPanel() {
         className="h-full"
         pt={{
           headerAction: { className: "p-3" },
-          content: { className: "h-full" },
+          content: { className: "h-full p-0" },
         }}
       >
         <div className="p-1"> panel2</div>
@@ -49,7 +49,7 @@ export function WorkprepCommonPanel() {
         className="h-full"
         pt={{
           headerAction: { className: "p-3" },
-          content: { className: "h-full" },
+          content: { className: "h-full p-0" },
         }}
       ></TabPanel>
       <TabPanel
@@ -57,7 +57,7 @@ export function WorkprepCommonPanel() {
         className="h-full"
         pt={{
           headerAction: { className: "p-3" },
-          content: { className: "h-full" },
+          content: { className: "h-full p-0" },
         }}
       >
         {" "}
@@ -68,7 +68,7 @@ export function WorkprepCommonPanel() {
         className="h-full"
         pt={{
           headerAction: { className: "p-3" },
-          content: { className: "h-full" },
+          content: { className: "h-full p-0" },
         }}
       >
         <div className="p-1"> panel2</div>
@@ -78,7 +78,7 @@ export function WorkprepCommonPanel() {
         className="h-full"
         pt={{
           headerAction: { className: "p-3" },
-          content: { className: "h-full" },
+          content: { className: "h-full p-0" },
         }}
       >
         <div className="p-1"> panel2</div>
@@ -88,7 +88,7 @@ export function WorkprepCommonPanel() {
         className="h-full"
         pt={{
           headerAction: { className: "p-3" },
-          content: { className: "h-full" },
+          content: { className: "h-full p-0" },
         }}
       >
         <div className="p-1"> panel2</div>

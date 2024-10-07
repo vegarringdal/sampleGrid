@@ -11,8 +11,8 @@ export function WorkprepCabelsPanel() {
       className="flex w-full h-full bg-inherit"
       pt={{
         root: {className: "border-0"},
-        gutter: { className: "bg-gray-700" },
-        gutterHandler: { className: "bg-gray-600" },
+        gutter: { className: "dark:bg-gray-700" },
+        gutterHandler: { className: "dark:bg-gray-600" },
       }}
     >
       <SplitterPanel className="flex p-2" minSize={10} size={80}>
