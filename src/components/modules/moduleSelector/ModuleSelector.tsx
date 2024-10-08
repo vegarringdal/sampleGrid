@@ -6,7 +6,6 @@ import { FloatLabel } from "primereact/floatlabel";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-
 export function ModuleSelector() {
   const [selectedProject, setSelectedProject] = useState<{
     name: string;
@@ -88,40 +87,33 @@ export function ModuleSelector() {
     { name: "002457 - some project description", code: "002457" },
   ];
 
-
   // somethign weird happening with select in unstyled mode
 
   return (
     <div className="flex flex-col flex-1">
-      <div className="m-auto w-4/5 mt-10 dark:text-gray-200">
-        <FloatLabel >
-          <Dropdown
-            inputId="dd-select"
-            value={selectedProject}
-            onChange={(e) => setSelectedProject(e.value)}
-            options={projects}
-            optionLabel="name"
-            className="w-full text-xs"
-            
-          />
-          <label htmlFor="dd-select">Select a Project</label>
-        </FloatLabel>
+      <div className="m-auto w-4/5 mt-10 dark:text-white">
+        <label htmlFor="dd-select" className="text-base">Select a Project</label>
+        <Dropdown
+          inputId="dd-select"
+       
+          value={selectedProject}
+          onChange={(e) => setSelectedProject(e.value)}
+          options={projects}
+          optionLabel="name"
+          className="w-full text-base"
+        />
       </div>
 
       <div className="m-auto w-4/5 mt-5 flex-1">
         <DataTable value={modules} size="small" className="text-sm">
-        <Column
-         
+          <Column
             className="text-sm w-1/12"
-       
-
             body={(rowData) => {
               return (
                 <Button
                   title="Open"
                   pt={{
-                    root: { className: "p-1 text-sm " }
-                    
+                    root: { className: "p-1 text-sm " },
                   }}
                   disabled={!selectedProject}
                   onClick={() => rowData.nav(selectedProject?.code)}
@@ -146,7 +138,6 @@ export function ModuleSelector() {
             header="About module"
             className="w-6/5 text-sm"
           ></Column>
-         
         </DataTable>
       </div>
     </div>

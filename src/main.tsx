@@ -9,7 +9,7 @@ import { PrimeReactProvider } from "primereact/api";
 
 import { twMerge } from "tailwind-merge";
 import Tailwind from "primereact/passthrough/tailwind";
-import { TailwindOverride } from "./TailwindOverride.tsx";
+import TailwindOverride from "./TailwindOverride.tsx";
 
 
 createRoot(document.getElementById("root")!).render(
@@ -17,7 +17,7 @@ createRoot(document.getElementById("root")!).render(
      <PrimeReactProvider
       value={{
         unstyled: true,
-        pt: Object.assign(Tailwind,TailwindOverride),
+        pt: TailwindOverride as unknown as never,
         ptOptions: {
           mergeSections: true,
           mergeProps: true,
