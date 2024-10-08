@@ -1,6 +1,5 @@
 import { GridInterface } from "@simple-html/grid";
 import { Button, ButtonPassThroughOptions } from "primereact/button";
-import { toggleDarkTheme } from "../../utils/darkThemeHelpers";
 
 export function SimpleGridActions(props: {
   interface: GridInterface<unknown>;

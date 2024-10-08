@@ -4,12 +4,13 @@ import "./index.css";
 import "primeicons/primeicons.css";
 import { App } from "./App.tsx";
 import { PrimeReactProvider } from "primereact/api";
-
-// need to wait for next version to enable, but in tabview
-
 import { twMerge } from "tailwind-merge";
-import Tailwind from "primereact/passthrough/tailwind";
-import TailwindOverride from "./TailwindOverride.tsx";
+
+// added manually for better conftrol
+// import Tailwind from "primereact/passthrough/tailwind";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import TailwindOverride from "./TailwindOverride.jsx";
 
 
 createRoot(document.getElementById("root")!).render(

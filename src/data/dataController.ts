@@ -46,7 +46,7 @@ export class DataController<T>{
 }
 
 
-export class DataService<T> {
+/* export class DataService<T> {
     
 
     transformResult(row: T){
@@ -74,7 +74,7 @@ export class DataService<T> {
 
     }
 
-}
+} */
 
 
 
