@@ -1,5 +1,5 @@
 export type DummyData = {
-  ID: number;
+  ID: string;
   STATUS: string;
   DISCIPLINE: string;
   TAG_NO: string;
@@ -25,8 +25,8 @@ const DummyRow = {
   DATE: new Date(),
 };
 
-for (let i = 1; i < 10; i++) {
+for (let i = 105; i < 100000; i++) {
   const x = structuredClone(DummyRow);
-  x.ID = i;
+  x.ID = "SomeUniqueKey"  + i;
   DummyRows.push(x);
 }
