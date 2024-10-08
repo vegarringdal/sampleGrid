@@ -104,7 +104,7 @@ const Tailwind = {
     },
     //PANELS
     panel: {
-        header: ({ props }) => ({
+        header: ({ props })  => ({
             className: classNames(
                 'flex items-center justify-between', // flex and alignments
                 'border border-gray-300 bg-gray-100 text-gray-700 rounded-tl-lg rounded-tr-lg', // borders and colors
@@ -182,7 +182,7 @@ const Tailwind = {
         footer: 'pt-5' // Top padding.
     },
     divider: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames(
                 'flex relative', // alignments.
                 {
@@ -206,7 +206,7 @@ const Tailwind = {
                 'dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80' //dark
             )
         },
-        legend: ({ props }) => ({
+        legend: ({ props }:any) => ({
             className: classNames(
                 'border border-gray-300 text-gray-700 bg-gray-50 font-bold rounded-md',
                 'dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80 ', //dark
@@ -216,7 +216,7 @@ const Tailwind = {
                 }
             )
         }),
-        toggler: ({ props }) => ({
+        toggler: ({ props }:any) => ({
             className: classNames('flex items-center justify-center', {
                 'p-5 text-gray-700 rounded-md transition-none cursor-pointer overflow-hidden relative select-none hover:text-gray-900 focus:focus:shadow-[inset_0_0_0_0.2rem_rgba(191,219,254,1)] dark:text-white/80 dark:hover:text-white/80 dark:hover:bg-gray-800/60 dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]':
                     props.toggleable
@@ -238,7 +238,7 @@ const Tailwind = {
         }
     },
     tabview: {
-        navContainer: ({ props }) => ({
+        navContainer: ({ props }:any) => ({
             className: classNames(
                 'relative', // Relative positioning.
                 { 'overflow-hidden': props.scrollable } // Overflow condition.
@@ -256,7 +256,7 @@ const Tailwind = {
         }
     },
     tabpanel: {
-        header: ({ props }) => ({
+        header: ({ props }:any) => ({
             className: classNames('mr-0', { 'cursor-default pointer-events-none select-none user-select-none opacity-60': props?.disabled }) // Margin and condition-based styles.
         }),
         headerAction: ({ parent, context }) => ({
@@ -287,13 +287,13 @@ const Tailwind = {
                 'flex-col': props.layout === 'vertical'
             })
         }),
-        gutter: ({ props }) => ({
+        gutter: ({ props }:any) => ({
             className: classNames('flex items-center justify-center shrink-0', 'transition-all duration-200 bg-gray-100 dark:bg-gray-800', {
                 'cursor-col-resize': props.layout == 'horizontal',
                 'cursor-row-resize': props.layout !== 'horizontal'
             })
         }),
-        gutterHandler: ({ props }) => ({
+        gutterHandler: ({ props }:any) => ({
             className: classNames('bg-gray-300 dark:bg-gray-600 transition-all duration-200', {
                 'h-7 w-[0.3rem]': props.layout == 'horizontal',
                 'w-7 h-[0.3rem]': props.layout == 'vertical'
@@ -332,7 +332,7 @@ const Tailwind = {
         mask: ({ state }) => ({
             className: classNames('transition duration-200', { 'bg-black/40': state.containerVisible })
         }),
-        transition: ({ props }) => {
+        transition: ({ props }:any) => {
             return {
                 timeout: 200,
                 classNames:
@@ -420,7 +420,7 @@ const Tailwind = {
         transition: TRANSITIONS.overlay
     },
     sidebar: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames(
                 'flex flex-col pointer-events-auto relative transform relative',
                 'bg-white text-gray-700 border-0 shadow-lg',
@@ -451,7 +451,7 @@ const Tailwind = {
         mask: {
             className: classNames('flex pointer-events-auto', 'bg-black bg-opacity-40 transition duration-200 z-20 transition-colors')
         },
-        transition: ({ props }) => {
+        transition: ({ props }:any) => {
             return {
                 timeout: 300,
                 classNames: props.fullScreen
@@ -584,7 +584,7 @@ const Tailwind = {
         }
     },
     message: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames('inline-flex items-center justify-center align-top', 'p-3 m-0 rounded-md', {
                 'bg-blue-100 border-0 text-blue-700': props.severity == 'info',
                 'bg-green-100 border-0 text-green-700': props.severity == 'success',
@@ -698,7 +698,7 @@ const Tailwind = {
                 { 'opacity-60 pointer-events-none cursor-default': context?.disabled }
             )
         }),
-        label: ({ props }) => ({
+        label: ({ props }:any) => ({
             className: classNames(
                 'flex-1',
                 'duration-200',
@@ -709,7 +709,7 @@ const Tailwind = {
                 { 'invisible w-0': props.label == null }
             )
         }),
-        icon: ({ props }) => ({
+        icon: ({ props }:any) => ({
             className: classNames('mx-0', {
                 'mr-2': props.iconPos == 'left' && props.label != null,
                 'ml-2 order-1': props.iconPos == 'right' && props.label != null,
@@ -717,7 +717,7 @@ const Tailwind = {
                 'mt-2 order-2': props.iconPos == 'bottom' && props.label != null
             })
         }),
-        loadingIcon: ({ props }) => ({
+        loadingIcon: ({ props }:any) => ({
             className: classNames('mx-0', {
                 'mr-2': props.loading && props.iconPos == 'left' && props.label != null,
                 'ml-2 order-1': props.loading && props.iconPos == 'right' && props.label != null,
@@ -725,7 +725,7 @@ const Tailwind = {
                 'mt-2 order-2': props.loading && props.iconPos == 'bottom' && props.label != null
             })
         }),
-        badge: ({ props }) => ({
+        badge: ({ props }:any) => ({
             className: classNames({ 'ml-2 w-4 h-4 leading-none flex items-center justify-center': props.badge })
         })
     },
@@ -766,7 +766,7 @@ const Tailwind = {
         })
     },
     splitbutton: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames('inline-flex relative', 'rounded-md', { 'shadow-lg': props.raised })
         }),
         button: {
@@ -817,26 +817,26 @@ const Tailwind = {
     inputnumber: {
         root: 'w-full inline-flex',
         input: {
-            root: ({ props }) => ({
+            root: ({ props }:any) => ({
                 className: classNames({ 'rounded-tr-none rounded-br-none': props.showButtons && props.buttonLayout == 'stacked' })
             })
         },
-        buttonGroup: ({ props }) => ({
+        buttonGroup: ({ props }:any) => ({
             className: classNames({ 'flex flex-col': props.showButtons && props.buttonLayout == 'stacked' })
         }),
-        incrementButton: ({ props }) => ({
+        incrementButton: ({ props }:any) => ({
             className: classNames('flex !items-center !justify-center', {
                 'rounded-br-none rounded-bl-none rounded-bl-none !p-0 flex-1 w-[3rem]': props.showButtons && props.buttonLayout == 'stacked'
             })
         }),
-        decrementButton: ({ props }) => ({
+        decrementButton: ({ props }:any) => ({
             className: classNames('flex !items-center !justify-center', {
                 'rounded-tr-none rounded-tl-none rounded-tl-none !p-0 flex-1 w-[3rem]': props.showButtons && props.buttonLayout == 'stacked'
             })
         })
     },
     knob: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames('focus:outline-none focus:outline-offset-0 focus:shadow-0', {
                 'opacity-60 select-none pointer-events-none cursor-default': props.disabled
             })
@@ -846,7 +846,7 @@ const Tailwind = {
         label: 'text-center text-xl'
     },
     inputswitch: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames('inline-block relative', 'w-12 h-7', {
                 'opacity-60 select-none pointer-events-none cursor-default': props.disabled
             })
@@ -854,7 +854,7 @@ const Tailwind = {
         input: {
             className: classNames('absolute appearance-none top-0 left-0 size-full p-0 m-0 opacity-0 z-10 outline-none cursor-pointer')
         },
-        slider: ({ props }) => ({
+        slider: ({ props }:any) => ({
             className: classNames(
                 'absolute cursor-pointer top-0 left-0 right-0 bottom-0 border border-transparent',
                 'transition-colors duration-200 rounded-2xl',
@@ -868,7 +868,7 @@ const Tailwind = {
         })
     },
     cascadeselect: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames('inline-flex cursor-pointer select-none relative', 'bg-white dark:bg-gray-900 border border-gray-300 dark:border-blue-900/40 transition duration-200 ease-in-out rounded-lg', {
                 'opacity-60 select-none pointer-events-none cursor-default': props.disabled
             })
@@ -967,7 +967,7 @@ const Tailwind = {
         }
     },
     rating: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames('relative flex items-center', 'gap-2', {
                 'opacity-60 select-none pointer-events-none cursor-default': props.disabled
             })
@@ -1004,7 +1004,7 @@ const Tailwind = {
         }
     },
     selectbutton: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames({ 'opacity-60 select-none pointer-events-none cursor-default': props.disabled })
         }),
         button: ({ context }) => ({
@@ -1024,7 +1024,7 @@ const Tailwind = {
         label: 'font-bold'
     },
     slider: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames(
                 'relative',
                 'bg-gray-100 dark:bg-gray-800 border-0 rounded-6',
@@ -1032,13 +1032,13 @@ const Tailwind = {
                 { 'opacity-60 select-none pointer-events-none cursor-default': props.disabled }
             )
         }),
-        range: ({ props }) => ({
+        range: ({ props }:any) => ({
             className: classNames('bg-blue-500', 'block absolute', {
                 'top-0 left-0 h-full': props.orientation == 'horizontal',
                 'bottom-0 left-0 w-full': props.orientation == 'vertical'
             })
         }),
-        handle: ({ props }) => ({
+        handle: ({ props }:any) => ({
             className: classNames(
                 'h-4 w-4 bg-white dark:bg-gray-600 border-2 border-blue-500 rounded-full transition duration-200',
                 'cursor-grab touch-action-none block',
@@ -1052,7 +1052,7 @@ const Tailwind = {
         })
     },
     password: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames('inline-flex relative', {
                 'opacity-60 select-none pointer-events-none cursor-default': props.disabled
             })
@@ -1099,7 +1099,7 @@ const Tailwind = {
             )
         }),
         label: 'font-bold text-center w-full',
-        icon: ({ props }) => ({
+        icon: ({ props }:any) => ({
             className: classNames(' mr-2', {
                 'text-gray-600 dark:text-white/70': !props.checked,
                 'text-white': props.checked
@@ -1113,7 +1113,7 @@ const Tailwind = {
         input: {
             className: classNames('absolute appearance-none top-0 left-0 size-full p-0 m-0 opacity-0 z-10 outline-none cursor-pointer')
         },
-        box: ({ props }) => ({
+        box: ({ props }:any) => ({
             className: classNames(
                 'flex items-center justify-center',
                 'border-2 w-6 h-6 rounded-lg transition-colors duration-200',
@@ -1159,7 +1159,7 @@ const Tailwind = {
         input: {
             className: classNames('absolute appearance-none top-0 left-0 size-full p-0 m-0 opacity-0 z-10 outline-none cursor-pointer')
         },
-        box: ({ props }) => ({
+        box: ({ props }:any) => ({
             className: classNames(
                 'flex justify-center items-center',
                 'border-2 w-6 h-6 text-gray-700 rounded-full transition duration-200 ease-in-out',
@@ -1173,7 +1173,7 @@ const Tailwind = {
                 }
             )
         }),
-        icon: ({ props }) => ({
+        icon: ({ props }:any) => ({
             className: classNames('transform rounded-full', 'block w-3 h-3 transition duration-200 bg-white dark:bg-gray-900', {
                 'backface-hidden scale-10 invisible': !props.checked,
                 'transform scale-100 visible': props.checked
@@ -1181,7 +1181,7 @@ const Tailwind = {
         })
     },
     dropdown: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames(
                 'cursor-pointer inline-flex relative select-none',
                 'bg-white border border-gray-400 transition-colors duration-200 ease-in-out rounded-md',
@@ -1191,7 +1191,7 @@ const Tailwind = {
                 { 'opacity-60 select-none pointer-events-none cursor-default': props.disabled }
             )
         }),
-        input: ({ props }) => ({
+        input: ({ props }:any) => ({
             className: classNames(
                 'cursor-pointer block flex flex-auto overflow-hidden overflow-ellipsis whitespace-nowrap relative',
                 'bg-transparent border-0 text-gray-800',
@@ -1238,7 +1238,7 @@ const Tailwind = {
         transition: TRANSITIONS.overlay
     },
     calendar: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames('inline-flex max-w-full relative', {
                 'opacity-60 select-none pointer-events-none cursor-default': props.disabled
             })
@@ -1252,11 +1252,11 @@ const Tailwind = {
             })
         },
         dropdownButton: {
-            root: ({ props }) => ({
+            root: ({ props }:any) => ({
                 className: classNames({ 'rounded-l-none': props.icon })
             })
         },
-        panel: ({ props }) => ({
+        panel: ({ props }:any) => ({
             className: classNames('bg-white dark:bg-gray-900', 'top-0 left-0 w-auto min-w-min p-2 rounded-lg', {
                 'shadow-md border-0 absolute': !props.inline,
                 'inline-block overflow-x-auto border border-gray-300 dark:border-blue-900/40': props.inline
@@ -1402,13 +1402,13 @@ const Tailwind = {
         transition: TRANSITIONS.overlay
     },
     multiselect: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames('inline-flex cursor-pointer select-none', 'bg-white dark:bg-gray-900 border border-gray-400 dark:border-blue-900/40  transition-colors duration-200 ease-in-out rounded-md', 'w-full md:w-80', {
                 'opacity-60 select-none pointer-events-none cursor-default': props?.disabled
             })
         }),
         labelContainer: 'overflow-hidden flex flex-auto cursor-pointer',
-        label: ({ props }) => ({
+        label: ({ props }:any) => ({
             className: classNames('block overflow-hidden whitespace-nowrap cursor-pointer overflow-ellipsis', 'text-gray-800 dark:text-white/80', 'p-3 transition duration-200', {
                 '!p-3': props.display !== 'chip' && (props.value == null || props.value == undefined),
                 '!py-1.5 px-3': props.display === 'chip' && props.value !== null
@@ -1431,7 +1431,7 @@ const Tailwind = {
             className: classNames('inline-flex cursor-pointer select-none align-bottom relative', 'mr-2', 'w-6 h-6')
         },
         headerCheckbox: {
-            root: ({ props }) => ({
+            root: ({ props }:any) => ({
                 className: classNames(
                     'flex items-center justify-center',
                     'border-2 w-6 h-6 text-gray-600 dark:text-white/70 rounded-lg transition-colors duration-200',
@@ -1503,7 +1503,7 @@ const Tailwind = {
         root: {
             className: classNames('cursor-pointer inline-flex relative select-none align-bottom', 'w-6 h-6')
         },
-        checkbox: ({ props }) => ({
+        checkbox: ({ props }:any) => ({
             className: classNames(
                 'flex items-center justify-center',
                 'border-2 w-6 h-6 rounded-lg transition-colors duration-200',
@@ -1529,7 +1529,7 @@ const Tailwind = {
         })
     },
     treeselect: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames('inline-flex cursor-pointer select-none', 'bg-white dark:bg-gray-900 border border-gray-400 dark:border-blue-900/40  transition-colors duration-200 ease-in-out rounded-md', 'w-full md:w-80', {
                 'opacity-60 select-none pointer-events-none cursor-default': props?.disabled
             })
@@ -1558,7 +1558,7 @@ const Tailwind = {
         transition: TRANSITIONS.overlay
     },
     autocomplete: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames(
                 'relative inline-flex',
                 {
@@ -1578,7 +1578,7 @@ const Tailwind = {
         inputToken: {
             className: classNames('py-0.375rem px-0', 'flex-1 inline-flex')
         },
-        input: ({ props }) => ({
+        input: ({ props }:any) => ({
             root: {
                 className: classNames(
                     'm-0',
@@ -1616,7 +1616,7 @@ const Tailwind = {
         transition: TRANSITIONS.overlay
     },
     chips: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames('flex', {
                 'opacity-60 select-none pointer-events-none cursor-default': props.disabled
             })
@@ -1641,7 +1641,7 @@ const Tailwind = {
         removeTokenIcon: 'ml-2'
     },
     colorpicker: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames('inline-block', {
                 'opacity-60 select-none pointer-events-none cursor-default': props.disabled
             })
@@ -1654,7 +1654,7 @@ const Tailwind = {
                 'w-8 h-8'
             )
         },
-        panel: ({ props }) => ({
+        panel: ({ props }:any) => ({
             className: classNames('shadow-md', 'bg-gray-800 border-gray-900', {
                 'relative h-48 w-52': props.inline,
                 'absolute h-48 w-52': !props.inline
@@ -1688,7 +1688,7 @@ const Tailwind = {
     },
     //MISC
     badge: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames(
                 'rounded-full p-0 text-center inline-block',
                 'bg-blue-500 text-white font-bold',
@@ -1749,7 +1749,7 @@ const Tailwind = {
         root: {
             className: classNames('overflow-hidden relative', 'border-0 h-6 bg-gray-200 rounded-md dark:bg-gray-800')
         },
-        value: ({ props }) => ({
+        value: ({ props }:any) => ({
             className: classNames('border-0 m-0 bg-blue-500', {
                 'transition-width duration-1000 ease-in-out absolute items-center border-0 flex h-full justify-center overflow-hidden w-0': props.mode !== 'indeterminate',
                 'progressbar-value-animate before:absolute before:top-0 before:left-0 before:bottom-0 before:bg-inherit after:absolute after:top-0 after:left-0 after:bottom-0 after:bg-inherit after:delay-1000': props.mode == 'indeterminate'
@@ -1767,7 +1767,7 @@ const Tailwind = {
         circle: 'text-red-500 progress-spinner-circle'
     },
     skeleton: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames(
                 'overflow-hidden',
                 '!mb-2',
@@ -1781,7 +1781,7 @@ const Tailwind = {
         })
     },
     tag: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames(
                 'inline-flex items-center justify-center',
                 'bg-blue-500 text-white text-xs font-semibold px-2 py-1 ',
@@ -1808,7 +1808,7 @@ const Tailwind = {
         }
     },
     scrolltop: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames('fixed bottom-20 right-20 flex items-center justify-center', 'ml-auto', {
                 '!bg-blue-500 hover:bg-blue-600 text-white rounded-md h-8 w-8': props.target == 'parent',
                 '!bg-gray-700 hover:bg-gray-800 h-12 w-12 rounded-full text-white': props.target !== 'parent'
@@ -1892,7 +1892,7 @@ const Tailwind = {
         }
     },
     dock: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames('absolute z-1 flex justify-center items-center pointer-events-none', {
                 'left-0 bottom-0 w-full': props.position == 'bottom',
                 'left-0 top-0 w-full': props.position == 'top',
@@ -1903,7 +1903,7 @@ const Tailwind = {
         container: {
             className: classNames('flex pointer-events-auto', 'bg-white/10 border-white/20 p-2 border rounded-md')
         },
-        menu: ({ props }) => ({
+        menu: ({ props }:any) => ({
             className: classNames('m-0 p-0 list-none flex items-center justify-center', 'outline-none', {
                 'flex-col': props.position == 'left' || props.position == 'right'
             })
@@ -1995,13 +1995,13 @@ const Tailwind = {
             })
         }),
         icon: 'mr-2',
-        submenuIcon: ({ props }) => ({
+        submenuIcon: ({ props }:any) => ({
             className: classNames({
                 'ml-auto sm:ml-2': props.root,
                 'ml-auto': !props.root
             })
         }),
-        submenu: ({ props }) => ({
+        submenu: ({ props }:any) => ({
             className: classNames('py-1 bg-white dark:bg-gray-900 border-0  sm:shadow-md sm:w-48', 'w-full static shadow-none', 'sm:absolute z-10', 'm-0 list-none', {
                 'sm:absolute sm:left-full sm:top-0': !props.root
             })
@@ -2018,7 +2018,7 @@ const Tailwind = {
         end: 'ml-auto self-auto'
     },
     megamenu: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames('bg-gray-100 dark:bg-gray-900  border border-gray-300 dark:border-blue-900/40  rounded-md', 'flex relative', {
                 'p-2 items-center': props.orientation == 'horizontal',
                 'flex-col w-48 p-0 py-1': props.orientation !== 'horizontal'
@@ -2051,7 +2051,7 @@ const Tailwind = {
                 }
             )
         }),
-        menuButton: ({ props }) => ({
+        menuButton: ({ props }:any) => ({
             className: classNames(
                 { 'flex md:hidden': props.orientation === 'horizontal' },
                 { hidden: props.orientation === 'vertical' },
@@ -2070,13 +2070,13 @@ const Tailwind = {
         submenuItem: {
             className: classNames('text-gray-700 hover:bg-gray-200')
         },
-        submenuIcon: ({ props }) => ({
+        submenuIcon: ({ props }:any) => ({
             className: classNames({
                 'ml-2': props.orientation === 'horizontal',
                 'ml-auto': props.orientation !== 'horizontal'
             })
         }),
-        panel: ({ props }) => ({
+        panel: ({ props }:any) => ({
             className: classNames('py-1 bg-white dark:bg-gray-900 border-0 shadow-md w-auto', 'absolute z-10', {
                 'left-full top-0': props.orientation !== 'horizontal'
             })
@@ -2257,13 +2257,13 @@ const Tailwind = {
         transition: TRANSITIONS.overlay
     },
     metergroup: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames('flex gap-4', { 'flex-col': props.orientation == 'horizontal', 'flex-row': props.orientation == 'vertical' })
         }),
-        metercontainer: ({ props }) => ({
+        metercontainer: ({ props }:any) => ({
             className: classNames('flex', { 'flex-col': props.orientation === 'vertical' }, { 'w-2 h-full': props.orientation === 'vertical' }, { 'h-2': props.orientation === 'horizontal' }, 'bg-gray-200 dark:bg-gray-700', 'rounded-lg')
         }),
-        meter: ({ props }) => ({
+        meter: ({ props }:any) => ({
             className: classNames(
                 'border-0',
                 {
@@ -2275,7 +2275,7 @@ const Tailwind = {
                 'bg-primary-500 dark:bg-primary-400'
             )
         }),
-        labellist: ({ props }) => ({
+        labellist: ({ props }:any) => ({
             className: classNames(
                 'flex flex-wrap',
                 { 'gap-4': props.labelOrientation === 'horizontal' },
@@ -2459,7 +2459,7 @@ const Tailwind = {
     carousel: {
         root: 'flex flex-col',
         content: 'flex flex-col overflow-auto',
-        container: ({ props }) => ({
+        container: ({ props }:any) => ({
             className: classNames('flex', {
                 'flex-row': props.orientation !== 'vertical',
                 'flex-col': props.orientation == 'vertical'
@@ -2469,13 +2469,13 @@ const Tailwind = {
             className: classNames('flex justify-center items-center self-center overflow-hidden relative shrink-0 grow-0', 'w-8 h-8 text-gray-600 border-0 bg-transparent rounded-full transition duration-200 ease-in-out mx-2')
         },
         itemsContent: 'overflow-hidden w-full',
-        itemsContainer: ({ props }) => ({
+        itemsContainer: ({ props }:any) => ({
             className: classNames('flex ', {
                 'flex-row': props.orientation !== 'vertical',
                 'flex-col h-full': props.orientation == 'vertical'
             })
         }),
-        item: ({ props }) => ({
+        item: ({ props }:any) => ({
             className: classNames('flex shrink-0 grow', {
                 'w-1/3': props.orientation !== 'vertical',
                 'w-full': props.orientation == 'vertical'
@@ -2493,7 +2493,7 @@ const Tailwind = {
         })
     },
     tree: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames('max-w-[30rem] md:w-full', 'bg-white dark:bg-gray-900 text-gray-700 dark:text-white/80 p-5', {
                 'border border-solid border-gray-300 dark:border-blue-900/40 rounded-md': props.__parentMetadata?.parent.props.__TYPE !== 'TreeSelect'
             })
@@ -2559,7 +2559,7 @@ const Tailwind = {
     },
     // DATA
     timeline: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames('flex grow', {
                 'flex-col': props.layout === 'vertical',
                 'flex-row flex-1': props.layout === 'horizontal'
@@ -2585,14 +2585,14 @@ const Tailwind = {
                 }
             )
         }),
-        separator: ({ props }) => ({
+        separator: ({ props }:any) => ({
             className: classNames('flex items-center flex-initial', {
                 'flex-col': props.layout === 'vertical',
                 'flex-row': props.layout === 'horizontal'
             })
         }),
         marker: 'flex self-baseline w-4 h-4 rounded-full border-2 border-blue-500 bg-white dark:border-blue-300 dark:bg-blue-900/40',
-        connector: ({ props }) => ({
+        connector: ({ props }:any) => ({
             className: classNames('grow bg-gray-300 dark:bg-blue-900/40', {
                 'w-[2px]': props.layout === 'vertical',
                 'w-full h-[2px]': props.layout === 'horizontal'
@@ -2627,7 +2627,7 @@ const Tailwind = {
         header: 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white/80 border-gray-200 dark:border-blue-900/40 border-t border-b p-4 font-bold'
     },
     dataviewlayoutoptions: {
-        listButton: ({ props }) => ({
+        listButton: ({ props }:any) => ({
             className: classNames(
                 'items-center cursor-pointer inline-flex overflow-hidden relative select-none text-center align-bottom justify-center border',
                 'transition duration-200',
@@ -2635,7 +2635,7 @@ const Tailwind = {
                 props.layout === 'list' ? 'bg-blue-500 border-blue-500 text-white dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900' : 'bg-white border-gray-300 text-blue-gray-700 dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80' // highlighted state
             )
         }),
-        gridButton: ({ props }) => ({
+        gridButton: ({ props }:any) => ({
             className: classNames(
                 'items-center cursor-pointer inline-flex overflow-hidden relative select-none text-center align-bottom justify-center border',
                 'transition duration-200',
@@ -3115,7 +3115,7 @@ const Tailwind = {
         }
     },
     treetable: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames('relative', {
                 'flex flex-col h-full': props.scrollHeight
             })
@@ -3135,13 +3135,13 @@ const Tailwind = {
                 'dark:bg-gray-900 dark:text-white/70 dark:border-blue-900/40' // Dark Mode
             )
         },
-        scrollableWrapper: ({ props }) => ({
+        scrollableWrapper: ({ props }:any) => ({
             className: classNames({
                 'relative overflow-auto': props.scrollable,
                 'overflow-x-auto': props.resizableColumns
             })
         }),
-        wrapper: ({ props }) => ({
+        wrapper: ({ props }:any) => ({
             className: classNames({
                 'relative overflow-auto': props.scrollable,
                 'overflow-x-auto': props.resizableColumns
@@ -3154,22 +3154,22 @@ const Tailwind = {
             )
         },
         table: 'border-collapse table-fixed w-full',
-        thead: ({ props }) => ({
+        thead: ({ props }:any) => ({
             className: classNames({
                 'block sticky top-0 z-[1]': props.scrollable
             })
         }),
-        tbody: ({ props }) => ({
+        tbody: ({ props }:any) => ({
             className: classNames({
                 block: props.scrollable
             })
         }),
-        tfoot: ({ props }) => ({
+        tfoot: ({ props }:any) => ({
             className: classNames({
                 block: props.scrollable
             })
         }),
-        headerRow: ({ props }) => ({
+        headerRow: ({ props }:any) => ({
             className: classNames({
                 'flex flex-nowrap w-full': props.scrollable
             })
@@ -3268,7 +3268,7 @@ const Tailwind = {
         resizeHelper: 'absolute hidden w-px z-10 bg-blue-500 dark:bg-blue-300'
     },
     datatable: {
-        root: ({ props }) => ({
+        root: ({ props }:any) => ({
             className: classNames('relative', {
                 'flex flex-col h-full': props.scrollable && props.scrollHeight === 'flex'
             })
@@ -3282,13 +3282,13 @@ const Tailwind = {
             )
         },
         loadingIcon: 'w-8 h-8',
-        wrapper: ({ props }) => ({
+        wrapper: ({ props }:any) => ({
             className: classNames({
                 relative: props.scrollable,
                 'flex flex-col grow h-full': props.scrollable && props.scrollHeight === 'flex'
             })
         }),
-        header: ({ props }) => ({
+        header: ({ props }:any) => ({
             className: classNames(
                 'bg-slate-50 text-slate-700 border-gray-300 font-bold p-4',
                 'dark:border-blue-900/40 dark:text-white/80 dark:bg-gray-900', // Dark Mode

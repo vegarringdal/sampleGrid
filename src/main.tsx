@@ -10,7 +10,7 @@ import { twMerge } from "tailwind-merge";
 // import Tailwind from "primereact/passthrough/tailwind";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import TailwindOverride from "./TailwindOverride.jsx";
+import TailwindOverride from "./TailwindOverride.tsx";
 
 
 createRoot(document.getElementById("root")!).render(
