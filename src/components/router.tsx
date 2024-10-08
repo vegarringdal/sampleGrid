@@ -1,7 +1,4 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { WorkprepModule } from "./modules/workprep/WorkprepModule";
 import { ModuleSelector } from "./modules/moduleSelector/ModuleSelector";
 
@@ -48,7 +45,9 @@ const routes = [
   },
 ];
 
-const router = createBrowserRouter(routes);
+const router = createBrowserRouter(routes, {
+  basename: location.href.includes("localhost") ? "/" : "/sampleGridInReact/",
+});
 
 export function Router() {
   return <RouterProvider router={router} />;
