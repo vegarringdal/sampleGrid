@@ -5,7 +5,7 @@ import { WorkprepEquipmentPanel } from "./WorkprepEquipmentPanel";
 export function WorkprepModule() {
   return (
     <div className="flex flex-col h-full">
-      <span className="p-2 text-xl dark:text-gray-200">Workprep - [PROJECT CODE]</span>
+ 
       <TabView
         pt={{
           panelContainer: {

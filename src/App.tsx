@@ -15,6 +15,9 @@ export function App() {
   return (
     <div className="app flex flex-col flex-1 dark:bg-gray-800">
       <Menubar
+        start={
+          <span className="p-2 text-base dark:text-gray-200">PTOC - Project Tag Operation Control</span>
+        }
         end={
           <Button
             pt={{

@@ -91,7 +91,7 @@ export function ModuleSelector() {
 
   return (
     <div className="flex flex-col flex-1">
-      <div className="m-auto w-4/5 mt-10 dark:text-white">
+      <div className="m-auto w-4/5 mt-10 dark:text-white flex flex-col">
         <label htmlFor="dd-select" className="text-base">Select a Project</label>
         <Dropdown
           inputId="dd-select"
