@@ -15,11 +15,11 @@ export function WorkprepEquipmentPanel() {
     }}
   >
     <SplitterPanel className="flex p-2" minSize={10} size={80}>
-      <SimpleGridActions interface={sources.cable.getGridInterface()} />
+      <SimpleGridActions dataController={sources.equipment} />
       <SimpleHtmlGrid
         id="1"
         className="simple-html-grid w-full h-full"
-        interface={sources.cable.getGridInterface()}
+        interface={sources.equipment.getGridInterface()}
       />
     </SplitterPanel>
     <SplitterPanel className="flex  overflow-hidden" minSize={0} size={20}>

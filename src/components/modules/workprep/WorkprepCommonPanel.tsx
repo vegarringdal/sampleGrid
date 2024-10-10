@@ -19,7 +19,7 @@ export function WorkprepCommonPanel() {
       >
         <div className="p-2 flex w-full h-full">
           <SimpleGridActions
-            interface={sources.tagOperations.getGridInterface()}
+            dataController={sources.tagOperations}
           />
           <SimpleHtmlGrid
             id="2"
@@ -38,7 +38,7 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions interface={sources.workpack.getGridInterface()} />
+          <SimpleGridActions dataController={sources.workpack} />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
@@ -56,7 +56,7 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions interface={sources.task.getGridInterface()} />
+          <SimpleGridActions dataController={sources.task} />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
@@ -75,7 +75,7 @@ export function WorkprepCommonPanel() {
       >
         <div className="p-2 flex w-full h-full">
           <SimpleGridActions
-            interface={sources.routingAll.getGridInterface()}
+            dataController={sources.routingAll}
           />
           <SimpleHtmlGrid
             id="2"
@@ -94,7 +94,7 @@ export function WorkprepCommonPanel() {
       >
         <div className="p-2 flex w-full h-full">
           <SimpleGridActions
-            interface={sources.routingSelected.getGridInterface()}
+            dataController={sources.routingSelected}
           />
           <SimpleHtmlGrid
             id="2"
@@ -113,7 +113,7 @@ export function WorkprepCommonPanel() {
       >
         <div className="p-2 flex w-full h-full">
           <SimpleGridActions
-            interface={sources.documentsAll.getGridInterface()}
+            dataController={sources.documentsAll}
           />
           <SimpleHtmlGrid
             id="2"
@@ -132,7 +132,7 @@ export function WorkprepCommonPanel() {
       >
         <div className="p-2 flex w-full h-full">
           <SimpleGridActions
-            interface={sources.documentsCable.getGridInterface()}
+            dataController={sources.documentsCable}
           />
           <SimpleHtmlGrid
             id="2"
@@ -151,7 +151,7 @@ export function WorkprepCommonPanel() {
       >
         <div className="p-2 flex w-full h-full">
           <SimpleGridActions
-            interface={sources.documentsEquip.getGridInterface()}
+            dataController={sources.documentsEquip}
           />
           <SimpleHtmlGrid
             id="2"

@@ -1,8 +1,8 @@
-import { GridInterface } from "@simple-html/grid";
 import { Button, ButtonPassThroughOptions } from "primereact/button";
+import { DataController } from "../../utils/DataController";
 
-export function SimpleGridActions(props: {
-  interface: GridInterface<unknown>;
+export function SimpleGridActions<T>(props: {
+  dataController: DataController<T>;
 }) {
   const pt: ButtonPassThroughOptions = {
     root: { className: "p-1" },
@@ -19,7 +19,7 @@ export function SimpleGridActions(props: {
         tooltip="Load/refresh data"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
-          alert("Not implemented");
+          props.dataController.requestFetchAll();
         }}
       >
         <i className="pi pi-sync"></i>
@@ -30,9 +30,10 @@ export function SimpleGridActions(props: {
         tooltip="Toggle grid edit mode"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
-          const config = props.interface.saveConfig();
+          const gridInterface = props.dataController.getGridInterface();
+          const config = gridInterface.saveConfig();
           config.readonly = !config.readonly;
-          props.interface.loadConfig(config);
+          gridInterface.loadConfig(config);
         }}
       >
         <i className="pi pi-pencil"></i>
@@ -43,7 +44,8 @@ export function SimpleGridActions(props: {
         tooltip="Add new empty element"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
-          props.interface.getDatasource().addNewEmpty();
+          const gridInterface = props.dataController.getGridInterface();
+          gridInterface.getDatasource().addNewEmpty();
         }}
       >
         <i className="pi pi-plus"></i>
@@ -54,7 +56,8 @@ export function SimpleGridActions(props: {
         tooltip="Reset all edits"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
-          props.interface.getDatasource().resetData();
+          const gridInterface = props.dataController.getGridInterface()
+          gridInterface.getDatasource().resetData();
         }}
       >
         <i className="pi pi-undo"></i>
@@ -65,7 +68,14 @@ export function SimpleGridActions(props: {
         tooltip="Delete selected"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
-          alert("Not implemented");
+          const datasource = props.dataController.getGridInterface().getDatasource()
+          const selected = datasource.getSelectedRows()
+          if(!selected.length){
+            alert("no rows selected")
+          }else{
+            datasource.markForDeletion(selected);
+          }
+         
         }}
       >
         <i className="pi pi-trash"></i>

@@ -20,7 +20,7 @@ export class DataController<T> {
   #initgridConfig: GridConfig;
   #service: ServiceController<T>;
 
-  constructor(datainterface: DataInterface<T>, service: ServiceController<T>) {
+  constructor(datainterface: DataInterface<T>, serviceController: ServiceController<T>) {
     this.#datainterface = datainterface;
     this.#initgridConfig = this.#generateGridConfig();
     this.#gridDatasource = new Datasource<T>();
@@ -33,7 +33,7 @@ export class DataController<T> {
       isEditmode: false,
     }));
 
-    this.#service = service;
+    this.#service = serviceController;
     this.#service.connectDataSource(this);
 
     this.#init();
@@ -87,13 +87,17 @@ export class DataController<T> {
   }
 
   requestRefresh() {
-    // todo
-    // service will update all datasources its connected too
+    this.#service.callEventHandler({
+      type: "REFRESH_ALL",
+      data: null,
+    });
   }
 
   requestFetchAll() {
-    // todo call to service
-    // service will update all datasources its connected too
+    this.#service.callEventHandler({
+      type: "FETCH_ALL",
+      data: null,
+    });
   }
 
   requestSaveChanges() {
@@ -112,7 +116,7 @@ export class DataController<T> {
   /**
    * could be usefull for filtering sub grids etc/calling other related
    * will need something for this
-   * @param event 
+   * @param event
    */
   requestCustomEvent(event: ControllerEvent<T>) {
     this.#service.callEventHandler(event);

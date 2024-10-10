@@ -1,34 +1,54 @@
 import { cableDataController } from "./cable/cableDataController";
+import { generateDummyController } from "./dummyController";
+import { equipmentDataController } from "./equipment/equipmentDataController";
 
-// for now I just use one dataController while testing
+// for now we generate some dummy datasources, can only have one datasource and gridInterface connected
+// service controller can be updated to many, and update many
+// added many so we can play around with loading dialogs etc/gui
 
 export const sources = {
-    cable: cableDataController,
-    equipment: cableDataController,
-    
-    workpack: cableDataController,
-    workpackDialog: cableDataController,
-    
-    task: cableDataController,
-    taskDialog: cableDataController,
+  cable: cableDataController,
+  equipment: equipmentDataController,
 
-    opCodes: cableDataController,
-    opCodesDialog: cableDataController,
+  workpack: generateDummyController(),
+  workpackDialog: generateDummyController(),
+
+  task: generateDummyController(),
+  taskDialog: generateDummyController(),
+
+  opCodes: generateDummyController(),
+  opCodesDialog: generateDummyController(),
+
+  compcodes: generateDummyController(),
+  compcodesDialog: generateDummyController(),
+
+  tagOperations: generateDummyController(),
+  tagOperationsSelectedWorkpack: generateDummyController(),
+  tagOperationsSelectedTask: generateDummyController(),
+
+  routingAll: generateDummyController(),
+  routingSelected: generateDummyController(),
+
+  documentsAll: generateDummyController(),
+  documentsEquip: generateDummyController(),
+  documentsCable: generateDummyController(),
     
-    compcodes: cableDataController,
-    compcodesDialog: cableDataController,
+  foreman: generateDummyController(),
+  foremanDialog: generateDummyController(), //dialog workpack
 
-    tagOperations: cableDataController,
-    tagOperationsWorkpack: cableDataController,
-    tagOperationsTask: cableDataController,
+  progress: generateDummyController(),
 
-    
-    // workprep module
-    routingAll: cableDataController,
-    routingSelected: cableDataController,
+  drum: generateDummyController(),
+  cabletype: generateDummyController(),
+  cableDim: generateDummyController(),
+  cableSort: generateDummyController(),
 
-    // workprep module
-    documentsAll: cableDataController,
-    documentsEquip: cableDataController,
-    documentsCable: cableDataController,
-}
+  template: generateDummyController(),
+  templateLines: generateDummyController(),
+
+  // dialogs task
+  mcDialog: generateDummyController(),
+  comDialog: generateDummyController(),
+  activityDialog: generateDummyController(),
+  areaDialog: generateDummyController(),
+};

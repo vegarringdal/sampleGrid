@@ -18,6 +18,10 @@ export class ServiceController<T> {
     await this.#eventHandler.handleEvent(this, event);
   }
 
+  getDataControllers(){
+    return this.#dataController;
+  }
+
   constructor(eventHandler: ServiceEventHandler<T>) {
     this.#eventHandler = eventHandler;
   }
