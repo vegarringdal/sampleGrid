@@ -4,6 +4,10 @@ import { ModuleSelector } from "./modules/moduleSelector/ModuleSelector";
 
 const routes = [
   {
+    path: "",
+    element: <ModuleSelector />,
+  },
+  {
     path: "/",
     element: <ModuleSelector />,
   },
