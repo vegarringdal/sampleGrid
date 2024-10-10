@@ -32,7 +32,7 @@ export const sources = {
   documentsAll: generateDummyController(),
   documentsEquip: generateDummyController(),
   documentsCable: generateDummyController(),
-    
+
   foreman: generateDummyController(),
   foremanDialog: generateDummyController(), //dialog workpack
 

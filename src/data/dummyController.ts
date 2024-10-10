@@ -1,4 +1,4 @@
-import { DummyRows } from "../dummyData";
+import { getDummyData } from "../dummyData";
 import { DataController } from "../utils/DataController";
 import { ServiceController } from "../utils/ServiceController";
 
@@ -23,14 +23,10 @@ export function generateDummyController() {
 
       if (event.type === "FETCH_ALL") {
         // call get all and update service connected datasources
-
         service.getDataControllers().forEach((dc) => {
-          dc.getGridDatasource().setData(DummyRows);
+          dc.getGridDatasource().setData(getDummyData());
         });
-
-        service.getDataControllers().forEach((dc) => {
-          dc.getGridDatasource().setData(DummyRows);
-        });
+   
       }
 
       if (event.type === "REFRESH_ALL") {

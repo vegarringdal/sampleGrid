@@ -3,7 +3,7 @@ import { cableEntity } from "./cableEntity";
 import { cableServiceController } from "./cableServiceController";
 
 /**
- * 
+ *
  */
 export const cableDataController = new DataController<cableEntity>(
   {

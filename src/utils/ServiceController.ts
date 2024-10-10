@@ -1,11 +1,10 @@
 import { DataController, ControllerEvent } from "./DataController";
 
-
 /**
  * helper for service
  * no need
  * one service might serve multiple data controllers.
- */ 
+ */
 export class ServiceController<T> {
   #dataController: DataController<T>[] = [];
   #eventHandler: ServiceEventHandler<T>;
@@ -18,7 +17,7 @@ export class ServiceController<T> {
     await this.#eventHandler.handleEvent(this, event);
   }
 
-  getDataControllers(){
+  getDataControllers() {
     return this.#dataController;
   }
 
@@ -27,16 +26,13 @@ export class ServiceController<T> {
   }
 }
 
-
 /////////////////////////////////////////////
 // helper classes, dont want 1 file per
 //////////////////////////////////////////////
 
-
 export type ServiceEventHandler<T> = {
-    handleEvent: (
-      service: ServiceController<T>,
-      event: ControllerEvent<T>
-    ) => Promise<void>;
-  };
-  
+  handleEvent: (
+    service: ServiceController<T>,
+    event: ControllerEvent<T>
+  ) => Promise<void>;
+};

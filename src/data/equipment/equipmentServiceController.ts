@@ -1,4 +1,4 @@
-import { DummyRows } from "../../dummyData";
+import { getDummyData } from "../../dummyData";
 import { ServiceController } from "../../utils/ServiceController";
 import { equipmentEntity } from "./equipmentEntity";
 
@@ -6,37 +6,30 @@ import { equipmentEntity } from "./equipmentEntity";
  * handles event from dataController
  * use this to call service
  */
-export const equipmentServiceController = new ServiceController<equipmentEntity>({
+export const equipmentServiceController =
+  new ServiceController<equipmentEntity>({
     handleEvent: async (service, event) => {
+      // loop changes
+      console.log("EVENT_TYPE", event.type);
+      console.log("EVENT_DATA", event.data);
+      console.log("EVENT_SERVICE", service);
 
-        // loop changes
-        console.log('EVENT_TYPE', event.type);
-        console.log('EVENT_DATA', event.data);
-        console.log('EVENT_SERVICE', service);
+      // dunno what events I want yet
 
-        // dunno what events I want yet
+      if (event.type === "FETCH_ALL") {
+        // call get all and update service connected datasources
 
-        if (event.type === "FETCH_ALL") {
-            // call get all and update service connected datasources
-            
-            service.getDataControllers().forEach((dc)=>{
-                dc.getGridDatasource().setData(DummyRows);
-            })
+        service.getDataControllers().forEach((dc) => {
+          dc.getGridDatasource().setData(getDummyData());
+        });
+      }
 
-            service.getDataControllers().forEach((dc)=>{
-                dc.getGridDatasource().setData(DummyRows);
-            })
-            
-        }
+      if (event.type === "REFRESH_ALL") {
+        // call get all and update service connected datasources
+      }
 
-        if (event.type === "REFRESH_ALL") {
-            // call get all and update service connected datasources
-        }
-
-
-        if (event.type === "CHANGE") {
-            // call get all and update service connected datasources
-        }
-
+      if (event.type === "CHANGE") {
+        // call get all and update service connected datasources
+      }
     },
-});
+  });

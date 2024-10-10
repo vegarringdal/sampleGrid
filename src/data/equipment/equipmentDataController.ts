@@ -3,7 +3,7 @@ import { equipmentEntity } from "./equipmentEntity";
 import { equipmentServiceController } from "./equipmentServiceController";
 
 /**
- * 
+ *
  */
 export const equipmentDataController = new DataController<equipmentEntity>(
   {
