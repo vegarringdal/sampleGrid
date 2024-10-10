@@ -49,9 +49,7 @@ const routes = [
   },
 ];
 
-const router = createHashRouter(routes, {
-  basename: location.href.includes("localhost") ? "/" : "/sampleGridInReact/",
-});
+const router = createHashRouter(routes);
 
 export function Router() {
   return <RouterProvider router={router} />;
