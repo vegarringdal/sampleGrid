@@ -100,6 +100,7 @@ export function ModuleSelector() {
           options={projects}
           optionLabel="name"
           className="w-full text-base"
+          pt={{wrapper:{className:"border-1 bg-gray-100 dark:bg-gray-700"}}}
         />
       </div>
 
