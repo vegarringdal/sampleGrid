@@ -20,7 +20,10 @@ export class DataController<T> {
   #initgridConfig: GridConfig;
   #service: ServiceController<T>;
 
-  constructor(datainterface: DataInterface<T>, serviceController: ServiceController<T>) {
+  constructor(
+    datainterface: DataInterface<T>,
+    serviceController: ServiceController<T>
+  ) {
     this.#datainterface = datainterface;
     this.#initgridConfig = this.#generateGridConfig();
     this.#gridDatasource = new Datasource<T>();
@@ -49,9 +52,16 @@ export class DataController<T> {
 
     const config = {
       columnsCenter: [] as unknown,
+      attributes: [],
     } as GridConfig;
 
     this.#datainterface.columns.forEach((c) => {
+      const primaryCol = this.#datainterface.primaryColumn;
+
+      if (c.attribute == primaryCol) {
+        config.attributes.push({ attribute: c.attribute, readonly: true });
+      }
+
       config.columnsCenter.push({
         width: 100,
         rows: [c.attribute],
