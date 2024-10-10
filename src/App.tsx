@@ -4,6 +4,7 @@ import { Menubar } from "primereact/menubar";
 import { Router } from "./components/router";
 import { initDarkTheme, toggleDarkTheme } from "./utils/darkThemeHelpers";
 import { Button } from "primereact/button";
+import { classNames } from "primereact/utils";
 
 initDarkTheme();
 ////////////////////////////////////////////////////////////////////////
@@ -37,7 +38,7 @@ export function App() {
           </Button>
         }
         model={[]}
-        pt={{ root: { className: "rounded-none border-0" } }}
+        pt={{ root: { className: "rounded-none border-0", } } }
       />
       <SetGridTheme />
       <Router />
