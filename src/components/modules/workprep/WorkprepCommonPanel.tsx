@@ -1,7 +1,7 @@
 import { TabView, TabPanel } from "primereact/tabview";
-import { gridInterface2 } from "../../../data/gridInterface2";
 import { SimpleGridActions } from "../../common/SimpleGridActions";
 import { SimpleHtmlGrid } from "../../common/SimpleHtmlGrid";
+import { sources } from "../../../data/sources";
 
 export function WorkprepCommonPanel() {
   return (
@@ -18,11 +18,13 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions interface={gridInterface2} />
+          <SimpleGridActions
+            interface={sources.tagOperations.getGridInterface()}
+          />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
-            interface={gridInterface2}
+            interface={sources.tagOperations.getGridInterface()}
           />
         </div>
       </TabPanel>
@@ -36,11 +38,11 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions interface={gridInterface2} />
+          <SimpleGridActions interface={sources.workpack.getGridInterface()} />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
-            interface={gridInterface2}
+            interface={sources.workpack.getGridInterface()}
           />
         </div>
       </TabPanel>
@@ -54,11 +56,11 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions interface={gridInterface2} />
+          <SimpleGridActions interface={sources.task.getGridInterface()} />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
-            interface={gridInterface2}
+            interface={sources.task.getGridInterface()}
           />
         </div>
       </TabPanel>
@@ -72,11 +74,13 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions interface={gridInterface2} />
+          <SimpleGridActions
+            interface={sources.routingAll.getGridInterface()}
+          />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
-            interface={gridInterface2}
+            interface={sources.routingAll.getGridInterface()}
           />
         </div>
       </TabPanel>
@@ -89,11 +93,13 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions interface={gridInterface2} />
+          <SimpleGridActions
+            interface={sources.routingSelected.getGridInterface()}
+          />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
-            interface={gridInterface2}
+            interface={sources.routingSelected.getGridInterface()}
           />
         </div>
       </TabPanel>
@@ -106,11 +112,13 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions interface={gridInterface2} />
+          <SimpleGridActions
+            interface={sources.documentsAll.getGridInterface()}
+          />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
-            interface={gridInterface2}
+            interface={sources.documentsAll.getGridInterface()}
           />
         </div>
       </TabPanel>
@@ -123,11 +131,13 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions interface={gridInterface2} />
+          <SimpleGridActions
+            interface={sources.documentsCable.getGridInterface()}
+          />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
-            interface={gridInterface2}
+            interface={sources.documentsCable.getGridInterface()}
           />
         </div>
       </TabPanel>
@@ -140,11 +150,13 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions interface={gridInterface2} />
+          <SimpleGridActions
+            interface={sources.documentsEquip.getGridInterface()}
+          />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
-            interface={gridInterface2}
+            interface={sources.documentsEquip.getGridInterface()}
           />
         </div>
       </TabPanel>

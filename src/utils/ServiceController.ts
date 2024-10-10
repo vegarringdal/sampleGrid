@@ -3,7 +3,7 @@ import { DataController, ControllerEvent } from "./DataController";
 
 /**
  * helper for service
- * no need to edit
+ * no need
  * one service might serve multiple data controllers.
  */ 
 export class ServiceController<T> {

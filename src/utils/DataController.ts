@@ -5,7 +5,6 @@ import {
   Entity,
 } from "@simple-html/grid";
 import { UseBoundStore, StoreApi, create } from "zustand";
-import { dataContainer } from "../data/dataController";
 import { ServiceController } from "./ServiceController";
 import { DataInterface } from "./DataInterface";
 
@@ -24,7 +23,7 @@ export class DataController<T> {
   constructor(datainterface: DataInterface<T>, service: ServiceController<T>) {
     this.#datainterface = datainterface;
     this.#initgridConfig = this.#generateGridConfig();
-    this.#gridDatasource = new Datasource<T>(dataContainer);
+    this.#gridDatasource = new Datasource<T>();
     this.#gridInterface = new GridInterface<T>(
       this.#initgridConfig,
       this.#gridDatasource
@@ -110,6 +109,15 @@ export class DataController<T> {
     });
   }
 
+  /**
+   * could be usefull for filtering sub grids etc/calling other related
+   * will need something for this
+   * @param event 
+   */
+  requestCustomEvent(event: ControllerEvent<T>) {
+    this.#service.callEventHandler(event);
+  }
+
   getStore() {
     return this.#stateStore;
   }
@@ -132,15 +140,22 @@ export type DataControllerState = {
   isEditmode: boolean;
 };
 
-export type EventType = "FETCH_ALL" | "REFRESH_ALL" | "CHANGE";
-
 export type DataChanges<T> = {
   newEntities: Partial<T>[];
   deletedEntities: Partial<T>[];
   modifiedEntities: Partial<T>[];
 };
 
-export type ControllerEvent<T> = {
-  type: EventType;
-  data: DataChanges<T>;
-};
+export type ControllerEvent<T> =
+  | {
+      type: "FETCH_ALL";
+      data: null;
+    }
+  | {
+      type: "REFRESH_ALL";
+      data: null;
+    }
+  | {
+      type: "CHANGE";
+      data: DataChanges<T>;
+    };

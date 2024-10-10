@@ -1,9 +1,9 @@
 import { Splitter, SplitterPanel } from "primereact/splitter";
 
 import { WorkprepCommonPanel } from "./WorkprepCommonPanel";
-import { gridInterface1 } from "../../../data/gridInterface1";
 import { SimpleGridActions } from "../../common/SimpleGridActions";
 import { SimpleHtmlGrid } from "../../common/SimpleHtmlGrid";
+import { sources } from "../../../data/sources";
 
 export function WorkprepCabelsPanel() {
   return (
@@ -16,11 +16,11 @@ export function WorkprepCabelsPanel() {
       }}
     >
       <SplitterPanel className="flex p-2" minSize={10} size={80}>
-        <SimpleGridActions interface={gridInterface1} />
+        <SimpleGridActions interface={sources.cable.getGridInterface()} />
         <SimpleHtmlGrid
           id="1"
           className="simple-html-grid w-full h-full"
-          interface={gridInterface1}
+          interface={sources.cable.getGridInterface()}
         />
       </SplitterPanel>
       <SplitterPanel className="flex  overflow-hidden" minSize={0} size={20}>
