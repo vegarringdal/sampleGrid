@@ -1,5 +1,7 @@
 // early... will change my mind here..
 
+import { DataTypes } from "@simple-html/grid";
+
 /**
  * configuration for dataController/service
  * want to try and have most as optional
@@ -61,11 +63,10 @@ export type DataInterface<T> = {
 };
 
 export type DataInterfaceColumn<T> = {
-
   /**
    * name of attribute
    */
-  attribute: string,
+  attribute: string;
 
   /**
    * helper to know if its readonly
@@ -81,7 +82,7 @@ export type DataInterfaceColumn<T> = {
   /**
    * type of data, defaults to text
    */
-  type?: "string" | "number" | "date" | "bool";
+  type: DataTypes | undefined;
 
   /**
    *  default false
@@ -128,7 +129,8 @@ export type DataInterfaceColumn<T> = {
   };
 
   /**
-   * force value/blue in grid cell if empty
+   * blue in grid cell if empty, so user knows they need to fill in
+   * will be up to service controller/api to force value/show error
    */
   mandatory?: boolean;
 

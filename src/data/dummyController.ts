@@ -26,7 +26,6 @@ export function generateDummyController() {
         service.getDataControllers().forEach((dc) => {
           dc.getGridDatasource().setData(getDummyData());
         });
-   
       }
 
       if (event.type === "REFRESH_ALL") {
@@ -52,23 +51,27 @@ export function generateDummyController() {
         },
         {
           attribute: "STATUS",
-          type: "string",
+          type: "text",
         },
         {
           attribute: "TAG_NO",
-          type: "string",
+          type: "text",
         },
         {
           attribute: "DESCRIPTION",
-          type: "string",
+          type: "text",
         },
         {
           attribute: "LINE_EQUIPMENT",
-          type: "string",
+          type: "text",
         },
         {
           attribute: "DOCID",
-          type: "string",
+          type: "text",
+        },
+        {
+          attribute: "CREATED",
+          type: "date",
         },
       ],
     },

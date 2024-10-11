@@ -15,23 +15,28 @@ export const cableDataController = new DataController<cableEntity>(
       },
       {
         attribute: "STATUS",
-        type: "string",
+        type: "text",
       },
       {
         attribute: "TAG_NO",
-        type: "string",
+        type: "text",
+        mandatory: true,
       },
       {
         attribute: "DESCRIPTION",
-        type: "string",
+        type: "text",
       },
       {
         attribute: "LINE_EQUIPMENT",
-        type: "string",
+        type: "text",
       },
       {
         attribute: "DOCID",
-        type: "string",
+        type: "text",
+      },
+      {
+        attribute: "CREATED",
+        type: "date",
       },
     ],
   },

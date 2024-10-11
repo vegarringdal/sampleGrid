@@ -45,6 +45,9 @@ export function SimpleGridActions<T>(props: {
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
           const gridInterface = props.dataController.getGridInterface();
+          const config = gridInterface.saveConfig();
+          config.readonly = !config.readonly;
+          gridInterface.loadConfig(config);
           gridInterface.getDatasource().addNewEmpty();
         }}
       >
@@ -56,7 +59,7 @@ export function SimpleGridActions<T>(props: {
         tooltip="Reset all edits"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
-          const gridInterface = props.dataController.getGridInterface()
+          const gridInterface = props.dataController.getGridInterface();
           gridInterface.getDatasource().resetData();
         }}
       >
@@ -68,14 +71,15 @@ export function SimpleGridActions<T>(props: {
         tooltip="Delete selected"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
-          const datasource = props.dataController.getGridInterface().getDatasource()
-          const selected = datasource.getSelectedRows()
-          if(!selected.length){
-            alert("no rows selected")
-          }else{
+          const datasource = props.dataController
+            .getGridInterface()
+            .getDatasource();
+          const selected = datasource.getSelectedRows();
+          if (!selected.length) {
+            alert("no rows selected");
+          } else {
             datasource.markForDeletion(selected);
           }
-         
         }}
       >
         <i className="pi pi-trash"></i>
@@ -130,7 +134,7 @@ export function SimpleGridActions<T>(props: {
         tooltip="Prints all edits to console (debug only)"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
-          console.log(props.interface.getDatasource().getChanges());
+          console.log(props.dataController.getGridDatasource().getChanges());
           alert("see console log, F12");
         }}
       >

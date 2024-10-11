@@ -6,7 +6,7 @@ export type DummyData = {
   DESCRIPTION: string;
   DOCID: string;
   LINE_EQUIPMENT: string;
-  DATE: Date;
+  CREATED: Date;
 };
 
 export function getDummyData() {
@@ -23,10 +23,10 @@ export function getDummyData() {
     DESCRIPTION: "INLET SEP",
     DOCID: "C232-AI-R-DS-0001",
     LINE_EQUIPMENT: "KJSD",
-    DATE: new Date(),
+    CREATED: new Date(),
   };
 
-  for (let i = 105; i < 100000; i++) {
+  for (let i = 0; i < 10; i++) {
     const x = structuredClone(DummyRow);
     x.ID = "SomeUniqueKey" + i;
     DummyRows.push(x);

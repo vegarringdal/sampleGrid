@@ -3,10 +3,14 @@ import {
   GridInterface,
   GridConfig,
   Entity,
+  Attribute,
+  FilterComparisonOperator,
+  DataTypes,
 } from "@simple-html/grid";
 import { UseBoundStore, StoreApi, create } from "zustand";
 import { ServiceController } from "./ServiceController";
 import { DataInterface } from "./DataInterface";
+import { getDateFormater } from "../state/dateNumberFormatStore";
 
 /**
  * helper for data
@@ -47,7 +51,6 @@ export class DataController<T> {
    * @returns
    */
   #generateGridConfig() {
-    // a LOT to do here, havign it very simple for now
     console.log("TODO, generate gridConfig", this.#datainterface);
 
     const config = {
@@ -55,17 +58,32 @@ export class DataController<T> {
       attributes: [],
     } as GridConfig;
 
+    // a LOT to do here, having it very simple for now
     this.#datainterface.columns.forEach((c) => {
       const primaryCol = this.#datainterface.primaryColumn;
 
+      const attribute: Attribute = {
+        attribute: c.attribute,
+        label: c.label || c.attribute,
+        placeHolderRow: getRowPlaceholder(c.type, c.label || c.attribute),
+        placeHolderFilter: getFilterPlaceholder(c.type, null),
+      };
+
+      if (c.mandatory) {
+        attribute.mandatory = true;
+        //attribute.mandatoryOnlyIfEmpty = true;
+      }
+
       if (c.attribute == primaryCol) {
-        config.attributes.push({ attribute: c.attribute, readonly: true });
+        attribute.readonly = true;
       }
 
       config.columnsCenter.push({
         width: 100,
         rows: [c.attribute],
       });
+
+      config.attributes.push(attribute);
     });
 
     return config;
@@ -83,12 +101,8 @@ export class DataController<T> {
           return { dimmedClass: "", inputClass: "" };
         }
 
-        if (c && c?.__isNew) {
-          return { dimmedClass: "new-cell", inputClass: "" };
-        }
-
         if (c && c.__editedProps && c.__editedProps[attribute]) {
-          return { dimmedClass: "edit-cell", inputClass: "" };
+          return { dimmedClass: " edit-cell", inputClass: "" };
         }
 
         return { dimmedClass: "", inputClass: "" };
@@ -146,7 +160,7 @@ export class DataController<T> {
 }
 
 /////////////////////////////////////////////
-// helper classes, dont want 1 file per
+// helper classes/function , dont want 1 file per
 //////////////////////////////////////////////
 
 export type DataControllerState = {
@@ -173,3 +187,52 @@ export type ControllerEvent<T> =
       type: "CHANGE";
       data: DataChanges<T>;
     };
+
+export function operator(operator: Attribute["operator"]) {
+  switch (operator) {
+    case "CONTAINS":
+      return "*";
+    case "DOES_NOT_CONTAIN":
+      return "!*";
+    case "END_WITH":
+      return "*x";
+    case "EQUAL":
+      return "==";
+    case "NOT_EQUAL_TO":
+      return "!=";
+    case "GREATER_THAN":
+      return ">";
+    case "GREATER_THAN_OR_EQUAL_TO":
+      return ">=";
+    case "LESS_THAN":
+      return "<";
+    case "LESS_THAN_OR_EQUAL_TO":
+      return "<=";
+  }
+}
+
+export function getFilterPlaceholder(
+  type: DataTypes | undefined,
+  operatorType: FilterComparisonOperator | null
+) {
+  let placeholder = `${"text"} ${operator(operatorType || "EQUAL")}`;
+  if (type === "date") {
+    placeholder = `${getDateFormater().placeholder()} ${operator(
+      operatorType || "GREATER_THAN_OR_EQUAL_TO"
+    )}`;
+  }
+  if (type === "number") {
+    placeholder = `num ${operator(operatorType || "GREATER_THAN_OR_EQUAL_TO")}`;
+  }
+  return placeholder;
+}
+
+export function getRowPlaceholder(
+  type: DataTypes | undefined,
+  labelOrName: string
+) {
+  if (type === "date") {
+    return `${labelOrName} - ${getDateFormater().placeholder()}`;
+  }
+  return labelOrName;
+}
