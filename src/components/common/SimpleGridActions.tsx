@@ -46,8 +46,11 @@ export function SimpleGridActions<T>(props: {
         onClick={() => {
           const gridInterface = props.dataController.getGridInterface();
           const config = gridInterface.saveConfig();
-          config.readonly = !config.readonly;
-          gridInterface.loadConfig(config);
+          if (config.readonly) {
+            config.readonly = !config.readonly;
+            gridInterface.loadConfig(config);
+          }
+
           gridInterface.getDatasource().addNewEmpty();
         }}
       >
