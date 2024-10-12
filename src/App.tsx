@@ -4,7 +4,6 @@ import { Menubar } from "primereact/menubar";
 import { Router } from "./components/router";
 import { initDarkTheme, toggleDarkTheme } from "./utils/darkThemeHelpers";
 import { Button } from "primereact/button";
-import { classNames } from "primereact/utils";
 
 initDarkTheme();
 ////////////////////////////////////////////////////////////////////////
@@ -17,7 +16,9 @@ export function App() {
     <div className="app flex flex-col flex-1 dark:bg-gray-800">
       <Menubar
         start={
-          <span className="p-2 text-base dark:text-gray-200">PTOC - Project Tag Operation Control</span>
+          <span className="p-2 text-base dark:text-gray-200">
+            PTOC - Project Tag Operation Control
+          </span>
         }
         end={
           <Button
@@ -30,6 +31,7 @@ export function App() {
             }}
             tooltip="toogle mode"
             tooltipOptions={{ showDelay: 1000 }}
+            aria-label="toggle theme"
             onClick={() => {
               toggleDarkTheme();
             }}
@@ -38,7 +40,7 @@ export function App() {
           </Button>
         }
         model={[]}
-        pt={{ root: { className: "rounded-none border-0", } } }
+        pt={{ root: { className: "rounded-none border-0" } }}
       />
       <SetGridTheme />
       <Router />

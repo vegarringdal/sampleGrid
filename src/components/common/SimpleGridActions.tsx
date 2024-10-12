@@ -21,6 +21,7 @@ export function SimpleGridActions<T>(props: {
         onClick={() => {
           props.dataController.requestFetchAll();
         }}
+        aria-label="refresh"
       >
         <i className="pi pi-sync"></i>
       </Button>
@@ -35,6 +36,7 @@ export function SimpleGridActions<T>(props: {
           config.readonly = !config.readonly;
           gridInterface.loadConfig(config);
         }}
+        aria-label="edit"
       >
         <i className="pi pi-pencil"></i>
       </Button>
@@ -53,6 +55,7 @@ export function SimpleGridActions<T>(props: {
 
           gridInterface.getDatasource().addNewEmpty();
         }}
+        aria-label="new"
       >
         <i className="pi pi-plus"></i>
       </Button>
@@ -65,6 +68,7 @@ export function SimpleGridActions<T>(props: {
           const gridInterface = props.dataController.getGridInterface();
           gridInterface.getDatasource().resetData();
         }}
+        aria-label="reset"
       >
         <i className="pi pi-undo"></i>
       </Button>
@@ -84,6 +88,7 @@ export function SimpleGridActions<T>(props: {
             datasource.markForDeletion(selected);
           }
         }}
+        aria-label="deleted selected"
       >
         <i className="pi pi-trash"></i>
       </Button>
@@ -95,6 +100,7 @@ export function SimpleGridActions<T>(props: {
         onClick={() => {
           alert("Not implemented");
         }}
+        aria-label="duplicate row"
       >
         <i className="pi pi-copy"></i>
       </Button>
@@ -106,6 +112,7 @@ export function SimpleGridActions<T>(props: {
         onClick={() => {
           alert("Not implemented");
         }}
+             aria-label="open import helper"
       >
         <i className="pi pi-file-import"></i>
       </Button>
@@ -117,6 +124,7 @@ export function SimpleGridActions<T>(props: {
         onClick={() => {
           alert("Not implemented");
         }}
+        aria-label="save selected"
       >
         <i className="pi pi-save"></i>
       </Button>
@@ -128,6 +136,7 @@ export function SimpleGridActions<T>(props: {
         onClick={() => {
           alert("Not implemented");
         }}
+        aria-label="generate excel"
       >
         <i className="pi pi-file-excel"></i>
       </Button>
@@ -140,6 +149,7 @@ export function SimpleGridActions<T>(props: {
           console.log(props.dataController.getGridDatasource().getChanges());
           alert("see console log, F12");
         }}
+        aria-label="debug/print changes"
       >
         <i className="pi pi-print"></i>
       </Button>
