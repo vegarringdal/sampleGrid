@@ -44,6 +44,10 @@ export const cableDataController = new DataController<CableEntity>(
         type: "text",
       },
       {
+        attribute: "site",
+        type: "text",
+      },
+      {
         attribute: "cableTypeId",
         type: "text",
         readOnly: true
@@ -136,6 +140,26 @@ export const cableDataController = new DataController<CableEntity>(
         type: "text",
         readOnly: true
       },
+      {
+        attribute: "created",
+        type: "date",
+        readOnly: true
+      },
+      {
+        attribute: "createdBy",
+        type: "text",
+        readOnly: true
+      },
+      {
+        attribute: "modified",
+        type: "date",
+        readOnly: false
+      },
+      {
+        attribute: "modifiedBy",
+        type: "text",
+        readOnly: true
+      },
     ],
     colWidth: [
       130,
@@ -152,12 +176,13 @@ export const cableDataController = new DataController<CableEntity>(
       ["tag"],
       ["cableType", "cableTypeDim"],
       ["fromTag", "toTag"],
-      ["const", "design"],
+      ["const", "design", "site"],
       ["areaFrom", "areaTo"],
       ["mc", "com"],
       ["op01", "op02", "op03", "op04"],
       ["op05", "op06", "op07", "op08"],
       ["op09", "op10", "op11", "op12"],
+      ["created", "createdBy", "modified", "modifiedBy"],
     ],
   },
   cableServiceController

@@ -4,7 +4,10 @@ class CableService {
   transformResult(row: CableEntity) {
     // for transforming/fixing
 
-    return row.id;
+    row.created = row.created ? new Date(row.created) : null;
+    row.modified = row.modified ? new Date(row.modified) : null;
+
+    return row;
   }
 
   /**
@@ -14,10 +17,12 @@ class CableService {
    */
   async getAll(project: string): Promise<CableEntity[]> {
     const result = await fetch(`https://example.com/api/cables/${project}`);
-    if(result.ok){
-        return await result.json() as CableEntity[]
+    if (result.ok) {
+      return ((await result.json()) as CableEntity[]).map((d) =>
+        this.transformResult(d)
+      );
     } else {
-      return []
+      return [];
     }
   }
 

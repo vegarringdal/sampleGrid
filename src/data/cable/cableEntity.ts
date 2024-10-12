@@ -5,6 +5,7 @@ export type CableEntity = {
   areaFrom: string;
   toTag: string;
   areaTo: string;
+  site: string,
   const: string;
   design: string;
   cableTypeId: string;
@@ -26,4 +27,8 @@ export type CableEntity = {
   op12: string | null;
   op13: string | null;
   op14: string | null;
+  createdBy: string | null;
+  modifiedBy: string | null;
+  created: Date | null;
+  modified: Date | null;
 };
