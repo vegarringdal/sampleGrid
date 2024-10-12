@@ -10,10 +10,8 @@ import {
 import { UseBoundStore, StoreApi, create } from "zustand";
 import { ServiceController } from "./ServiceController";
 import { DataInterface } from "./DataInterface";
-import {
-  getDateFormater,
-  getNumberFormater,
-} from "../state/dateNumberFormatStore";
+import { getDateFormater, getNumberFormater } from "./numberAndDateFormat";
+
 
 /**
  * helper for data
@@ -34,8 +32,6 @@ export class DataController<T> {
     this.#datainterface = datainterface;
     this.#initgridConfig = this.#generateGridConfig();
     this.#gridDatasource = new Datasource<T>();
-    
-    // bug ?
     this.#gridDatasource.setDateFormater(getDateFormater());
     this.#gridDatasource.setNumberFormater(getNumberFormater());
 
@@ -79,6 +75,7 @@ export class DataController<T> {
         ),
         placeHolderFilter: getFilterPlaceholder(c.type, null),
         readonly: c.readOnly,
+        type: c.type,
       };
 
       if (c.mandatory) {
@@ -123,7 +120,6 @@ export class DataController<T> {
    * will add event listners etc to do most of logic here
    */
   #init() {
-
     this.#gridInterface.cellAppendClassSetter(
       (attribute: string, rowData: Entity, isReadOnly: boolean) => {
         const c = rowData.__controller;
