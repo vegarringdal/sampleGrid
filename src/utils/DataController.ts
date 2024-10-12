@@ -59,32 +59,54 @@ export class DataController<T> {
     } as GridConfig;
 
     // a LOT to do here, having it very simple for now
-    this.#datainterface.columns.forEach((c) => {
+    this.#datainterface.columns.forEach((c, i) => {
       const primaryCol = this.#datainterface.primaryColumn;
 
       const attribute: Attribute = {
-        attribute: c.attribute,
-        label: c.label || c.attribute,
-        placeHolderRow: getRowPlaceholder(c.type, c.label || c.attribute),
+        attribute: c.attribute as string,
+        label: (c.label as string) || (c.attribute as string),
+        placeHolderRow: getRowPlaceholder(
+          c.type,
+          (c.label as string) || (c.attribute as string)
+        ),
         placeHolderFilter: getFilterPlaceholder(c.type, null),
+        readonly: c.readOnly
       };
 
       if (c.mandatory) {
         attribute.mandatory = true;
-        //attribute.mandatoryOnlyIfEmpty = true;
+        attribute.mandatoryOnlyIfEmpty = true;
       }
 
       if (c.attribute == primaryCol) {
         attribute.readonly = true;
       }
 
+      const colWidth =
+        (this.#datainterface?.colWidth && this.#datainterface?.colWidth[i]) ||
+        100;
+
       config.columnsCenter.push({
-        width: 100,
-        rows: [c.attribute],
+        width: colWidth,
+        rows: [c.attribute as string],
       });
 
       config.attributes.push(attribute);
     });
+
+    if (this.#datainterface?.groupCells?.length) {
+      config.columnsCenter = [];
+      this.#datainterface?.groupCells.forEach((rows, i) => {
+        const colWidth =
+          (this.#datainterface?.colWidth && this.#datainterface?.colWidth[i]) ||
+          100;
+
+        config.columnsCenter.push({
+          width: colWidth,
+          rows,
+        });
+      });
+    }
 
     return config;
   }

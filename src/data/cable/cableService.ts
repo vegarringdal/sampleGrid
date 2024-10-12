@@ -1,10 +1,10 @@
-import { cableEntity } from "./cableEntity";
+import { CableEntity } from "./cableEntity";
 
-class CableService<T> {
-  transformResult(row: cableEntity) {
+class CableService {
+  transformResult(row: CableEntity) {
     // for transforming/fixing
 
-    return row.ID;
+    return row.id;
   }
 
   /**
@@ -12,10 +12,13 @@ class CableService<T> {
    * @param project
    * @returns
    */
-  async getAll(project: string) {
-    console.log("service getAll", project);
-
-    return [] as T[];
+  async getAll(project: string): Promise<CableEntity[]> {
+    const result = await fetch(`https://example.com/api/cables/${project}`);
+    if(result.ok){
+        return await result.json() as CableEntity[]
+    } else {
+      return []
+    }
   }
 
   /**
@@ -23,10 +26,10 @@ class CableService<T> {
    * @param project
    * @param data
    */
-  async post(project: string, data: cableEntity) {
+  async post(project: string, data: CableEntity) {
     console.log("service patch", project, data);
 
-    return {} as T;
+    return {} as CableEntity;
   }
 
   /**
@@ -43,9 +46,9 @@ class CableService<T> {
    * @param project
    * @param data
    */
-  async patch(project: string, data: cableEntity) {
+  async patch(project: string, data: CableEntity) {
     console.log("service patch", project, data);
   }
 }
 
-export const cableService = new CableService<cableEntity>();
+export const cableService = new CableService();

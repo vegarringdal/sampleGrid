@@ -1,12 +1,12 @@
-import { getDummyData } from "../../dummyData";
 import { ServiceController } from "../../utils/ServiceController";
-import { cableEntity } from "./cableEntity";
+import { CableEntity } from "./cableEntity";
+import { cableService } from "./cableService";
 
 /**
  * handles event from dataController
  * use this to call service
  */
-export const cableServiceController = new ServiceController<cableEntity>({
+export const cableServiceController = new ServiceController<CableEntity>({
   handleEvent: async (service, event) => {
     // loop changes
     console.log("EVENT_TYPE", event.type);
@@ -18,8 +18,11 @@ export const cableServiceController = new ServiceController<cableEntity>({
     if (event.type === "FETCH_ALL") {
       // call get all and update service connected datasources
 
+      const result = await cableService.getAll("TODO");
+  
+
       service.getDataControllers().forEach((dc) => {
-        dc.getGridDatasource().setData(getDummyData());
+        dc.getGridDatasource().setData(result);
       });
     }
 

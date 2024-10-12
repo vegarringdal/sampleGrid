@@ -34,7 +34,7 @@ export type DataInterface<T> = {
    * so its easier to reason about
    * if not set it uses order of columns
    */
-  groupCells?: keyof T[][];
+  groupCells?: string[][];
 
   /**
    * column width, default to 100
@@ -66,7 +66,7 @@ export type DataInterfaceColumn<T> = {
   /**
    * name of attribute
    */
-  attribute: string;
+  attribute: keyof T;
 
   /**
    * helper to know if its readonly

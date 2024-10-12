@@ -1,8 +1,29 @@
-export type cableEntity = {
-  ID: string;
-  STATUS: string;
-  DATE: Date;
-
-  LINE_EQUIPMENT: string;
-  TAG_NO: string;
+export type CableEntity = {
+  id: number;
+  tag: string;
+  fromTag: string;
+  areaFrom: string;
+  toTag: string;
+  areaTo: string;
+  const: string;
+  design: string;
+  cableTypeId: string;
+  cableType: string;
+  cableTypeDim: string;
+  mc: string;
+  com: string;
+  op01: string | null;
+  op02: string | null;
+  op03: string | null;
+  op04: string | null;
+  op05: string | null;
+  op06: string | null;
+  op07: string | null;
+  op08: string | null;
+  op09: string | null;
+  op10: string | null;
+  op11: string | null;
+  op12: string | null;
+  op13: string | null;
+  op14: string | null;
 };
