@@ -4,6 +4,12 @@ import { DataController } from "../../utils/DataController";
 export function SimpleGridActions<T>(props: {
   dataController: DataController<T>;
 }) {
+
+  const cs = props.dataController.storeHook();
+
+
+
+
   const pt: ButtonPassThroughOptions = {
     root: { className: "p-1" },
     tooltip: {
@@ -16,6 +22,7 @@ export function SimpleGridActions<T>(props: {
     <div className="flex flex-col pr-2 pt-1 gap-2 h-full">
       <Button
         pt={pt}
+        disabled={cs.isEditmode}
         tooltip="Load/refresh data"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
@@ -35,14 +42,18 @@ export function SimpleGridActions<T>(props: {
           const config = gridInterface.saveConfig();
           config.readonly = !config.readonly;
           gridInterface.loadConfig(config);
+          props.dataController.getStore().setState({isEditmode:!cs.isEditmode});
         }}
         aria-label="edit"
       >
         <i className="pi pi-pencil"></i>
       </Button>
 
+      <br className="p-2"></br>
+
       <Button
         pt={pt}
+        disabled={!cs.isEditmode}
         tooltip="Add new empty element"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
@@ -59,9 +70,11 @@ export function SimpleGridActions<T>(props: {
       >
         <i className="pi pi-plus"></i>
       </Button>
+  
 
       <Button
         pt={pt}
+        disabled={!cs.isEditmode}
         tooltip="Reset all edits"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
@@ -75,6 +88,7 @@ export function SimpleGridActions<T>(props: {
 
       <Button
         pt={pt}
+        disabled={!cs.isEditmode}
         tooltip="Delete selected"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
@@ -95,6 +109,7 @@ export function SimpleGridActions<T>(props: {
 
       <Button
         pt={pt}
+        disabled={!cs.isEditmode}
         tooltip="Duplicates current"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
@@ -105,20 +120,11 @@ export function SimpleGridActions<T>(props: {
         <i className="pi pi-copy"></i>
       </Button>
 
-      <Button
-        pt={pt}
-        tooltip="Open import helper, for dumping data from excel"
-        tooltipOptions={{ showDelay: 1000 }}
-        onClick={() => {
-          alert("Not implemented");
-        }}
-             aria-label="open import helper"
-      >
-        <i className="pi pi-file-import"></i>
-      </Button>
+      <br className="p-2"></br>
 
       <Button
         pt={pt}
+        disabled={!cs.isEditmode}
         tooltip="Saves selected record"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
@@ -129,8 +135,25 @@ export function SimpleGridActions<T>(props: {
         <i className="pi pi-save"></i>
       </Button>
 
+      <br className="p-2"></br>
+
       <Button
         pt={pt}
+        disabled={cs.isEditmode}
+        tooltip="Open import helper, for dumping data from excel"
+        tooltipOptions={{ showDelay: 1000 }}
+        onClick={() => {
+          alert("Not implemented");
+        }}
+             aria-label="open import helper"
+      >
+        <i className="pi pi-file-import"></i>
+      </Button>
+
+
+      <Button
+        pt={pt}
+        disabled={cs.isEditmode}
         tooltip="Generate excel file from current list"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
@@ -143,6 +166,7 @@ export function SimpleGridActions<T>(props: {
 
       <Button
         pt={pt}
+        disabled={cs.isEditmode}
         tooltip="Prints all edits to console (debug only)"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {

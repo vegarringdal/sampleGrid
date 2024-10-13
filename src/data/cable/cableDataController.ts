@@ -8,12 +8,16 @@ import { cableServiceController } from "./cableServiceController";
  */
 export const cableDataController = new DataController<CableEntity>(
   {
+    isDeleteAllowed: true,
+    isNewAllowed: true,
+    isEditAllowed: true,
     primaryColumn: "id",
     columns: [
       {
         attribute: "id",
         type: "number",
         readOnly: true,
+        // maybe option for width here, but groupcell overrides it?
       },
       {
         attribute: "tag",
@@ -234,8 +238,13 @@ export const cableDataController = new DataController<CableEntity>(
         attribute: "extString10",
         type: "text",
       },
+      {
+        attribute: "source",
+        type: "text",
+      },
     ],
-    colWidth: [130, 80, 150, 130, 100, 150,120, 65, 65, 65, 200, 200, 120],
+    // maybe groupcells should have these ?
+    colWidth: [130, 80, 150, 130, 100, 150, 120, 65, 65, 65, 200, 200, 120],
     groupCells: [
       ["tag", "comment"],
       ["status", "dicipline", "source"],

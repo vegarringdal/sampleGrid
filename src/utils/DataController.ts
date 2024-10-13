@@ -42,6 +42,10 @@ export class DataController<T> {
     this.#stateStore = create<DataControllerState>(() => ({
       isLoading: false,
       isEditmode: false,
+
+      isEditAllowed: true,
+      isDeleteAllowed: true,
+      isNewAllowed: true,
     }));
 
     this.#service = serviceController;
@@ -175,6 +179,11 @@ export class DataController<T> {
 
   getStore() {
     return this.#stateStore;
+  }
+
+
+  storeHook() {
+    return this.#stateStore();
   }
 
   getGridInterface() {

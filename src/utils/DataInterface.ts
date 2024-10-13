@@ -17,6 +17,22 @@ export type DataInterface<T> = {
   primaryColumn: keyof T;
 
   /**
+   * todo - will disable button
+   * maybe option to hide by default?
+   */
+  isEditAllowed: boolean;
+  /**
+   * todo - will disable button
+   * maybe option to hide by default?
+   */
+  isDeleteAllowed: boolean;
+  /**
+   * todo - will disable button, including duplicate
+   * maybe option to hide by default?
+   */
+  isNewAllowed: boolean;
+
+  /**
    * columns we can edit/ custom headername etc
    */
   columns: DataInterfaceColumn<T>[];
