@@ -49,7 +49,12 @@ export const cableDataController = new DataController<CableEntity>(
         type: "text",
       },
       {
-        attribute: "cableTypeId",
+        attribute: "id",
+        type: "text",
+        readOnly: true,
+      },
+      {
+        attribute: "cableDesc",
         type: "text",
         readOnly: true,
       },
@@ -234,7 +239,7 @@ export const cableDataController = new DataController<CableEntity>(
     groupCells: [
       ["tag", "comment"],
       ["status", "dicipline", "source"],
-      ["cableType", "cableTypeDim"],
+      ["cableDesc", "cableType", "cableTypeDim"],
       ["fromTag", "areaFrom", "toTag", "areaTo"],
       ["const", "design", "site"],
       ["termFrom", "partAddressFrom", "termTo", "partAddressTo"],
