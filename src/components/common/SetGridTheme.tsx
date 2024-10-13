@@ -44,18 +44,8 @@ export function SetGridTheme() {
                         --simple-html-grid-boxshadow: #4b5563;
                         --simple-html-grid-main-hr-border: #4b5563;
                     }
-                    .simple-html-grid .simple-html-grid-selected-row-even input {
-                        color: black;
-                    }
-                    .simple-html-grid .simple-html-grid-selected-row-odd input {
-                        color: black;
-                    }
-                    .simple-html-grid .simple-html-label-even {
-                        color: black;
-                    }
-                    .simple-html-grid .simple-html-label-odd {
-                        color: black;
-                    }
+                   
+                  
                     .simple-html-grid ul.dialog-row {
                         box-shadow: none;
                     
