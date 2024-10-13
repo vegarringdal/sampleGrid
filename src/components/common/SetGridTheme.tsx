@@ -36,7 +36,7 @@ export function SetGridTheme() {
                         --simple-html-grid-sec-bg-border: #1f2937;
                         --simple-html-grid-pinned-border: #1f2937;
                         --simple-html-grid-main-bg-selected-odd: rgb(59 130 246);
-                        --simple-html-grid-main-bg-selected-even: rgb(59 130 247);
+                        --simple-html-grid-main-bg-selected-even: rgb(59 110 230);
                         --simple-html-grid-main-font-color: #f9f7f7;
                         --simple-html-grid-sec-font-color: #979494;
                         --simple-html-grid-dropzone-color: rgb(151, 148, 148, 0.4);
@@ -128,7 +128,7 @@ export function SetGridTheme() {
                     .simple-html-grid {
                      
                         --simple-html-grid-main-bg-selected-odd: rgb(59 130 246);
-                        --simple-html-grid-main-bg-selected-even: rgb(59 130 226);
+                        --simple-html-grid-main-bg-selected-even: rgb(59 110 216);
                       
                     }
                     .simple-html-grid .simple-html-grid-selected-row-even input {
