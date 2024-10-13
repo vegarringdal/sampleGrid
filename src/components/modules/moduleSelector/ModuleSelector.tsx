@@ -15,6 +15,7 @@ export function ModuleSelector() {
   const modules = [
     {
       name: "Workpreperation",
+      disabled: false,
       userGroup: "Workprep",
       desciption: "Create tag operations",
       nav: (code: string) => {
@@ -23,6 +24,7 @@ export function ModuleSelector() {
     },
     {
       name: "Workpack/Task",
+      disabled: true,
       userGroup: "Workprep/Foreman",
       desciption: "See details/list tagoperations",
       nav: (code: string) => {
@@ -31,6 +33,7 @@ export function ModuleSelector() {
     },
     {
       name: "Drum",
+      disabled: true,
       userGroup: "Workprep/Foreman/Drum Coordinator",
       desciption: "Create drum/cable types/ find drum for workpacks",
       nav: (code: string) => {
@@ -39,6 +42,7 @@ export function ModuleSelector() {
     },
     {
       name: "Progress",
+      disabled: true,
       userGroup: "Foreman",
       desciption: "Report progress on Cables / Equipment etc",
       nav: (code: string) => {
@@ -47,6 +51,7 @@ export function ModuleSelector() {
     },
     {
       name: "Import",
+      disabled: true,
       userGroup: "Workprep",
       desciption: "Import data to the system, like Cables/Equipment",
       nav: (code: string) => {
@@ -55,6 +60,7 @@ export function ModuleSelector() {
     },
     {
       name: "Foreman",
+      disabled: true,
       userGroup: "Workprep",
       desciption: "Import data to the system, like Cables/Equipment",
       nav: (code: string) => {
@@ -63,6 +69,7 @@ export function ModuleSelector() {
     },
     {
       name: "Op codes",
+      disabled: true,
       userGroup: "Workprep",
       desciption: "Changes to operation codes used on tag operations",
       nav: (code: string) => {
@@ -71,6 +78,7 @@ export function ModuleSelector() {
     },
     {
       name: "Compensation codes",
+      disabled: true,
       userGroup: "Workprep",
       desciption: "Changes to compensation codes used on tag operations",
       nav: (code: string) => {
@@ -91,7 +99,7 @@ export function ModuleSelector() {
   return (
     <div className="flex flex-col flex-1">
       <div className="m-auto w-4/5 mt-10 dark:text-white flex flex-col">
-        <label htmlFor="dd-select" className="text-base">Select a Project</label>
+        <label htmlFor="dd-select" className="text-sm">Select a Project</label>
         <Dropdown
           inputId="dd-select"
        
@@ -99,8 +107,8 @@ export function ModuleSelector() {
           onChange={(e) => setSelectedProject(e.value)}
           options={projects}
           optionLabel="name"
-          className="w-full text-base"
-          pt={{wrapper:{className:"border-1 bg-gray-100 dark:bg-gray-700"}}}
+          className="w-full text-sm"
+          pt={{wrapper:{className:"border-1 bg-gray-100 dark:bg-gray-700" },input:{className: "text-sm"}, item:{className: "p-2"},itemLabel:{className: "text-sm"}}}
         />
       </div>
 
@@ -115,7 +123,7 @@ export function ModuleSelector() {
                   pt={{
                     root: { className: "p-1 text-sm " },
                   }}
-                  disabled={!selectedProject}
+                  disabled={!selectedProject || rowData.disabled}
                   onClick={() => rowData.nav(selectedProject?.code)}
                 >
                   Open

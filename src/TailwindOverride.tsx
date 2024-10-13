@@ -669,7 +669,7 @@ const Tailwind = {
                         props.severity === 'danger' && !props.text && !props.outlined && !props.plain
                 },
                 { 'shadow-lg': props.raised },
-                { 'rounded-md': !props.rounded, 'rounded-full': props.rounded },
+                /* { 'rounded-md': !props.rounded, 'rounded-full': props.rounded }, */
                 {
                     'bg-transparent border-transparent': props.text && !props.plain,
                     'text-blue-500 dark:text-blue-400 hover:bg-blue-300/20': props.text && (props.severity === null || props.severity === 'info') && !props.plain,
@@ -1185,7 +1185,7 @@ const Tailwind = {
         root: ({ props }:any) => ({
             className: classNames(
                 'cursor-pointer inline-flex relative select-none',
-                'bg-white border border-gray-400 transition-colors duration-200 ease-in-out rounded-md',
+                'bg-white border border-gray-400 transition-colors duration-200 ease-in-out REMXrounded-md',
                 'dark:bg-gray-900 dark:border-blue-900/40 dark:hover:border-blue-300',
                 'w-full md:REMXw-56',
                 'hover:border-blue-500 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]',
@@ -1197,16 +1197,16 @@ const Tailwind = {
                 'cursor-pointer block flex flex-auto overflow-hidden overflow-ellipsis whitespace-nowrap relative',
                 'bg-transparent border-0 text-gray-800',
                 'dark:text-white/80',
-                'p-3 transition duration-200 bg-transparent rounded appearance-none font-sans text-base',
+                'p-3 transition duration-200 bg-transparent REMXrounded appearance-none font-sans text-base',
                 'focus:outline-none focus:shadow-none',
                 { 'pr-7': props.showClear }
             )
         }),
         trigger: {
-            className: classNames('flex items-center justify-center shrink-0', 'bg-transparent text-gray-500 w-12 rounded-tr-lg rounded-br-lg')
+            className: classNames('flex items-center justify-center shrink-0', 'bg-transparent text-gray-500 w-12 REMXrounded-tr-lg REMXrounded-br-lg')
         },
         wrapper: {
-            className: 'max-h-[200px] overflow-auto bg-white text-gray-700 border-0 rounded-md shadow-lg dark:bg-gray-900 dark:text-white/80'
+            className: 'max-h-[200px] overflow-auto bg-white text-gray-700 border-0 REMXrounded-md shadow-lg dark:bg-gray-900 dark:text-white/80'
         },
         list: 'py-3 list-none m-0 ADDX text-base',
         item: ({ context }:any) => ({

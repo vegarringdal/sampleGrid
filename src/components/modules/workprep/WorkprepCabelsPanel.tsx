@@ -15,7 +15,7 @@ export function WorkprepCabelsPanel() {
         gutterHandler: { className: "dark:bg-gray-600" },
       }}
     >
-      <SplitterPanel className="flex p-2" minSize={10} size={80}>
+      <SplitterPanel className="flex p-2" minSize={10} size={60}>
         <SimpleGridActions dataController={sources.cable} />
         <SimpleHtmlGrid
           id="1"
@@ -23,7 +23,7 @@ export function WorkprepCabelsPanel() {
           interface={sources.cable.getGridInterface()}
         />
       </SplitterPanel>
-      <SplitterPanel className="flex  overflow-hidden" minSize={0} size={20}>
+      <SplitterPanel className="flex  overflow-hidden" minSize={10} size={40}>
         <WorkprepCommonPanel></WorkprepCommonPanel>
       </SplitterPanel>
     </Splitter>

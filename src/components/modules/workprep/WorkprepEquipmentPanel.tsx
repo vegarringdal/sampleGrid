@@ -14,7 +14,7 @@ export function WorkprepEquipmentPanel() {
       gutterHandler: { className: "dark:bg-gray-600" },
     }}
   >
-    <SplitterPanel className="flex p-2" minSize={10} size={80}>
+    <SplitterPanel className="flex p-2" minSize={10} size={60}>
       <SimpleGridActions dataController={sources.equipment} />
       <SimpleHtmlGrid
         id="1"
@@ -22,7 +22,7 @@ export function WorkprepEquipmentPanel() {
         interface={sources.equipment.getGridInterface()}
       />
     </SplitterPanel>
-    <SplitterPanel className="flex  overflow-hidden" minSize={0} size={20}>
+    <SplitterPanel className="flex  overflow-hidden" minSize={10} size={40}>
       <WorkprepCommonPanel></WorkprepCommonPanel>
     </SplitterPanel>
   </Splitter>
