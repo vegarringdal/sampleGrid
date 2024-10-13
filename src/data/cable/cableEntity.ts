@@ -8,7 +8,8 @@ export type CableEntity = {
   site: string,
   const: string;
   design: string;
-  cableTypeId: string;
+  cableId: string;
+  cableDesc: string,
   cableType: string;
   cableTypeDim: string;
   dicipline: string;
@@ -34,6 +35,17 @@ export type CableEntity = {
   op12: string | null;
   op13: string | null;
   op14: string | null;
+  extString01: string | null;
+  extString02: string | null;
+  extString03: string | null;
+  extString04: string | null;
+  extString05: string | null;
+  extString06: string | null;
+  extString07: string | null;
+  extString08: string | null;
+  extString09: string | null;
+  extString10: string | null;
+  comment: string | null;
   createdBy: string | null;
   modifiedBy: string | null;
   created: Date | null;
