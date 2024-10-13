@@ -3,7 +3,8 @@ import { CableEntity } from "./cableEntity";
 import { cableServiceController } from "./cableServiceController";
 
 /**
- *
+ * This helps setup grid /configure it
+ * It will also call service controller when needed
  */
 export const cableDataController = new DataController<CableEntity>(
   {
@@ -12,7 +13,7 @@ export const cableDataController = new DataController<CableEntity>(
       {
         attribute: "id",
         type: "number",
-        readOnly: true
+        readOnly: true,
       },
       {
         attribute: "tag",
@@ -50,17 +51,17 @@ export const cableDataController = new DataController<CableEntity>(
       {
         attribute: "cableTypeId",
         type: "text",
-        readOnly: true
+        readOnly: true,
       },
       {
         attribute: "cableType",
         type: "text",
-        readOnly: true
+        readOnly: true,
       },
       {
         attribute: "cableTypeDim",
         type: "text",
-        readOnly: true
+        readOnly: true,
       },
       {
         attribute: "mc",
@@ -73,111 +74,114 @@ export const cableDataController = new DataController<CableEntity>(
       {
         attribute: "op01",
         type: "text",
-        readOnly: true
+        readOnly: true,
       },
       {
         attribute: "op02",
         type: "text",
-        readOnly: true
+        readOnly: true,
       },
       {
         attribute: "op03",
         type: "text",
-        readOnly: true
+        readOnly: true,
       },
       {
         attribute: "op04",
         type: "text",
-        readOnly: true
+        readOnly: true,
       },
       {
         attribute: "op05",
         type: "text",
-        readOnly: true
+        readOnly: true,
       },
       {
         attribute: "op06",
         type: "text",
-        readOnly: true
+        readOnly: true,
       },
       {
         attribute: "op07",
         type: "text",
-        readOnly: true
+        readOnly: true,
       },
       {
         attribute: "op08",
         type: "text",
-        readOnly: true
+        readOnly: true,
       },
       {
         attribute: "op09",
         type: "text",
-        readOnly: true
+        readOnly: true,
       },
       {
         attribute: "op10",
         type: "text",
-        readOnly: true
+        readOnly: true,
       },
       {
         attribute: "op11",
         type: "text",
-        readOnly: true
+        readOnly: true,
       },
       {
         attribute: "op12",
         type: "text",
-        readOnly: true
+        readOnly: true,
       },
       {
         attribute: "op13",
         type: "text",
-        readOnly: true
+        readOnly: true,
       },
       {
         attribute: "op14",
         type: "text",
-        readOnly: true
-      },
-      {
-        attribute: "created",
-        type: "date",
-        readOnly: true
-      },
-      {
-        attribute: "createdBy",
-        type: "text",
-        readOnly: true
-      },
-      {
-        attribute: "modified",
-        type: "date",
-        readOnly: false
+        readOnly: true,
       },
       {
         attribute: "modifiedBy",
         type: "text",
-        readOnly: true
+        readOnly: true,
+      },
+      {
+        attribute: "dicipline",
+        type: "text",
+      },
+      {
+        attribute: "status",
+        type: "text",
+      },
+      {
+        attribute: "modifiedBy",string
+      },
+      {
+        attribute: "termFrom",
+        type: "text",
+      },
+      {
+        attribute: "partAddressFrom",
+        type: "text",
+      },
+      {
+        attribute: "termTo",
+        type: "text",
+      },
+      {
+        attribute: "partAddressTo",
+        type: "text",
       },
     ],
-    colWidth: [
-      130,
-      150,
-      130,
-      120,
-      120,
-      100,
-      80,
-      80,
-      80,
-    ],
+    colWidth: [130, 80, 150, 130, 100, 150,120, 65, 65, 65, 120],
     groupCells: [
       ["tag"],
+      ["status", "dicipline", "source"],
       ["cableType", "cableTypeDim"],
-      ["fromTag", "toTag"],
+      ["fromTag", "areaFrom", "toTag", "areaTo"],
       ["const", "design", "site"],
-      ["areaFrom", "areaTo"],
+      ["termFrom", "partAddressFrom", "termTo", "partAddressTo"],
       ["mc", "com"],
       ["op01", "op02", "op03", "op04"],
       ["op05", "op06", "op07", "op08"],

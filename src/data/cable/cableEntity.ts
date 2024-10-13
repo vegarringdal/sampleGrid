@@ -11,6 +11,13 @@ export type CableEntity = {
   cableTypeId: string;
   cableType: string;
   cableTypeDim: string;
+  dicipline: string;
+  source: string;
+  status: string;
+  partAddressFrom: string;
+  partAddressTo: string;
+  termFrom: string;
+  termTo:string;
   mc: string;
   com: string;
   op01: string | null;

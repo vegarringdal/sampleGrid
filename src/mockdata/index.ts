@@ -2,11 +2,11 @@
 import { http, HttpResponse } from "msw";
 import { setupWorker } from "msw/browser";
 import {
-  CableEntity,
   getCables,
   newCable,
   updateCable,
 } from "./dummyGenerator/cable";
+import { CableEntity } from "../data/cable/cableEntity";
 
 export const handlers = [
   http.get("https://example.com/api/cables/:project", ({ params }) => {

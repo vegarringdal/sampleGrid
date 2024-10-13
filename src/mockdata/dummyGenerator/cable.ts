@@ -17,7 +17,7 @@ export function getCables() {
         tag: "JSK75FD" + String(counter).padStart(4, "0"),
         fromTag: "7589FD" + +String(counter).padStart(4, "0"),
         areaFrom: "P" + String(counter).padStart(4, "0"),
-        toTag: "7589JB - " + counter,
+        toTag: "7589JB" + String(counter).padStart(4, "0"),
         areaTo: "T" + String(counter).padStart(4, "0"),
         const: "EQUINOR",
         design: "HAUHE",
@@ -25,6 +25,13 @@ export function getCables() {
         cableTypeId: "cid" + String(counter).padStart(8, "0"),
         cableType: "BFOU(c)",
         cableTypeDim: "1x2x0.75mm2",
+        source: "ES",
+        dicipline: "LJ",
+        status: "TS",
+        partAddressFrom: "A01:X1:245",
+        partAddressTo: "B01:X1:245",
+        termFrom: "E0785-XA-"+ String(counter).padStart(4, "0"),
+        termTo: "E0775-XA-"+ String(counter).padStart(4, "0"),
         mc: "M01E" + String(counter).padStart(4, "0"),
         com: "C02E" + String(counter).padStart(4, "0"),
         op01: "PU:0",
@@ -71,3 +78,5 @@ export function deleteCable(id: number) {
 
   return cableCache.get(id);
 }
+
+
