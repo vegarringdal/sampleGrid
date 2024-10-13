@@ -155,7 +155,8 @@ export const cableDataController = new DataController<CableEntity>(
         type: "text",
       },
       {
-        attribute: "modifiedBy",string
+        attribute: "modifiedBy",
+        type: "text",
       },
       {
         attribute: "termFrom",
@@ -173,10 +174,54 @@ export const cableDataController = new DataController<CableEntity>(
         attribute: "partAddressTo",
         type: "text",
       },
+      {
+        attribute: "comment",
+        type: "text",
+      },
+      {
+        attribute: "extString01",
+        type: "text",
+      },
+      {
+        attribute: "extString02",
+        type: "text",
+      },
+      {
+        attribute: "extString03",
+        type: "text",
+      },
+      {
+        attribute: "extString04",
+        type: "text",
+      },
+      {
+        attribute: "extString05",
+        type: "text",
+      },
+      {
+        attribute: "extString06",
+        type: "text",
+      },
+      {
+        attribute: "extString07",
+        type: "text",
+      },
+      {
+        attribute: "extString08",
+        type: "text",
+      },
+      {
+        attribute: "extString09",
+        type: "text",
+      },
+      {
+        attribute: "extString10",
+        type: "text",
+      },
     ],
-    colWidth: [130, 80, 150, 130, 100, 150,120, 65, 65, 65, 120],
+    colWidth: [130, 80, 150, 130, 100, 150,120, 65, 65, 65, 200, 200, 120],
     groupCells: [
-      ["tag"],
+      ["tag", "comment"],
       ["status", "dicipline", "source"],
       ["cableType", "cableTypeDim"],
       ["fromTag", "areaFrom", "toTag", "areaTo"],
@@ -186,6 +231,8 @@ export const cableDataController = new DataController<CableEntity>(
       ["op01", "op02", "op03", "op04"],
       ["op05", "op06", "op07", "op08"],
       ["op09", "op10", "op11", "op12"],
+      ["extString01", "extString02", "extString03", "extString04"],
+      ["extString05", "extString06", "extString07", "extString08"],
       ["created", "createdBy", "modified", "modifiedBy"],
     ],
   },
