@@ -142,6 +142,21 @@ export const cableDataController = new DataController<CableEntity>(
         readOnly: true,
       },
       {
+        attribute: "modified",
+        type: "date",
+        readOnly: true,
+      },
+      {
+        attribute: "created",
+        type: "date",
+        readOnly: true,
+      },
+      {
+        attribute: "createdBy",
+        type: "text",
+        readOnly: true,
+      },
+      {
         attribute: "modifiedBy",
         type: "text",
         readOnly: true,
@@ -152,10 +167,6 @@ export const cableDataController = new DataController<CableEntity>(
       },
       {
         attribute: "status",
-        type: "text",
-      },
-      {
-        attribute: "modifiedBy",
         type: "text",
       },
       {
