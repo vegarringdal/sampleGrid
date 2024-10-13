@@ -68,25 +68,33 @@ class CableMockData {
     }
   }
 
-  reqGetAll() {
+  async wait(ms = 1000): Promise<void> {
+    return new Promise((r) => {
+      setTimeout(() => {
+        r();
+      }, ms);
+    });
+  }
+
+  async reqGetAll() {
     return Array.from(this.cache).map((v) => v[1]);
   }
 
-  reqPost(newData: CableEntity) {
+  async reqPost(newData: CableEntity) {
     this.counter += 1;
     this.cache.set(this.counter, newData);
 
     return this.cache.get(this.counter);
   }
 
-  reqPut(id: number, newData: CableEntity) {
+  async reqPut(id: number, newData: CableEntity) {
     // keeping my patch very simple, not using jsonPatch
     const oldData = this.cache.get(id) as CableEntity;
     this.cache.set(id, Object.assign(oldData, newData));
     return this.cache.get(id);
   }
 
-  reqDelete(id: number) {
+  async reqDelete(id: number) {
     this.cache.delete(id);
 
     return this.cache.get(id);
@@ -98,30 +106,32 @@ class CableMockData {
     const url = "https://example.com/api/";
 
     const handlers = [
-      http.get(`${url}cables/:project`, ({ params }) => {
+      http.get(`${url}cables/:project`, async ({ params }) => {
         console.log(`Captured a "GET /cables/${params.project}" request`);
-        return HttpResponse.json(that.reqGetAll(), { status: 200 });
+        await that.wait();
+        const data = await that.reqGetAll();
+        return HttpResponse.json(data, { status: 200 });
       }),
       http.post(`${url}/cable/:project`, async ({ params, request }) => {
         console.log(`Captured a "POST /cable/${params.project}" request`);
         const newData = (await request.json()) as CableEntity;
-        return HttpResponse.json(that.reqPost(newData), { status: 201 });
+        const data = await that.reqPost(newData);
+        return HttpResponse.json(data, { status: 201 });
       }),
       http.put(`${url}/cable/:project/:id`, async ({ params, request }) => {
         console.log(
           `Captured a "PUT /cable/${params.project}/${params.id}" request`
         );
         const newData = (await request.json()) as CableEntity;
-        return HttpResponse.json(
-          that.reqPut(parseInt(params.id as string), newData),
-          { status: 201 }
-        );
+        const data = await that.reqPut(parseInt(params.id as string), newData);
+        return HttpResponse.json(data, { status: 201 });
       }),
-      http.delete(`${url}/cable/:project/:id`, ({ params }) => {
+      http.delete(`${url}/cable/:project/:id`, async ({ params }) => {
         console.log(
           `Captured a "DELETE /cable/${params.project}/${params.id}" request`
         );
-        return HttpResponse.json(that.reqDelete(parseInt(params.id as string)), {
+        const data = await that.reqDelete(parseInt(params.id as string));
+        return HttpResponse.json(data, {
           status: 200,
         });
       }),

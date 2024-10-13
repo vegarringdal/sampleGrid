@@ -4,11 +4,7 @@ import { DataController } from "../../utils/DataController";
 export function SimpleGridActions<T>(props: {
   dataController: DataController<T>;
 }) {
-
   const cs = props.dataController.storeHook();
-
-
-
 
   const pt: ButtonPassThroughOptions = {
     root: { className: "p-1" },
@@ -42,7 +38,9 @@ export function SimpleGridActions<T>(props: {
           const config = gridInterface.saveConfig();
           config.readonly = !config.readonly;
           gridInterface.loadConfig(config);
-          props.dataController.getStore().setState({isEditmode:!cs.isEditmode});
+          props.dataController
+            .getStore()
+            .setState({ isEditmode: !cs.isEditmode });
         }}
         aria-label="edit"
       >
@@ -70,7 +68,6 @@ export function SimpleGridActions<T>(props: {
       >
         <i className="pi pi-plus"></i>
       </Button>
-  
 
       <Button
         pt={pt}
@@ -145,11 +142,10 @@ export function SimpleGridActions<T>(props: {
         onClick={() => {
           alert("Not implemented");
         }}
-             aria-label="open import helper"
+        aria-label="open import helper"
       >
         <i className="pi pi-file-import"></i>
       </Button>
-
 
       <Button
         pt={pt}

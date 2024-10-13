@@ -1,3 +1,4 @@
+import { loadingDialogStore } from "../../state/loadingDialogStore";
 import { ServiceController } from "../../utils/ServiceController";
 import { CableEntity } from "./cableEntity";
 import { cableService } from "./cableService";
@@ -16,14 +17,21 @@ export const cableServiceController = new ServiceController<CableEntity>({
     // dunno what events I want yet
 
     if (event.type === "FETCH_ALL") {
-      // call get all and update service connected datasources
+      //
+      loadingDialogStore.setState({
+        isActive: true,
+        content: "loading data, please wait",
+      });
 
-      const result = await cableService.getAll("TODO");
-  
+      // add error handling, really want all services to return Result<OK, ERRORSTRING> kinda like rust
+      const result = await cableService.getAll("TODO:PROJECT_CODE");
 
+      // update all related datasources
       service.getDataControllers().forEach((dc) => {
         dc.getGridDatasource().setData(result);
       });
+
+      loadingDialogStore.setState({ isActive: false });
     }
 
     if (event.type === "REFRESH_ALL") {

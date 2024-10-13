@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import './mockdata/index.ts'
+import "./mockdata/index.ts";
 import "./index.css";
 import "primeicons/primeicons.css";
 import { App } from "./App.tsx";
@@ -12,11 +12,11 @@ import { twMerge } from "tailwind-merge";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import TailwindOverride from "./TailwindOverride.tsx";
-
+import { LoadingDialog } from "./components/common/LoadingDialog.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-     <PrimeReactProvider
+    <PrimeReactProvider
       value={{
         unstyled: true,
         pt: TailwindOverride as unknown as never,
@@ -27,9 +27,8 @@ createRoot(document.getElementById("root")!).render(
         },
       }}
     >
-    <App />
+      <LoadingDialog />
+      <App />
     </PrimeReactProvider>
   </StrictMode>
 );
-
-
