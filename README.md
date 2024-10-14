@@ -6,3 +6,4 @@ https://vegarringdal.github.io/sampleGridInReact/
 
 
 Atm i dont know how far I will take this..
+Focus is cable register under workprep, edit here and handle error, select cable etc

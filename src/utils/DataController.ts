@@ -67,6 +67,18 @@ export class DataController<T> {
     } as GridConfig;
 
     // a LOT to do here, having it very simple for now
+    // logic for popup on related source to select item- event "cell-focus-button-click"
+    // copy/past values, + events "copy-cell" & "paste"
+    // removed from grid (dynamic column for logic only)
+    // double click on cell should open for edit
+    // readonly if logic
+    // also have minior changes I want to add to the grid component 
+    // - reset cell / reset row / reset selection
+    // - option to show deleted rows, but just tag them
+    // entity handler override, to add dynamic columns
+
+
+
     this.#datainterface.columns.forEach((c, i) => {
       const primaryCol = this.#datainterface.primaryColumn;
 
