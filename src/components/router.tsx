@@ -1,4 +1,4 @@
-import { createBrowserRouter, createHashRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import { WorkprepModule } from "./modules/workprep/WorkprepModule";
 import { ModuleSelector } from "./modules/moduleSelector/ModuleSelector";
 

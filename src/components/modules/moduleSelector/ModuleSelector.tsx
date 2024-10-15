@@ -96,6 +96,8 @@ export function ModuleSelector() {
 
   // somethign weird happening with select in unstyled mode
 
+  // TODO: dropdown should be searchable
+
   return (
     <div className="flex flex-col flex-1">
       <div className="m-auto w-4/5 mt-10 dark:text-white flex flex-col">
@@ -123,6 +125,7 @@ export function ModuleSelector() {
                   pt={{
                     root: { className: "p-1 text-sm " },
                   }}
+                  
                   disabled={!selectedProject || rowData.disabled}
                   onClick={() => rowData.nav(selectedProject?.code)}
                 >

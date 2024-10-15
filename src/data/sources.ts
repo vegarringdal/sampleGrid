@@ -51,4 +51,9 @@ export const sources = {
   comDialog: generateDummyController(),
   activityDialog: generateDummyController(),
   areaDialog: generateDummyController(),
+
+  // all projects user have access to
+  userProjects: generateDummyController(),
+  // all roles user have for each project, each project a user can have different role
+  userProjectRoles: generateDummyController(),
 };

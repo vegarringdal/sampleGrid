@@ -1,9 +1,9 @@
 import { create } from "zustand";
 
-type modeState = {
+type state = {
   isDarkTheme: boolean;
 };
 
-export const themeStore = create<modeState>(() => ({
+export const themeStore = create<state>(() => ({
   isDarkTheme: true,
 }));
