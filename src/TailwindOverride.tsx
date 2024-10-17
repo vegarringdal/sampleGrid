@@ -260,7 +260,25 @@ const Tailwind = {
         header: ({ props }:any) => ({
             className: classNames('mr-0', { 'cursor-default pointer-events-none select-none user-select-none opacity-60': props?.disabled }) // Margin and condition-based styles.
         }),
-        headerAction: ({ parent, context }) => ({
+        headerAction: ({ parent, context }) => {
+
+          
+
+            if(!parent){
+                return null
+            }
+
+            let isHover = parent.state.activeIndex !== context.index;
+            let isActive = parent.state.activeIndex === context.index;
+
+              // was cant use state if its set
+            if(parent.props.onTabChange !== null){
+                isHover = parent.props.activeIndex !== context.index;
+                isActive = parent.props.activeIndex === context.index;
+            }
+           
+            
+            return ({
             className: classNames(
                 'items-center cursor-pointer flex overflow-hidden relative select-none text-decoration-none user-select-none', // Flex and overflow styles.
                 'border-b-2 p-5 font-bold REMrounded-t-md transition-shadow duration-200 m-0', // Border, padding, font, and transition styles.
@@ -268,12 +286,12 @@ const Tailwind = {
                 'focus:outline-none focus:outline-offset-0 focus:REMshadow-[inset_0_0_0_0.2rem_rgba(191,219,254,1)] dark:REMfocus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]', // Focus styles.
                 {
                     'border-gray-300 bg-white text-gray-700 hover:bg-white hover:border-gray-400 hover:text-gray-600 dark:bg-gray-800 dark:border-blue-900/40 dark:text-white/80 dark:hover:bg-gray-800/80':
-                        parent != null ? parent.state.activeIndex !== context.index : true, // Condition-based hover styles.
-                    'bg-white border-blue-500 text-blue-500 dark:bg-gray-800 dark:border-blue-300 dark:text-blue-300': parent != null ? parent.state.activeIndex === context.index : false // Condition-based active styles.
+                        isHover, // Condition-based hover styles.
+                    'bg-white border-blue-500 text-blue-500 dark:bg-gray-800 dark:border-blue-300 dark:text-blue-300': isActive// Condition-based active styles.
                 }
             ),
             style: { marginBottom: '-2px' } // Negative margin style.
-        }),
+        })},
         headerTitle: {
             className: classNames('leading-none whitespace-nowrap') // Leading and whitespace styles.
         },
