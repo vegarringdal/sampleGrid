@@ -12,7 +12,6 @@ import { ServiceController } from "./ServiceController";
 import { DataInterface } from "./DataInterface";
 import { getDateFormater, getNumberFormater } from "./numberAndDateFormat";
 
-
 /**
  * helper for data
  * no need for edits
@@ -72,12 +71,10 @@ export class DataController<T> {
     // removed from grid (dynamic column for logic only)
     // double click on cell should open for edit
     // readonly if logic
-    // also have minior changes I want to add to the grid component 
+    // also have minior changes I want to add to the grid component
     // - reset cell / reset row / reset selection
     // - option to show deleted rows, but just tag them
     // entity handler override, to add dynamic columns
-
-
 
     this.#datainterface.columns.forEach((c, i) => {
       const primaryCol = this.#datainterface.primaryColumn;
@@ -90,8 +87,12 @@ export class DataController<T> {
           (c.label as string) || (c.attribute as string)
         ),
         placeHolderFilter: getFilterPlaceholder(c.type, null),
-        readonly: c.readOnly,
+        readonly: c.parentDataInterface ? false : c.readOnly,
         type: c.type,
+        allowPasteClearOnly: c.parentDataInterface ? true : false,
+        focusButton: c.parentDataInterface
+          ? "SHOW_IF_GRID_AND_CELL_NOT_READONLY"
+          : undefined,
       };
 
       if (c.mandatory) {
@@ -151,6 +152,45 @@ export class DataController<T> {
         return { dimmedClass: "", inputClass: "" };
       }
     );
+
+    const eventHandler = {
+      handleEvent: (event: { type: string; data?: { attribute: string } }) => {
+        console.log(event);
+
+        if (event.type === "cell-focus-button-click") {
+          // todo, open dialog based on config
+          setTimeout(() => {
+            alert("dialog not implemeted for:" + event.data?.attribute);
+          });
+
+          const config = this.#datainterface.columns.filter(
+            (e) => e.attribute === event.data?.attribute
+          )[0];
+          console.log(config);
+        }
+
+        if (event.type === "copy-cell") {
+          // todo, if coping releated we want to store last copy attribute and row
+          const config = this.#datainterface.columns.filter(
+            (e) => e.attribute === event.data?.attribute
+          )[0];
+          console.log(config);
+        }
+
+        if (event.type === "paste") {
+          // todo: if same attribute, and its one with copy options, then paste into all cells needed
+          const config = this.#datainterface.columns.filter(
+            (e) => e.attribute === event.data?.attribute
+          )[0];
+          console.log(config);
+        }
+
+        // todo: always return true to continue subscribing
+        return true;
+      },
+    };
+
+    this.#gridInterface.addEventListener(eventHandler);
   }
 
   requestRefresh() {
@@ -192,7 +232,6 @@ export class DataController<T> {
   getStore() {
     return this.#stateStore;
   }
-
 
   storeHook() {
     return this.#stateStore();

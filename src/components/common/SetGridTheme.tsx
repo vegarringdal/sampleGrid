@@ -71,6 +71,9 @@ export function SetGridTheme() {
                     .simple-html-grid-drag {
                         z-index: 70000 !important;
                     }
+                    .simple-html-grid-focus-button{
+                         z-index: 70000 !important;
+                    }
     
                     .simple-html-grid input[readonly] {
                         cursor: pointer;
@@ -151,6 +154,9 @@ export function SetGridTheme() {
                     }
                     .simple-html-grid-drag {
                         z-index: 70000 !important;
+                    }
+                    .simple-html-grid-focus-button{
+                         z-index: 70000 !important;
                     }
                     .simple-html-grid input[readonly] {
                         cursor: pointer;

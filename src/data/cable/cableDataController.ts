@@ -1,4 +1,5 @@
 import { DataController } from "../../utils/DataController";
+import "../sources";
 import { CableEntity } from "./cableEntity";
 import { cableServiceController } from "./cableServiceController";
 
@@ -26,7 +27,8 @@ export const cableDataController = new DataController<CableEntity>(
       },
       {
         attribute: "fromTag",
-        type: "text",
+        type: "text"
+        
       },
       {
         attribute: "areaFrom",
@@ -61,6 +63,13 @@ export const cableDataController = new DataController<CableEntity>(
         attribute: "cableDesc",
         type: "text",
         readOnly: true,
+        parentDataInterface:{
+          ref: "cable",
+          title: "test",
+          columnFrom: "cableId",
+          columnTo: "cableId",
+          columnsFromTo: [["cableId", "cableId"]]
+        }
       },
       {
         attribute: "cableType",

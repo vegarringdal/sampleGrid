@@ -1,6 +1,7 @@
 // early... will change my mind here..
 
 import { DataTypes } from "@simple-html/grid";
+import type { sourceNames } from "../data/sources";
 
 /**
  * configuration for dataController/service
@@ -155,7 +156,10 @@ export type DataInterfaceColumn<T> = {
    * parent is like cabletype on a drum or company on a person.
    */
   parentDataInterface?: {
-    name: string;
+    /**
+     * ref to datasoruce we will use for dialog
+     */
+    ref: keyof sourceNames;
     /**
      * title on dialog
      */
