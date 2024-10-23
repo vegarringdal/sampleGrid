@@ -260,7 +260,7 @@ const Tailwind = {
         header: ({ props }:any) => ({
             className: classNames('mr-0', { 'cursor-default pointer-events-none select-none user-select-none opacity-60': props?.disabled }) // Margin and condition-based styles.
         }),
-        headerAction: ({ parent, context }) => {
+        headerAction: ({ parent, context }:any) => {
 
           
 
@@ -991,7 +991,7 @@ const Tailwind = {
                 'opacity-60 select-none pointer-events-none cursor-default': props.disabled
             })
         }),
-        cancelItem: ({ context }:any) => ({
+        cancelItem: () => ({
             className: classNames(
                 'inline-flex items-center cursor-pointer'
 
