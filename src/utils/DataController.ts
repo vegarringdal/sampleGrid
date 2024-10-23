@@ -11,6 +11,8 @@ import { UseBoundStore, StoreApi, create } from "zustand";
 import { ServiceController } from "./ServiceController";
 import { DataInterface } from "./DataInterface";
 import { getDateFormater, getNumberFormater } from "./numberAndDateFormat";
+import { relatedDialogStore } from "../state/relatedDialogStore";
+import { sourceNames, sources } from "../data/sources";
 
 /**
  * helper for data
@@ -173,15 +175,37 @@ export class DataController<T> {
 
         if (event.type === "cell-focus-button-click") {
           // todo, open dialog based on config
-          setTimeout(() => {
-            alert("dialog not implemeted for:" + event.data?.attribute);
-          });
 
           const config = this.#datainterface.columns.filter(
             (e) => e.attribute === event.data?.attribute
           )[0];
 
-          console.log(config);
+          let sourceName;
+          const sourceKeys = Object.keys(sources);
+          sourceKeys.forEach((key) => {
+            // dunno how to make it happy atm
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            if (sources[key]) {
+              sourceName = key as keyof sourceNames;
+            }
+          });
+
+          // make sure we have eveything before continue
+          if (!sourceName) return;
+          if (!config) return;
+          if (!config.parentDataInterface) return;
+
+          relatedDialogStore
+            .getState()
+            .activateRelatedDialog(
+              sourceName as keyof sourceNames,
+              config.parentDataInterface.ref,
+              config.parentDataInterface.title,
+              config.parentDataInterface.columnFrom,
+              config.parentDataInterface.columnTo,
+              config.parentDataInterface.columnsFromTo
+            );
         }
 
         if (event.type === "copy-cell") {
@@ -316,17 +340,27 @@ export type DataChanges<T> = {
 
 export type ControllerEvent<T> =
   | {
+      // more like a force reload
       type: "FETCH_ALL";
       data: null;
     }
   | {
+      // for smarter update
+      // if we have modified column we can trust this can be useful
       type: "REFRESH_ALL";
       data: null;
     }
   | {
+      // saving
       type: "CHANGE";
       data: DataChanges<T>;
     };
+
+/**
+ * helper for updating grid operator pretty text/short text
+ * @param operator
+ * @returns
+ */
 
 export function operator(operator: Attribute["operator"]) {
   switch (operator) {

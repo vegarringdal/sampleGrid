@@ -64,7 +64,7 @@ export const cableDataController = new DataController<CableEntity>(
         parentDataInterface: {
           // when parentDataInterface is set we can only set it by dialog or copy/paste
           // source we want to use for related data
-          ref: "cable",
+          ref: "cableSortDialog",
           title: "test",
           // selecting, we want to copy/set value to
           columnFrom: "id",

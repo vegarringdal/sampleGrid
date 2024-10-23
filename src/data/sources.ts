@@ -10,7 +10,7 @@ import { equipmentEntity } from "./equipment/equipmentEntity";
 // service controller can be updated to many, and update many
 // added many so we can play around with loading dialogs etc/gui
 
-export const sources = {
+export const sources: sourceNames = {
   cable: cableDataController,
   equipment: equipmentDataController,
 
@@ -38,27 +38,30 @@ export const sources = {
   documentsCable: generateDummyController(),
 
   foreman: generateDummyController(),
-  foremanDialog: generateDummyController(), //dialog workpack
+  foremanDialog: generateDummyController(),
 
   progress: generateDummyController(),
 
   drum: generateDummyController(),
-  cabletype: generateDummyController(),
-  cableDim: generateDummyController(),
+  drumSelectCableSort: generateDummyController(),
+
   cableSort: generateDummyController(),
+  cableSortDialog: generateDummyController(),
+
+  cabletypeDim: generateDummyController(),
+  cabletypeDimDialog: generateDummyController(),
+  cabletypeType: generateDummyController(),
+  cabletypeTypeDialog: generateDummyController(),
 
   template: generateDummyController(),
   templateLines: generateDummyController(),
 
-  // dialogs task
   mcDialog: generateDummyController(),
   comDialog: generateDummyController(),
   activityDialog: generateDummyController(),
   areaDialog: generateDummyController(),
 
-  // all projects user have access to
   userProjects: generateDummyController(),
-  // all roles user have for each project, each project a user can have different role
   userProjectRoles: generateDummyController(),
 };
 
@@ -70,7 +73,7 @@ export type sourceNames = {
   equipment: DataController<equipmentEntity>;
 
   workpack: DataController<DummyData>;
-  workpackDialog: DataController<DummyData>;
+  workpackDialog: DataController<DummyData>; // for selecting under tagoperation
 
   task: DataController<DummyData>;
   taskDialog: DataController<DummyData>;
@@ -93,14 +96,20 @@ export type sourceNames = {
   documentsCable: DataController<DummyData>;
 
   foreman: DataController<DummyData>;
-  foremanDialog: DataController<DummyData>; //dialog workpack
+  foremanDialog: DataController<DummyData>; // for selecting under workpack
 
   progress: DataController<DummyData>;
 
   drum: DataController<DummyData>;
-  cabletype: DataController<DummyData>;
-  cableDim: DataController<DummyData>;
+  drumSelectCableSort: DataController<DummyData>;
+
   cableSort: DataController<DummyData>;
+  cableSortDialog: DataController<DummyData>; // for selecting under cables & drum
+
+  cabletypeDim: DataController<DummyData>;
+  cabletypeDimDialog: DataController<DummyData>; // for selecting under cableSort
+  cabletypeType: DataController<DummyData>;
+  cabletypeTypeDialog: DataController<DummyData>; // for selecting under cableSort
 
   template: DataController<DummyData>;
   templateLines: DataController<DummyData>;

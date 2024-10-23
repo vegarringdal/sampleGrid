@@ -4,6 +4,7 @@ import { Menubar } from "primereact/menubar";
 import { Router } from "./components/router";
 import { initDarkTheme, toggleDarkTheme } from "./utils/darkThemeHelpers";
 import { Button } from "primereact/button";
+import { RelatedDataDialog } from "./components/common/ RelatedDataDialog";
 
 initDarkTheme();
 ////////////////////////////////////////////////////////////////////////
@@ -14,6 +15,7 @@ initDarkTheme();
 export function App() {
   return (
     <div className="app flex flex-col flex-1 dark:bg-gray-800">
+      <RelatedDataDialog/>
       <Menubar
         start={
           <span className="p-2 text-base dark:text-gray-200">

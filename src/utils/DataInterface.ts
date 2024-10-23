@@ -167,20 +167,23 @@ export type DataInterfaceColumn<T> = {
 
     /**
      * parent api column to get
+     * todo, can I ref source selected to entity, so its more typesafe?
      */
-    columnFrom: keyof T;
+    columnFrom: string;
 
     /**
      * column to insert value from parent
+     * todo, can I ref source selected to entity, so its more typesafe?
      */
-    columnTo: keyof T;
+    columnTo: string;
 
     /**
      * parent column to update, using par string,string
      * [[fromParentColumn, toChildColumn],[fromParentColumn, toChildColumn]]
      * useful if you have many columns from parent, also depends on view
      * this is also used when doing copy/paste and you need to update related at the same time
+     * todo, can I ref source selected to entity, so its more typesafe?
      */
-    columnsFromTo?: [string, string][];
+    columnsFromTo: [string, string][];
   };
 };

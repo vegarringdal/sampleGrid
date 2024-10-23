@@ -1,18 +1,9 @@
-import { getDummyData } from "../dummyData";
+import { DummyData, getDummyData } from "../dummyData";
 import { DataController } from "../utils/DataController";
 import { ServiceController } from "../utils/ServiceController";
 
-type dummyEntity = {
-  ID: string;
-  STATUS: string;
-  DATE: Date;
-
-  LINE_EQUIPMENT: string;
-  TAG_NO: string;
-};
-
 export function generateDummyController() {
-  const equipmentServiceController = new ServiceController<dummyEntity>({
+  const equipmentServiceController = new ServiceController<DummyData>({
     handleEvent: async (service, event) => {
       // loop changes
       console.log("EVENT_TYPE", event.type);
@@ -41,16 +32,15 @@ export function generateDummyController() {
   /**
    *
    */
-  const dummyDataController = new DataController<dummyEntity>(
+  const dummyDataController = new DataController<DummyData>(
     {
+      isDeleteAllowed: true,
+      isNewAllowed: true,
+      isEditAllowed: true,
       primaryColumn: "ID",
       columns: [
         {
           attribute: "ID",
-          type: "number",
-        },
-        {
-          attribute: "STATUS",
           type: "text",
         },
         {
@@ -58,20 +48,16 @@ export function generateDummyController() {
           type: "text",
         },
         {
-          attribute: "DESCRIPTION",
+          attribute: "DISCIPLINE",
           type: "text",
         },
         {
-          attribute: "LINE_EQUIPMENT",
+          attribute: "DESCRIPTION",
           type: "text",
         },
         {
           attribute: "DOCID",
           type: "text",
-        },
-        {
-          attribute: "CREATED",
-          type: "date",
         },
       ],
     },
@@ -80,3 +66,4 @@ export function generateDummyController() {
 
   return dummyDataController;
 }
+
