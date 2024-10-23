@@ -27,8 +27,7 @@ export const cableDataController = new DataController<CableEntity>(
       },
       {
         attribute: "fromTag",
-        type: "text"
-        
+        type: "text",
       },
       {
         attribute: "areaFrom",
@@ -62,14 +61,23 @@ export const cableDataController = new DataController<CableEntity>(
       {
         attribute: "cableDesc",
         type: "text",
-        readOnly: true,
-        parentDataInterface:{
+        parentDataInterface: {
+          // when parentDataInterface is set we can only set it by dialog or copy/paste
+          // source we want to use for related data
           ref: "cable",
           title: "test",
-          columnFrom: "cableId",
+          // selecting, we want to copy/set value to
+          columnFrom: "id",
           columnTo: "cableId",
-          columnsFromTo: [["cableId", "cableId"]]
-        }
+          // other columns we need to follow roules
+          // to column will also be used when copy/paste in same source
+          columnsFromTo: [
+            ["id", "cableId"],
+            ["desc", "cableDesc"],
+            ["type", "cableType"],
+            ["dim", "cableTypeDim"],
+          ],
+        },
       },
       {
         attribute: "cableType",
