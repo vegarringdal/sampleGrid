@@ -1,12 +1,13 @@
 export type DummyData = {
-  ID: string;
-  STATUS: string;
-  DISCIPLINE: string;
-  TAG_NO: string;
-  DESCRIPTION: string;
-  DOCID: string;
-  LINE_EQUIPMENT: string;
-  CREATED: Date;
+  id: string;
+  desc: string | null;
+  type: string | null;
+  dim: string | null;
+  comment: string | null;
+  createdBy: string | null;
+  modifiedBy: string | null;
+  created: Date | null;
+  modified: Date | null;
 };
 
 export function getDummyData() {
@@ -15,21 +16,43 @@ export function getDummyData() {
   /**
    * dummy data
    */
-  const DummyRow = {
-    ID: "",
-    STATUS: "Issued for IDC",
-    DISCIPLINE: "PROCESS",
-    TAG_NO: "A-20VA001",
-    DESCRIPTION: "INLET SEP",
-    DOCID: "C232-AI-R-DS-0001",
-    LINE_EQUIPMENT: "KJSD",
-    CREATED: new Date(),
-  };
 
-  for (let i = 0; i < 10; i++) {
-    const x = structuredClone(DummyRow);
-    x.ID = "SomeUniqueKey" + i;
-    DummyRows.push(x);
+  DummyRows.push({
+    id: "cid" + String(0).padStart(8, "0"),
+    desc: "BFOU(i) - 1x2x0.75mm2",
+    type: "BFOU(i)",
+    dim: "1x2x0.75mm2",
+    comment: "",
+    createdBy: "OFTYHGE",
+    modifiedBy: "OFTYHGE",
+    created: new Date(),
+    modified: new Date(),
+  });
+
+  DummyRows.push({
+    id: "cid" + String(1).padStart(8, "0"),
+    desc: "BFOU(c) - 2x2x1.50mm2",
+    type: "BFOU(c)",
+    dim: "2x2x1.50mm2",
+    comment: "",
+    createdBy: "OFTYHGE",
+    modifiedBy: "OFTYHGE",
+    created: new Date(),
+    modified: new Date(),
+  });
+
+  for (let i = 2; i < 40; i++) {
+    DummyRows.push({
+      id: "cid" + String(i).padStart(8, "0"),
+      desc: `BFOU(c) - 2x4x1${String(i).padStart(2, "0")}.mm2`,
+      type: "BFOU(c)",
+      dim: `2x4x1${String(i).padStart(2, "0")}.mm2`,
+      comment: "",
+      createdBy: "OFTYHGE",
+      modifiedBy: "OFTYHGE",
+      created: new Date(),
+      modified: new Date(),
+    });
   }
 
   return DummyRows;

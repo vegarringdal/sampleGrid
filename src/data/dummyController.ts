@@ -21,6 +21,9 @@ export function generateDummyController() {
 
       if (event.type === "REFRESH_ALL") {
         // call get all and update service connected datasources
+        service.getDataControllers().forEach((dc) => {
+          dc.getGridDatasource().setData(getDummyData());
+        });
       }
 
       if (event.type === "CHANGE") {
@@ -37,26 +40,26 @@ export function generateDummyController() {
       isDeleteAllowed: true,
       isNewAllowed: true,
       isEditAllowed: true,
-      primaryColumn: "ID",
+      primaryColumn: "id",
       columns: [
         {
-          attribute: "ID",
+          attribute: "id",
           type: "text",
         },
         {
-          attribute: "TAG_NO",
+          attribute: "desc",
           type: "text",
         },
         {
-          attribute: "DISCIPLINE",
+          attribute: "type",
           type: "text",
         },
         {
-          attribute: "DESCRIPTION",
+          attribute: "dim",
           type: "text",
         },
         {
-          attribute: "DOCID",
+          attribute: "comment",
           type: "text",
         },
       ],
@@ -66,4 +69,3 @@ export function generateDummyController() {
 
   return dummyDataController;
 }
-

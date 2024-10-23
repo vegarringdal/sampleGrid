@@ -2,6 +2,7 @@ import { relatedDialogStore } from "../../state/relatedDialogStore";
 import { SimpleHtmlGrid } from "./SimpleHtmlGrid";
 import { ResizableDialogContainer } from "./ResizableDialogContainer";
 import { sources } from "../../data/sources";
+import { useEffect } from "react";
 
 /**
  * this is controlled by relatedDialogStore, to be loaded on application startup
@@ -10,6 +11,19 @@ import { sources } from "../../data/sources";
  */
 export function RelatedDataDialog() {
   const dataState = relatedDialogStore();
+
+  useEffect(() => {
+    function updateData() {
+      if (!dataState.active) return;
+      if (!dataState.fromSource) return;
+
+      // just fetch if there isnt any data
+      if (!sources[dataState.fromSource].getGridDatasource().length()) {
+        sources[dataState.fromSource].requestRefresh();
+      }
+    }
+    updateData();
+  }, [dataState.active, dataState.fromSource]);
 
   if (!dataState.active) {
     return null;
@@ -51,7 +65,11 @@ export function RelatedDataDialog() {
           <button
             className="ml-1 block w-36 bg-gray-300 p-2 font-semibold text-indigo-600 hover:bg-gray-400 focus:outline-none dark:bg-gray-700 dark:text-blue-400 dark:hover:bg-gray-600"
             onClick={async () => {
-              alert("reload not implemented");
+              if (!dataState.fromSource) {
+                return null;
+              }
+
+              sources[dataState.fromSource].requestRefresh();
             }}
           >
             Reload
@@ -62,10 +80,41 @@ export function RelatedDataDialog() {
           <button
             className="ml-1 block w-36 bg-gray-300 p-2 font-semibold text-indigo-600 hover:bg-gray-400 focus:outline-none dark:bg-gray-700 dark:text-blue-400 dark:hover:bg-gray-600"
             onClick={() => {
-              /**
-               * we now need to update values in datasource called
-               */
-              alert("select not implemented");
+              if (!dataState.fromSource) {
+                return null;
+              }
+
+              if (!dataState.toSource) {
+                return null;
+              }
+              
+              const currentEntityFrom =  sources[dataState.fromSource].getGridDatasource().currentEntity;
+
+              if(!currentEntityFrom) {
+                alert("select one first");
+                return;
+              }
+
+
+              const currentEntityto =  sources[dataState.toSource].getGridDatasource().currentEntity;
+              
+
+              // we need to update linked, but just the "to" part
+              // maybe we also
+              dataState.columnsFromTo?.forEach(([from, to]) => {
+                if(!currentEntityFrom) return;
+                if(!currentEntityto) return;
+
+                currentEntityto[to] = currentEntityFrom[from];
+               
+              });
+
+
+              dataState.deactivateRelatedDialog();
+
+              //force rerendering
+              sources[dataState.toSource].getGridInterface().triggerScrollEvent();
+              
             }}
           >
             Select

@@ -261,7 +261,7 @@ export const cableDataController = new DataController<CableEntity>(
       },
     ],
     // maybe groupcells should have these ?
-    colWidth: [130, 80, 150, 130, 100, 150, 120, 65, 65, 65, 200, 200, 120],
+    colWidth: [130, 80, 180, 130, 100, 150, 120, 65, 65, 65, 200, 200, 120],
     groupCells: [
       ["tag", "comment"],
       ["status", "dicipline", "source"],

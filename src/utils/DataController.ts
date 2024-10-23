@@ -186,7 +186,7 @@ export class DataController<T> {
             // dunno how to make it happy atm
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            if (sources[key]) {
+            if (sources[key] === this) {
               sourceName = key as keyof sourceNames;
             }
           });
