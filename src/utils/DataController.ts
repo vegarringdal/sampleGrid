@@ -153,8 +153,22 @@ export class DataController<T> {
       }
     );
 
+    let lastCopyEvent: {
+      attribute: string;
+      data: Record<string, unknown>;
+    } | null = null;
+
     const eventHandler = {
-      handleEvent: (event: { type: string; data?: { attribute: string } }) => {
+      handleEvent: (event: {
+        type: string;
+        data?: {
+          attribute: string;
+          // when copying
+          rowData: Record<string, unknown>;
+          // when pasting... yes bad planning
+          entity: Record<string, unknown>;
+        };
+      }) => {
         console.log(event);
 
         if (event.type === "cell-focus-button-click") {
@@ -166,23 +180,62 @@ export class DataController<T> {
           const config = this.#datainterface.columns.filter(
             (e) => e.attribute === event.data?.attribute
           )[0];
+
           console.log(config);
         }
 
         if (event.type === "copy-cell") {
-          // todo, if coping releated we want to store last copy attribute and row
-          const config = this.#datainterface.columns.filter(
-            (e) => e.attribute === event.data?.attribute
-          )[0];
-          console.log(config);
+          // we want to override copy/paste into cell
+          // since we might want releated data to come over
+          // so user do not need to refresh rows to se something like description/type/dim columns correct
+
+          const attribute = event?.data?.attribute || "!_X_!";
+          const colData = event?.data?.rowData[attribute];
+          if (colData) {
+            const rowData = event?.data?.rowData;
+            if (!rowData) return;
+            const data: Record<string, unknown> = {};
+            const keys = this.#datainterface.columns.map(
+              (e) => e.attribute
+            ) as string[];
+            keys.forEach((key) => {
+              data[key] = rowData[key];
+            });
+            lastCopyEvent = {
+              data,
+              attribute,
+            };
+            console.log(lastCopyEvent);
+          }
         }
 
         if (event.type === "paste") {
-          // todo: if same attribute, and its one with copy options, then paste into all cells needed
-          const config = this.#datainterface.columns.filter(
-            (e) => e.attribute === event.data?.attribute
-          )[0];
-          console.log(config);
+          // we want to override copy/paste into cell
+          // since we might want releated data to come over
+          // so user do not need to refresh rows to se something like description/type/dim columns correct
+
+          if (!event.data) return;
+
+          const attribute = event?.data?.attribute || "!_X_!";
+
+          if (lastCopyEvent && lastCopyEvent.attribute === attribute) {
+            const config = this.#datainterface.columns.filter(
+              (e) => e.attribute === event.data?.attribute
+            )[0];
+            if (!config) return;
+
+            // we need to update linked, but just the "to" part
+            // maybe we also
+            config.parentDataInterface?.columnsFromTo?.forEach(([, column]) => {
+              if (!lastCopyEvent) return; // ts dont understand we have it
+              if (!event.data?.entity) return;
+
+              const valueToUse = lastCopyEvent.data[column];
+              if (event.data.entity) {
+                event.data.entity[column] = valueToUse;
+              }
+            });
+          }
         }
 
         // todo: always return true to continue subscribing
