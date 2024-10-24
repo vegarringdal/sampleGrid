@@ -1,5 +1,5 @@
 import { Button, ButtonPassThroughOptions } from "primereact/button";
-import { GridController } from "../../data/utils/GridController";
+import { GridController } from "../../data/common/GridController";
 
 export function SimpleGridActions<T>(props: {
   dataController: GridController<T>;

@@ -1,9 +1,9 @@
 import { DummyData } from "../../utils/mockdata/dummyData";
-import { GridController } from "../utils/GridController";
+import { GridController } from "../common/GridController";
 import { cableDataController } from "./cableGridController";
 import { CableEntity } from "../entities/cableEntity";
-import { generateDummyController } from "../utils/dummyController";
-import { equipmentDataController } from "./equipmentGridController";
+import { generateDummyController } from "../common/dummyController";
+import { equipmentGridController } from "./equipmentGridController";
 import { equipmentEntity } from "../entities/equipmentEntity";
 
 // for now we generate some dummy datasources, can only have one datasource and gridInterface connected
@@ -12,7 +12,7 @@ import { equipmentEntity } from "../entities/equipmentEntity";
 
 export const gridControllers: GridControllerTypes = {
   cable: cableDataController,
-  equipment: equipmentDataController,
+  equipment: equipmentGridController,
 
   workpack: generateDummyController(),
   workpackDialog: generateDummyController(),

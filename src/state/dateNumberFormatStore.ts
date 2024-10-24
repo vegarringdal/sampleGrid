@@ -4,7 +4,7 @@ import {
   getDateFormat,
   getNumberFormat,
   numberType,
-} from "../data/utils/numberAndDateFormat";
+} from "../data/common/numberAndDateFormat";
 
 type setDateAndNumberStore = {
   date: dateType;

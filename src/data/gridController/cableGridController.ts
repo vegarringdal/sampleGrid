@@ -1,5 +1,4 @@
-import { GridController } from "../utils/GridController";
-import ".";
+import { GridController } from "../common/GridController";
 import { CableEntity } from "../entities/cableEntity";
 import { cableServiceController } from "../serviceController/cableServiceController";
 
