@@ -125,7 +125,8 @@ export function SimpleGridActions<T>(props: {
         tooltip="Saves selected record"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
-          alert("Not implemented");
+          console.log(props.gridController.getGridDatasource().getChanges());
+          alert("not implemented, see console log for changes, F12");
         }}
         aria-label="save selected"
       >
@@ -163,11 +164,11 @@ export function SimpleGridActions<T>(props: {
       <Button
         pt={pt}
         disabled={cs.isEditmode}
-        tooltip="Prints all edits to console (debug only)"
+        tooltip="Dialog showing changes, like a undo editor"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
-          console.log(props.gridController.getGridDatasource().getChanges());
-          alert("see console log, F12");
+        
+          alert("Not implemented");
         }}
         aria-label="debug/print changes"
       >
