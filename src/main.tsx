@@ -11,7 +11,7 @@ import { twMerge } from "tailwind-merge";
 // import Tailwind from "primereact/passthrough/tailwind";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import TailwindOverride from "./TailwindOverride.tsx";
+import TailwindOverride from "./utils/TailwindOverride.tsx";
 import { LoadingDialog } from "./components/common/LoadingDialog.tsx";
 
 createRoot(document.getElementById("root")!).render(
