@@ -7,7 +7,7 @@ import type { GridControllerTypes } from "../gridController";
  * configuration for dataController/service
  * want to try and have most as optional
  */
-export type DataInterface<T> = {
+export type GridControllerConfig<T> = {
   /**
    * primary key, will use for selection during reload/delete/update
    * either 1 or many to generate key
@@ -36,7 +36,7 @@ export type DataInterface<T> = {
   /**
    * columns we can edit/ custom headername etc
    */
-  columns: DataInterfaceColumn<T>[];
+  columns: GridControllerConfigColumn<T>[];
 
   /**
    * sort order
@@ -79,7 +79,8 @@ export type DataInterface<T> = {
   importColumns?: Record<keyof T, keyof T | keyof T[]>;
 };
 
-export type DataInterfaceColumn<T> = {
+
+export type GridControllerConfigColumn<T> = {
   /**
    * name of attribute
    */

@@ -9,17 +9,17 @@ import {
 } from "@simple-html/grid";
 import { UseBoundStore, StoreApi, create } from "zustand";
 import { ServiceController } from "./ServiceController";
-import { DataInterface } from "./DataInterface";
+import { GridControllerConfig } from "./GridControllerConfig";
 import { getDateFormater, getNumberFormater } from "./numberAndDateFormat";
 import { relatedDialogStore } from "../../state/relatedDialogStore";
 import { GridControllerTypes, gridControllers } from "../gridController";
 
 /**
- * helper for data
- * no need for edits
+ * helper for controlling grid
+ * no need for edits, common data
  */
 export class GridController<T> {
-  #datainterface: DataInterface<T>;
+  #datainterface: GridControllerConfig<T>;
   #gridDatasource: Datasource<T>;
   #gridInterface: GridInterface<T>;
   #stateStore: UseBoundStore<StoreApi<GridControllerState>>;
@@ -27,7 +27,7 @@ export class GridController<T> {
   #service: ServiceController<T>;
 
   constructor(
-    datainterface: DataInterface<T>,
+    datainterface: GridControllerConfig<T>,
     serviceController: ServiceController<T>
   ) {
     this.#datainterface = datainterface;

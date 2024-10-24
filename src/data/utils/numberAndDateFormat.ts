@@ -67,7 +67,7 @@ export function getNumberFormater() {
 /**
  * updates all datasources
  */
-export function updateAllDataControllers() {
+export function updateAllGridControllers() {
   const sourceKeys = Object.keys(gridControllers);
 
   sourceKeys.forEach((k) => {

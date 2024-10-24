@@ -3,7 +3,7 @@ import { GridController, ControllerEvent } from "./GridController";
 /**
  * helper for service
  * no need for editing
- * one service might serve multiple data controllers.
+ * one service might serve multiple grid controllers.
  */
 export class ServiceController<T> {
   #dataController: GridController<T>[] = [];
