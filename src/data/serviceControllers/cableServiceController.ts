@@ -1,5 +1,6 @@
 import { loadingDialogStore } from "../../state/loadingDialogStore";
 import { ServiceController } from "../common/ServiceController";
+import { CreateTagoperationsEvent } from "../customEvents/createTagOperations";
 import { CableEntity } from "../entities/cableEntity";
 import { cableService } from "../services/cableService";
 
@@ -7,7 +8,16 @@ import { cableService } from "../services/cableService";
  * handles event from dataController
  * use this to call service
  */
-export const cableServiceController = new ServiceController<CableEntity>({
+export const cableServiceController = new ServiceController<
+  CableEntity,
+  CreateTagoperationsEvent
+>({
+  handleEventCustom: async (service, event) => {
+    console.log("EVENT_TYPE", event.type);
+    console.log("EVENT_DATA", event.data);
+    console.log("EVENT_SERVICE", service);
+  },
+
   handleEvent: async (service, event) => {
     // loop changes
     console.log("EVENT_TYPE", event.type);

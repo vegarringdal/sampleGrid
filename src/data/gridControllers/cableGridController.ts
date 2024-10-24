@@ -1,8 +1,9 @@
 import { GridController } from "../common/GridController";
+import { CreateTagoperationsEvent } from "../customEvents/createTagOperations";
 import { CableEntity } from "../entities/cableEntity";
 import { cableServiceController } from "../serviceControllers/cableServiceController";
 
-export const cableGridController = new GridController<CableEntity>(
+export const cableGridController = new GridController<CableEntity, CreateTagoperationsEvent>(
   {
     isDeleteAllowed: true,
     isNewAllowed: true,
@@ -275,3 +276,6 @@ export const cableGridController = new GridController<CableEntity>(
   },
   cableServiceController
 );
+
+// custom event is for creating tagoperations later
+//cableGridController.requestCustomEvent({type:"CREATE_TAGOP", data: ...})

@@ -18,17 +18,17 @@ import { GridControllerTypes, gridControllers } from "../gridControllers";
  * helper for controlling grid
  * no need for edits, common data
  */
-export class GridController<T> {
+export class GridController<T, U=unknown> {
   #datainterface: GridControllerConfig<T>;
   #gridDatasource: Datasource<T>;
   #gridInterface: GridInterface<T>;
   #stateStore: UseBoundStore<StoreApi<GridControllerState>>;
   #initgridConfig: GridConfig;
-  #service: ServiceController<T>;
+  #service: ServiceController<T, U>;
 
   constructor(
     datainterface: GridControllerConfig<T>,
-    serviceController: ServiceController<T>
+    serviceController: ServiceController<T, U>
   ) {
     this.#datainterface = datainterface;
     this.#initgridConfig = this.#generateGridConfig();
@@ -302,8 +302,8 @@ export class GridController<T> {
    * will need something for this
    * @param event
    */
-  requestCustomEvent(event: ControllerEvent<T>) {
-    this.#service.callEventHandler(event);
+  requestCustomEvent(event: U) {
+    this.#service.callEventHandlerCustom(event);
   }
 
   getStore() {

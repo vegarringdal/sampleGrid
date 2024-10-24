@@ -5,12 +5,20 @@ import { GridController, ControllerEvent } from "./GridController";
  * no need for editing
  * one service might serve multiple grid controllers.
  */
-export class ServiceController<T> {
-  #dataController: GridController<T>[] = [];
-  #eventHandler: ServiceEventHandler<T>;
+export class ServiceController<T, E = unknown> {
+  #dataController: GridController<T, E>[] = [];
+  #eventHandler: ServiceEventHandler<T, E>;
 
-  connectDataSource(dataController: GridController<T>) {
+  connectDataSource(dataController: GridController<T, E>) {
     this.#dataController.push(dataController);
+  }
+
+  async callEventHandlerCustom(event: E) {
+    if (!this.#eventHandler.handleEventCustom) {
+      console.error("MISSING CUSTOM EVENT HANDLER");
+      return;
+    }
+    await this.#eventHandler.handleEventCustom(this, event);
   }
 
   async callEventHandler(event: ControllerEvent<T>) {
@@ -21,7 +29,7 @@ export class ServiceController<T> {
     return this.#dataController;
   }
 
-  constructor(eventHandler: ServiceEventHandler<T>) {
+  constructor(eventHandler: ServiceEventHandler<T, E>) {
     this.#eventHandler = eventHandler;
   }
 }
@@ -30,9 +38,13 @@ export class ServiceController<T> {
 // helper classes, dont want 1 file per
 //////////////////////////////////////////////
 
-export type ServiceEventHandler<T> = {
+export type ServiceEventHandler<T, U> = {
+  handleEventCustom?: (
+    service: ServiceController<T, U>,
+    event: U
+  ) => Promise<void>;
   handleEvent: (
-    service: ServiceController<T>,
+    service: ServiceController<T, U>,
     event: ControllerEvent<T>
   ) => Promise<void>;
 };
