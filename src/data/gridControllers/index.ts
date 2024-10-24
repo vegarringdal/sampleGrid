@@ -2,7 +2,7 @@ import { DummyData } from "../../utils/mockdata/dummyData";
 import { GridController } from "../common/GridController";
 import { cableGridController } from "./cableGridController";
 import { CableEntity } from "../entities/cableEntity";
-import { generateDummyController } from "../common/dummyController";
+import { generateDummyGridController } from "../../utils/mockdata/dummyController";
 import { equipmentGridController } from "./equipmentGridController";
 import { equipmentEntity } from "../entities/equipmentEntity";
 
@@ -16,55 +16,55 @@ export const gridControllers: GridControllerTypes = {
   cable: cableGridController,
   equipment: equipmentGridController,
 
-  workpack: generateDummyController(),
-  workpackDialog: generateDummyController(),
+  workpack: generateDummyGridController(),
+  workpackDialog: generateDummyGridController(),
 
-  task: generateDummyController(),
-  taskDialog: generateDummyController(),
+  task: generateDummyGridController(),
+  taskDialog: generateDummyGridController(),
 
-  opCodes: generateDummyController(),
-  opCodesDialog: generateDummyController(),
+  opCodes: generateDummyGridController(),
+  opCodesDialog: generateDummyGridController(),
 
-  compcodes: generateDummyController(),
-  compcodesDialog: generateDummyController(),
+  compcodes: generateDummyGridController(),
+  compcodesDialog: generateDummyGridController(),
 
-  tagOperations: generateDummyController(),
-  tagOperationsSelectedWorkpack: generateDummyController(),
-  tagOperationsSelectedTask: generateDummyController(),
+  tagOperations: generateDummyGridController(),
+  tagOperationsSelectedWorkpack: generateDummyGridController(),
+  tagOperationsSelectedTask: generateDummyGridController(),
 
-  routingAll: generateDummyController(),
-  routingSelected: generateDummyController(),
+  routingAll: generateDummyGridController(),
+  routingSelected: generateDummyGridController(),
 
-  documentsAll: generateDummyController(),
-  documentsEquip: generateDummyController(),
-  documentsCable: generateDummyController(),
+  documentsAll: generateDummyGridController(),
+  documentsEquip: generateDummyGridController(),
+  documentsCable: generateDummyGridController(),
 
-  foreman: generateDummyController(),
-  foremanDialog: generateDummyController(),
+  foreman: generateDummyGridController(),
+  foremanDialog: generateDummyGridController(),
 
-  progress: generateDummyController(),
+  progress: generateDummyGridController(),
 
-  drum: generateDummyController(),
-  drumSelectCableSort: generateDummyController(),
+  drum: generateDummyGridController(),
+  drumSelectCableSort: generateDummyGridController(),
 
-  cableSort: generateDummyController(),
-  cableSortDialog: generateDummyController(),
+  cableSort: generateDummyGridController(),
+  cableSortDialog: generateDummyGridController(),
 
-  cabletypeDim: generateDummyController(),
-  cabletypeDimDialog: generateDummyController(),
-  cabletypeType: generateDummyController(),
-  cabletypeTypeDialog: generateDummyController(),
+  cabletypeDim: generateDummyGridController(),
+  cabletypeDimDialog: generateDummyGridController(),
+  cabletypeType: generateDummyGridController(),
+  cabletypeTypeDialog: generateDummyGridController(),
 
-  template: generateDummyController(),
-  templateLines: generateDummyController(),
+  template: generateDummyGridController(),
+  templateLines: generateDummyGridController(),
 
-  mcDialog: generateDummyController(),
-  comDialog: generateDummyController(),
-  activityDialog: generateDummyController(),
-  areaDialog: generateDummyController(),
+  mcDialog: generateDummyGridController(),
+  comDialog: generateDummyGridController(),
+  activityDialog: generateDummyGridController(),
+  areaDialog: generateDummyGridController(),
 
-  userProjects: generateDummyController(),
-  userProjectRoles: generateDummyController(),
+  userProjects: generateDummyGridController(),
+  userProjectRoles: generateDummyGridController(),
 };
 
 

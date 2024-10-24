@@ -1,8 +1,13 @@
-import { DummyData, getDummyData } from "../../utils/mockdata/dummyData";
-import { GridController } from "./GridController";
-import { ServiceController } from "./ServiceController";
+import { DummyData, getDummyData } from "./dummyData";
+import { GridController } from "../../data/common/GridController";
+import { ServiceController } from "../../data/common/ServiceController";
 
-export function generateDummyController() {
+/**
+ * just a dummy helper to get started
+ * can be deleted later
+ * @returns 
+ */
+export function generateDummyGridController() {
   const equipmentServiceController = new ServiceController<DummyData>({
     handleEvent: async (service, event) => {
       // loop changes
