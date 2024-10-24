@@ -2,7 +2,7 @@
 // maybe make a wrapper class later, so its ewasuer to create many
 
 import { http, HttpResponse } from "msw";
-import { CableEntity } from "../data/cable/cableEntity";
+import { CableEntity } from "../data/entities/cableEntity";
 
 class CableMockData {
   cache = new Map<number, CableEntity>();

@@ -1,7 +1,7 @@
 import { loadingDialogStore } from "../../state/loadingDialogStore";
 import { ServiceController } from "../../utils/ServiceController";
-import { CableEntity } from "./cableEntity";
-import { cableService } from "./cableService";
+import { CableEntity } from "../entities/cableEntity";
+import { cableService } from "../services/cableService";
 
 /**
  * handles event from dataController

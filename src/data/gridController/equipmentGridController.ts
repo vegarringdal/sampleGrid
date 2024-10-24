@@ -1,11 +1,11 @@
-import { DataController } from "../../utils/DataController";
-import { equipmentEntity } from "./equipmentEntity";
-import { equipmentServiceController } from "./equipmentServiceController";
+import { GridController } from "../../utils/GridController";
+import { equipmentEntity } from "../entities/equipmentEntity";
+import { equipmentServiceController } from "../serviceController/equipmentServiceController";
 
 /**
  *
  */
-export const equipmentDataController = new DataController<equipmentEntity>(
+export const equipmentDataController = new GridController<equipmentEntity>(
   {
     primaryColumn: "ID",
     columns: [

@@ -18,11 +18,11 @@ import { sourceNames, sources } from "../data/sources";
  * helper for data
  * no need for edits
  */
-export class DataController<T> {
+export class GridController<T> {
   #datainterface: DataInterface<T>;
   #gridDatasource: Datasource<T>;
   #gridInterface: GridInterface<T>;
-  #stateStore: UseBoundStore<StoreApi<DataControllerState>>;
+  #stateStore: UseBoundStore<StoreApi<GridControllerState>>;
   #initgridConfig: GridConfig;
   #service: ServiceController<T>;
 
@@ -40,7 +40,7 @@ export class DataController<T> {
       this.#initgridConfig,
       this.#gridDatasource
     );
-    this.#stateStore = create<DataControllerState>(() => ({
+    this.#stateStore = create<GridControllerState>(() => ({
       isLoading: false,
       isEditmode: false,
 
@@ -327,12 +327,12 @@ export class DataController<T> {
 // helper classes/function , dont want 1 file per
 //////////////////////////////////////////////
 
-export type DataControllerState = {
+export type GridControllerState = {
   isLoading: boolean;
   isEditmode: boolean;
 };
 
-export type DataChanges<T> = {
+export type GridChanges<T> = {
   newEntities: Partial<T>[];
   deletedEntities: Partial<T>[];
   modifiedEntities: Partial<T>[];
@@ -353,7 +353,7 @@ export type ControllerEvent<T> =
   | {
       // saving
       type: "CHANGE";
-      data: DataChanges<T>;
+      data: GridChanges<T>;
     };
 
 /**

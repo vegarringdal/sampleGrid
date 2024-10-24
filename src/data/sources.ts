@@ -1,10 +1,10 @@
 import { DummyData } from "../dummyData";
-import { DataController } from "../utils/DataController";
-import { cableDataController } from "./cable/cableDataController";
-import { CableEntity } from "./cable/cableEntity";
+import { GridController } from "../utils/GridController";
+import { cableDataController } from "./gridController/cableGridController";
+import { CableEntity } from "./entities/cableEntity";
 import { generateDummyController } from "./dummyController";
-import { equipmentDataController } from "./equipment/equipmentDataController";
-import { equipmentEntity } from "./equipment/equipmentEntity";
+import { equipmentDataController } from "./gridController/equipmentGridController";
+import { equipmentEntity } from "./entities/equipmentEntity";
 
 // for now we generate some dummy datasources, can only have one datasource and gridInterface connected
 // service controller can be updated to many, and update many
@@ -69,59 +69,59 @@ export const sources: sourceNames = {
 // we cant have direct ref, since we also create it here
 
 export type sourceNames = {
-  cable: DataController<CableEntity>;
-  equipment: DataController<equipmentEntity>;
+  cable: GridController<CableEntity>;
+  equipment: GridController<equipmentEntity>;
 
-  workpack: DataController<DummyData>;
-  workpackDialog: DataController<DummyData>; // for selecting under tagoperation
+  workpack: GridController<DummyData>;
+  workpackDialog: GridController<DummyData>; // for selecting under tagoperation
 
-  task: DataController<DummyData>;
-  taskDialog: DataController<DummyData>;
+  task: GridController<DummyData>;
+  taskDialog: GridController<DummyData>;
 
-  opCodes: DataController<DummyData>;
-  opCodesDialog: DataController<DummyData>;
+  opCodes: GridController<DummyData>;
+  opCodesDialog: GridController<DummyData>;
 
-  compcodes: DataController<DummyData>;
-  compcodesDialog: DataController<DummyData>;
+  compcodes: GridController<DummyData>;
+  compcodesDialog: GridController<DummyData>;
 
-  tagOperations: DataController<DummyData>;
-  tagOperationsSelectedWorkpack: DataController<DummyData>;
-  tagOperationsSelectedTask: DataController<DummyData>;
+  tagOperations: GridController<DummyData>;
+  tagOperationsSelectedWorkpack: GridController<DummyData>;
+  tagOperationsSelectedTask: GridController<DummyData>;
 
-  routingAll: DataController<DummyData>;
-  routingSelected: DataController<DummyData>;
+  routingAll: GridController<DummyData>;
+  routingSelected: GridController<DummyData>;
 
-  documentsAll: DataController<DummyData>;
-  documentsEquip: DataController<DummyData>;
-  documentsCable: DataController<DummyData>;
+  documentsAll: GridController<DummyData>;
+  documentsEquip: GridController<DummyData>;
+  documentsCable: GridController<DummyData>;
 
-  foreman: DataController<DummyData>;
-  foremanDialog: DataController<DummyData>; // for selecting under workpack
+  foreman: GridController<DummyData>;
+  foremanDialog: GridController<DummyData>; // for selecting under workpack
 
-  progress: DataController<DummyData>;
+  progress: GridController<DummyData>;
 
-  drum: DataController<DummyData>;
-  drumSelectCableSort: DataController<DummyData>;
+  drum: GridController<DummyData>;
+  drumSelectCableSort: GridController<DummyData>;
 
-  cableSort: DataController<DummyData>;
-  cableSortDialog: DataController<DummyData>; // for selecting under cables & drum
+  cableSort: GridController<DummyData>;
+  cableSortDialog: GridController<DummyData>; // for selecting under cables & drum
 
-  cabletypeDim: DataController<DummyData>;
-  cabletypeDimDialog: DataController<DummyData>; // for selecting under cableSort
-  cabletypeType: DataController<DummyData>;
-  cabletypeTypeDialog: DataController<DummyData>; // for selecting under cableSort
+  cabletypeDim: GridController<DummyData>;
+  cabletypeDimDialog: GridController<DummyData>; // for selecting under cableSort
+  cabletypeType: GridController<DummyData>;
+  cabletypeTypeDialog: GridController<DummyData>; // for selecting under cableSort
 
-  template: DataController<DummyData>;
-  templateLines: DataController<DummyData>;
+  template: GridController<DummyData>;
+  templateLines: GridController<DummyData>;
 
   // dialogs task
-  mcDialog: DataController<DummyData>;
-  comDialog: DataController<DummyData>;
-  activityDialog: DataController<DummyData>;
-  areaDialog: DataController<DummyData>;
+  mcDialog: GridController<DummyData>;
+  comDialog: GridController<DummyData>;
+  activityDialog: GridController<DummyData>;
+  areaDialog: GridController<DummyData>;
 
   // all projects user have access to
-  userProjects: DataController<DummyData>;
+  userProjects: GridController<DummyData>;
   // all roles user have for each project, each project a user can have different role
-  userProjectRoles: DataController<DummyData>;
+  userProjectRoles: GridController<DummyData>;
 };

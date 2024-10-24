@@ -1,5 +1,5 @@
 import { DummyData, getDummyData } from "../dummyData";
-import { DataController } from "../utils/DataController";
+import { GridController } from "../utils/GridController";
 import { ServiceController } from "../utils/ServiceController";
 
 export function generateDummyController() {
@@ -35,7 +35,7 @@ export function generateDummyController() {
   /**
    *
    */
-  const dummyDataController = new DataController<DummyData>(
+  const dummyDataController = new GridController<DummyData>(
     {
       isDeleteAllowed: true,
       isNewAllowed: true,

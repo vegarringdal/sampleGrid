@@ -1,8 +1,8 @@
 import { Button, ButtonPassThroughOptions } from "primereact/button";
-import { DataController } from "../../utils/DataController";
+import { GridController } from "../../utils/GridController";
 
 export function SimpleGridActions<T>(props: {
-  dataController: DataController<T>;
+  dataController: GridController<T>;
 }) {
   const cs = props.dataController.storeHook();
 

@@ -8,10 +8,10 @@ import {
 } from "@simple-html/grid";
 import { sources } from "../data/sources";
 import {
-  DataController,
+  GridController,
   getFilterPlaceholder,
   getRowPlaceholder,
-} from "../utils/DataController";
+} from "./GridController";
 
 export type numberType = "DOT" | "COMMA";
 export type dateType =
@@ -73,7 +73,7 @@ export function updateAllDataControllers() {
   sourceKeys.forEach((k) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    const dataController: DataController<unknown> = sources[k];
+    const dataController: GridController<unknown> = sources[k];
     const datasource = dataController.getGridDatasource();
     const gridInterface = dataController.getGridInterface();
     datasource.setDateFormater(getDateFormater());

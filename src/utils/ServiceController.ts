@@ -1,4 +1,4 @@
-import { DataController, ControllerEvent } from "./DataController";
+import { GridController, ControllerEvent } from "./GridController";
 
 /**
  * helper for service
@@ -6,10 +6,10 @@ import { DataController, ControllerEvent } from "./DataController";
  * one service might serve multiple data controllers.
  */
 export class ServiceController<T> {
-  #dataController: DataController<T>[] = [];
+  #dataController: GridController<T>[] = [];
   #eventHandler: ServiceEventHandler<T>;
 
-  connectDataSource(dataController: DataController<T>) {
+  connectDataSource(dataController: GridController<T>) {
     this.#dataController.push(dataController);
   }
 
