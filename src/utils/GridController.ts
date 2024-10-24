@@ -12,7 +12,7 @@ import { ServiceController } from "./ServiceController";
 import { DataInterface } from "./DataInterface";
 import { getDateFormater, getNumberFormater } from "./numberAndDateFormat";
 import { relatedDialogStore } from "../state/relatedDialogStore";
-import { sourceNames, sources } from "../data/sources";
+import { GridControllerTypes, gridControllers } from "../data/gridController";
 
 /**
  * helper for data
@@ -181,13 +181,13 @@ export class GridController<T> {
           )[0];
 
           let sourceName;
-          const sourceKeys = Object.keys(sources);
+          const sourceKeys = Object.keys(gridControllers);
           sourceKeys.forEach((key) => {
             // dunno how to make it happy atm
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            if (sources[key] === this) {
-              sourceName = key as keyof sourceNames;
+            if (gridControllers[key] === this) {
+              sourceName = key as keyof GridControllerTypes;
             }
           });
 
@@ -199,7 +199,7 @@ export class GridController<T> {
           relatedDialogStore
             .getState()
             .activateRelatedDialog(
-              sourceName as keyof sourceNames,
+              sourceName as keyof GridControllerTypes,
               config.parentDataInterface.ref,
               config.parentDataInterface.title,
               config.parentDataInterface.columnFrom,

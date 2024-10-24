@@ -1,7 +1,7 @@
 // early... will change my mind here..
 
 import { DataTypes } from "@simple-html/grid";
-import type { sourceNames } from "../data/sources";
+import type { GridControllerTypes } from "../data/gridController";
 
 /**
  * configuration for dataController/service
@@ -159,7 +159,7 @@ export type DataInterfaceColumn<T> = {
     /**
      * ref to datasoruce we will use for dialog
      */
-    ref: keyof sourceNames;
+    ref: keyof GridControllerTypes;
     /**
      * title on dialog
      */

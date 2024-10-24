@@ -1,16 +1,16 @@
-import { DummyData } from "../utils/mockdata/dummyData";
-import { GridController } from "../utils/GridController";
-import { cableDataController } from "./gridController/cableGridController";
-import { CableEntity } from "./entities/cableEntity";
-import { generateDummyController } from "./dummyController";
-import { equipmentDataController } from "./gridController/equipmentGridController";
-import { equipmentEntity } from "./entities/equipmentEntity";
+import { DummyData } from "../../utils/mockdata/dummyData";
+import { GridController } from "../../utils/GridController";
+import { cableDataController } from "./cableGridController";
+import { CableEntity } from "../entities/cableEntity";
+import { generateDummyController } from "../utils/dummyController";
+import { equipmentDataController } from "./equipmentGridController";
+import { equipmentEntity } from "../entities/equipmentEntity";
 
 // for now we generate some dummy datasources, can only have one datasource and gridInterface connected
 // service controller can be updated to many, and update many
 // added many so we can play around with loading dialogs etc/gui
 
-export const sources: sourceNames = {
+export const gridControllers: GridControllerTypes = {
   cable: cableDataController,
   equipment: equipmentDataController,
 
@@ -68,7 +68,7 @@ export const sources: sourceNames = {
 // need type declaration, since we want to ref to sources in datacontroller config
 // we cant have direct ref, since we also create it here
 
-export type sourceNames = {
+export type GridControllerTypes = {
   cable: GridController<CableEntity>;
   equipment: GridController<equipmentEntity>;
 

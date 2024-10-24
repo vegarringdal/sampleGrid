@@ -1,17 +1,17 @@
 import { create } from "zustand";
-import { sourceNames } from "../data/sources";
+import { GridControllerTypes } from "../data/gridController";
 
 type RelatedDialogState = {
-    toSource: keyof sourceNames | null;
-    fromSource: keyof sourceNames | null;
+    toSource: keyof GridControllerTypes | null;
+    fromSource: keyof GridControllerTypes | null;
     title: string;
     columnFrom: string;
     columnTo: string;
     columnsFromTo?: string[][];
     active: boolean;
     activateRelatedDialog: (
-        toSource: keyof sourceNames ,
-        fromSource: keyof sourceNames,
+        toSource: keyof GridControllerTypes ,
+        fromSource: keyof GridControllerTypes,
         title: string,
         columnFrom: string,
         columnTo: string,
@@ -33,8 +33,8 @@ export const relatedDialogStore = create<RelatedDialogState>((set) => ({
     columnTo: "",
     columnsFromTo: [],
     activateRelatedDialog: (
-        toSource: keyof sourceNames ,
-        fromSource: keyof sourceNames,
+        toSource: keyof GridControllerTypes ,
+        fromSource: keyof GridControllerTypes,
         title: string,
         columnFrom: string,
         columnTo: string,

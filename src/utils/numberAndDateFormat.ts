@@ -6,7 +6,7 @@ import {
   DateFormaterDDMMYYYYTHHMMSS,
   DateFormaterYYYYMMDDTHHMMSS,
 } from "@simple-html/grid";
-import { sources } from "../data/sources";
+import { gridControllers } from "../data/gridController";
 import {
   GridController,
   getFilterPlaceholder,
@@ -68,12 +68,12 @@ export function getNumberFormater() {
  * updates all datasources
  */
 export function updateAllDataControllers() {
-  const sourceKeys = Object.keys(sources);
+  const sourceKeys = Object.keys(gridControllers);
 
   sourceKeys.forEach((k) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    const dataController: GridController<unknown> = sources[k];
+    const dataController: GridController<unknown> = gridControllers[k];
     const datasource = dataController.getGridDatasource();
     const gridInterface = dataController.getGridInterface();
     datasource.setDateFormater(getDateFormater());

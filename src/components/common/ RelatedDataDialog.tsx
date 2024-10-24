@@ -1,7 +1,7 @@
 import { relatedDialogStore } from "../../state/relatedDialogStore";
 import { SimpleHtmlGrid } from "./SimpleHtmlGrid";
 import { ResizableDialogContainer } from "./ResizableDialogContainer";
-import { sources } from "../../data/sources";
+import { gridControllers } from "../../data/gridController";
 import { useEffect } from "react";
 
 /**
@@ -18,8 +18,8 @@ export function RelatedDataDialog() {
       if (!dataState.fromSource) return;
 
       // just fetch if there isnt any data
-      if (!sources[dataState.fromSource].getGridDatasource().length()) {
-        sources[dataState.fromSource].requestRefresh();
+      if (!gridControllers[dataState.fromSource].getGridDatasource().length()) {
+        gridControllers[dataState.fromSource].requestRefresh();
       }
     }
     updateData();
@@ -37,7 +37,7 @@ export function RelatedDataDialog() {
     return null;
   }
 
-  const gridInterface = sources[dataState.fromSource].getGridInterface();
+  const gridInterface = gridControllers[dataState.fromSource].getGridInterface();
   return (
     <ResizableDialogContainer
       adjustOnLoad={true}
@@ -69,7 +69,7 @@ export function RelatedDataDialog() {
                 return null;
               }
 
-              sources[dataState.fromSource].requestRefresh();
+              gridControllers[dataState.fromSource].requestRefresh();
             }}
           >
             Reload
@@ -88,7 +88,7 @@ export function RelatedDataDialog() {
                 return null;
               }
               
-              const currentEntityFrom =  sources[dataState.fromSource].getGridDatasource().currentEntity;
+              const currentEntityFrom =  gridControllers[dataState.fromSource].getGridDatasource().currentEntity;
 
               if(!currentEntityFrom) {
                 alert("select one first");
@@ -96,7 +96,7 @@ export function RelatedDataDialog() {
               }
 
 
-              const currentEntityto =  sources[dataState.toSource].getGridDatasource().currentEntity;
+              const currentEntityto =  gridControllers[dataState.toSource].getGridDatasource().currentEntity;
               
 
               // we need to update linked, but just the "to" part
@@ -113,7 +113,7 @@ export function RelatedDataDialog() {
               dataState.deactivateRelatedDialog();
 
               //force rerendering
-              sources[dataState.toSource].getGridInterface().triggerScrollEvent();
+              gridControllers[dataState.toSource].getGridInterface().triggerScrollEvent();
               
             }}
           >
