@@ -2,9 +2,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { useEffect, useRef, useState } from "react";
-import { initPositionHandler } from "./resizableDialogUtils/initPositionHandler";
-import { resizeHandler } from "./resizableDialogUtils/resizeHandler";
-import { MinMaximizeIcon } from "./resizableDialogUtils/minMaximizeIcon";
+import { initPositionHandler } from "./resizableDialogCommon/initPositionHandler";
+import { resizeHandler } from "./resizableDialogCommon/resizeHandler";
+import { MinMaximizeIcon } from "./resizableDialogCommon/minMaximizeIcon";
 
 /**
  * helper to generate resizable container you can also mouse around

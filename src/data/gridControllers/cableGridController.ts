@@ -2,11 +2,7 @@ import { GridController } from "../common/GridController";
 import { CableEntity } from "../entities/cableEntity";
 import { cableServiceController } from "../serviceControllers/cableServiceController";
 
-/**
- * This helps setup grid /configure it
- * It will also call service controller when needed
- */
-export const cableDataController = new GridController<CableEntity>(
+export const cableGridController = new GridController<CableEntity>(
   {
     isDeleteAllowed: true,
     isNewAllowed: true,

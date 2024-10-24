@@ -1,17 +1,19 @@
 import { DummyData } from "../../utils/mockdata/dummyData";
 import { GridController } from "../common/GridController";
-import { cableDataController } from "./cableGridController";
+import { cableGridController } from "./cableGridController";
 import { CableEntity } from "../entities/cableEntity";
 import { generateDummyController } from "../common/dummyController";
 import { equipmentGridController } from "./equipmentGridController";
 import { equipmentEntity } from "../entities/equipmentEntity";
 
-// for now we generate some dummy datasources, can only have one datasource and gridInterface connected
-// service controller can be updated to many, and update many
+///////////////////////////////////////////////////////////////////
+// for now we generate some dummy gridControllers 
 // added many so we can play around with loading dialogs etc/gui
+// never use same gridController more than once per page
+///////////////////////////////////////////////////////////////////
 
 export const gridControllers: GridControllerTypes = {
-  cable: cableDataController,
+  cable: cableGridController,
   equipment: equipmentGridController,
 
   workpack: generateDummyController(),
@@ -65,8 +67,12 @@ export const gridControllers: GridControllerTypes = {
   userProjectRoles: generateDummyController(),
 };
 
-// need type declaration, since we want to ref to sources in datacontroller config
-// we cant have direct ref, since we also create it here
+
+/////////////////////////////////////////////////////////////
+// need type declaration, 
+// since we want to ref to sources in datacontroller config
+// we cant have direct ref due to circular depencency
+/////////////////////////////////////////////////////////////
 
 export type GridControllerTypes = {
   cable: GridController<CableEntity>;
