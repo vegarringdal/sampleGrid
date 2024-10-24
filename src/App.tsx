@@ -1,4 +1,3 @@
-import "./App.css";
 import { SetGridTheme } from "./components/common/SetGridTheme";
 import { Menubar } from "primereact/menubar";
 import { Router } from "./components/router";
