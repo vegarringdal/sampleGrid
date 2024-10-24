@@ -1,7 +1,7 @@
 import { relatedDialogStore } from "../../state/relatedDialogStore";
 import { SimpleHtmlGrid } from "./SimpleHtmlGrid";
 import { ResizableDialogContainer } from "./ResizableDialogContainer";
-import { gridControllers } from "../../data/gridController";
+import { gridControllers } from "../../data/gridControllers";
 import { useEffect } from "react";
 
 /**

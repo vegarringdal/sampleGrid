@@ -1,12 +1,15 @@
 import { GridController } from "../common/GridController";
 import { equipmentEntity } from "../entities/equipmentEntity";
-import { equipmentServiceController } from "../serviceController/equipmentServiceController";
+import { equipmentServiceController } from "../serviceControllers/equipmentServiceController";
 
 /**
  *
  */
 export const equipmentGridController = new GridController<equipmentEntity>(
   {
+    isDeleteAllowed: true,
+    isNewAllowed: true,
+    isEditAllowed: true,
     primaryColumn: "ID",
     columns: [
       {
@@ -22,20 +25,8 @@ export const equipmentGridController = new GridController<equipmentEntity>(
         type: "text",
       },
       {
-        attribute: "DESCRIPTION",
-        type: "text",
-      },
-      {
         attribute: "LINE_EQUIPMENT",
         type: "text",
-      },
-      {
-        attribute: "DOCID",
-        type: "text",
-      },
-      {
-        attribute: "CREATED",
-        type: "date",
       },
     ],
   },

@@ -1,6 +1,6 @@
 import { GridController } from "../common/GridController";
 import { CableEntity } from "../entities/cableEntity";
-import { cableServiceController } from "../serviceController/cableServiceController";
+import { cableServiceController } from "../serviceControllers/cableServiceController";
 
 /**
  * This helps setup grid /configure it

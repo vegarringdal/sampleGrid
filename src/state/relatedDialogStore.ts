@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { GridControllerTypes } from "../data/gridController";
+import { GridControllerTypes } from "../data/gridControllers";
 
 type RelatedDialogState = {
     toSource: keyof GridControllerTypes | null;

@@ -2,7 +2,7 @@ import { Splitter, SplitterPanel } from "primereact/splitter";
 import { WorkprepCommonPanel } from "./WorkprepCommonPanel";
 import { SimpleGridActions } from "../../common/SimpleGridActions";
 import { SimpleHtmlGrid } from "../../common/SimpleHtmlGrid";
-import { gridControllers } from "../../../data/gridController";
+import { gridControllers } from "../../../data/gridControllers";
 
 export function WorkprepEquipmentPanel() {
   return (

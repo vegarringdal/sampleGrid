@@ -12,7 +12,7 @@ import { ServiceController } from "./ServiceController";
 import { GridControllerConfig } from "./GridControllerConfig";
 import { getDateFormater, getNumberFormater } from "./numberAndDateFormat";
 import { relatedDialogStore } from "../../state/relatedDialogStore";
-import { GridControllerTypes, gridControllers } from "../gridController";
+import { GridControllerTypes, gridControllers } from "../gridControllers";
 
 /**
  * helper for controlling grid
