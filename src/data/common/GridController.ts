@@ -150,6 +150,11 @@ export class GridController<T, U = unknown> {
           return { dimmedClass: "", inputClass: "" };
         }
 
+
+        if (c && c.__isNew) {
+          return { dimmedClass: " new-cell", inputClass: "" };
+        }
+
         if (c && c.__editedProps && c.__editedProps[attribute]) {
           return { dimmedClass: " edit-cell", inputClass: "" };
         }
