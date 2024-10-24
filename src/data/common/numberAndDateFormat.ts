@@ -13,6 +13,13 @@ import {
   getRowPlaceholder,
 } from "./GridController";
 
+
+////////////////////////////////////////////////////////////////
+// This file commen utils for handling date 
+// and number format used by grid
+///////////////////////////////////////////////////////////////
+
+
 export type numberType = "DOT" | "COMMA";
 export type dateType =
   | "YYYYMMDD"

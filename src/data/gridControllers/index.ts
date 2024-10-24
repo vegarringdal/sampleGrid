@@ -79,7 +79,7 @@ export type GridControllerTypes = {
   equipment: GridController<equipmentEntity>;
 
   workpack: GridController<DummyData>;
-  workpackDialog: GridController<DummyData>; // for selecting under tagoperation
+  workpackDialog: GridController<DummyData>; 
 
   task: GridController<DummyData>;
   taskDialog: GridController<DummyData>;

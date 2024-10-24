@@ -9,6 +9,9 @@ export function WorkprepCommonPanel() {
       className="flex flex-col flex-1 text-xs"
       pt={{ panelContainer: { className: "h-full p-0" } }}
     >
+
+    {/* ======= WORKPACK ========*/}
+
       <TabPanel
         header="Tag Operations"
         className="h-full"
@@ -18,9 +21,7 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions
-            dataController={gridControllers.tagOperations}
-          />
+          <SimpleGridActions dataController={gridControllers.tagOperations} />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
@@ -28,6 +29,8 @@ export function WorkprepCommonPanel() {
           />
         </div>
       </TabPanel>
+
+      {/* ======= WORKPACK ========*/}
 
       <TabPanel
         header="Workpack"
@@ -47,6 +50,8 @@ export function WorkprepCommonPanel() {
         </div>
       </TabPanel>
 
+      {/* ======= TASK ========*/}
+
       <TabPanel
         header="Task"
         className="h-full"
@@ -65,6 +70,8 @@ export function WorkprepCommonPanel() {
         </div>
       </TabPanel>
 
+      {/* ======= ROUTING ALL ========*/}
+
       <TabPanel
         header="Routing all"
         className="h-full"
@@ -74,9 +81,7 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions
-            dataController={gridControllers.routingAll}
-          />
+          <SimpleGridActions dataController={gridControllers.routingAll} />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
@@ -84,6 +89,9 @@ export function WorkprepCommonPanel() {
           />
         </div>
       </TabPanel>
+
+      {/* ======= ROUTING SELECTED ========*/}
+
       <TabPanel
         header="Routing selected"
         className="h-full"
@@ -93,9 +101,7 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions
-            dataController={gridControllers.routingSelected}
-          />
+          <SimpleGridActions dataController={gridControllers.routingSelected} />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
@@ -103,6 +109,9 @@ export function WorkprepCommonPanel() {
           />
         </div>
       </TabPanel>
+
+      {/* ======= DOCUMENTS ALL ========*/}
+
       <TabPanel
         header="Documents all"
         className="h-full"
@@ -112,9 +121,7 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions
-            dataController={gridControllers.documentsAll}
-          />
+          <SimpleGridActions dataController={gridControllers.documentsAll} />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
@@ -122,6 +129,9 @@ export function WorkprepCommonPanel() {
           />
         </div>
       </TabPanel>
+
+      {/* ======= DOCUMENTS CABLE ========*/}
+
       <TabPanel
         header="Documents Cable"
         className="h-full"
@@ -131,9 +141,7 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions
-            dataController={gridControllers.documentsCable}
-          />
+          <SimpleGridActions dataController={gridControllers.documentsCable} />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
@@ -141,6 +149,9 @@ export function WorkprepCommonPanel() {
           />
         </div>
       </TabPanel>
+
+      {/* ======= DOCUMENTS EQUIPMENT ========*/}
+
       <TabPanel
         header="Documents Equip"
         className="h-full"
@@ -150,9 +161,7 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions
-            dataController={gridControllers.documentsEquip}
-          />
+          <SimpleGridActions dataController={gridControllers.documentsEquip} />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
