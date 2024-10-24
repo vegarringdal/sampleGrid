@@ -1,4 +1,4 @@
-import { DummyData, getDummyData } from "../dummyData";
+import { DummyData, getDummyData } from "../utils/mockdata/dummyData";
 import { GridController } from "../utils/GridController";
 import { ServiceController } from "../utils/ServiceController";
 

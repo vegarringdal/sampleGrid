@@ -1,4 +1,4 @@
-import { getDummyData } from "../../dummyData";
+import { getDummyData } from "../../utils/mockdata/dummyData";
 import { ServiceController } from "../../utils/ServiceController";
 import { equipmentEntity } from "../entities/equipmentEntity";
 
