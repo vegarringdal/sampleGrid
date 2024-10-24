@@ -15,7 +15,7 @@ export function WorkprepEquipmentPanel() {
     }}
   >
     <SplitterPanel className="flex p-2" minSize={10} size={60}>
-      <SimpleGridActions dataController={gridControllers.equipment} />
+      <SimpleGridActions gridController={gridControllers.equipment} />
       <SimpleHtmlGrid
         id="1"
         className="simple-html-grid w-full h-full"

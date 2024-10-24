@@ -21,7 +21,7 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions dataController={gridControllers.tagOperations} />
+          <SimpleGridActions gridController={gridControllers.tagOperations} />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
@@ -41,7 +41,7 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions dataController={gridControllers.workpack} />
+          <SimpleGridActions gridController={gridControllers.workpack} />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
@@ -61,7 +61,7 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions dataController={gridControllers.task} />
+          <SimpleGridActions gridController={gridControllers.task} />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
@@ -81,7 +81,7 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions dataController={gridControllers.routingAll} />
+          <SimpleGridActions gridController={gridControllers.routingAll} />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
@@ -101,7 +101,7 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions dataController={gridControllers.routingSelected} />
+          <SimpleGridActions gridController={gridControllers.routingSelected} />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
@@ -121,7 +121,7 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions dataController={gridControllers.documentsAll} />
+          <SimpleGridActions gridController={gridControllers.documentsAll} />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
@@ -141,7 +141,7 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions dataController={gridControllers.documentsCable} />
+          <SimpleGridActions gridController={gridControllers.documentsCable} />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"
@@ -161,7 +161,7 @@ export function WorkprepCommonPanel() {
         }}
       >
         <div className="p-2 flex w-full h-full">
-          <SimpleGridActions dataController={gridControllers.documentsEquip} />
+          <SimpleGridActions gridController={gridControllers.documentsEquip} />
           <SimpleHtmlGrid
             id="2"
             className="simple-html-grid w-full h-full"

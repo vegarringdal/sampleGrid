@@ -92,6 +92,7 @@ export const cableGridController = new GridController<CableEntity, CreateTagoper
       {
         attribute: "com",
         type: "text",
+        clearIfCopy: true
       },
       {
         attribute: "op01",

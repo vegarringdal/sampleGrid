@@ -120,6 +120,11 @@ export type GridControllerConfigColumn<T> = {
   readOnlyGrid?: boolean;
 
   /**
+   * clear if copying
+   */
+  clearIfCopy?: boolean;
+
+  /**
    * to set null values to 0
    */
   blankToZero?: boolean;

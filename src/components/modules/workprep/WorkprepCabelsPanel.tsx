@@ -16,7 +16,7 @@ export function WorkprepCabelsPanel() {
       }}
     >
       <SplitterPanel className="flex p-2" minSize={10} size={60}>
-        <SimpleGridActions dataController={gridControllers.cable} />
+        <SimpleGridActions gridController={gridControllers.cable} />
         <SimpleHtmlGrid
           id="1"
           className="simple-html-grid w-full h-full"

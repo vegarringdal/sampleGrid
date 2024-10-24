@@ -9,7 +9,10 @@ import {
 } from "@simple-html/grid";
 import { UseBoundStore, StoreApi, create } from "zustand";
 import { ServiceController } from "./ServiceController";
-import { GridControllerConfig } from "./GridControllerConfig";
+import {
+  GridControllerConfig,
+  GridControllerConfigColumn,
+} from "./GridControllerConfig";
 import { getDateFormater, getNumberFormater } from "./numberAndDateFormat";
 import { relatedDialogStore } from "../../state/relatedDialogStore";
 import { GridControllerTypes, gridControllers } from "../gridControllers";
@@ -341,6 +344,76 @@ export class GridController<T, U = unknown> {
 
   getGridDatasource() {
     return this.#gridDatasource;
+  }
+
+  copyRow() {
+    const currentEntity = this.#gridDatasource.currentEntity;
+
+    if (!currentEntity) return; // should prob show error
+    if (!currentEntity.__controller) return;
+
+    this.#gridDatasource.addNewEmpty();
+
+    const newEntity = this.#gridDatasource.currentEntity as Record<
+      string,
+      unknown
+    >;
+    if (!newEntity) return; // should prob show error
+
+    const columns: Record<string, GridControllerConfigColumn<T>> = {};
+
+    // this could have side effects..
+    this.#datainterface.columns.forEach((c) => {
+      columns[c.attribute as string] = c;
+    });
+
+    if (currentEntity.__controller.__isNew) {
+      for (const k in currentEntity) {
+        if (
+          k !== "__controller" &&
+          k !== this.#datainterface.primaryColumn &&
+          k !== "__KEY" &&
+          !columns[k].readOnly
+        ) {
+          newEntity[k] = currentEntity[k];
+        }
+      }
+    } else {
+      // TODO: need find related too
+
+      for (const key in currentEntity) {
+        if (key === "__controller") {
+          continue;
+        }
+
+        if (key === "__KEY") {
+          continue;
+        }
+
+        if (!columns[key]) {
+          continue;
+        }
+
+        if (columns[key].readOnly) {
+          continue;
+        }
+
+        if (columns[key].clearIfCopy) {
+          continue;
+        }
+
+        if (this.#datainterface.primaryColumn === key) {
+          continue;
+        }
+
+        if (this.#gridDatasource.currentEntity) {
+          newEntity[key] = currentEntity[key];
+        }
+      }
+    }
+
+    // force rerender, since we update cells manually after adding enity
+    this.#gridInterface.triggerScrollEvent();
   }
 }
 

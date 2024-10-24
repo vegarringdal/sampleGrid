@@ -2,9 +2,9 @@ import { Button, ButtonPassThroughOptions } from "primereact/button";
 import { GridController } from "../../data/common/GridController";
 
 export function SimpleGridActions<T>(props: {
-  dataController: GridController<T>;
+  gridController: GridController<T>;
 }) {
-  const cs = props.dataController.storeHook();
+  const cs = props.gridController.storeHook();
 
   const pt: ButtonPassThroughOptions = {
     root: { className: "p-1" },
@@ -22,7 +22,7 @@ export function SimpleGridActions<T>(props: {
         tooltip="Load/refresh data"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
-          props.dataController.requestFetchAll();
+          props.gridController.requestFetchAll();
         }}
         aria-label="refresh"
       >
@@ -34,11 +34,11 @@ export function SimpleGridActions<T>(props: {
         tooltip="Toggle grid edit mode"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
-          const gridInterface = props.dataController.getGridInterface();
+          const gridInterface = props.gridController.getGridInterface();
           const config = gridInterface.saveConfig();
           config.readonly = !config.readonly;
           gridInterface.loadConfig(config);
-          props.dataController
+          props.gridController
             .getStore()
             .setState({ isEditmode: !cs.isEditmode });
         }}
@@ -55,7 +55,7 @@ export function SimpleGridActions<T>(props: {
         tooltip="Add new empty element"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
-          const gridInterface = props.dataController.getGridInterface();
+          const gridInterface = props.gridController.getGridInterface();
           const config = gridInterface.saveConfig();
           if (config.readonly) {
             config.readonly = !config.readonly;
@@ -75,7 +75,7 @@ export function SimpleGridActions<T>(props: {
         tooltip="Reset all edits"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
-          const gridInterface = props.dataController.getGridInterface();
+          const gridInterface = props.gridController.getGridInterface();
           gridInterface.getDatasource().resetData();
         }}
         aria-label="reset"
@@ -89,7 +89,7 @@ export function SimpleGridActions<T>(props: {
         tooltip="Delete selected"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
-          const datasource = props.dataController
+          const datasource = props.gridController
             .getGridInterface()
             .getDatasource();
           const selected = datasource.getSelectedRows();
@@ -110,7 +110,7 @@ export function SimpleGridActions<T>(props: {
         tooltip="Duplicates current"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
-          alert("Not implemented");
+          props.gridController.copyRow();
         }}
         aria-label="duplicate row"
       >
@@ -166,7 +166,7 @@ export function SimpleGridActions<T>(props: {
         tooltip="Prints all edits to console (debug only)"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
-          console.log(props.dataController.getGridDatasource().getChanges());
+          console.log(props.gridController.getGridDatasource().getChanges());
           alert("see console log, F12");
         }}
         aria-label="debug/print changes"
