@@ -1,4 +1,4 @@
-import { GridController } from "../../utils/GridController";
+import { GridController } from "../utils/GridController";
 import { equipmentEntity } from "../entities/equipmentEntity";
 import { equipmentServiceController } from "../serviceController/equipmentServiceController";
 

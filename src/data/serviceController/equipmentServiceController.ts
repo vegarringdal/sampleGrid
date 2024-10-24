@@ -1,5 +1,5 @@
 import { getDummyData } from "../../utils/mockdata/dummyData";
-import { ServiceController } from "../../utils/ServiceController";
+import { ServiceController } from "../utils/ServiceController";
 import { equipmentEntity } from "../entities/equipmentEntity";
 
 /**

@@ -1,5 +1,5 @@
 import { DummyData } from "../../utils/mockdata/dummyData";
-import { GridController } from "../../utils/GridController";
+import { GridController } from "../utils/GridController";
 import { cableDataController } from "./cableGridController";
 import { CableEntity } from "../entities/cableEntity";
 import { generateDummyController } from "../utils/dummyController";

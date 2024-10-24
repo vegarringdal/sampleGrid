@@ -6,7 +6,7 @@ import {
   DateFormaterDDMMYYYYTHHMMSS,
   DateFormaterYYYYMMDDTHHMMSS,
 } from "@simple-html/grid";
-import { gridControllers } from "../data/gridController";
+import { gridControllers } from "../gridController";
 import {
   GridController,
   getFilterPlaceholder,

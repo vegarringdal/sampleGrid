@@ -1,6 +1,6 @@
 import { DummyData, getDummyData } from "../../utils/mockdata/dummyData";
-import { GridController } from "../../utils/GridController";
-import { ServiceController } from "../../utils/ServiceController";
+import { GridController } from "./GridController";
+import { ServiceController } from "./ServiceController";
 
 export function generateDummyController() {
   const equipmentServiceController = new ServiceController<DummyData>({

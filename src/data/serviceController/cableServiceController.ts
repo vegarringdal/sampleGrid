@@ -1,5 +1,5 @@
 import { loadingDialogStore } from "../../state/loadingDialogStore";
-import { ServiceController } from "../../utils/ServiceController";
+import { ServiceController } from "../utils/ServiceController";
 import { CableEntity } from "../entities/cableEntity";
 import { cableService } from "../services/cableService";
 

@@ -11,8 +11,8 @@ import { UseBoundStore, StoreApi, create } from "zustand";
 import { ServiceController } from "./ServiceController";
 import { DataInterface } from "./DataInterface";
 import { getDateFormater, getNumberFormater } from "./numberAndDateFormat";
-import { relatedDialogStore } from "../state/relatedDialogStore";
-import { GridControllerTypes, gridControllers } from "../data/gridController";
+import { relatedDialogStore } from "../../state/relatedDialogStore";
+import { GridControllerTypes, gridControllers } from "../gridController";
 
 /**
  * helper for data

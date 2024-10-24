@@ -1,7 +1,7 @@
 // early... will change my mind here..
 
 import { DataTypes } from "@simple-html/grid";
-import type { GridControllerTypes } from "../data/gridController";
+import type { GridControllerTypes } from "../gridController";
 
 /**
  * configuration for dataController/service
