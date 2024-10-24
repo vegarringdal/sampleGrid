@@ -18,7 +18,7 @@ import { GridControllerTypes, gridControllers } from "../gridControllers";
  * helper for controlling grid
  * no need for edits, common data
  */
-export class GridController<T, U=unknown> {
+export class GridController<T, U = unknown> {
   #datainterface: GridControllerConfig<T>;
   #gridDatasource: Datasource<T>;
   #gridInterface: GridInterface<T>;
@@ -173,9 +173,29 @@ export class GridController<T, U=unknown> {
       }) => {
         console.log(event);
 
-        if (event.type === "cell-focus-button-click") {
-          // todo, open dialog based on config
+        if (event.type === "filter-operator-change") {
+          // todo
+        }
 
+        if (event.type === "clear") {
+          if (!event.data) return;
+
+          const config = this.#datainterface.columns.filter(
+            (e) => e.attribute === event.data?.attribute
+          )[0];
+          if (!config) return;
+
+          // we need to update linked, but just the "to" part
+          config.parentDataInterface?.columnsFromTo?.forEach(([, column]) => {
+            if (!event.data?.rowData) return;
+
+            if (event.data.rowData) {
+              event.data.rowData[column] = null;
+            }
+          });
+        }
+
+        if (event.type === "cell-focus-button-click") {
           const config = this.#datainterface.columns.filter(
             (e) => e.attribute === event.data?.attribute
           )[0];
@@ -214,23 +234,24 @@ export class GridController<T, U=unknown> {
           // so user do not need to refresh rows to se something like description/type/dim columns correct
 
           const attribute = event?.data?.attribute || "!_X_!";
-          const colData = event?.data?.rowData[attribute];
-          if (colData) {
-            const rowData = event?.data?.rowData;
-            if (!rowData) return;
-            const data: Record<string, unknown> = {};
-            const keys = this.#datainterface.columns.map(
-              (e) => e.attribute
-            ) as string[];
-            keys.forEach((key) => {
-              data[key] = rowData[key];
-            });
-            lastCopyEvent = {
-              data,
-              attribute,
-            };
-            console.log(lastCopyEvent);
-          }
+
+          const rowData = event?.data?.rowData;
+          if (!rowData) return;
+
+          const data: Record<string, unknown> = {};
+
+          const keys = this.#datainterface.columns.map(
+            (e) => e.attribute
+          ) as string[];
+
+          keys.forEach((key) => {
+            data[key] = rowData[key];
+          });
+
+          lastCopyEvent = {
+            data,
+            attribute,
+          };
         }
 
         if (event.type === "paste") {
