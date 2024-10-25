@@ -4,10 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite --port 2080 --force",
+    "start": "run-p -s -l start:*",
+    "start:frontend": "vite --force",
+    "start:typechecker": "npm run typecheck:watch",
     "build": "vite build --base ./  --outDir docs",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "lint": "eslint --fix ./src/**/*.{js,ts,tsx}",
+    "typecheck:watch": "node ./typecheck_watch.js"
   },
   "devDependencies": {
     "@eslint/js": "^9.12.0",
@@ -34,7 +36,9 @@
     "typescript": "^5.6.2",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.8",
-    "zustand": "^5.0.0-rc.2"
+    "zustand": "^5.0.0-rc.2",
+    "esbuild-helpers": "^2.0.1",
+    "npm-run-all": "^4.1.5"
   },
   "msw": {
     "workerDirectory": [
