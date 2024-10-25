@@ -286,7 +286,9 @@ export function generateExcel(
 
                   if (row[a.attribute]) {
                     // replace problem strings, these are not valid in xml
-                    const exc = row[a.attribute]
+                    let exc = row[a.attribute].toString()
+                    if(row[a.attribute]?.replace){
+                      exc = exc
                       .replace(/&/g, "&amp;")
                       .replace(/</g, "&lt;")
                       .replace(/>/g, "&gt;")
@@ -298,6 +300,10 @@ export function generateExcel(
                         /(?<![\uD800-\uDBFF])[\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F\uFEFF\uFFFE\uFFFF]/g,
                         ""
                       );
+                    }
+                   
+
+
                     if (!sharedString.has(exc)) {
                       sharedString.set(exc, id++);
                     }

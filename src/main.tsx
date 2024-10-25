@@ -14,6 +14,7 @@ import { ErrorDialog } from "./components/common/ErrorDialog.tsx";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import TailwindOverride from "./utils/TailwindOverride.tsx";
+import { ImportDialog } from "./components/common/ImportDialog.tsx";
 
 
 createRoot(document.getElementById("root")!).render(
@@ -31,6 +32,7 @@ createRoot(document.getElementById("root")!).render(
     >
       <LoadingDialog />
       <ErrorDialog/>
+      <ImportDialog/>
       <App />
     </PrimeReactProvider>
   </StrictMode>

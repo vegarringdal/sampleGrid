@@ -1,5 +1,7 @@
 import { Datasource } from "@simple-html/grid";
 import { GridConfig, GridInterface } from "@simple-html/grid";
+import { GridController } from "../data/common/GridController";
+import { GridControllerTypes } from "../data/gridControllers";
 
 const gridConfigChange: GridConfig = {
   cellHeight: 20,
@@ -80,7 +82,6 @@ const gridInterfaceDeleted = new GridInterface(
 const newRows = new Map();
 const deletedRows = new Map();
 const changedRows = new Map();
-const currentcontrollerName = "";
 const primaryKeyName = "";
 
 export const importDataStore = {
@@ -94,6 +95,6 @@ export const importDataStore = {
   newRows,
   deletedRows,
   changedRows,
-  currentcontrollerName,
+  currentGridController: {} as  GridController<keyof GridControllerTypes>,
   primaryKeyName,
 };

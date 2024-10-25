@@ -142,7 +142,6 @@ export function SimpleGridActions<T, U>(props: {
         tooltip="Open import helper, for dumping data from excel"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
-          debugger
           readAndCompareData(props.gridController);
         }}
         aria-label="open import helper"

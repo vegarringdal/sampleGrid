@@ -4,6 +4,7 @@ import { importDialogStore } from "../../state/importDialogStore";
 import { importDataStore } from "../../state/importDataStore";
 import { Entity } from "@simple-html/grid";
 import { GridController } from "../../data/common/GridController";
+import { GridControllerTypes } from "../../data/gridControllers";
 
 export async function readAndCompareData<T, U>(
   gridController: GridController<T, U>
@@ -48,9 +49,7 @@ export async function readAndCompareData<T, U>(
   const updatableColumns = new Set(
     apiConfig.columns.filter((c) => !c.readOnly)
   );
-  const gridColumns = new Set(
-    gridController.getGridInterface().getOptionalAttributes()
-  );
+
 
   const dateColumns = new Set(
     gridConfig.attributes
@@ -70,11 +69,11 @@ export async function readAndCompareData<T, U>(
   const canDelete = apiConfig.isDeleteAllowed;
   const canInsert = apiConfig.isNewAllowed;
   const primaryKeyName = apiConfig.primaryColumn as string;
-  const importColumns: string[] = [];
+  //const importColumns: string[] = [];
 
   // update so we can use this in dialog later
   importDataStore.primaryKeyName = primaryKeyName;
-  importDataStore.currentcontrollerName = "todo";
+  importDataStore.currentGridController = gridController as unknown as GridController<keyof GridControllerTypes, unknown>
 
   function getDataType(column: string) {
     if (dateColumns.has(column)) {

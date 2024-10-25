@@ -273,6 +273,7 @@ export const cableGridController = new GridController<CableEntity, CreateTagoper
       ["extString01", "extString02", "extString03", "extString04"],
       ["extString05", "extString06", "extString07", "extString08"],
       ["created", "createdBy", "modified", "modifiedBy"],
+      ["id"]
     ],
   },
   cableServiceController
