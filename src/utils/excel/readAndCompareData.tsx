@@ -6,13 +6,25 @@ import { Entity } from "@simple-html/grid";
 import { GridController } from "../../data/common/GridController";
 import { GridControllerTypes } from "../../data/gridControllers";
 
+/**
+ * 
+ * @param gridController 
+ * @returns 
+ */
+
 export async function readAndCompareData<T, U>(
   gridController: GridController<T, U>
 ) {
+
+  // todo, cleanup
+  // this is a bit messy and need cleanup
+  // just tried to reuse some old project to save time
+
   let data: ArrayBuffer | undefined;
   try {
     data = await openAndReadExcelFile();
   } catch (e) {
+    console.error("error open excel", e);
     return;
   }
 
@@ -50,7 +62,6 @@ export async function readAndCompareData<T, U>(
     apiConfig.columns.filter((c) => !c.readOnly)
   );
 
-
   const dateColumns = new Set(
     gridConfig.attributes
       .filter((e) => e.type === "date")
@@ -73,7 +84,11 @@ export async function readAndCompareData<T, U>(
 
   // update so we can use this in dialog later
   importDataStore.primaryKeyName = primaryKeyName;
-  importDataStore.currentGridController = gridController as unknown as GridController<keyof GridControllerTypes, unknown>
+  importDataStore.currentGridController =
+    gridController as unknown as GridController<
+      keyof GridControllerTypes,
+      unknown
+    >;
 
   function getDataType(column: string) {
     if (dateColumns.has(column)) {
@@ -88,8 +103,9 @@ export async function readAndCompareData<T, U>(
     return "string";
   }
 
+  debugger;
   dsRows.forEach((row) => {
-    const primaryKeyValue = row[primaryKeyName];
+    const primaryKeyValue = row[primaryKeyName]?.toString();
     if (primaryKeyValue) {
       currentDataMap.set(primaryKeyValue, row);
     }
@@ -104,7 +120,7 @@ export async function readAndCompareData<T, U>(
 
   let newRowCount = 0;
   userData.forEach((row) => {
-    const primaryKeyValue = row[primaryKeyName];
+    const primaryKeyValue = row[primaryKeyName]?.toString();
     if (primaryKeyValue && currentDataMap.has(primaryKeyValue)) {
       importDataMap.set(primaryKeyValue, row);
     } else {
@@ -142,7 +158,7 @@ export async function readAndCompareData<T, U>(
   }
 
   currentDataMap.forEach((currentData) => {
-    const primaryKeyValue = currentData[primaryKeyName];
+    const primaryKeyValue = currentData[primaryKeyName]?.toString();
     const importData = importDataMap.get(primaryKeyValue);
 
     if (!importData) {
@@ -200,7 +216,7 @@ export async function readAndCompareData<T, U>(
                   columnDataType,
                   changeType: "Change",
                   primaryKeyValue,
-                  columnChanged: column,
+                  columnChanged: column.attribute,
                   oldValue: currentData[column.attribute as string],
                   newValue: new Date(
                     importData[column.attribute as string].setHours(
@@ -228,7 +244,7 @@ export async function readAndCompareData<T, U>(
                   columnDataType,
                   changeType: "Change",
                   primaryKeyValue,
-                  columnChanged: column,
+                  columnChanged: column.attribute,
                   oldValue: currentData[column.attribute as string],
                   newValue: importData[column.attribute as string],
                 };
@@ -256,7 +272,7 @@ export async function readAndCompareData<T, U>(
                   columnDataType,
                   changeType: "Change",
                   primaryKeyValue,
-                  columnChanged: column,
+                  columnChanged: column.attribute,
                   oldValue: vOldValueBool,
                   newValue: vNewValue,
                 };
@@ -282,7 +298,7 @@ export async function readAndCompareData<T, U>(
                 columnDataType,
                 changeType: "Change",
                 primaryKeyValue,
-                columnChanged: column,
+                columnChanged: column.attribute,
                 oldValue,
                 newValue,
               };
