@@ -25,8 +25,8 @@ export function ImportDialog() {
         uniqueName={`import`}
         title={"Import data"}
         isOpen={true}
-        width={700}
-        height={600}
+        width={window.innerWidth*0.8}
+        height={window.innerHeight*0.8}
         onClose={() => state.close()}
       >
         <div className="flex flex-col flex-1">
