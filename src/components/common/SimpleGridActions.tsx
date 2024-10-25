@@ -153,8 +153,9 @@ export function SimpleGridActions<T, U>(props: {
         disabled={cs.isEditmode}
         tooltip="Generate excel file from current list"
         tooltipOptions={{ showDelay: 1000 }}
-        onClick={() => {
-          alert("Not implemented");
+        onClick={async () => {
+          await props.gridController.createExcel()
+        
         }}
         aria-label="generate excel"
       >

@@ -16,6 +16,8 @@ import {
 import { getDateFormater, getNumberFormater } from "./numberAndDateFormat";
 import { relatedDialogStore } from "../../state/relatedDialogStore";
 import { GridControllerTypes, gridControllers } from "../gridControllers";
+import { generateExcel } from "../../utils/excel/generateExcel";
+import { generateExcelCallback } from "../../utils/excel/generateExcelCallback";
 
 /**
  * helper for controlling grid
@@ -371,6 +373,11 @@ export class GridController<T, U = unknown> {
 
   getGridDatasource() {
     return this.#gridDatasource;
+  }
+
+  async createExcel(){
+    await generateExcel(this.#gridInterface, generateExcelCallback);
+
   }
 
   copyRow() {

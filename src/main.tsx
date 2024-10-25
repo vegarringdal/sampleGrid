@@ -6,13 +6,15 @@ import "primeicons/primeicons.css";
 import { App } from "./App.tsx";
 import { PrimeReactProvider } from "primereact/api";
 import { twMerge } from "tailwind-merge";
+import { LoadingDialog } from "./components/common/LoadingDialog.tsx";
+import { ErrorDialog } from "./components/common/ErrorDialog.tsx";
 
 // added manually for better conftrol
 // import Tailwind from "primereact/passthrough/tailwind";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import TailwindOverride from "./utils/TailwindOverride.tsx";
-import { LoadingDialog } from "./components/common/LoadingDialog.tsx";
+
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -28,6 +30,7 @@ createRoot(document.getElementById("root")!).render(
       }}
     >
       <LoadingDialog />
+      <ErrorDialog/>
       <App />
     </PrimeReactProvider>
   </StrictMode>

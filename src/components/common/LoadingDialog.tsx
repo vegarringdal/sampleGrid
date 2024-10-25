@@ -1,35 +1,30 @@
-import { loadingDialogStore } from "../../state/loadingDialogStore";
-
-
-// TODO maybe replace this with this one ?
-// https://primereact.org/dialog/
-// its resizable in left bottom
-// plan was to have minimal with custom components expect grid
+import { serviceStore } from "../../state/serviceStore";
 
 
 export function LoadingDialog() {
-  const state = loadingDialogStore();
+    const serviceState = serviceStore();
 
-  if (!state.isActive) {
-    return null;
-  }
+    // if service rest api is active, we still want to keep it open
+    if (!serviceState.loadingDataDialogActivated) {
+        return null;
+    }
 
-  return (
-    <div className="fadeIn fixed z-[9000] grid h-full w-full items-center justify-center bg-gray-200/50 dark:bg-gray-600/70">
-      <div className="block h-80 w-96 bg-gray-100 dark:bg-gray-800 shadow-2xl">
-        <span className="m-auto block bg-gray-200 dark:bg-gray-900 p-2 text-center text-2xl dark:text-white">
-          Please wait
-        </span>
-        <div className="m-2 mt-10 block">
-          <span className="loader m-auto block text-center text-white"></span>
+    return (
+        <div className="fadeIn fixed z-[7010] grid h-full w-full items-center justify-center bg-gray-50/50">
+            <div className="block h-80 w-96 border border-gray-300 bg-gray-100 p-1 shadow-2xl shadow-black dark:border-gray-900 dark:bg-gray-800">
+                <span className="m-auto block bg-gray-300 p-2 text-center text-2xl dark:bg-gray-700 dark:text-white">
+                    Please wait
+                </span>
+                <div className="m-2 mt-10 block">
+                    <span className="loader m-auto block text-center dark:text-white"></span>
+                </div>
+                <span className="m-auto block text-center font-semibold underline dark:text-white">
+                    {serviceState.loadingDataDialogHeader}
+                </span>
+                <span className="m-auto mt-4 block whitespace-pre-line text-center dark:text-white">
+                    {serviceState.loadingDataDialogContent || ""}
+                </span>
+            </div>
         </div>
-        <span className="m-auto block text-center font-semibold dark:text-white underline">
-          {state.header}
-        </span>
-        <span className="m-auto mt-4 block whitespace-pre-line text-center dark:text-white">
-          {state.content || ""}
-        </span>
-      </div>
-    </div>
-  );
+    );
 }
