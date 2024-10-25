@@ -7,7 +7,7 @@ export function WorkprepCommonPanel() {
   return (
     <TabView
       className="flex flex-col flex-1 text-xs"
-      pt={{ panelContainer: { className: "h-full p-0" } }}
+      pt={{ panelContainer: { className: "h-full p-0 w-full" } }}
     >
 
     {/* ======= WORKPACK ========*/}
