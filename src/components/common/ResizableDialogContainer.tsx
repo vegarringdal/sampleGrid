@@ -6,6 +6,12 @@ import { initPositionHandler } from "./resizableDialogCommon/initPositionHandler
 import { resizeHandler } from "./resizableDialogCommon/resizeHandler";
 import { MinMaximizeIcon } from "./resizableDialogCommon/minMaximizeIcon";
 
+
+// TODO maybe replace this with this one ?
+// https://primereact.org/dialog/
+// its resizable in left bottom
+// plan was to have minimal with custom components expect grid
+
 /**
  * helper to generate resizable container you can also mouse around
  * @param props
