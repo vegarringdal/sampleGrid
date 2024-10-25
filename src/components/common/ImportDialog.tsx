@@ -243,7 +243,7 @@ export function ImportDialog() {
                   Record<string, unknown>
                 >();
                 dsRows.forEach((row) => {
-                  primaryKeyMap.set(row[primaryKeyName], row);
+                  primaryKeyMap.set(row[primaryKeyName].toString(), row);
                 });
 
                 // loop changeset
