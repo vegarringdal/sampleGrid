@@ -1,4 +1,4 @@
-import { loadingDialogStore } from "../../state/loadingDialogStore";
+import { serviceStore } from "../../state/serviceStore";
 import { ServiceController } from "../common/ServiceController";
 import { CreateTagoperationsEvent } from "../customEvents/createTagOperations";
 import { CableEntity } from "../entities/cableEntity";
@@ -28,9 +28,8 @@ export const cableServiceController = new ServiceController<
 
     if (event.type === "FETCH_ALL") {
       //
-      loadingDialogStore.setState({
-        isActive: true,
-        content: "loading data, please wait",
+      serviceStore.setState({
+        loadingDataDialogContent: "loading data, please wait",
       });
 
       // add error handling, really want all services to return Result<OK, ERRORSTRING> kinda like rust
@@ -41,7 +40,7 @@ export const cableServiceController = new ServiceController<
         dc.getGridDatasource().setData(result);
       });
 
-      loadingDialogStore.setState({ isActive: false });
+      serviceStore.setState({ loadingDataDialogActivated: false });
     }
 
     if (event.type === "REFRESH_ALL") {
