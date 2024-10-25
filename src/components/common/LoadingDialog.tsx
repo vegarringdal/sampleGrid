@@ -1,5 +1,12 @@
 import { loadingDialogStore } from "../../state/loadingDialogStore";
 
+
+// TODO maybe replace this with this one ?
+// https://primereact.org/dialog/
+// its resizable in left bottom
+// plan was to have minimal with custom components expect grid
+
+
 export function LoadingDialog() {
   const state = loadingDialogStore();
 
