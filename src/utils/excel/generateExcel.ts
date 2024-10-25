@@ -137,7 +137,6 @@ export function generateExcel(
               content: "Excel file error -> " + e,
             });
             resolve(false);
-            debugger
             return;
           }
 
@@ -240,7 +239,7 @@ export function generateExcel(
 
         if (bufferArray.length) {
           const tempContentString: string = bufferArray
-            .map((row: any) => {
+            .map((row) => {
               const rowCount = y;
               y++;
               return `<row r="${rowCount + 1}" spans="1:${

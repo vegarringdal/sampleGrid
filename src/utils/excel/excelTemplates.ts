@@ -1,5 +1,7 @@
+/* eslint-disable no-useless-escape */
 // this contains just files I need to generate excel
 // I extracted a normal excel file and used the static parts as template
+// a bit messy, but it works
 
 import { currentUserStore } from "../../state/currentUserStore";
 

@@ -1,11 +1,11 @@
 import { create } from "zustand";
 
 type state = {
-  code: string|null;
+  code: string | null;
 };
 
 export const projectStore = create<state>(() => ({
-  code: null
+  code: null,
 
   // should add a method here to update window and set tab/global state
 }));

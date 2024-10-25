@@ -1,5 +1,6 @@
 import { Button, ButtonPassThroughOptions } from "primereact/button";
 import { GridController } from "../../data/common/GridController";
+import { readAndCompareData } from "../../utils/excel/readAndCompareData";
 
 export function SimpleGridActions<T, U>(props: {
   gridController: GridController<T, U>;
@@ -137,11 +138,12 @@ export function SimpleGridActions<T, U>(props: {
 
       <Button
         pt={pt}
-        disabled={cs.isEditmode}
+        disabled={!cs.isEditmode}
         tooltip="Open import helper, for dumping data from excel"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
-          alert("Not implemented");
+          debugger
+          readAndCompareData(props.gridController);
         }}
         aria-label="open import helper"
       >
@@ -150,7 +152,7 @@ export function SimpleGridActions<T, U>(props: {
 
       <Button
         pt={pt}
-        disabled={cs.isEditmode}
+    
         tooltip="Generate excel file from current list"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={async () => {
@@ -162,19 +164,7 @@ export function SimpleGridActions<T, U>(props: {
         <i className="pi pi-file-excel"></i>
       </Button>
 
-      <Button
-        pt={pt}
-        disabled={cs.isEditmode}
-        tooltip="Dialog showing changes, like a undo editor"
-        tooltipOptions={{ showDelay: 1000 }}
-        onClick={() => {
-        
-          alert("Not implemented");
-        }}
-        aria-label="debug/print changes"
-      >
-        <i className="pi pi-print"></i>
-      </Button>
+   
     </div>
   );
 }

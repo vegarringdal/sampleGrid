@@ -24,7 +24,7 @@ import { generateExcelCallback } from "../../utils/excel/generateExcelCallback";
  * no need for edits, common data
  */
 export class GridController<T, U = unknown> {
-  #datainterface: GridControllerConfig<T>;
+  #gridControllerConfig: GridControllerConfig<T>;
   #gridDatasource: Datasource<T>;
   #gridInterface: GridInterface<T>;
   #stateStore: UseBoundStore<StoreApi<GridControllerState>>;
@@ -35,7 +35,7 @@ export class GridController<T, U = unknown> {
     datainterface: GridControllerConfig<T>,
     serviceController: ServiceController<T, U>
   ) {
-    this.#datainterface = datainterface;
+    this.#gridControllerConfig = datainterface;
     this.#initgridConfig = this.#generateGridConfig();
     this.#gridDatasource = new Datasource<T>();
     this.#gridDatasource.setDateFormater(getDateFormater());
@@ -65,7 +65,7 @@ export class GridController<T, U = unknown> {
    * @returns
    */
   #generateGridConfig() {
-    console.log("TODO, generate gridConfig", this.#datainterface);
+    console.log("TODO, generate gridConfig", this.#gridControllerConfig);
 
     const config = {
       columnsCenter: [] as unknown,
@@ -83,8 +83,8 @@ export class GridController<T, U = unknown> {
     // - option to show deleted rows, but just tag them
     // entity handler override, to add dynamic columns
 
-    this.#datainterface.columns.forEach((c, i) => {
-      const primaryCol = this.#datainterface.primaryColumn;
+    this.#gridControllerConfig.columns.forEach((c, i) => {
+      const primaryCol = this.#gridControllerConfig.primaryColumn;
 
       const attribute: Attribute = {
         attribute: c.attribute as string,
@@ -112,7 +112,8 @@ export class GridController<T, U = unknown> {
       }
 
       const colWidth =
-        (this.#datainterface?.colWidth && this.#datainterface?.colWidth[i]) ||
+        (this.#gridControllerConfig?.colWidth &&
+          this.#gridControllerConfig?.colWidth[i]) ||
         100;
 
       config.columnsCenter.push({
@@ -123,11 +124,12 @@ export class GridController<T, U = unknown> {
       config.attributes.push(attribute);
     });
 
-    if (this.#datainterface?.groupCells?.length) {
+    if (this.#gridControllerConfig?.groupCells?.length) {
       config.columnsCenter = [];
-      this.#datainterface?.groupCells.forEach((rows, i) => {
+      this.#gridControllerConfig?.groupCells.forEach((rows, i) => {
         const colWidth =
-          (this.#datainterface?.colWidth && this.#datainterface?.colWidth[i]) ||
+          (this.#gridControllerConfig?.colWidth &&
+            this.#gridControllerConfig?.colWidth[i]) ||
           100;
 
         config.columnsCenter.push({
@@ -201,7 +203,7 @@ export class GridController<T, U = unknown> {
         if (event.type === "clear") {
           if (!event.data) return;
 
-          const config = this.#datainterface.columns.filter(
+          const config = this.#gridControllerConfig.columns.filter(
             (e) => e.attribute === event.data?.attribute
           )[0];
           if (!config) return;
@@ -221,7 +223,7 @@ export class GridController<T, U = unknown> {
          */
 
         if (event.type === "cell-focus-button-click") {
-          const config = this.#datainterface.columns.filter(
+          const config = this.#gridControllerConfig.columns.filter(
             (e) => e.attribute === event.data?.attribute
           )[0];
 
@@ -268,7 +270,7 @@ export class GridController<T, U = unknown> {
 
           const data: Record<string, unknown> = {};
 
-          const keys = this.#datainterface.columns.map(
+          const keys = this.#gridControllerConfig.columns.map(
             (e) => e.attribute
           ) as string[];
 
@@ -296,7 +298,7 @@ export class GridController<T, U = unknown> {
           const attribute = event?.data?.attribute || "!_X_!";
 
           if (lastCopyEvent && lastCopyEvent.attribute === attribute) {
-            const config = this.#datainterface.columns.filter(
+            const config = this.#gridControllerConfig.columns.filter(
               (e) => e.attribute === event.data?.attribute
             )[0];
             if (!config) return;
@@ -321,6 +323,10 @@ export class GridController<T, U = unknown> {
     };
 
     this.#gridInterface.addEventListener(eventHandler);
+  }
+
+  getControllerConfig() {
+    return structuredClone(this.#gridControllerConfig);
   }
 
   requestRefresh() {
@@ -375,9 +381,8 @@ export class GridController<T, U = unknown> {
     return this.#gridDatasource;
   }
 
-  async createExcel(){
+  async createExcel() {
     await generateExcel(this.#gridInterface, generateExcelCallback);
-
   }
 
   copyRow() {
@@ -397,7 +402,7 @@ export class GridController<T, U = unknown> {
     const columns: Record<string, GridControllerConfigColumn<T>> = {};
 
     // this could have side effects..
-    this.#datainterface.columns.forEach((c) => {
+    this.#gridControllerConfig.columns.forEach((c) => {
       columns[c.attribute as string] = c;
     });
 
@@ -405,7 +410,7 @@ export class GridController<T, U = unknown> {
       for (const k in currentEntity) {
         if (
           k !== "__controller" &&
-          k !== this.#datainterface.primaryColumn &&
+          k !== this.#gridControllerConfig.primaryColumn &&
           k !== "__KEY" &&
           !columns[k].readOnly
         ) {
@@ -413,7 +418,6 @@ export class GridController<T, U = unknown> {
         }
       }
     } else {
-
       //
       // TODO: need find related too
       //
@@ -439,7 +443,7 @@ export class GridController<T, U = unknown> {
           continue;
         }
 
-        if (this.#datainterface.primaryColumn === key) {
+        if (this.#gridControllerConfig.primaryColumn === key) {
           continue;
         }
 
@@ -519,12 +523,11 @@ export function operator(operator: Attribute["operator"]) {
   }
 }
 
-
 /**
- * 
- * @param type 
- * @param operatorType 
- * @returns 
+ *
+ * @param type
+ * @param operatorType
+ * @returns
  */
 export function getFilterPlaceholder(
   type: DataTypes | undefined,
@@ -541,8 +544,6 @@ export function getFilterPlaceholder(
   }
   return placeholder;
 }
-
-
 
 export function getRowPlaceholder(
   type: DataTypes | undefined,
