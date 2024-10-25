@@ -1,26 +1,51 @@
-# sample app using grid and primereact with tailwind.
+# PTOC sample app using grid and primereact with tailwind.
+
+Im going to try and build a simple frontend for the application I would like to have at work when I worked with this. 
+
+> PTOC = Project Tag Operation Control. Workprep module for creating tag(work) operations for cables/equipment. From import of tag to progress reporting on drum etc.
 
 
 Demo link might not be up to date.
 https://vegarringdal.github.io/sampleGridInReact/
 
 
-Atm i dont know how far I will take this..
-Focus is cable register under workprep, edit here and handle error, select cable etc
 
+First focus is cable register under workprep
+Will add some simple mock data as I get further,main goes is to find out if data folder stucture will work.
+
+Need to be able to handle very large data sets, cable 20k, equipment 20k, tagoperations 300k, workpack 10k, task 10k, progress 300k +50k misc
+
+
+
+* [ ] common grid traits for gridController
+  * [ ] edit mode
+  * [ ] simple dialog for releated data configured as part of gridController
+  * [ ] copy/paste cell into selected rows (with related data)
+  * [ ] duplicate row
+  * [ ] export/import data from excel
+  * [ ] save (just send data to service)
+  * [ ] how to show nice error message if save fails, stop of row ? use own column ?
+
+* [ ] create tag operation
+
+* [ ] filter tag/cables from selected tag operations
+* [ ] filter tag/cable from selected workpacks
+* [ ] filter tagoperations from selected workpacks
+* [ ] filter docs from selected tags or cables
+* [ ] filter tag/cables from documents
+* ... later
 
 
 # About data folder
+
 
 ### Services
 * Responsible for calling api and return data/errors etc
 * This will be called by one or more `ServiceControllers`
 
-
-
 ### ServiceControllers
 * Responsible for calling service
-* This will be called by the `GridController`
+* This will be called by the `GridController` default or custom event
 * One `ServiceController` is shared between many `GridControllers`
   * since you might have same data in main view and sometimes in dialog etc   
   * since it shared between many, you will be able to update all if service gives you new data 
@@ -35,3 +60,6 @@ Focus is cable register under workprep, edit here and handle error, select cable
 
 ### entities
 * Row data, usually 1-1 per service/dataset
+
+### Common
+* just holds main classes/utils needed for data folder
