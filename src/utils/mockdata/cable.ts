@@ -6,10 +6,10 @@ import { CableEntity } from "../../data/entities/cableEntity";
 
 class CableMockData {
   cache = new Map<number, CableEntity>();
-  counter = 0;
+  counter = 1;
 
   constructor() {
-    for (let i = 0; i < 150; i++) {
+    for (let i = 1; i < 150; i++) {
       this.counter = i;
       const c = this.counter;
       this.cache.set(c, {
