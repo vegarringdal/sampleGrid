@@ -18,15 +18,19 @@ Need to be able to handle very large data sets, cable 20k, equipment 20k, tagope
 
 
 * [ ] common grid traits for gridController
-  * [ ] edit mode
-  * [ ] simple dialog for releated data configured as part of gridController
-  * [ ] copy/paste cell into selected rows (with related data)
-  * [ ] duplicate row
+  * [x] edit mode
+  * [x] simple dialog for releated data configured as part of gridController
+    * cable
+  * [x] copy/paste cell into selected rows (with related data)
+  * [x] duplicate row
+    * [ ] need to fix releated
   * [ ] export/import data from excel
   * [ ] save (just send data to service)
   * [ ] how to show nice error message if save fails, stop of row ? use own column ?
 
-* [ ] create tag operation
+* [ ] create tag operation gui
+  * [ ] dummy data
+  * [ ] call custom event to ServiceController with selected tag/cables and operations to create
 
 * [ ] filter tag/cables from selected tag operations
 * [ ] filter tag/cable from selected workpacks

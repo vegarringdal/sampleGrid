@@ -27,7 +27,7 @@ export class GridController<T, U = unknown> {
   #gridInterface: GridInterface<T>;
   #stateStore: UseBoundStore<StoreApi<GridControllerState>>;
   #initgridConfig: GridConfig;
-  #service: ServiceController<T, U>;
+  #serviceController: ServiceController<T, U>;
 
   constructor(
     datainterface: GridControllerConfig<T>,
@@ -52,8 +52,8 @@ export class GridController<T, U = unknown> {
       isNewAllowed: true,
     }));
 
-    this.#service = serviceController;
-    this.#service.connectDataSource(this);
+    this.#serviceController = serviceController;
+    this.#serviceController.connectDataSource(this);
 
     this.#init();
   }
@@ -142,6 +142,10 @@ export class GridController<T, U = unknown> {
    * will add event listners etc to do most of logic here
    */
   #init() {
+    /**
+     * for coloring cell based on row/cell type
+     */
+
     this.#gridInterface.cellAppendClassSetter(
       (attribute: string, rowData: Entity, isReadOnly: boolean) => {
         const c = rowData.__controller;
@@ -162,6 +166,10 @@ export class GridController<T, U = unknown> {
       }
     );
 
+    /**
+     * temp cache for cell copy
+     */
+
     let lastCopyEvent: {
       attribute: string;
       data: Record<string, unknown>;
@@ -174,11 +182,15 @@ export class GridController<T, U = unknown> {
           attribute: string;
           // when copying
           rowData: Record<string, unknown>;
-          // when pasting... yes bad planning
+          // when pasting..., why I have 2 ? Bad planning ?
           entity: Record<string, unknown>;
         };
       }) => {
         console.log(event);
+
+        /**
+         * filter operator, here we update our custom placeholder
+         */
 
         if (event.type === "filter-operator-change") {
           // todo
@@ -201,6 +213,10 @@ export class GridController<T, U = unknown> {
             }
           });
         }
+
+        /**
+         * this is used for opening dialog
+         */
 
         if (event.type === "cell-focus-button-click") {
           const config = this.#datainterface.columns.filter(
@@ -234,6 +250,10 @@ export class GridController<T, U = unknown> {
             );
         }
 
+        /**
+         * copying cell value
+         */
+
         if (event.type === "copy-cell") {
           // we want to override copy/paste into cell
           // since we might want releated data to come over
@@ -259,6 +279,10 @@ export class GridController<T, U = unknown> {
             attribute,
           };
         }
+
+        /**
+         * pasting cell value
+         */
 
         if (event.type === "paste") {
           // we want to override copy/paste into cell
@@ -289,7 +313,7 @@ export class GridController<T, U = unknown> {
           }
         }
 
-        // todo: always return true to continue subscribing
+        // always return true to continue subscribing
         return true;
       },
     };
@@ -298,14 +322,14 @@ export class GridController<T, U = unknown> {
   }
 
   requestRefresh() {
-    this.#service.callEventHandler({
+    this.#serviceController.callEventHandler({
       type: "REFRESH_ALL",
       data: null,
     });
   }
 
   requestFetchAll() {
-    this.#service.callEventHandler({
+    this.#serviceController.callEventHandler({
       type: "FETCH_ALL",
       data: null,
     });
@@ -318,7 +342,7 @@ export class GridController<T, U = unknown> {
       modifiedEntities: Partial<T>[];
     };
 
-    this.#service.callEventHandler({
+    this.#serviceController.callEventHandler({
       type: "CHANGE",
       data: changes,
     });
@@ -330,7 +354,7 @@ export class GridController<T, U = unknown> {
    * @param event
    */
   requestCustomEvent(event: U) {
-    this.#service.callEventHandlerCustom(event);
+    this.#serviceController.callEventHandlerCustom(event);
   }
 
   getStore() {
@@ -382,7 +406,10 @@ export class GridController<T, U = unknown> {
         }
       }
     } else {
+
+      //
       // TODO: need find related too
+      //
 
       for (const key in currentEntity) {
         if (key === "__controller") {
@@ -424,17 +451,21 @@ export class GridController<T, U = unknown> {
 // helper classes/function , dont want 1 file per
 //////////////////////////////////////////////
 
+// temp storage in gridController
+// will use this to controll shared components like button state etc
 export type GridControllerState = {
   isLoading: boolean;
   isEditmode: boolean;
 };
 
+//events when we do save
 export type GridChanges<T> = {
   newEntities: Partial<T>[];
   deletedEntities: Partial<T>[];
   modifiedEntities: Partial<T>[];
 };
 
+// default events for ServiceController
 export type ControllerEvent<T> =
   | {
       // more like a force reload
@@ -458,7 +489,6 @@ export type ControllerEvent<T> =
  * @param operator
  * @returns
  */
-
 export function operator(operator: Attribute["operator"]) {
   switch (operator) {
     case "CONTAINS":
@@ -482,6 +512,13 @@ export function operator(operator: Attribute["operator"]) {
   }
 }
 
+
+/**
+ * 
+ * @param type 
+ * @param operatorType 
+ * @returns 
+ */
 export function getFilterPlaceholder(
   type: DataTypes | undefined,
   operatorType: FilterComparisonOperator | null
@@ -497,6 +534,8 @@ export function getFilterPlaceholder(
   }
   return placeholder;
 }
+
+
 
 export function getRowPlaceholder(
   type: DataTypes | undefined,

@@ -61,7 +61,7 @@ export const cableGridController = new GridController<CableEntity, CreateTagoper
           // when parentDataInterface is set we can only set it by dialog or copy/paste
           // source we want to use for related data
           ref: "cableSortDialog",
-          title: "test",
+          title: "Select cabletype for cable tag",
           // selecting, we want to copy/set value to
           columnFrom: "id",
           columnTo: "cableId",
