@@ -5,17 +5,17 @@ import { GridController, ControllerEvent } from "./GridController";
  * no need for editing
  * one service might serve multiple grid controllers.
  */
-export class ServiceController<T, E = unknown> {
-  #dataController: GridController<T, E>[] = [];
-  #eventHandler: ServiceEventHandler<T, E>;
+export class ServiceController<T, CustomEvent = unknown> {
+  #gridController: GridController<T, CustomEvent>[] = [];
+  #eventHandler: ServiceEventHandler<T, CustomEvent>;
 
-  connectDataSource(dataController: GridController<T, E>) {
-    this.#dataController.push(dataController);
+  connectDataSource(dataController: GridController<T, CustomEvent>) {
+    this.#gridController.push(dataController);
   }
 
-  async callEventHandlerCustom(event: E) {
+  async callEventHandlerCustom(event: CustomEvent) {
     if (!this.#eventHandler.handleEventCustom) {
-      console.error("MISSING CUSTOM EVENT HANDLER");
+      console.error("MISSING CUSTOM EVENT HANDLER"); // so dev know
       return;
     }
     await this.#eventHandler.handleEventCustom(this, event);
@@ -25,11 +25,11 @@ export class ServiceController<T, E = unknown> {
     await this.#eventHandler.handleEvent(this, event);
   }
 
-  getDataControllers() {
-    return this.#dataController;
+  getLinkedGridControllers() {
+    return this.#gridController;
   }
 
-  constructor(eventHandler: ServiceEventHandler<T, E>) {
+  constructor(eventHandler: ServiceEventHandler<T, CustomEvent>) {
     this.#eventHandler = eventHandler;
   }
 }

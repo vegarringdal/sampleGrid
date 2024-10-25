@@ -1,6 +1,6 @@
-import { getDummyData } from "../../utils/mockdata/dummyData";
-import { ServiceController } from "../common/ServiceController";
-import { equipmentEntity } from "../entities/equipmentEntity";
+import { getDummyData } from "../../dummyData";
+import { ServiceController } from "../../common/ServiceController";
+import { equipmentEntity } from "./equipmentEntity";
 
 /**
  * handles event from dataController

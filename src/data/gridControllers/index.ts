@@ -5,6 +5,7 @@ import { CableEntity } from "../entities/cableEntity";
 import { generateDummyGridController } from "../../utils/mockdata/dummyController";
 import { equipmentGridController } from "./equipmentGridController";
 import { equipmentEntity } from "../entities/equipmentEntity";
+import { CreateTagoperationsEvent } from "../customEvents/createTagOperations";
 
 ///////////////////////////////////////////////////////////////////
 // for now we generate some dummy gridControllers 
@@ -75,7 +76,7 @@ export const gridControllers: GridControllerTypes = {
 /////////////////////////////////////////////////////////////
 
 export type GridControllerTypes = {
-  cable: GridController<CableEntity>;
+  cable: GridController<CableEntity, CreateTagoperationsEvent>;
   equipment: GridController<equipmentEntity>;
 
   workpack: GridController<DummyData>;

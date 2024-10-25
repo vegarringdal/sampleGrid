@@ -8,7 +8,6 @@ import {
 } from "@simple-html/grid";
 import { gridControllers } from "../gridControllers";
 import {
-  GridController,
   getFilterPlaceholder,
   getRowPlaceholder,
 } from "./GridController";
@@ -75,24 +74,27 @@ export function getNumberFormater() {
  * updates all datasources
  */
 export function updateAllGridControllers() {
-  const sourceKeys = Object.keys(gridControllers);
+  const sourceKeys = Object.keys(gridControllers)  ;
 
   sourceKeys.forEach((k) => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const dataController: GridController<unknown> = gridControllers[k];
-    const datasource = dataController.getGridDatasource();
-    const gridInterface = dataController.getGridInterface();
+    const gridController = gridControllers[k as keyof typeof gridControllers];
+    
+    const datasource = gridController.getGridDatasource();
+    const gridInterface = gridController.getGridInterface();
+    
     datasource.setDateFormater(getDateFormater());
     datasource.setNumberFormater(getNumberFormater());
+    
     /* store.gridInterface.triggerScrollEvent(); */
+    
     const config = gridInterface.saveConfig();
     config.attributes.forEach((att) => {
-      // update placeholder values
+      // 
       att.placeHolderFilter = getFilterPlaceholder(
         att.type,
         att.operator || null
       );
+
       att.placeHolderRow = getRowPlaceholder(
         att.type,
         att.label || att.attribute

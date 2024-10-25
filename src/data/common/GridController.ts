@@ -150,7 +150,6 @@ export class GridController<T, U = unknown> {
           return { dimmedClass: "", inputClass: "" };
         }
 
-
         if (c && c.__isNew) {
           return { dimmedClass: " new-cell", inputClass: "" };
         }
@@ -211,11 +210,10 @@ export class GridController<T, U = unknown> {
           let sourceName;
           const sourceKeys = Object.keys(gridControllers);
           sourceKeys.forEach((key) => {
-            // dunno how to make it happy atm
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            if (gridControllers[key] === this) {
-              sourceName = key as keyof GridControllerTypes;
+            const controller =
+              gridControllers[key as keyof typeof gridControllers];
+            if (controller === (this as unknown)) {
+              sourceName = key;
             }
           });
 
