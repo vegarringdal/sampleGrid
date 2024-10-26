@@ -114,6 +114,7 @@ export function ImportDialog() {
               }}
               onClick={() => {
                 addImportedData();
+                state.close();
               }}
             >
               Import into main grid

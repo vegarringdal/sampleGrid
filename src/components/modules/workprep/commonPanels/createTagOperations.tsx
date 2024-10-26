@@ -15,6 +15,11 @@ export function CreatetagOperations() {
           gutter: { className: "dark:bg-gray-600" },
           gutterHandler: { className: "dark:bg-gray-700" },
         }}
+        onResizeEnd={() => {
+          if (window.getSelection) {
+            window.getSelection()?.removeAllRanges();
+          }
+        }}
       >
         <SplitterPanel
           className="flex flex-col p-2 flex-1"
@@ -40,11 +45,11 @@ export function CreatetagOperations() {
           </div>
 
           <div className="p-2 flex w-full h-full">
-            <SimpleGridActions gridController={gridControllers.templateLines} />
+            <SimpleGridActions gridController={gridControllers.template} />
             <SimpleHtmlGrid
               id="2"
               className="simple-html-grid w-full h-full"
-              interface={gridControllers.templateLines.getGridInterface()}
+              interface={gridControllers.template.getGridInterface()}
             />
           </div>
         </SplitterPanel>

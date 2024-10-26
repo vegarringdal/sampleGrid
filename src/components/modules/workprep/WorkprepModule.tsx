@@ -19,6 +19,11 @@ export function WorkprepModule() {
           gutter: { className: "dark:bg-gray-600" },
           gutterHandler: { className: "dark:bg-gray-700" },
         }}
+        onResizeEnd={() => {
+          if (window.getSelection) {
+            window.getSelection()?.removeAllRanges();
+          }
+        }}
       >
         {/* LEFT SIDE */}
 
