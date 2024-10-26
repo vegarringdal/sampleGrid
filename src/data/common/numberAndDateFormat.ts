@@ -7,17 +7,12 @@ import {
   DateFormaterYYYYMMDDTHHMMSS,
 } from "@simple-html/grid";
 import { gridControllers } from "../gridControllers";
-import {
-  getFilterPlaceholder,
-  getRowPlaceholder,
-} from "./GridController";
-
+import { getFilterPlaceholder, getRowPlaceholder } from "./GridController";
 
 ////////////////////////////////////////////////////////////////
-// This file commen utils for handling date 
+// This file commen utils for handling date
 // and number format used by grid
 ///////////////////////////////////////////////////////////////
-
 
 export type numberType = "DOT" | "COMMA";
 export type dateType =
@@ -27,7 +22,8 @@ export type dateType =
   | "DDMMYYYYTHHMMSS";
 
 export function getDateFormat() {
-  return (window.localStorage.getItem("APP-DATE-FORMAT") || "YYYYMMDD") as dateType;
+  return (window.localStorage.getItem("APP-DATE-FORMAT") ||
+    "YYYYMMDD") as dateType;
 }
 
 export function getDateFormater() {
@@ -53,7 +49,8 @@ export function getDateFormater() {
 }
 
 export function getNumberFormat() {
-  return (window.localStorage.getItem("APP-NUMBER-FORMAT") || "DOT") as numberType;
+  return (window.localStorage.getItem("APP-NUMBER-FORMAT") ||
+    "DOT") as numberType;
 }
 
 export function getNumberFormater() {
@@ -74,30 +71,30 @@ export function getNumberFormater() {
  * updates all datasources
  */
 export function updateAllGridControllers() {
-  const sourceKeys = Object.keys(gridControllers)  ;
+  const sourceKeys = Object.keys(gridControllers);
 
   sourceKeys.forEach((k) => {
     const gridController = gridControllers[k as keyof typeof gridControllers];
-    
+
     const datasource = gridController.getGridDatasource();
     const gridInterface = gridController.getGridInterface();
-    
+
     datasource.setDateFormater(getDateFormater());
     datasource.setNumberFormater(getNumberFormater());
-    
+
     /* store.gridInterface.triggerScrollEvent(); */
-    
+
     const config = gridInterface.saveConfig();
     config.attributes.forEach((att) => {
-      // 
+      //
       att.placeHolderFilter = getFilterPlaceholder(
         att.type,
-        att.operator || null
+        att.operator || null,
       );
 
       att.placeHolderRow = getRowPlaceholder(
         att.type,
-        att.label || att.attribute
+        att.label || att.attribute,
       );
     });
     gridInterface.loadConfig(config);

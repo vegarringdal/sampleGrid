@@ -23,7 +23,7 @@ export async function openAndReadExcelFile() {
     excludeAcceptAllOption: true,
     multiple: false,
   });
-  
+
   if (handle?.length > 0) {
     const fileData = await handle[0].getFile();
     const blob = await fileData.arrayBuffer();

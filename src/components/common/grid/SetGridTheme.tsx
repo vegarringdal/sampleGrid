@@ -113,7 +113,7 @@ export function SetGridTheme() {
 
                    
             
-                    `)
+                    `),
         );
       } else {
         let children = ref.current.childNodes;
@@ -190,7 +190,7 @@ export function SetGridTheme() {
                     }
 
                     
-                  `)
+                  `),
         );
       }
     }

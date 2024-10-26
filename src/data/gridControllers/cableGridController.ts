@@ -282,7 +282,7 @@ export const cableGridController = new GridController<
       ["id"],
     ],
   },
-  cableServiceController
+  cableServiceController,
 );
 
 // custom event is for creating tagoperations later

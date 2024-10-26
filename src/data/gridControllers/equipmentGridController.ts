@@ -27,5 +27,5 @@ export const equipmentGridController = new GridController<equipmentEntity>(
       },
     ],
   },
-  equipmentServiceController
+  equipmentServiceController,
 );

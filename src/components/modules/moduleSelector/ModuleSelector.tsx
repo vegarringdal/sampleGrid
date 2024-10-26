@@ -111,7 +111,9 @@ export function ModuleSelector() {
   return (
     <div className="flex flex-col flex-1">
       <div className="m-auto w-4/5 mt-10 dark:text-white flex flex-col">
-        <label htmlFor="dd-select" className="text-sm">Select a Project</label>
+        <label htmlFor="dd-select" className="text-sm">
+          Select a Project
+        </label>
         <Dropdown
           inputId="dd-select"
           filter
@@ -120,7 +122,14 @@ export function ModuleSelector() {
           options={projects}
           optionLabel="name"
           className="w-full text-sm"
-          pt={{wrapper:{className:"border-1 bg-gray-100 dark:bg-gray-700 scrollbar" },input:{className: "text-sm"}, item:{className: "p-2 outline-none"},itemLabel:{className: "text-sm"},}}
+          pt={{
+            wrapper: {
+              className: "border-1 bg-gray-100 dark:bg-gray-700 scrollbar",
+            },
+            input: { className: "text-sm" },
+            item: { className: "p-2 outline-none" },
+            itemLabel: { className: "text-sm" },
+          }}
         />
       </div>
 
@@ -135,7 +144,6 @@ export function ModuleSelector() {
                   pt={{
                     root: { className: "p-1 text-sm " },
                   }}
-                  
                   disabled={!selectedProject || rowData.disabled}
                   onClick={() => rowData.nav(selectedProject?.code)}
                 >

@@ -19,7 +19,7 @@ class CableService {
     const result = await fetch(`https://example.com/api/cables/${project}`);
     if (result.ok) {
       return ((await result.json()) as CableEntity[]).map((d) =>
-        this.transformResult(d)
+        this.transformResult(d),
       );
     } else {
       return [];

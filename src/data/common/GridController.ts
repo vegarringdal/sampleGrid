@@ -33,7 +33,7 @@ export class GridController<T, U = unknown> {
 
   constructor(
     datainterface: GridControllerConfig<T>,
-    serviceController: ServiceController<T, U>
+    serviceController: ServiceController<T, U>,
   ) {
     this.#gridControllerConfig = datainterface;
     this.#initgridConfig = this.#generateGridConfig();
@@ -43,7 +43,7 @@ export class GridController<T, U = unknown> {
 
     this.#gridInterface = new GridInterface<T>(
       this.#initgridConfig,
-      this.#gridDatasource
+      this.#gridDatasource,
     );
     this.#stateStore = create<GridControllerState>(() => ({
       isLoading: false,
@@ -62,7 +62,7 @@ export class GridController<T, U = unknown> {
 
   /**
    * all logic to build standard gridConfig
-   * gridController config helps us abstract away default 
+   * gridController config helps us abstract away default
    * gridconfig so its easier to add workarounds/newer gird
    * @returns
    */
@@ -74,8 +74,7 @@ export class GridController<T, U = unknown> {
       attributes: [],
     } as GridConfig;
 
-    
-   this.#gridControllerConfig.columns.forEach((c, i) => {
+    this.#gridControllerConfig.columns.forEach((c, i) => {
       const primaryCol = this.#gridControllerConfig.primaryColumn;
 
       const attribute: Attribute = {
@@ -83,7 +82,7 @@ export class GridController<T, U = unknown> {
         label: (c.label as string) || (c.attribute as string),
         placeHolderRow: getRowPlaceholder(
           c.type,
-          (c.label as string) || (c.attribute as string)
+          (c.label as string) || (c.attribute as string),
         ),
         placeHolderFilter: getFilterPlaceholder(c.type, null),
         readonly: c.parentDataInterface ? false : c.readOnly,
@@ -160,7 +159,7 @@ export class GridController<T, U = unknown> {
         }
 
         return { dimmedClass: "", inputClass: "" };
-      }
+      },
     );
 
     /**
@@ -197,7 +196,7 @@ export class GridController<T, U = unknown> {
           if (!event.data) return;
 
           const config = this.#gridControllerConfig.columns.filter(
-            (e) => e.attribute === event.data?.attribute
+            (e) => e.attribute === event.data?.attribute,
           )[0];
           if (!config) return;
 
@@ -217,7 +216,7 @@ export class GridController<T, U = unknown> {
 
         if (event.type === "cell-focus-button-click") {
           const config = this.#gridControllerConfig.columns.filter(
-            (e) => e.attribute === event.data?.attribute
+            (e) => e.attribute === event.data?.attribute,
           )[0];
 
           let sourceName;
@@ -243,7 +242,7 @@ export class GridController<T, U = unknown> {
               config.parentDataInterface.title,
               config.parentDataInterface.columnFrom,
               config.parentDataInterface.columnTo,
-              config.parentDataInterface.columnsFromTo
+              config.parentDataInterface.columnsFromTo,
             );
         }
 
@@ -264,7 +263,7 @@ export class GridController<T, U = unknown> {
           const data: Record<string, unknown> = {};
 
           const keys = this.#gridControllerConfig.columns.map(
-            (e) => e.attribute
+            (e) => e.attribute,
           ) as string[];
 
           keys.forEach((key) => {
@@ -292,7 +291,7 @@ export class GridController<T, U = unknown> {
 
           if (lastCopyEvent && lastCopyEvent.attribute === attribute) {
             const config = this.#gridControllerConfig.columns.filter(
-              (e) => e.attribute === event.data?.attribute
+              (e) => e.attribute === event.data?.attribute,
             )[0];
             if (!config) return;
 
@@ -524,12 +523,12 @@ export function operator(operator: Attribute["operator"]) {
  */
 export function getFilterPlaceholder(
   type: DataTypes | undefined,
-  operatorType: FilterComparisonOperator | null
+  operatorType: FilterComparisonOperator | null,
 ) {
   let placeholder = `${"text"} ${operator(operatorType || "EQUAL")}`;
   if (type === "date") {
     placeholder = `${getDateFormater().placeholder()} ${operator(
-      operatorType || "GREATER_THAN_OR_EQUAL_TO"
+      operatorType || "GREATER_THAN_OR_EQUAL_TO",
     )}`;
   }
   if (type === "number") {
@@ -540,7 +539,7 @@ export function getFilterPlaceholder(
 
 export function getRowPlaceholder(
   type: DataTypes | undefined,
-  labelOrName: string
+  labelOrName: string,
 ) {
   if (type === "date") {
     return `${labelOrName} - ${getDateFormater().placeholder()}`;

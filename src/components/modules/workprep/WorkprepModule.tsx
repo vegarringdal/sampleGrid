@@ -16,7 +16,7 @@ export function WorkprepModule() {
         className="flex w-full h-full bg-inherit"
         pt={{
           root: { className: "border-" },
-          gutter: {className: "dark:bg-gray-600"},
+          gutter: { className: "dark:bg-gray-600" },
           gutterHandler: { className: "dark:bg-gray-700" },
         }}
       >
@@ -28,7 +28,11 @@ export function WorkprepModule() {
 
         {/* RIGHT SIDE */}
 
-        <SplitterPanel className="flex overflow-x-auto scrollbar p-2 ml-1" minSize={10} size={40}>
+        <SplitterPanel
+          className="flex overflow-x-auto scrollbar p-2 ml-1"
+          minSize={10}
+          size={40}
+        >
           <WorkprepCommonPanel />
         </SplitterPanel>
       </Splitter>

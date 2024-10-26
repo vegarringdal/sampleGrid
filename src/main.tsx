@@ -16,7 +16,6 @@ import { ErrorDialog } from "./components/common/ErrorDialog.tsx";
 import TailwindOverride from "./utils/TailwindOverride.tsx";
 import { ImportDialog } from "./components/common/importDialog/ImportDialog.tsx";
 
-
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <PrimeReactProvider
@@ -31,9 +30,9 @@ createRoot(document.getElementById("root")!).render(
       }}
     >
       <LoadingDialog />
-      <ErrorDialog/>
-      <ImportDialog/>
+      <ErrorDialog />
+      <ImportDialog />
       <App />
     </PrimeReactProvider>
-  </StrictMode>
+  </StrictMode>,
 );

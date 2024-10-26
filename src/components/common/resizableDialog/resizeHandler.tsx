@@ -42,7 +42,7 @@ export function resizeHandler(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   setResizing: (isResizing: boolean) => void = (_isResizing: boolean) => {
     /*nothing*/
-  }
+  },
 ) {
   let lastX = event?.clientX;
   let lastY = event?.clientY;

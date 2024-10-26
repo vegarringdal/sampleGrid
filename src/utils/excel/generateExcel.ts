@@ -31,7 +31,7 @@ import { generateExcelCallbackType } from "./generateExcelCallbackType";
 
 export function generateExcel(
   gridInterface: GridInterface<unknown>,
-  callback: generateExcelCallbackType
+  callback: generateExcelCallbackType,
 ) {
   // eslint-disable-next-line no-async-promise-executor
   return new Promise(async (resolve) => {
@@ -274,7 +274,7 @@ export function generateExcel(
                         row[a.attribute],
                         "boolean",
                         a.attribute,
-                        false
+                        false,
                       );
 
                     if (!sharedString.has(val)) {
@@ -286,23 +286,21 @@ export function generateExcel(
 
                   if (row[a.attribute]) {
                     // replace problem strings, these are not valid in xml
-                    let exc = row[a.attribute].toString()
-                    if(row[a.attribute]?.replace){
+                    let exc = row[a.attribute].toString();
+                    if (row[a.attribute]?.replace) {
                       exc = exc
-                      .replace(/&/g, "&amp;")
-                      .replace(/</g, "&lt;")
-                      .replace(/>/g, "&gt;")
-                      .replace(/'/g, "&#39;")
-                      .replace(/"/g, "&#34;")
-                      // https://stackoverflow.com/questions/397250/unicode-regex-invalid-xml-characters
-                      .replace(
-                        // eslint-disable-next-line no-control-regex
-                        /(?<![\uD800-\uDBFF])[\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F\uFEFF\uFFFE\uFFFF]/g,
-                        ""
-                      );
+                        .replace(/&/g, "&amp;")
+                        .replace(/</g, "&lt;")
+                        .replace(/>/g, "&gt;")
+                        .replace(/'/g, "&#39;")
+                        .replace(/"/g, "&#34;")
+                        // https://stackoverflow.com/questions/397250/unicode-regex-invalid-xml-characters
+                        .replace(
+                          // eslint-disable-next-line no-control-regex
+                          /(?<![\uD800-\uDBFF])[\uDC00-\uDFFF]|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F\uFEFF\uFFFE\uFFFF]/g,
+                          "",
+                        );
                     }
-                   
-
 
                     if (!sharedString.has(exc)) {
                       sharedString.set(exc, id++);
@@ -317,7 +315,7 @@ export function generateExcel(
             .join("");
           worksheetZip.push(
             fflate.strToU8(worksheet_XML(tempContentString)),
-            false
+            false,
           );
         }
       }
@@ -362,7 +360,7 @@ export function generateExcel(
       if (lastColumnCount < sharedStringArray.length) {
         const bufferArray = sharedStringArray.slice(
           lastColumnCount,
-          (i + 1) * 5000
+          (i + 1) * 5000,
         );
         lastColumnCount = (i + 1) * 5000;
 
@@ -399,9 +397,9 @@ export function generateExcel(
 
     sharedStringZip.push(
       fflate.strToU8(
-        sharedString_XML(sharedStringTemplate, sharedString.size, totalCells)
+        sharedString_XML(sharedStringTemplate, sharedString.size, totalCells),
       ),
-      true
+      true,
     );
 
     // we are done, lets close

@@ -15,7 +15,7 @@ type RelatedDialogState = {
     title: string,
     columnFrom: string,
     columnTo: string,
-    columnsFromTo: string[][]
+    columnsFromTo: string[][],
   ) => void;
   deactivateRelatedDialog: () => void;
 };
@@ -38,7 +38,7 @@ export const relatedDialogStore = create<RelatedDialogState>((set) => ({
     title: string,
     columnFrom: string,
     columnTo: string,
-    columnsFromTo: string[][]
+    columnsFromTo: string[][],
   ) =>
     set(() => ({
       toSource,

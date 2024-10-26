@@ -1,3 +1,5 @@
 import { generateExcelCallbackEvents } from "./generateExcelCallbackEvents";
 
-export type generateExcelCallbackType = (event: generateExcelCallbackEvents) => void;
+export type generateExcelCallbackType = (
+  event: generateExcelCallbackEvents,
+) => void;

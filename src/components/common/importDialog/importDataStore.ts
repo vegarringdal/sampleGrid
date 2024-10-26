@@ -20,7 +20,7 @@ const gridConfigChange: GridConfig = {
 const defaultChangeColumns = [
   {
     label: "Primary Key Value",
-    attribute: "$$primaryKeyValue"
+    attribute: "$$primaryKeyValue",
   },
   {
     label: "Change Type",
@@ -67,7 +67,7 @@ const gridConfigDeleted: GridConfig = {
 const dataSourceChange = new Datasource();
 const gridInterfaceChange = new GridInterface(
   gridConfigChange,
-  dataSourceChange
+  dataSourceChange,
 );
 
 const dataSourceNew = new Datasource();
@@ -76,7 +76,7 @@ const gridInterfaceNew = new GridInterface(gridConfigNew, dataSourceNew);
 const dataSourceDeleted = new Datasource();
 const gridInterfaceDeleted = new GridInterface(
   gridConfigDeleted,
-  dataSourceDeleted
+  dataSourceDeleted,
 );
 
 const newRows = new Map();
@@ -95,6 +95,6 @@ export const importDataStore = {
   newRows,
   deletedRows,
   changedRows,
-  currentGridController: {} as  GridController<keyof GridControllerTypes>,
+  currentGridController: {} as GridController<keyof GridControllerTypes>,
   primaryKeyName,
 };

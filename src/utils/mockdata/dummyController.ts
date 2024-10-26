@@ -5,7 +5,7 @@ import { ServiceController } from "../../data/common/ServiceController";
 /**
  * just a dummy helper to get started
  * can be deleted later
- * @returns 
+ * @returns
  */
 export function generateDummyGridController() {
   const equipmentServiceController = new ServiceController<DummyData>({
@@ -69,7 +69,7 @@ export function generateDummyGridController() {
         },
       ],
     },
-    equipmentServiceController
+    equipmentServiceController,
   );
 
   return dummyDataController;

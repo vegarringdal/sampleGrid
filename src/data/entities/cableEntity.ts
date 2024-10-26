@@ -5,11 +5,11 @@ export type CableEntity = {
   areaFrom: string;
   toTag: string;
   areaTo: string;
-  site: string,
+  site: string;
   const: string;
   design: string;
   cableId: string;
-  cableDesc: string,
+  cableDesc: string;
   cableType: string;
   cableTypeDim: string;
   dicipline: string;
@@ -18,7 +18,7 @@ export type CableEntity = {
   partAddressFrom: string;
   partAddressTo: string;
   termFrom: string;
-  termTo:string;
+  termTo: string;
   mc: string;
   com: string;
   op01: string | null;

@@ -5,5 +5,5 @@ type state = {
 };
 
 export const currentUserStore = create<state>(() => ({
-  name: '',
+  name: "",
 }));

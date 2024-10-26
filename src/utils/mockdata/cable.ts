@@ -23,9 +23,10 @@ class CableMockData {
         design: "HAUHE",
         site: "THAI",
         cableId: "cid" + String(c).padStart(8, "0"),
-        cableDesc: c % 2 === 0 ? "BFOU(i) - 1x2x0.75mm2": "BFOU(c) - 2x2x1.50mm2",
+        cableDesc:
+          c % 2 === 0 ? "BFOU(i) - 1x2x0.75mm2" : "BFOU(c) - 2x2x1.50mm2",
         cableType: c % 2 === 0 ? "BFOU(i)" : "BFOU(c)",
-        cableTypeDim: c % 2 === 0 ? "1x2x0.75mm2": "2x2x1.50mm2",
+        cableTypeDim: c % 2 === 0 ? "1x2x0.75mm2" : "2x2x1.50mm2",
         source: "ES",
         dicipline: "LJ",
         status: "TS",
@@ -120,7 +121,7 @@ class CableMockData {
       }),
       http.put(`${url}/cable/:project/:id`, async ({ params, request }) => {
         console.log(
-          `Captured a "PUT /cable/${params.project}/${params.id}" request`
+          `Captured a "PUT /cable/${params.project}/${params.id}" request`,
         );
         const newData = (await request.json()) as CableEntity;
         const data = await that.reqPut(parseInt(params.id as string), newData);
@@ -128,7 +129,7 @@ class CableMockData {
       }),
       http.delete(`${url}/cable/:project/:id`, async ({ params }) => {
         console.log(
-          `Captured a "DELETE /cable/${params.project}/${params.id}" request`
+          `Captured a "DELETE /cable/${params.project}/${params.id}" request`,
         );
         const data = await that.reqDelete(parseInt(params.id as string));
         return HttpResponse.json(data, {

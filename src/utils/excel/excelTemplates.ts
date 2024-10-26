@@ -71,7 +71,7 @@ export const content_XML = `<?xml version="1.0" encoding="UTF-8" standalone="yes
 
 export const worksheet_PATH = `xl/worksheets/sheet.xml`;
 export const worksheet_XML_header = function () {
-    return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"
     xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="x14ac xr xr2 xr3"
@@ -91,10 +91,10 @@ export const worksheet_XML_header = function () {
 `;
 };
 export const worksheet_XML = function (data: string) {
-    return `${data}`;
+  return `${data}`;
 };
 export const worksheet_XML_footer = function (autoFilterEndColLetter: string) {
-    return `
+  return `
     </sheetData>
     <autoFilter ref="A1:${autoFilterEndColLetter}1" xr:uid="{7C03E84A-3459-44F7-9DE8-D9E6E7548FC0}"/>
     <pageMargins left="0.7" right="0.7" top="0.75" bottom="0.75" header="0.3" footer="0.3"/>
@@ -406,8 +406,12 @@ export const theme1_XML = `<?xml version="1.0" encoding="UTF-8" standalone="yes"
 </a:theme>`;
 
 export const sharedString_PATH = "xl/sharedStrings.xml";
-export const sharedString_XML = function (template: string, unique: number, total: number) {
-    return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+export const sharedString_XML = function (
+  template: string,
+  unique: number,
+  total: number,
+) {
+  return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <sst xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" count="${total}" uniqueCount="${unique}">
 ${template}
 </sst>`;

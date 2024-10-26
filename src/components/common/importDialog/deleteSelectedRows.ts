@@ -87,7 +87,7 @@ export function deleteSelectedRows(reg: string) {
 
     selectedRows.forEach((entity: Record<string, unknown>) => {
       const primaryKey = entity[importDataStore.primaryKeyName]?.toString();
-   
+
       {
         const row = importDataStore.changedRows.get(primaryKey);
         if (row) {

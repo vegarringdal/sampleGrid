@@ -8,7 +8,7 @@ import { equipmentEntity } from "../entities/equipmentEntity";
 import { CreateTagoperationsEvent } from "../customEvents/createTagOperations";
 
 ///////////////////////////////////////////////////////////////////
-// for now we generate some dummy gridControllers 
+// for now we generate some dummy gridControllers
 // added many so we can play around with loading dialogs etc/gui
 // never use same gridController more than once per page
 ///////////////////////////////////////////////////////////////////
@@ -68,9 +68,8 @@ export const gridControllers: GridControllerTypes = {
   userProjectRoles: generateDummyGridController(),
 };
 
-
 /////////////////////////////////////////////////////////////
-// need type declaration, 
+// need type declaration,
 // since we want to ref to sources in datacontroller config
 // we cant have direct ref due to circular depencency
 /////////////////////////////////////////////////////////////
@@ -80,7 +79,7 @@ export type GridControllerTypes = {
   equipment: GridController<equipmentEntity>;
 
   workpack: GridController<DummyData>;
-  workpackDialog: GridController<DummyData>; 
+  workpackDialog: GridController<DummyData>;
 
   task: GridController<DummyData>;
   taskDialog: GridController<DummyData>;

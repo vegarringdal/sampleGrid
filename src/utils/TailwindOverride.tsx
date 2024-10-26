@@ -2,7 +2,7 @@
 import { classNames } from "primereact/utils";
 // 👇️ ts-nocheck disables type checking for the entire file
 // eslint-disable-file @typescript-eslint/ban-ts-comment
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+
 // @ts-nocheck
 export const TRANSITIONS = {
   toggleable: {
@@ -113,7 +113,7 @@ const Tailwind = {
         "flex items-center justify-between", // flex and alignments
         "border border-gray-300 bg-gray-100 text-gray-700 rounded-tl-lg rounded-tr-lg", // borders and colors
         "dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80", // Dark mode
-        { "p-5": !props.toggleable, "py-3 px-5": props.toggleable } // condition
+        { "p-5": !props.toggleable, "py-3 px-5": props.toggleable }, // condition
       ),
     }),
     title: "leading-none font-bold",
@@ -122,14 +122,14 @@ const Tailwind = {
         "inline-flex items-center justify-center overflow-hidden relative no-underline", // alignments
         "w-8 h-8 text-gray-600 border-0 bg-transparent rounded-full transition duration-200 ease-in-out", // widths, borders, and transitions
         "hover:text-gray-900 hover:border-transparent hover:bg-gray-200 dark:hover:text-white/80 dark:hover:bg-gray-800/80 dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]", // hover
-        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]" // focus
+        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]", // focus
       ),
     },
     togglerIcon: "inline-block",
     content: {
       className: classNames(
         "p-5 border border-gray-300 bg-white text-gray-700 border-t-0 last:rounded-br-lg last:rounded-bl-lg",
-        "dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80" // Dark mode
+        "dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80", // Dark mode
       ),
     },
     transition: TRANSITIONS.toggleable,
@@ -144,7 +144,7 @@ const Tailwind = {
             {
               "select-none pointer-events-none cursor-default opacity-60":
                 context.disabled,
-            } // Condition
+            }, // Condition
           ),
         };
       },
@@ -159,7 +159,7 @@ const Tailwind = {
           {
             "rounded-br-md rounded-bl-md": !context.selected,
             "rounded-br-0 rounded-bl-0 text-gray-800": context.selected,
-          } // Condition
+          }, // Condition
         ),
       }),
       headerIcon: "inline-block mr-2",
@@ -167,7 +167,7 @@ const Tailwind = {
       content: {
         className: classNames(
           "p-5 border border-gray-300 bg-white text-gray-700 border-t-0 rounded-tl-none rounded-tr-none rounded-br-lg rounded-bl-lg",
-          "dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80" // Dark mode
+          "dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80", // Dark mode
         ),
       },
       transition: TRANSITIONS.toggleable,
@@ -177,7 +177,7 @@ const Tailwind = {
     root: {
       className: classNames(
         "bg-white text-gray-700 shadow-md rounded-md", // Background, text color, box shadow, and border radius.
-        "dark:bg-gray-900 dark:text-white " //dark
+        "dark:bg-gray-900 dark:text-white ", //dark
       ),
     },
     body: "p-5", // Padding.
@@ -185,7 +185,7 @@ const Tailwind = {
     subTitle: {
       className: classNames(
         "font-normal mb-2 text-gray-600", // Font weight, margin bottom, and text color.
-        "dark:text-white/60 " //dark
+        "dark:text-white/60 ", //dark
       ),
     },
     content: "py-5", // Vertical padding.
@@ -205,7 +205,7 @@ const Tailwind = {
           "before:border-solid": props.type == "solid",
           "before:border-dotted": props.type == "dotted",
           "before:border-dashed": props.type == "dashed",
-        } // Border type condition.
+        }, // Border type condition.
       ),
     }),
     content: "px-1 bg-white z-10 dark:bg-gray-900", // Padding and background color.
@@ -214,7 +214,7 @@ const Tailwind = {
     root: {
       className: classNames(
         "border border-gray-300 bg-white text-gray-700 rounded-md block mx-2 my-0.5 pl-4 pr-5 inline-size-min", // Borders, background, text color, spacing, and inline size.
-        "dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80" //dark
+        "dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80", //dark
       ),
     },
     legend: ({ props }: any) => ({
@@ -225,7 +225,7 @@ const Tailwind = {
           "p-0 transition-none hover:bg-gray-100 hover:border-gray-300 hover:text-gray-900 dark:hover:text-white/80 dark:hover:bg-gray-800/80 dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]":
             props.toggleable,
           "p-5": !props.toggleable,
-        }
+        },
       ),
     }),
     toggler: ({ props }: any) => ({
@@ -246,13 +246,13 @@ const Tailwind = {
     barX: {
       className: classNames(
         "relative bg-gray-100 invisible rounded cursor-pointer h-[9px] bottom-0 z-[2]",
-        "transition duration-[250ms] ease-linear"
+        "transition duration-[250ms] ease-linear",
       ),
     },
     barY: {
       className: classNames(
         "relative bg-gray-100 rounded cursor-pointer w-[9px] top-0 z-[2]",
-        "transition duration-[250ms] ease-linear"
+        "transition duration-[250ms] ease-linear",
       ),
     },
   },
@@ -260,7 +260,7 @@ const Tailwind = {
     navContainer: ({ props }: any) => ({
       className: classNames(
         "relative", // Relative positioning.
-        { "overflow-hidden": props.scrollable } // Overflow condition.
+        { "overflow-hidden": props.scrollable }, // Overflow condition.
       ),
     }),
     navContent:
@@ -270,7 +270,7 @@ const Tailwind = {
         "h-full flex items-center justify-center !absolute top-0 z-20",
         "left-0",
         "bg-white text-blue-500 w-12 shadow-md rounded-none",
-        "dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80 )"
+        "dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80 )",
       ), // Flex and absolute positioning styles.
     },
     nextButton: {
@@ -278,14 +278,14 @@ const Tailwind = {
         "h-full flex items-center justify-center !absolute top-0 z-20",
         "right-0",
         "bg-white text-blue-500 w-12 shadow-md rounded-none",
-        "dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80 "
+        "dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80 ",
       ), // Flex and absolute positioning styles.
     },
     nav: {
       className: classNames(
         "flex flex-1 list-none m-0 p-0",
         "bg-transparent border border-gray-300 border-0 border-b-2",
-        "dark:bg-gray-800 dark:border-blue-900/40 dark:text-white/80 "
+        "dark:bg-gray-800 dark:border-blue-900/40 dark:text-white/80 ",
       ), // Flex, list, margin, padding, and border styles.
     },
   },
@@ -321,7 +321,7 @@ const Tailwind = {
               isHover, // Condition-based hover styles.
             "bg-white border-blue-500 text-blue-500 dark:bg-gray-800 dark:border-blue-300 dark:text-blue-300":
               isActive, // Condition-based active styles.
-          }
+          },
         ),
         style: { marginBottom: "-2px" }, // Negative margin style.
       };
@@ -332,7 +332,7 @@ const Tailwind = {
     content: {
       className: classNames(
         "bg-white p-5 border-0 text-gray-700 rounded-bl-md rounded-br-md",
-        "dark:bg-gray-800 dark:border-blue-900/40 dark:text-white/80"
+        "dark:bg-gray-800 dark:border-blue-900/40 dark:text-white/80",
       ), // Background, padding, border, and text styles.
     },
   },
@@ -344,7 +344,7 @@ const Tailwind = {
           "border border-solid border-gray-300 dark:border-blue-900/40":
             !state.nested,
           "flex-col": props.layout === "vertical",
-        }
+        },
       ),
     }),
     gutter: ({ props }: any) => ({
@@ -354,7 +354,7 @@ const Tailwind = {
         {
           "cursor-col-resize": props.layout == "horizontal",
           "cursor-row-resize": props.layout !== "horizontal",
-        }
+        },
       ),
     }),
     gutterHandler: ({ props }: any) => ({
@@ -363,7 +363,7 @@ const Tailwind = {
         {
           "h-7 w-[0.3rem]": props.layout == "horizontal",
           "w-7 h-[0.3rem]": props.layout == "vertical",
-        }
+        },
       ),
     }),
   },
@@ -377,14 +377,14 @@ const Tailwind = {
         {
           "transition-none transform-none !w-screen !h-screen !max-h-full !top-0 !left-0":
             state.maximized,
-        }
+        },
       ),
     }),
     header: {
       className: classNames(
         "flex items-center justify-between shrink-0",
         "bg-white text-gray-800 border-t-0  rounded-tl-lg rounded-tr-lg p-6",
-        "dark:bg-gray-900  dark:text-white/80"
+        "dark:bg-gray-900  dark:text-white/80",
       ),
     },
     headerTitle: "font-bold text-lg",
@@ -395,7 +395,7 @@ const Tailwind = {
         "w-8 h-8 text-gray-500 border-0 bg-transparent rounded-full transition duration-200 ease-in-out mr-2 last:mr-0",
         "hover:text-gray-700 hover:border-transparent hover:bg-gray-200",
         "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]", // focus
-        "dark:hover:text-white/80 dark:hover:border-transparent dark:hover:bg-gray-800/80 dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]"
+        "dark:hover:text-white/80 dark:hover:border-transparent dark:hover:bg-gray-800/80 dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]",
       ),
     },
     closeButtonIcon: "w-4 h-4 inline-block",
@@ -407,14 +407,14 @@ const Tailwind = {
         "dark:bg-gray-900  dark:text-white/80 ",
         {
           grow: state.maximized,
-        }
+        },
       ),
     }),
     footer: {
       className: classNames(
         "flex gap-2 shrink-0 justify-end align-center",
         "border-t-0 bg-white text-gray-700 px-6 pb-6 text-right rounded-b-lg",
-        "dark:bg-gray-900 dark:text-white/80"
+        "dark:bg-gray-900 dark:text-white/80",
       ),
     },
     mask: ({ state }: any) => ({
@@ -437,45 +437,45 @@ const Tailwind = {
                   "!opacity-0 !scale-75 translate-x-0 -translate-y-full translate-z-0",
               }
             : props.position === "bottom"
-            ? {
-                enter: "opacity-0 scale-75 translate-y-full",
-                enterActive:
-                  "!opacity-100 !scale-100 !translate-y-0 transition-all duration-200 ease-out",
-                exit: "opacity-100 scale-100 transition-all duration-200 ease-out",
-                exitActive:
-                  "!opacity-0 !scale-75 translate-x-0 translate-y-full translate-z-0",
-              }
-            : props.position === "left" ||
-              props.position === "top-left" ||
-              props.position === "bottom-left"
-            ? {
-                enter:
-                  "opacity-0 scale-75 -translate-x-full translate-y-0 translate-z-0",
-                enterActive:
-                  "!opacity-100 !scale-100 !translate-x-0 transition-all duration-200 ease-out",
-                exit: "opacity-100 scale-100 transition-all duration-200 ease-out",
-                exitActive:
-                  "!opacity-0 !scale-75 -translate-x-full translate-y-0 translate-z-0",
-              }
-            : props.position === "right" ||
-              props.position === "top-right" ||
-              props.position === "bottom-right"
-            ? {
-                enter:
-                  "opacity-0 scale-75 translate-x-full translate-y-0 translate-z-0",
-                enterActive:
-                  "!opacity-100 !scale-100 !translate-x-0 transition-all duration-200 ease-out",
-                exit: "opacity-100 scale-100 transition-all duration-200 ease-out",
-                exitActive:
-                  "!opacity-0 !scale-75 translate-x-full translate-y-0 translate-z-0",
-              }
-            : {
-                enter: "opacity-0 scale-75",
-                enterActive:
-                  "!opacity-100 !scale-100 transition-all duration-200 ease-out",
-                exit: "opacity-100 scale-100 transition-all duration-200 ease-out",
-                exitActive: "!opacity-0 !scale-75",
-              },
+              ? {
+                  enter: "opacity-0 scale-75 translate-y-full",
+                  enterActive:
+                    "!opacity-100 !scale-100 !translate-y-0 transition-all duration-200 ease-out",
+                  exit: "opacity-100 scale-100 transition-all duration-200 ease-out",
+                  exitActive:
+                    "!opacity-0 !scale-75 translate-x-0 translate-y-full translate-z-0",
+                }
+              : props.position === "left" ||
+                  props.position === "top-left" ||
+                  props.position === "bottom-left"
+                ? {
+                    enter:
+                      "opacity-0 scale-75 -translate-x-full translate-y-0 translate-z-0",
+                    enterActive:
+                      "!opacity-100 !scale-100 !translate-x-0 transition-all duration-200 ease-out",
+                    exit: "opacity-100 scale-100 transition-all duration-200 ease-out",
+                    exitActive:
+                      "!opacity-0 !scale-75 -translate-x-full translate-y-0 translate-z-0",
+                  }
+                : props.position === "right" ||
+                    props.position === "top-right" ||
+                    props.position === "bottom-right"
+                  ? {
+                      enter:
+                        "opacity-0 scale-75 translate-x-full translate-y-0 translate-z-0",
+                      enterActive:
+                        "!opacity-100 !scale-100 !translate-x-0 transition-all duration-200 ease-out",
+                      exit: "opacity-100 scale-100 transition-all duration-200 ease-out",
+                      exitActive:
+                        "!opacity-0 !scale-75 translate-x-full translate-y-0 translate-z-0",
+                    }
+                  : {
+                      enter: "opacity-0 scale-75",
+                      enterActive:
+                        "!opacity-100 !scale-100 transition-all duration-200 ease-out",
+                      exit: "opacity-100 scale-100 transition-all duration-200 ease-out",
+                      exitActive: "!opacity-0 !scale-75",
+                    },
       };
     },
   },
@@ -486,7 +486,7 @@ const Tailwind = {
         "z-40 transform origin-center",
         "mt-3 absolute left-0 top-0",
         "before:absolute before:w-0 before:-top-3 before:h-0 before:border-transparent before:border-solid before:ml-6 before:border-x-[0.75rem] before:border-b-[0.75rem] before:border-t-0 before:border-b-white dark:before:border-b-gray-900",
-        "dark:border dark:border-blue-900/40 dark:bg-gray-900  dark:text-white/80"
+        "dark:border dark:border-blue-900/40 dark:bg-gray-900  dark:text-white/80",
       ),
     },
     content: "p-5 items-center flex",
@@ -502,7 +502,7 @@ const Tailwind = {
         "z-40 transform origin-center",
         "mt-3 absolute left-0 top-0",
         "before:absolute before:w-0 before:-top-3 before:h-0 before:border-transparent before:border-solid before:ml-6 before:border-x-[0.75rem] before:border-b-[0.75rem] before:border-t-0 before:border-b-white dark:before:border-b-gray-900",
-        "dark:border dark:border-blue-900/40 dark:bg-gray-900  dark:text-white/80"
+        "dark:border dark:border-blue-900/40 dark:bg-gray-900  dark:text-white/80",
       ),
     },
     content: "p-5 items-center flex",
@@ -518,7 +518,7 @@ const Tailwind = {
         "z-40 transform origin-center",
         "absolute left-0 top-0 mt-3",
         "before:absolute before:w-0 before:-top-3 before:h-0 before:border-transparent before:border-solid before:ml-6 before:border-x-[0.75rem] before:border-b-[0.75rem] before:border-t-0 before:border-b-white dark:before:border-b-gray-900",
-        "dark:border dark:border-blue-900/40 dark:bg-gray-900  dark:text-white/80"
+        "dark:border dark:border-blue-900/40 dark:bg-gray-900  dark:text-white/80",
       ),
     },
     closeButton:
@@ -537,7 +537,7 @@ const Tailwind = {
           "h-full w-80": props.position == "left" || props.position == "right",
           "h-40 w-full": props.position == "top" || props.position == "bottom",
         },
-        "dark:border dark:border-blue-900/40 dark:bg-gray-900 dark:text-white/80"
+        "dark:border dark:border-blue-900/40 dark:bg-gray-900 dark:text-white/80",
       ),
     }),
     header: {
@@ -549,7 +549,7 @@ const Tailwind = {
         "w-8 h-8 text-gray-500 border-0 bg-transparent rounded-full transition duration-200 ease-in-out mr-2 last:mr-0",
         "hover:text-gray-700 hover:border-transparent hover:bg-gray-200",
         "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]", // focus
-        "dark:hover:text-white/80 dark:hover:text-white/80 dark:hover:border-transparent dark:hover:bg-gray-800/80 dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]"
+        "dark:hover:text-white/80 dark:hover:text-white/80 dark:hover:border-transparent dark:hover:bg-gray-800/80 dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]",
       ),
     },
     closeButtonIcon: "w-4 h-4 inline-block",
@@ -559,7 +559,7 @@ const Tailwind = {
     mask: {
       className: classNames(
         "flex pointer-events-auto",
-        "bg-black bg-opacity-40 transition duration-200 z-20 transition-colors"
+        "bg-black bg-opacity-40 transition duration-200 z-20 transition-colors",
       ),
     },
     transition: ({ props }: any) => {
@@ -574,34 +574,39 @@ const Tailwind = {
               exitActive: "!opacity-0",
             }
           : props.position === "top"
-          ? {
-              enter: "translate-x-0 -translate-y-full translate-z-0",
-              enterActive: "!translate-y-0 transition-transform duration-300",
-              exit: "translate-y-0 transition-transform duration-300",
-              exitActive: "translate-x-0 !-translate-y-full translate-z-0",
-            }
-          : props.position === "bottom"
-          ? {
-              enter: "translate-x-0 translate-y-full translate-z-0",
-              enterActive: "!translate-y-0 transition-transform duration-300",
-              exit: "translate-y-0 transition-transform duration-300",
-              exitActive: "translate-x-0 !translate-y-full translate-z-0",
-            }
-          : props.position === "left"
-          ? {
-              enter: "-translate-x-full translate-y-0 translate-z-0",
-              enterActive: "!translate-x-0 transition-transform duration-300",
-              exit: "translate-x-0 transition-transform duration-300",
-              exitActive: "!-translate-x-full translate-y-0 translate-z-0",
-            }
-          : props.position === "right"
-          ? {
-              enter: "translate-x-full translate-y-0 translate-z-0",
-              enterActive: "!translate-x-0 transition-transform duration-300",
-              exit: "translate-x-0 transition-transform duration-300",
-              exitActive: "!translate-x-full translate-y-0 translate-z-0",
-            }
-          : undefined,
+            ? {
+                enter: "translate-x-0 -translate-y-full translate-z-0",
+                enterActive: "!translate-y-0 transition-transform duration-300",
+                exit: "translate-y-0 transition-transform duration-300",
+                exitActive: "translate-x-0 !-translate-y-full translate-z-0",
+              }
+            : props.position === "bottom"
+              ? {
+                  enter: "translate-x-0 translate-y-full translate-z-0",
+                  enterActive:
+                    "!translate-y-0 transition-transform duration-300",
+                  exit: "translate-y-0 transition-transform duration-300",
+                  exitActive: "translate-x-0 !translate-y-full translate-z-0",
+                }
+              : props.position === "left"
+                ? {
+                    enter: "-translate-x-full translate-y-0 translate-z-0",
+                    enterActive:
+                      "!translate-x-0 transition-transform duration-300",
+                    exit: "translate-x-0 transition-transform duration-300",
+                    exitActive:
+                      "!-translate-x-full translate-y-0 translate-z-0",
+                  }
+                : props.position === "right"
+                  ? {
+                      enter: "translate-x-full translate-y-0 translate-z-0",
+                      enterActive:
+                        "!translate-x-0 transition-transform duration-300",
+                      exit: "translate-x-0 transition-transform duration-300",
+                      exitActive:
+                        "!translate-x-full translate-y-0 translate-z-0",
+                    }
+                  : undefined,
       };
     },
   },
@@ -609,7 +614,7 @@ const Tailwind = {
     root: {
       className: classNames(
         "flex items-center justify-between flex-wrap",
-        "bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-blue-900/40  p-5 rounded-md gap-2"
+        "bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-blue-900/40  p-5 rounded-md gap-2",
       ),
     },
     start: "flex items-center",
@@ -643,7 +648,7 @@ const Tailwind = {
             context.top,
           "-ml-1 border-x-[0.25rem] border-b-[0.25rem] border-t-0 border-b-gray-600":
             context.bottom,
-        }
+        },
       ),
     }),
     text: {
@@ -657,19 +662,19 @@ const Tailwind = {
     buttonbar: {
       className: classNames(
         "flex flex-wrap",
-        "bg-gray-50 dark:bg-gray-800 p-5 border border-solid border-gray-300 dark:border-blue-900/40 text-gray-700 dark:text-white/80 rounded-tr-lg rounded-tl-lg gap-2 border-b-0"
+        "bg-gray-50 dark:bg-gray-800 p-5 border border-solid border-gray-300 dark:border-blue-900/40 text-gray-700 dark:text-white/80 rounded-tr-lg rounded-tl-lg gap-2 border-b-0",
       ),
     },
     basicButton: {
       className: classNames(
         "text-white bg-blue-500 border border-blue-500 p-3 px-5 rounded-md text-base",
-        "overflow-hidden relative"
+        "overflow-hidden relative",
       ),
     },
     chooseButton: {
       className: classNames(
         "text-white bg-blue-500 border border-blue-500 p-3 px-5 rounded-md text-base",
-        "overflow-hidden relative"
+        "overflow-hidden relative",
       ),
     },
     chooseIcon: "mr-2 inline-block",
@@ -683,14 +688,14 @@ const Tailwind = {
     content: {
       className: classNames(
         "relative",
-        "bg-white dark:bg-gray-900 p-8 border border-gray-300 dark:border-blue-900/40 text-gray-700 dark:text-white/80 rounded-b-lg"
+        "bg-white dark:bg-gray-900 p-8 border border-gray-300 dark:border-blue-900/40 text-gray-700 dark:text-white/80 rounded-b-lg",
       ),
     },
     file: {
       className: classNames(
         "flex items-center flex-wrap",
         "p-4 border border-gray-300 dark:border-blue-900/40 rounded gap-2 mb-2",
-        "last:mb-0"
+        "last:mb-0",
       ),
     },
     thumbnail: "shrink-0",
@@ -728,7 +733,7 @@ const Tailwind = {
         "w-8 h-8 rounded-full bg-transparent transition duration-200 ease-in-out",
         "ml-auto overflow-hidden relative",
         "flex items-center justify-center",
-        "hover:bg-white/30"
+        "hover:bg-white/30",
       ),
     },
     transition: {
@@ -753,7 +758,7 @@ const Tailwind = {
           "bg-green-100 border-0 text-green-700": props.severity == "success",
           "bg-orange-100 border-0 text-orange-700": props.severity == "warn",
           "bg-red-100 border-0 text-red-700": props.severity == "error",
-        }
+        },
       ),
     }),
     icon: "text-base mr-2",
@@ -790,7 +795,7 @@ const Tailwind = {
         "w-8 h-8 rounded-full bg-transparent transition duration-200 ease-in-out",
         "ml-auto overflow-hidden relative",
         "flex items-center justify-center",
-        "hover:bg-white/30"
+        "hover:bg-white/30",
       ),
     },
     transition: {
@@ -918,7 +923,7 @@ const Tailwind = {
           "text-xl py-3 px-4": props.size === "large",
         },
         { "flex-column": props.iconPos == "top" || props.iconPos == "bottom" },
-        { "opacity-60 pointer-events-none cursor-default": context?.disabled }
+        { "opacity-60 pointer-events-none cursor-default": context?.disabled },
       ),
     }),
     label: ({ props }: any) => ({
@@ -929,7 +934,7 @@ const Tailwind = {
         {
           "hover:underline": props.link,
         },
-        { "invisible w-0": props.label == null }
+        { "invisible w-0": props.label == null },
       ),
     }),
     icon: ({ props }: any) => ({
@@ -983,13 +988,13 @@ const Tailwind = {
           "mx-1 first:ml-2":
             props.direction == "right" && props.type == "linear",
         },
-        { absolute: props.type !== "linear" }
+        { absolute: props.type !== "linear" },
       ),
     }),
     action: {
       className: classNames(
         "flex items-center justify-center rounded-full relative overflow-hidden",
-        "w-12 h-12 bg-gray-700 hover:bg-gray-800 text-white"
+        "w-12 h-12 bg-gray-700 hover:bg-gray-800 text-white",
       ),
     },
     mask: ({ state }: any) => ({
@@ -999,7 +1004,7 @@ const Tailwind = {
           "opacity-0": !state.visible,
           "pointer-events-none opacity-100 transition-opacity duration-400 ease-in-out":
             state.visible,
-        }
+        },
       ),
     }),
   },
@@ -1020,7 +1025,7 @@ const Tailwind = {
     menu: {
       className: classNames(
         "outline-none",
-        "py-1	px-0 rounded-md	 list-none bg-white	border-none shadow-lg"
+        "py-1	px-0 rounded-md	 list-none bg-white	border-none shadow-lg",
       ),
     },
     menuList: "m-0 p-0 border-none outline-none no-underline list-none",
@@ -1061,7 +1066,7 @@ const Tailwind = {
         {
           "pl-8": context.iconPosition === "left",
           "pr-8": props.iconPosition === "right",
-        }
+        },
       ),
     }),
   },
@@ -1100,7 +1105,7 @@ const Tailwind = {
         {
           "opacity-60 select-none pointer-events-none cursor-default":
             props.disabled,
-        }
+        },
       ),
     }),
     range:
@@ -1117,7 +1122,7 @@ const Tailwind = {
     }),
     input: {
       className: classNames(
-        "absolute appearance-none top-0 left-0 size-full p-0 m-0 opacity-0 z-10 outline-none cursor-pointer"
+        "absolute appearance-none top-0 left-0 size-full p-0 m-0 opacity-0 z-10 outline-none cursor-pointer",
       ),
     },
     slider: ({ props }: any) => ({
@@ -1130,7 +1135,7 @@ const Tailwind = {
           "bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 hover:dark:bg-gray-700 ":
             !props.checked,
           "bg-blue-500 before:transform before:translate-x-5": props.checked,
-        }
+        },
       ),
     }),
   },
@@ -1142,20 +1147,20 @@ const Tailwind = {
         {
           "opacity-60 select-none pointer-events-none cursor-default":
             props.disabled,
-        }
+        },
       ),
     }),
     label: {
       className: classNames(
         "block whitespace-nowrap overflow-hidden flex flex-1 w-1 text-overflow-ellipsis cursor-pointer",
         "bg-transparent border-0 p-3 text-gray-700 dark:text-white/80",
-        "appearance-none rounded-md"
+        "appearance-none rounded-md",
       ),
     },
     dropdownButton: {
       className: classNames(
         "flex items-center justify-center shrink-0",
-        "bg-transparent text-gray-600 dark:text-white/80 w-[3rem] rounded-tr-6 rounded-br-6"
+        "bg-transparent text-gray-600 dark:text-white/80 w-[3rem] rounded-tr-6 rounded-br-6",
       ),
     },
     panel: "py-3 bg-white dark:bg-gray-900 border-0 shadow-md",
@@ -1163,12 +1168,12 @@ const Tailwind = {
     sublistWrapper: {
       className: classNames(
         "block absolute left-full top-0",
-        "min-w-full z-10"
+        "min-w-full z-10",
       ),
     },
     sublist: {
       className: classNames(
-        "py-3 bg-white dark:bg-gray-900 border-0 shadow-md"
+        "py-3 bg-white dark:bg-gray-900 border-0 shadow-md",
       ),
     },
     item: ({ state }: any) => ({
@@ -1180,13 +1185,13 @@ const Tailwind = {
             !state.selected,
           "bg-blue-50 text-blue-700 dark:bg-blue-300 dark:text-white/80":
             state.selected,
-        }
+        },
       ),
     }),
     content: {
       className: classNames(
         "flex items-center overflow-hidden relative",
-        "py-3 px-5"
+        "py-3 px-5",
       ),
     },
     optionGroupIcon: "ml-auto",
@@ -1205,7 +1210,7 @@ const Tailwind = {
         "[&>textarea.p-filled~label]:-top-3 [&>textarea.p-filled~label]:text-xs", // textarea filled
         '[&>div[data-pc-name="dropdown"][data-p-focus="false"]~label]:-top-3 [&>div[data-pc-name="dropdown"][data-p-focus="false"]~label]:text-xs', // dropdown focus
         "[&>input::placeholder]:opacity-0 [&>input::placeholder]:transition-all [&>input::placeholder]:ease-in-out", // placeholder
-        "[&>input::placeholder:focus]:opacity-100 [&>input::placeholder:focus]:transition-all [&>input::placeholder:focus]:ease-in-out" // placeholder focus
+        "[&>input::placeholder:focus]:opacity-100 [&>input::placeholder:focus]:transition-all [&>input::placeholder:focus]:ease-in-out", // placeholder focus
       ),
     },
   },
@@ -1246,7 +1251,7 @@ const Tailwind = {
         {
           "pl-8": context.iconPosition === "left",
           "pr-8": props.iconPosition === "right",
-        }
+        },
       ),
     }),
   },
@@ -1257,7 +1262,7 @@ const Tailwind = {
         className: classNames(
           "box-border text-center w-10 h-11 p-3 text-slate-900 border border-gray-300 rounded-lg transition-all duration-200",
           "hover:border-cyan-500",
-          "focus:border-cyan-500 focus:shadow-[0_0_0_0.2rem_#a5f3fc] focus:outline-0 focus:outline-offset-0"
+          "focus:border-cyan-500 focus:shadow-[0_0_0_0.2rem_#a5f3fc] focus:outline-0 focus:outline-offset-0",
         ),
       },
     },
@@ -1271,7 +1276,7 @@ const Tailwind = {
     }),
     cancelItem: () => ({
       className: classNames(
-        "inline-flex items-center cursor-pointer"
+        "inline-flex items-center cursor-pointer",
 
         // {
         //     'outline-none outline-offset-0 shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]': context.focused
@@ -1282,7 +1287,7 @@ const Tailwind = {
       className: classNames(
         "text-red-500",
         "w-5 h-5",
-        "transition duration-200 ease-in"
+        "transition duration-200 ease-in",
       ),
     },
     item: ({ props, context }: any) => ({
@@ -1295,21 +1300,21 @@ const Tailwind = {
         {
           "outline-none outline-offset-0 shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]":
             context.active,
-        }
+        },
       ),
     }),
     offIcon: {
       className: classNames(
         "text-gray-700 hover:text-blue-400",
         "w-5 h-5",
-        "transition duration-200 ease-in"
+        "transition duration-200 ease-in",
       ),
     },
     onIcon: {
       className: classNames(
         "text-blue-500",
         "w-5 h-5",
-        "transition duration-200 ease-in"
+        "transition duration-200 ease-in",
       ),
     },
   },
@@ -1334,7 +1339,7 @@ const Tailwind = {
             context.selected,
           "opacity-60 select-none pointer-events-none cursor-default":
             context.disabled,
-        }
+        },
       ),
     }),
     label: "font-bold",
@@ -1351,7 +1356,7 @@ const Tailwind = {
         {
           "opacity-60 select-none pointer-events-none cursor-default":
             props.disabled,
-        }
+        },
       ),
     }),
     range: ({ props }: any) => ({
@@ -1371,7 +1376,7 @@ const Tailwind = {
             props.orientation == "horizontal",
           "left-[50%] mb-[-0.5715rem] ml-[-0.4715rem]":
             props.orientation == "vertical",
-        }
+        },
       ),
     }),
   },
@@ -1393,19 +1398,19 @@ const Tailwind = {
           "bg-orange-500": state.meter?.strength == "medium",
           "bg-green-500": state.meter?.strength == "strong",
         },
-        { "pr-[2.5rem] ": props.toggleMask }
+        { "pr-[2.5rem] ": props.toggleMask },
       ),
     }),
     showIcon: {
       className: classNames(
         "absolute top-1/2 -mt-2",
-        "right-3 text-gray-600 dark:text-white/70"
+        "right-3 text-gray-600 dark:text-white/70",
       ),
     },
     hideIcon: {
       className: classNames(
         "absolute top-1/2 -mt-2",
-        "right-3 text-gray-600 dark:text-white/70"
+        "right-3 text-gray-600 dark:text-white/70",
       ),
     },
     inputIcon: {
@@ -1432,7 +1437,7 @@ const Tailwind = {
         {
           "opacity-60 select-none pointer-events-none cursor-default":
             props.disabled,
-        }
+        },
       ),
     }),
     label: "font-bold text-center w-full",
@@ -1447,12 +1452,12 @@ const Tailwind = {
     root: {
       className: classNames(
         "cursor-pointer inline-flex relative select-none align-bottom",
-        "w-6 h-6"
+        "w-6 h-6",
       ),
     },
     input: {
       className: classNames(
-        "absolute appearance-none top-0 left-0 size-full p-0 m-0 opacity-0 z-10 outline-none cursor-pointer"
+        "absolute appearance-none top-0 left-0 size-full p-0 m-0 opacity-0 z-10 outline-none cursor-pointer",
       ),
     },
     box: ({ props }: any) => ({
@@ -1469,7 +1474,7 @@ const Tailwind = {
           "hover:border-blue-500 dark:hover:border-blue-400 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]":
             !props.disabled,
           "cursor-default opacity-60": props.disabled,
-        }
+        },
       ),
     }),
     icon: "w-4 h-4 transition-all duration-200 text-white text-base dark:text-gray-900",
@@ -1478,12 +1483,12 @@ const Tailwind = {
     root: {
       className: classNames(
         "cursor-pointer inline-flex relative select-none align-bottom",
-        "w-6 h-6"
+        "w-6 h-6",
       ),
     },
     input: {
       className: classNames(
-        "absolute appearance-none top-0 left-0 size-full p-0 m-0 opacity-0 z-10 outline-none cursor-pointer"
+        "absolute appearance-none top-0 left-0 size-full p-0 m-0 opacity-0 z-10 outline-none cursor-pointer",
       ),
     },
     box: ({ props, context }: any) => ({
@@ -1500,7 +1505,7 @@ const Tailwind = {
           "hover:border-blue-500 dark:hover:border-blue-400 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]":
             !props.disabled,
           "cursor-default opacity-60": props.disabled,
-        }
+        },
       ),
     }),
     icon: "w-4 h-4 transition-all duration-200 text-white text-base dark:text-gray-900",
@@ -1509,12 +1514,12 @@ const Tailwind = {
     root: {
       className: classNames(
         "relative inline-flex cursor-pointer select-none align-bottom",
-        "w-6 h-6"
+        "w-6 h-6",
       ),
     },
     input: {
       className: classNames(
-        "absolute appearance-none top-0 left-0 size-full p-0 m-0 opacity-0 z-10 outline-none cursor-pointer"
+        "absolute appearance-none top-0 left-0 size-full p-0 m-0 opacity-0 z-10 outline-none cursor-pointer",
       ),
     },
     box: ({ props }: any) => ({
@@ -1531,7 +1536,7 @@ const Tailwind = {
           "hover:border-blue-500 dark:hover:border-blue-400 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]":
             !props.disabled,
           "cursor-default opacity-60": props.disabled,
-        }
+        },
       ),
     }),
     icon: ({ props }: any) => ({
@@ -1541,7 +1546,7 @@ const Tailwind = {
         {
           "backface-hidden scale-10 invisible": !props.checked,
           "transform scale-100 visible": props.checked,
-        }
+        },
       ),
     }),
   },
@@ -1556,7 +1561,7 @@ const Tailwind = {
         {
           "opacity-60 select-none pointer-events-none cursor-default":
             props.disabled,
-        }
+        },
       ),
     }),
     input: ({ props }: any) => ({
@@ -1566,13 +1571,13 @@ const Tailwind = {
         "dark:text-white/80",
         "p-3 transition duration-200 bg-transparent REMXrounded appearance-none font-sans text-base",
         "focus:outline-none focus:shadow-none",
-        { "pr-7": props.showClear }
+        { "pr-7": props.showClear },
       ),
     }),
     trigger: {
       className: classNames(
         "flex items-center justify-center shrink-0",
-        "bg-transparent text-gray-500 w-12 REMXrounded-tr-lg REMXrounded-br-lg"
+        "bg-transparent text-gray-500 w-12 REMXrounded-tr-lg REMXrounded-br-lg",
       ),
     },
     wrapper: {
@@ -1595,20 +1600,20 @@ const Tailwind = {
             !context.focused && context.selected,
           "opacity-60 select-none pointer-events-none cursor-default":
             context.disabled,
-        }
+        },
       ),
     }),
     itemGroup: {
       className: classNames(
         "m-0 p-3 text-gray-800 bg-white font-bold",
         "dark:bg-gray-900 dark:text-white/80",
-        "cursor-auto"
+        "cursor-auto",
       ),
     },
     header: {
       className: classNames(
         "p-3 border-b border-gray-300 text-gray-700 bg-gray-100 mt-0 rounded-tl-lg rounded-tr-lg",
-        "dark:bg-gray-800 dark:text-white/80 dark:border-blue-900/40"
+        "dark:bg-gray-800 dark:text-white/80 dark:border-blue-900/40",
       ),
     },
     filterContainer: "relative",
@@ -1618,7 +1623,7 @@ const Tailwind = {
         "w-full",
         "font-sans text-base text-gray-700 bg-white py-3 px-3 border border-gray-300 transition duration-200 rounded-lg appearance-none",
         "dark:bg-gray-900 dark:border-blue-900/40 dark:hover:border-blue-300 dark:text-white/80",
-        "hover:border-blue-500 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]"
+        "hover:border-blue-500 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]",
       ),
     },
     filterIcon: "-mt-2 absolute top-1/2",
@@ -1640,7 +1645,7 @@ const Tailwind = {
           {
             "rounded-lg": !parent.props.showIcon,
             "border-r-0 rounded-l-lg": parent.props.showIcon,
-          }
+          },
         ),
       }),
     },
@@ -1657,20 +1662,20 @@ const Tailwind = {
           "shadow-md border-0 absolute": !props.inline,
           "inline-block overflow-x-auto border border-gray-300 dark:border-blue-900/40":
             props.inline,
-        }
+        },
       ),
     }),
     header: {
       className: classNames(
         "flex items-center justify-between",
-        "p-2 text-gray-700 dark:text-white/80 bg-white dark:bg-gray-900 font-semibold m-0 border-b border-gray-300 dark:border-blue-900/40 rounded-t-lg"
+        "p-2 text-gray-700 dark:text-white/80 bg-white dark:bg-gray-900 font-semibold m-0 border-b border-gray-300 dark:border-blue-900/40 rounded-t-lg",
       ),
     },
     previousButton: {
       className: classNames(
         "flex items-center justify-center cursor-pointer overflow-hidden relative",
         "w-8 h-8 text-gray-600 dark:text-white/70 border-0 bg-transparent rounded-full transition-colors duration-200 ease-in-out",
-        "hover:text-gray-700 dark:hover:text-white/80 hover:border-transparent hover:bg-gray-200 dark:hover:bg-gray-800/80 "
+        "hover:text-gray-700 dark:hover:text-white/80 hover:border-transparent hover:bg-gray-200 dark:hover:bg-gray-800/80 ",
       ),
     },
     title: "leading-8 mx-auto",
@@ -1678,20 +1683,20 @@ const Tailwind = {
       className: classNames(
         "text-gray-700 dark:text-white/80 transition duration-200 font-semibold p-2",
         "mr-2",
-        "hover:text-blue-500"
+        "hover:text-blue-500",
       ),
     },
     yearTitle: {
       className: classNames(
         "text-gray-700 dark:text-white/80 transition duration-200 font-semibold p-2",
-        "hover:text-blue-500"
+        "hover:text-blue-500",
       ),
     },
     nextButton: {
       className: classNames(
         "flex items-center justify-center cursor-pointer overflow-hidden relative",
         "w-8 h-8 text-gray-600 dark:text-white/70 border-0 bg-transparent rounded-full transition-colors duration-200 ease-in-out",
-        "hover:text-gray-700 dark:hover:text-white/80 hover:border-transparent hover:bg-gray-200 dark:hover:bg-gray-800/80 "
+        "hover:text-gray-700 dark:hover:text-white/80 hover:border-transparent hover:bg-gray-200 dark:hover:bg-gray-800/80 ",
       ),
     },
     table: {
@@ -1714,7 +1719,7 @@ const Tailwind = {
             !context.selected && !context.disabled,
           "text-blue-700 bg-blue-100 hover:bg-blue-200":
             context.selected && !context.disabled,
-        }
+        },
       ),
     }),
     monthPicker: "my-2",
@@ -1728,7 +1733,7 @@ const Tailwind = {
             !context.selected && !context.disabled,
           "text-blue-700 bg-blue-100 hover:bg-blue-200":
             context.selected && !context.disabled,
-        }
+        },
       ),
     }),
     yearPicker: {
@@ -1744,13 +1749,13 @@ const Tailwind = {
             !context.selected && !context.disabled,
           "text-blue-700 bg-blue-100 hover:bg-blue-200":
             context.selected && !context.disabled,
-        }
+        },
       ),
     }),
     timePicker: {
       className: classNames(
         "flex justify-center items-center",
-        "border-t-1 border-solid border-gray-300 p-2"
+        "border-t-1 border-solid border-gray-300 p-2",
       ),
     },
     separatorContainer: "flex items-center flex-col px-2",
@@ -1762,14 +1767,14 @@ const Tailwind = {
       className: classNames(
         "flex items-center justify-center cursor-pointer overflow-hidden relative",
         "w-8 h-8 text-gray-600 dark:text-white/70 border-0 bg-transparent rounded-full transition-colors duration-200 ease-in-out",
-        "hover:text-gray-700 dark:hover:text-white/80 hover:border-transparent hover:bg-gray-200 dark:hover:bg-gray-800/80 "
+        "hover:text-gray-700 dark:hover:text-white/80 hover:border-transparent hover:bg-gray-200 dark:hover:bg-gray-800/80 ",
       ),
     },
     decrementButton: {
       className: classNames(
         "flex items-center justify-center cursor-pointer overflow-hidden relative",
         "w-8 h-8 text-gray-600 dark:text-white/70 border-0 bg-transparent rounded-full transition-colors duration-200 ease-in-out",
-        "hover:text-gray-700 dark:hover:text-white/80 hover:border-transparent hover:bg-gray-200 dark:hover:bg-gray-800/80 "
+        "hover:text-gray-700 dark:hover:text-white/80 hover:border-transparent hover:bg-gray-200 dark:hover:bg-gray-800/80 ",
       ),
     },
     groupContainer: "",
@@ -1780,7 +1785,7 @@ const Tailwind = {
     root: {
       className: classNames(
         "bg-white dark:bg-gray-900 border border-gray-400 dark:border-blue-900/40 transition-colors duration-200 ease-in-out rounded-md",
-        "w-full md:w-56"
+        "w-full md:w-56",
       ),
     },
     wrapper: "overflow-auto",
@@ -1798,20 +1803,20 @@ const Tailwind = {
             context.focused && context.selected,
           "bg-blue-50 text-blue-700 dark:bg-blue-300 dark:text-white/80":
             !context.focused && context.selected,
-        }
+        },
       ),
     }),
     itemGroup: {
       className: classNames(
         "m-0 p-3 text-gray-800 bg-white font-bold",
         "dark:bg-gray-900 dark:text-white/80",
-        "cursor-auto"
+        "cursor-auto",
       ),
     },
     header: {
       className: classNames(
         "p-3 border-b border-gray-300 text-gray-700 bg-gray-100 mt-0 rounded-tl-lg rounded-tr-lg",
-        "dark:bg-gray-800 dark:text-white/80 dark:border-blue-900/40"
+        "dark:bg-gray-800 dark:text-white/80 dark:border-blue-900/40",
       ),
     },
     filterContainer: "relative",
@@ -1822,7 +1827,7 @@ const Tailwind = {
           "w-full",
           "font-sans text-base text-gray-700 bg-white py-3 px-3 border border-gray-300 transition duration-200 rounded-lg appearance-none",
           "dark:bg-gray-900 dark:border-blue-900/40 dark:hover:border-blue-300 dark:text-white/80",
-          "hover:border-blue-500 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]"
+          "hover:border-blue-500 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]",
         ),
       },
     },
@@ -1839,7 +1844,7 @@ const Tailwind = {
         {
           "bg-blue-50 text-blue-700 dark:bg-blue-300 dark:text-white/80":
             state.selected,
-        }
+        },
       ),
     }),
     transition: TRANSITIONS.overlay,
@@ -1853,7 +1858,7 @@ const Tailwind = {
         {
           "opacity-60 select-none pointer-events-none cursor-default":
             props?.disabled,
-        }
+        },
       ),
     }),
     labelContainer: "overflow-hidden flex flex-auto cursor-pointer",
@@ -1867,38 +1872,38 @@ const Tailwind = {
             props.display !== "chip" &&
             (props.value == null || props.value == undefined),
           "!py-1.5 px-3": props.display === "chip" && props.value !== null,
-        }
+        },
       ),
     }),
     token: {
       className: classNames(
         "py-1 px-2 mr-2 bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white/80 rounded-full",
-        "cursor-default inline-flex items-center"
+        "cursor-default inline-flex items-center",
       ),
     },
     removeTokenIcon: "ml-2",
     trigger: {
       className: classNames(
         "flex items-center justify-center shrink-0",
-        "bg-transparent text-gray-600 dark:text-white/70 w-12 rounded-tr-lg rounded-br-lg"
+        "bg-transparent text-gray-600 dark:text-white/70 w-12 rounded-tr-lg rounded-br-lg",
       ),
     },
     panel: {
       className: classNames(
-        "bg-white dark:bg-gray-900 text-gray-700 dark:text-white/80 border-0 rounded-md shadow-lg"
+        "bg-white dark:bg-gray-900 text-gray-700 dark:text-white/80 border-0 rounded-md shadow-lg",
       ),
     },
     header: {
       className: classNames(
         "p-3 border-b border-gray-300 dark:border-blue-900/40 text-gray-700 dark:text-white/80 bg-gray-100 dark:bg-gray-800 rounded-t-lg",
-        "flex items-center justify-between"
+        "flex items-center justify-between",
       ),
     },
     headerCheckboxContainer: {
       className: classNames(
         "inline-flex cursor-pointer select-none align-bottom relative",
         "mr-2",
-        "w-6 h-6"
+        "w-6 h-6",
       ),
     },
     headerCheckbox: {
@@ -1911,7 +1916,7 @@ const Tailwind = {
             "border-gray-300 dark:border-blue-900/40 bg-white dark:bg-gray-900":
               !props?.checked,
             "border-blue-500 bg-blue-500": props?.checked,
-          }
+          },
         ),
       }),
     },
@@ -1922,7 +1927,7 @@ const Tailwind = {
         "flex items-center justify-center overflow-hidden relative",
         "w-8 h-8 text-gray-500 dark:text-white/70 border-0 bg-transparent rounded-full transition duration-200 ease-in-out mr-2 last:mr-0",
         "hover:text-gray-700 dark:hover:text-white/80 hover:border-transparent hover:bg-gray-200 dark:hover:bg-gray-800/80 ",
-        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]"
+        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]",
       ),
     },
     closeButtonIcon: "w-4 h-4 inline-block",
@@ -1930,7 +1935,7 @@ const Tailwind = {
       className: classNames(
         "max-h-[200px] overflow-auto",
         "bg-white text-gray-700 border-0 rounded-md shadow-lg",
-        "dark:bg-gray-900 dark:text-white/80"
+        "dark:bg-gray-900 dark:text-white/80",
       ),
     },
     list: "py-3 list-none m-0",
@@ -1947,14 +1952,14 @@ const Tailwind = {
             context.focused && context.selected,
           "bg-blue-50 text-blue-700 dark:bg-blue-300 dark:text-white/80":
             !context.focused && context.selected,
-        }
+        },
       ),
     }),
     checkboxContainer: {
       className: classNames(
         "inline-flex cursor-pointer select-none align-bottom relative",
         "mr-2",
-        "w-6 h-6"
+        "w-6 h-6",
       ),
     },
     checkbox: ({ context }: any) => ({
@@ -1966,7 +1971,7 @@ const Tailwind = {
           "border-gray-300 dark:border-blue-900/40  bg-white dark:bg-gray-900":
             !context?.selected,
           "border-blue-500 bg-blue-500": context?.selected,
-        }
+        },
       ),
     }),
     checkboxIcon: "w-4 h-4 transition-all duration-200 text-white text-base",
@@ -1974,7 +1979,7 @@ const Tailwind = {
       className: classNames(
         "m-0 p-3 text-gray-800 bg-white font-bold",
         "dark:bg-gray-900 dark:text-white/80",
-        "cursor-auto"
+        "cursor-auto",
       ),
     },
     filterContainer: "relative",
@@ -1985,7 +1990,7 @@ const Tailwind = {
           "w-full",
           "font-sans text-base text-gray-700 bg-white py-3 px-3 border border-gray-300 transition duration-200 rounded-lg appearance-none",
           "dark:bg-gray-900 dark:border-blue-900/40 dark:hover:border-blue-300 dark:text-white/80",
-          "hover:border-blue-500 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]"
+          "hover:border-blue-500 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]",
         ),
       },
     },
@@ -1997,7 +2002,7 @@ const Tailwind = {
     root: {
       className: classNames(
         "cursor-pointer inline-flex relative select-none align-bottom",
-        "w-6 h-6"
+        "w-6 h-6",
       ),
     },
     checkbox: ({ props }: any) => ({
@@ -2014,7 +2019,7 @@ const Tailwind = {
           "hover:border-blue-500 dark:hover:border-blue-400 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]":
             !props.disabled,
           "cursor-default opacity-60": props.disabled,
-        }
+        },
       ),
     }),
   },
@@ -2027,7 +2032,7 @@ const Tailwind = {
         {
           "opacity-60 select-none pointer-events-none cursor-default":
             context.disabled,
-        }
+        },
       ),
     }),
   },
@@ -2040,7 +2045,7 @@ const Tailwind = {
         {
           "opacity-60 select-none pointer-events-none cursor-default":
             props?.disabled,
-        }
+        },
       ),
     }),
     labelContainer: {
@@ -2050,24 +2055,24 @@ const Tailwind = {
       className: classNames(
         "block overflow-hidden whitespace-nowrap cursor-pointer overflow-ellipsis",
         "text-gray-800 dark:text-white/80",
-        "p-3 transition duration-200"
+        "p-3 transition duration-200",
       ),
     },
     trigger: {
       className: classNames(
         "flex items-center justify-center shrink-0",
-        "bg-transparent text-gray-600 dark:text-white/70 w-12 rounded-tr-lg rounded-br-lg"
+        "bg-transparent text-gray-600 dark:text-white/70 w-12 rounded-tr-lg rounded-br-lg",
       ),
     },
     panel: {
       className: classNames(
-        "bg-white dark:bg-gray-900 text-gray-700 dark:text-white/80 border-0 rounded-md shadow-lg"
+        "bg-white dark:bg-gray-900 text-gray-700 dark:text-white/80 border-0 rounded-md shadow-lg",
       ),
     },
     wrapper: {
       className: classNames(
         "max-h-[200px] overflow-auto",
-        "bg-white dark:bg-gray-900 text-gray-700 dark:text-white/80 border-0 rounded-md shadow-lg"
+        "bg-white dark:bg-gray-900 text-gray-700 dark:text-white/80 border-0 rounded-md shadow-lg",
       ),
     },
     header: {
@@ -2088,7 +2093,7 @@ const Tailwind = {
           "opacity-60 select-none pointer-events-none cursor-default":
             props.disabled,
         },
-        { "w-full": props.multiple }
+        { "w-full": props.multiple },
       ),
     }),
     container: {
@@ -2096,7 +2101,7 @@ const Tailwind = {
         "m-0 list-none cursor-text overflow-hidden flex items-center flex-wrap w-full",
         "px-3 py-2 gap-2",
         "font-sans text-base text-gray-700 dark:text-white/80 bg-white dark:bg-gray-900 border border-gray-300 dark:border-blue-900/40  transition duration-200 ease-in-out appearance-none rounded-md",
-        "focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] hover:border-blue-500 focus:outline-none dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]"
+        "focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] hover:border-blue-500 focus:outline-none dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]",
       ),
     },
     inputToken: {
@@ -2113,14 +2118,14 @@ const Tailwind = {
               !props.multiple,
             "font-sans text-base text-gray-700 dark:text-white/80 border-0 outline-none bg-transparent m-0 p-0 shadow-none rounded-none w-full":
               props.multiple,
-          }
+          },
         ),
       },
     }),
     token: {
       className: classNames(
         "py-1 px-2 mr-2 bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white/80 rounded-full",
-        "cursor-default inline-flex items-center"
+        "cursor-default inline-flex items-center",
       ),
     },
     dropdownButton: {
@@ -2130,7 +2135,7 @@ const Tailwind = {
       className: classNames(
         "bg-white text-gray-700 border-0 rounded-md shadow-lg",
         "max-h-[200px] overflow-auto",
-        "dark:bg-gray-900 dark:text-white/80"
+        "dark:bg-gray-900 dark:text-white/80",
       ),
     },
     list: "py-3 list-none m-0",
@@ -2147,14 +2152,14 @@ const Tailwind = {
             context.focused && context.selected,
           "bg-blue-50 text-blue-700 dark:bg-blue-300 dark:text-white/80":
             !context.focused && context.selected,
-        }
+        },
       ),
     }),
     itemGroup: {
       className: classNames(
         "m-0 p-3 text-gray-800 bg-white font-bold",
         "dark:bg-gray-900 dark:text-white/80",
-        "cursor-auto"
+        "cursor-auto",
       ),
     },
     transition: TRANSITIONS.overlay,
@@ -2171,7 +2176,7 @@ const Tailwind = {
         "m-0 py-1.5 px-3 list-none cursor-text overflow-hidden flex items-center flex-wrap",
         "w-full",
         "font-sans text-base text-gray-600 dark:text-white/70 bg-white dark:bg-gray-900 p-3 border border-gray-300 dark:border-blue-900/40 transition-colors duration-200 appearance-none rounded-lg",
-        "hover:border-blue-500 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]"
+        "hover:border-blue-500 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]",
       ),
     },
     inputToken: {
@@ -2180,13 +2185,13 @@ const Tailwind = {
     input: {
       className: classNames(
         "font-sans text-base text-gray-700 dark:text-white/80 p-0 m-0",
-        "border-0 outline-none bg-transparent shadow-none rounded-none w-full"
+        "border-0 outline-none bg-transparent shadow-none rounded-none w-full",
       ),
     },
     token: {
       className: classNames(
         "py-1 px-2 mr-2 bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-white/80 rounded-full",
-        "cursor-default inline-flex items-center"
+        "cursor-default inline-flex items-center",
       ),
     },
     removeTokenIcon: "ml-2",
@@ -2203,7 +2208,7 @@ const Tailwind = {
         "m-0",
         "font-sans text-base text-gray-600 bg-white dark:bg-gray-900 p-3 border border-gray-300 dark:border-blue-900/40 transition-colors duration-200 rounded-lg cursor-pointer",
         "hover:border-blue-500 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]",
-        "w-8 h-8"
+        "w-8 h-8",
       ),
     },
     panel: ({ props }: any) => ({
@@ -2223,7 +2228,7 @@ const Tailwind = {
     colorHandle: {
       className: classNames(
         "rounded-full border border-solid cursor-pointer h-3 w-3 absolute  opacity-85",
-        "border-white"
+        "border-white",
       ),
     },
     hue: {
@@ -2241,7 +2246,7 @@ const Tailwind = {
     toolbar: {
       className: classNames(
         "bg-gray-100 rounded-tr-md rounded-tl-md",
-        "border border-gray-300 box-border font-sans px-2 py-1"
+        "border border-gray-300 box-border font-sans px-2 py-1",
       ),
     },
     formats: {
@@ -2251,7 +2256,7 @@ const Tailwind = {
       className: classNames(
         "text-gray-700 inline-block float-left text-base font-medium h-6 relative align-middle",
         "w-28",
-        "border-0 text-gray-600"
+        "border-0 text-gray-600",
       ),
     },
   },
@@ -2276,7 +2281,7 @@ const Tailwind = {
             props.size == "large",
           "text-2xl min-w-[3rem] h-[3rem] leading-[3rem]":
             props.size == "xlarge",
-        }
+        },
       ),
     }),
   },
@@ -2296,7 +2301,7 @@ const Tailwind = {
         },
         {
           "-ml-4 border-2 border-white dark:border-gray-900": state.nested,
-        }
+        },
       ),
     }),
     image: "h-full w-full",
@@ -2308,7 +2313,7 @@ const Tailwind = {
     root: {
       className: classNames(
         "inline-flex items-center",
-        "bg-gray-200 text-gray-800 rounded-[16px] px-3 dark:text-white/80 dark:bg-gray-900"
+        "bg-gray-200 text-gray-800 rounded-[16px] px-3 dark:text-white/80 dark:bg-gray-900",
       ),
     },
     label: "leading-6 mt-1.5 mb-1.5",
@@ -2319,7 +2324,7 @@ const Tailwind = {
     removeIcon: {
       className: classNames(
         "ml-2 rounded-md transition duration-200 ease-in-out",
-        "cursor-pointer leading-6"
+        "cursor-pointer leading-6",
       ),
     },
   },
@@ -2327,7 +2332,7 @@ const Tailwind = {
     root: {
       className: classNames(
         "overflow-hidden relative",
-        "border-0 h-6 bg-gray-200 rounded-md dark:bg-gray-800"
+        "border-0 h-6 bg-gray-200 rounded-md dark:bg-gray-800",
       ),
     },
     value: ({ props }: any) => ({
@@ -2346,7 +2351,7 @@ const Tailwind = {
     root: {
       className: classNames(
         "relative mx-auto w-28 h-28 inline-block",
-        "before:block before:pt-full"
+        "before:block before:pt-full",
       ),
     },
     spinner:
@@ -2363,7 +2368,7 @@ const Tailwind = {
         {
           "rounded-md": props.shape !== "circle",
           "rounded-full": props.shape == "circle",
-        }
+        },
       ),
     }),
   },
@@ -2383,7 +2388,7 @@ const Tailwind = {
         {
           "rounded-md": !props.rounded,
           "rounded-full": props.rounded,
-        }
+        },
       ),
     }),
     value: "leading-6",
@@ -2394,7 +2399,7 @@ const Tailwind = {
       className: classNames(
         "p-3 rounded-md transition duration-200 text-gray-700 dark:text-white/80",
         "inline cursor-pointer",
-        "hover:bg-gray-200 hover:text-gray-700 dark:hover:bg-gray-800/80 dark:hover:text-white/80"
+        "hover:bg-gray-200 hover:text-gray-700 dark:hover:bg-gray-800/80 dark:hover:text-white/80",
       ),
     },
   },
@@ -2408,7 +2413,7 @@ const Tailwind = {
             props.target == "parent",
           "!bg-gray-700 hover:bg-gray-800 h-12 w-12 rounded-full text-white":
             props.target !== "parent",
-        }
+        },
       ),
     }),
     transition: {
@@ -2426,7 +2431,7 @@ const Tailwind = {
       className: classNames(
         "border border-gray-300 p-5",
         "bg-gray-900 text-white dark:border-blue-900/40 ",
-        "h-72 overflow-auto"
+        "h-72 overflow-auto",
       ),
     },
     container: "flex items-center",
@@ -2449,7 +2454,7 @@ const Tailwind = {
     root: {
       className: classNames(
         "overflow-x-auto",
-        "bg-white dark:bg-gray-900 border border-gray-300 dark:border-blue-900/40 rounded-md p-4"
+        "bg-white dark:bg-gray-900 border border-gray-300 dark:border-blue-900/40 rounded-md p-4",
       ),
     },
     menu: "m-0 p-0 list-none flex items-center flex-nowrap",
@@ -2457,14 +2462,14 @@ const Tailwind = {
       className: classNames(
         "text-decoration-none flex items-center",
         "transition-shadow duration-200 rounded-md text-gray-600 dark:text-white/70",
-        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]"
+        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]",
       ),
     },
     icon: "text-gray-600 dark:text-white/70",
     separator: {
       className: classNames(
         "mx-2 text-gray-600 dark:text-white/70",
-        "flex items-center"
+        "flex items-center",
       ),
     },
   },
@@ -2486,13 +2491,13 @@ const Tailwind = {
             context.focused && context.active,
           "bg-blue-50 text-blue-700 dark:bg-blue-300 dark:text-white/80":
             !context.focused && context.active,
-        }
+        },
       ),
     }),
     action: {
       className: classNames(
         "cursor-pointer flex items-center no-underline overflow-hidden relative",
-        "text-gray-700 dark:text-white/80 py-3 px-5 select-none"
+        "text-gray-700 dark:text-white/80 py-3 px-5 select-none",
       ),
     },
     icon: "text-gray-600 dark:text-white/70 mr-2",
@@ -2514,13 +2519,13 @@ const Tailwind = {
           "left-0 top-0 w-full": props.position == "top",
           "left-0 top-0 h-full": props.position == "left",
           "right-0 top-0 h-full": props.position == "right",
-        }
+        },
       ),
     }),
     container: {
       className: classNames(
         "flex pointer-events-auto",
-        "bg-white/10 border-white/20 p-2 border rounded-md"
+        "bg-white/10 border-white/20 p-2 border rounded-md",
       ),
     },
     menu: ({ props }: any) => ({
@@ -2529,7 +2534,7 @@ const Tailwind = {
         "outline-none",
         {
           "flex-col": props.position == "left" || props.position == "right",
-        }
+        },
       ),
     }),
     menuitem: ({ props, context, state }: any) => ({
@@ -2550,13 +2555,13 @@ const Tailwind = {
           "scale-110":
             state.currentIndex - 2 === context.index ||
             state.currentIndex + 2 === context.index,
-        }
+        },
       ),
     }),
     action: {
       className: classNames(
         "flex flex-col items-center justify-center relative overflow-hidden cursor-default",
-        "w-16 h-16"
+        "w-16 h-16",
       ),
     },
   },
@@ -2572,13 +2577,13 @@ const Tailwind = {
         {
           "bg-gray-300 text-gray-700 dark:text-white/80 dark:bg-gray-800/90":
             state.focused,
-        }
+        },
       ),
     }),
     action: {
       className: classNames(
         "text-gray-700 dark:text-white/80 py-3 px-5 select-none",
-        "cursor-pointer flex items-center no-underline overflow-hidden relative"
+        "cursor-pointer flex items-center no-underline overflow-hidden relative",
       ),
     },
     menuitem: {
@@ -2587,7 +2592,7 @@ const Tailwind = {
     icon: "text-gray-600 dark:text-white/70 mr-2",
     submenuHeader: {
       className: classNames(
-        "m-0 p-3 text-gray-700 dark:text-white/80 bg-white dark:bg-gray-900 font-bold rounded-tl-none rounded-tr-none"
+        "m-0 p-3 text-gray-700 dark:text-white/80 bg-white dark:bg-gray-900 font-bold rounded-tl-none rounded-tr-none",
       ),
     },
     separator: "border-t border-gray-300 dark:border-blue-900/40 my-1",
@@ -2597,7 +2602,7 @@ const Tailwind = {
     root: {
       className: classNames(
         "p-2 bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-blue-900/40 rounded-md",
-        "flex items-center relative"
+        "flex items-center relative",
       ),
     },
     menu: ({ state }: any) => ({
@@ -2610,7 +2615,7 @@ const Tailwind = {
         {
           "hidden ": !state?.mobileActive,
           "flex ": state?.mobileActive,
-        }
+        },
       ),
     }),
     menuitem: ({ props, context }: any) => ({
@@ -2627,7 +2632,7 @@ const Tailwind = {
           "hover:text-gray-700 dark:hover:text-white/80 hover:bg-gray-200 dark:hover:bg-gray-800/80":
             !context.active,
           "hover:bg-blue-200 dark:hover:bg-blue-500": context.active,
-        }
+        },
       ),
     }),
     action: ({ context }: any) => ({
@@ -2638,7 +2643,7 @@ const Tailwind = {
         {
           "pl-9 sm:pl-5": context.level === 1,
           "pl-14 sm:pl-5": context.level === 2,
-        }
+        },
       ),
     }),
     icon: "mr-2",
@@ -2656,7 +2661,7 @@ const Tailwind = {
         "m-0 list-none",
         {
           "sm:absolute sm:left-full sm:top-0": !props.root,
-        }
+        },
       ),
     }),
     separator: "border-t border-gray-300 dark:border-blue-900/40 my-1",
@@ -2665,7 +2670,7 @@ const Tailwind = {
         "flex sm:hidden w-8 h-8 rounded-full text-gray-600 dark:text-white/80 transition duration-200 ease-in-out",
         "cursor-pointer flex items-center justify-center no-underline",
         "hover:text-gray-700 dark:hover:text-white/80 hover:bg-gray-200 dark:hover:bg-gray-800/80 ",
-        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]"
+        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]",
       ),
     },
     end: "ml-auto self-auto",
@@ -2678,7 +2683,7 @@ const Tailwind = {
         {
           "p-2 items-center": props.orientation == "horizontal",
           "flex-col w-48 p-0 py-1": props.orientation !== "horizontal",
-        }
+        },
       ),
     }),
     menu: ({ props, state }: any) => ({
@@ -2693,7 +2698,7 @@ const Tailwind = {
         {
           "flex flex-col bg-white absolute w-full left-0 z-10 top-full":
             state.mobileActive,
-        }
+        },
       ),
     }),
     menuitem: ({ props, context }: any) => ({
@@ -2713,28 +2718,28 @@ const Tailwind = {
           "hover:text-gray-700 dark:hover:text-white/80 hover:bg-gray-200 dark:hover:bg-gray-800/80":
             !context.active,
           "hover:bg-blue-200 dark:hover:bg-blue-500": context.active,
-        }
+        },
       ),
     }),
     menuButton: ({ props }: any) => ({
       className: classNames(
         { "flex md:hidden": props.orientation === "horizontal" },
         { hidden: props.orientation === "vertical" },
-        "no-underline w-8 h-8 items-center justify-center rounded-full transition hover:bg-gray-200 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]"
+        "no-underline w-8 h-8 items-center justify-center rounded-full transition hover:bg-gray-200 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]",
       ),
     }),
     headerAction: {
       className: classNames(
         "select-none",
         "cursor-pointer flex items-center no-underline overflow-hidden relative",
-        "py-3 px-5 select-none"
+        "py-3 px-5 select-none",
       ),
     },
     action: {
       className: classNames(
         "select-none",
         "cursor-pointer flex items-center no-underline overflow-hidden relative",
-        "py-3 px-5 select-none"
+        "py-3 px-5 select-none",
       ),
     },
     icon: {
@@ -2755,7 +2760,7 @@ const Tailwind = {
         "absolute z-10",
         {
           "left-full top-0": props.orientation !== "horizontal",
-        }
+        },
       ),
     }),
     grid: "flex",
@@ -2765,7 +2770,7 @@ const Tailwind = {
     },
     submenuHeader: {
       className: classNames(
-        "m-0 py-3 px-5 text-gray-700 dark:text-white/80 bg-white dark:bg-gray-900 font-semibold rounded-tr-md rounded-tl-md"
+        "m-0 py-3 px-5 text-gray-700 dark:text-white/80 bg-white dark:bg-gray-900 font-semibold rounded-tr-md rounded-tl-md",
       ),
     },
   },
@@ -2779,13 +2784,13 @@ const Tailwind = {
         "outline-none",
         "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]",
         "border border-solid border-gray-300 dark:border-blue-900/40 text-gray-700 dark:text-white/80 bg-gray-100 dark:bg-gray-900 rounded-md transition-shadow duration-200",
-        "hover:bg-gray-200 dark:hover:bg-gray-800/80  hover:text-gray-700 dark:hover:text-white/80" // Focus
+        "hover:bg-gray-200 dark:hover:bg-gray-800/80  hover:text-gray-700 dark:hover:text-white/80", // Focus
       ),
     },
     headerAction: {
       className: classNames(
         "flex items-center select-none cursor-pointer relative no-underline",
-        "text-gray-700 dark:text-white/80 p-5 font-bold"
+        "text-gray-700 dark:text-white/80 p-5 font-bold",
       ),
     },
     headerSubmenuIcon: {
@@ -2796,7 +2801,7 @@ const Tailwind = {
     },
     menuContent: {
       className: classNames(
-        "py-1 border border-t-0 border-gray-300 dark:border-blue-900/40 bg-white dark:bg-gray-900 text-gray-700 dark:text-white/80 rounded-t-none rounded-br-md rounded-bl-md"
+        "py-1 border border-t-0 border-gray-300 dark:border-blue-900/40 bg-white dark:bg-gray-900 text-gray-700 dark:text-white/80 rounded-t-none rounded-br-md rounded-bl-md",
       ),
     },
     menu: {
@@ -2808,14 +2813,14 @@ const Tailwind = {
         {
           "bg-gray-300 text-gray-700 dark:text-white/80 dark:bg-gray-800/90":
             context.focused,
-        }
+        },
       ),
     }),
     action: {
       className: classNames(
         "text-gray-700 dark:text-white/80 py-3 px-5 select-none",
         "flex items-center cursor-pointer no-underline relative overflow-hidden",
-        "hover:bg-gray-200 dark:hover:bg-gray-800/80  hover:text-gray-700 dark:hover:text-white/80" // Hover
+        "hover:bg-gray-200 dark:hover:bg-gray-800/80  hover:text-gray-700 dark:hover:text-white/80", // Hover
       ),
     },
     icon: {
@@ -2835,14 +2840,14 @@ const Tailwind = {
     menuitem: {
       className: classNames(
         "relative flex justify-center flex-1 overflow-hidden",
-        "before:border-t before:border-gray-300 before:dark:border-blue-900/40 before:w-full before:absolute before:top-1/4 before:left-0 before:transform before:-translate-y-1/2"
+        "before:border-t before:border-gray-300 before:dark:border-blue-900/40 before:w-full before:absolute before:top-1/4 before:left-0 before:transform before:-translate-y-1/2",
       ),
     },
     action: {
       className: classNames(
         "inline-flex flex-col items-center overflow-hidden",
         "transition-shadow rounded-md bg-white dark:bg-transparent",
-        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]"
+        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]",
       ),
     },
     step: ({ parent, context }: any) => ({
@@ -2852,7 +2857,7 @@ const Tailwind = {
         {
           "bg-white": parent.state.activeIndex !== context.index, // unselected item.
           "bg-blue-500": parent.state.activeIndex === context.index, // Selected item.
-        }
+        },
       ),
     }),
     label: ({ parent, context }: any) => ({
@@ -2864,7 +2869,7 @@ const Tailwind = {
           "font-normal": parent.state.activeIndex !== context.index, // unselected item.
           "font-bold": parent.state.activeIndex === context.index, // Selected item.
           "text-gray-500/60": context.disabled,
-        }
+        },
       ),
     }),
   },
@@ -2874,7 +2879,7 @@ const Tailwind = {
       className: classNames(
         "flex m-0 p-0 list-none flex-nowrap",
         "bg-white border-solid border-gray-300 border-b-2",
-        "outline-none no-underline text-base list-none"
+        "outline-none no-underline text-base list-none",
       ),
     },
     menuitem: "mr-0",
@@ -2888,7 +2893,7 @@ const Tailwind = {
             state.activeIndex !== context.index, // Condition-based hover styles.
           "bg-white border-blue-500 text-blue-500 dark:bg-gray-900 dark:border-blue-300 dark:text-blue-300":
             state.activeIndex === context.index, // Condition-based active styles.
-        }
+        },
       ),
       style: { top: "2px" },
     }),
@@ -2898,7 +2903,7 @@ const Tailwind = {
     root: {
       className: classNames(
         "py-1 bg-white border border-gray-300 rounded-lg w-[12.5rem]",
-        "dark:border-blue-900/40 dark:bg-gray-900"
+        "dark:border-blue-900/40 dark:bg-gray-900",
       ),
     },
     content: "relative overflow-x-hidden overflow-y-auto h-full",
@@ -2917,7 +2922,7 @@ const Tailwind = {
           "text-gray-700 dark:text-white/80 hover:text-gray-700 dark:hover:text-white/80 hover:bg-gray-200 dark:hover:bg-gray-800/80":
             !context.active,
           "text-blue-600 bg-blue-100": context.active,
-        }
+        },
       ),
     }),
     previous: ({ state }: any) => ({
@@ -2925,7 +2930,7 @@ const Tailwind = {
         "py-3 px-5 cursor-pointer bottom-0 w-full text-gray-700 dark:text-white/80",
         {
           hidden: state.level === 0,
-        }
+        },
       ),
     }),
     icon: "mr-2",
@@ -2935,7 +2940,7 @@ const Tailwind = {
       className: classNames(
         "py-1 bg-white dark:bg-gray-900 border-0 shadow-md min-w-full",
         "absolute z-10",
-        "left-full top-0"
+        "left-full top-0",
       ),
     },
     transition: TRANSITIONS.overlay,
@@ -2944,7 +2949,7 @@ const Tailwind = {
     root: {
       className: classNames(
         "py-1 bg-white border border-gray-300 rounded-lg w-[12.5rem]",
-        "dark:border-blue-900/40 dark:bg-gray-900"
+        "dark:border-blue-900/40 dark:bg-gray-900",
       ),
     },
     menu: {
@@ -2963,7 +2968,7 @@ const Tailwind = {
             context.focused && context.active,
           "bg-blue-50 text-blue-700 dark:bg-blue-300 dark:text-white/80":
             !context.focused && context.active,
-        }
+        },
       ),
     }),
     action: ({ context }: any) => ({
@@ -2974,7 +2979,7 @@ const Tailwind = {
           "text-gray-700 dark:text-white/80 hover:text-gray-700 dark:hover:text-white/80 hover:bg-gray-200 dark:hover:bg-gray-800/80":
             !context.active,
           "text-blue-600 bg-blue-100": context.active,
-        }
+        },
       ),
     }),
     icon: "mr-2",
@@ -2984,7 +2989,7 @@ const Tailwind = {
       className: classNames(
         "py-1 bg-white dark:bg-gray-900 border-0 shadow-md min-w-full",
         "absolute z-10",
-        "left-full top-0"
+        "left-full top-0",
       ),
     },
     transition: TRANSITIONS.overlay,
@@ -3003,7 +3008,7 @@ const Tailwind = {
         { "w-2 h-full": props.orientation === "vertical" },
         { "h-2": props.orientation === "horizontal" },
         "bg-gray-200 dark:bg-gray-700",
-        "rounded-lg"
+        "rounded-lg",
       ),
     }),
     meter: ({ props }: any) => ({
@@ -3017,7 +3022,7 @@ const Tailwind = {
           "first:rounded-t-lg last:rounded-b-lg":
             props.orientation === "vertical",
         },
-        "bg-primary-500 dark:bg-primary-400"
+        "bg-primary-500 dark:bg-primary-400",
       ),
     }),
     labellist: ({ props }: any) => ({
@@ -3042,7 +3047,7 @@ const Tailwind = {
             props.labelOrientation === "vertical" &&
             props.labelPosition === "start",
         },
-        "m-0 p-0 list-none"
+        "m-0 p-0 list-none",
       ),
     }),
     labellistitem: {
@@ -3060,14 +3065,14 @@ const Tailwind = {
       className: classNames(
         "absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300",
         "bg-transparent text-gray-100",
-        "hover:opacity-100 hover:cursor-pointer hover:bg-black hover:bg-opacity-50" //Hover
+        "hover:opacity-100 hover:cursor-pointer hover:bg-black hover:bg-opacity-50", //Hover
       ),
     },
     mask: {
       className: classNames(
         "fixed top-0 left-0 w-full h-full",
         "flex items-center justify-center",
-        "bg-black bg-opacity-90"
+        "bg-black bg-opacity-90",
       ),
     },
     toolbar: {
@@ -3078,7 +3083,7 @@ const Tailwind = {
         "flex justify-center items-center",
         "text-white bg-transparent w-12 h-12 rounded-full transition duration-200 ease-in-out mr-2",
         "hover:text-white hover:bg-white/10",
-        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]"
+        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]",
       ),
     },
     rotateRightIcon: "w-6 h-6",
@@ -3087,7 +3092,7 @@ const Tailwind = {
         "flex justify-center items-center",
         "text-white bg-transparent w-12 h-12 rounded-full transition duration-200 ease-in-out mr-2",
         "hover:text-white hover:bg-white/10",
-        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]"
+        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]",
       ),
     },
     rotateLeftIcon: "w-6 h-6",
@@ -3096,7 +3101,7 @@ const Tailwind = {
         "flex justify-center items-center",
         "text-white bg-transparent w-12 h-12 rounded-full transition duration-200 ease-in-out mr-2",
         "hover:text-white hover:bg-white/10",
-        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]"
+        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]",
       ),
     },
     zoomOutIcon: "w-6 h-6",
@@ -3105,7 +3110,7 @@ const Tailwind = {
         "flex justify-center items-center",
         "text-white bg-transparent w-12 h-12 rounded-full transition duration-200 ease-in-out mr-2",
         "hover:text-white hover:bg-white/10",
-        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]"
+        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]",
       ),
     },
     zoomInIcon: "w-6 h-6",
@@ -3114,7 +3119,7 @@ const Tailwind = {
         "flex justify-center items-center",
         "text-white bg-transparent w-12 h-12 rounded-full transition duration-200 ease-in-out mr-2",
         "hover:text-white hover:bg-white/10",
-        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]"
+        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]",
       ),
     },
     closeIcon: "w-6 h-6",
@@ -3144,7 +3149,7 @@ const Tailwind = {
         "self-center flex shrink-0 justify-center items-center overflow-hidden relative",
         "m-2 bg-transparent text-white w-8 h-8 transition duration-200 ease-in-out rounded-full",
         "hover:bg-white/10 hover:text-white",
-        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]"
+        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]",
       ),
     },
     thumbnailItemsContainer: "overflow-hidden w-full",
@@ -3153,7 +3158,7 @@ const Tailwind = {
       className: classNames(
         "overflow-auto flex items-center justify-center cursor-pointer opacity-50",
         "flex-1 grow-0 shrink-0 w-20",
-        "hover:opacity-100 hover:transition-opacity hover:duration-300"
+        "hover:opacity-100 hover:transition-opacity hover:duration-300",
       ),
     },
     nextThumbnailButton: {
@@ -3161,7 +3166,7 @@ const Tailwind = {
         "self-center flex shrink-0 justify-center items-center overflow-hidden relative",
         "m-2 bg-transparent text-white w-8 h-8 transition duration-200 ease-in-out rounded-full",
         "hover:bg-white/10 hover:text-white",
-        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]"
+        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]",
       ),
     },
     indicators: {
@@ -3176,7 +3181,7 @@ const Tailwind = {
           "bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600":
             !context.highlighted,
           "bg-blue-500 hover:bg-blue-600": context.highlighted,
-        }
+        },
       ),
     }),
     mask: ({ state }: any) => ({
@@ -3190,7 +3195,7 @@ const Tailwind = {
         "absolute top-0 right-0 flex justify-center items-center overflow-hidden m-2",
         "text-white bg-transparent w-12 h-12 rounded-full transition duration-200 ease-in-out",
         "hover:text-white hover:bg-white/10",
-        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]"
+        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]",
       ),
     },
     closeIcon: "w-6 h-6",
@@ -3201,7 +3206,7 @@ const Tailwind = {
         "fixed top-1/2 mt-[-0.5rem]",
         "left-0",
         "hover:bg-white/10 hover:text-white",
-        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]"
+        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]",
       ),
     },
     nextItemButton: {
@@ -3211,13 +3216,13 @@ const Tailwind = {
         "fixed top-1/2 mt-[-0.5rem]",
         "right-0",
         "hover:bg-white/10 hover:text-white",
-        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]"
+        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]",
       ),
     },
     caption: {
       className: classNames(
         "absolute bottom-0 left-0 w-full",
-        "bg-black/50 text-white p-4"
+        "bg-black/50 text-white p-4",
       ),
     },
     transition: {
@@ -3243,7 +3248,7 @@ const Tailwind = {
     previousButton: {
       className: classNames(
         "flex justify-center items-center self-center overflow-hidden relative shrink-0 grow-0",
-        "w-8 h-8 text-gray-600 border-0 bg-transparent rounded-full transition duration-200 ease-in-out mx-2"
+        "w-8 h-8 text-gray-600 border-0 bg-transparent rounded-full transition duration-200 ease-in-out mx-2",
       ),
     },
     itemsContent: "overflow-hidden w-full",
@@ -3271,7 +3276,7 @@ const Tailwind = {
           "bg-blue-500 hover:bg-blue-600": context.active,
           "bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600":
             !context.active,
-        }
+        },
       ),
     }),
   },
@@ -3283,7 +3288,7 @@ const Tailwind = {
         {
           "border border-solid border-gray-300 dark:border-blue-900/40 rounded-md":
             props.__parentMetadata?.parent.props.__TYPE !== "TreeSelect",
-        }
+        },
       ),
     }),
     wrapper: "overflow-auto",
@@ -3299,7 +3304,7 @@ const Tailwind = {
           "cursor-pointer select-none":
             props.selectionMode == "single" ||
             props.selectionMode == "multiple",
-        }
+        },
       ),
     }),
     toggler: ({ context }: any) => ({
@@ -3314,7 +3319,7 @@ const Tailwind = {
         },
         {
           invisible: context.isLeaf,
-        }
+        },
       ),
     }),
     checkboxContainer: "mr-2",
@@ -3334,7 +3339,7 @@ const Tailwind = {
           "hover:border-blue-500 dark:hover:border-blue-400 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]":
             !props.disabled,
           "cursor-default opacity-60": props.disabled,
-        }
+        },
       ),
     }),
     nodeIcon: "mr-2 text-gray-600 dark:text-white/70",
@@ -3348,7 +3353,7 @@ const Tailwind = {
       className: classNames(
         "m-0 p-3 text-base w-full pr-7",
         "font-sans text-gray-600 dark:text-white/70 bg-white dark:bg-gray-900 border border-gray-300 dark:border-blue-900/40 transition-colors duration-200 appearance-none rounded-lg",
-        "hover:border-blue-500 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]"
+        "hover:border-blue-500 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]",
       ),
     },
     searchIcon:
@@ -3395,7 +3400,7 @@ const Tailwind = {
             (props.layout === "vertical" &&
               props.align === "alternate" &&
               context.index % 2 === 1),
-        }
+        },
       ),
     }),
     separator: ({ props }: any) => ({
@@ -3436,7 +3441,7 @@ const Tailwind = {
             props.layout === "vertical" && context.index === context.count,
           "grow-0":
             props.layout === "horizontal" && context.index === context.count,
-        }
+        },
       ),
     }),
   },
@@ -3444,7 +3449,7 @@ const Tailwind = {
     content: {
       className: classNames(
         "bg-white blue-gray-700 border-0 p-0",
-        "dark:bg-gray-900 dark:text-white/80" // Dark Mode
+        "dark:bg-gray-900 dark:text-white/80", // Dark Mode
       ),
     },
     grid: "flex flex-wrap ml-0 mr-0 mt-0 bg-white dark:bg-gray-900",
@@ -3459,7 +3464,7 @@ const Tailwind = {
         "w-12 pt-3 pb-3 rounded-lg rounded-r-none",
         props.layout === "list"
           ? "bg-blue-500 border-blue-500 text-white dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900"
-          : "bg-white border-gray-300 text-blue-gray-700 dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80" // highlighted state
+          : "bg-white border-gray-300 text-blue-gray-700 dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80", // highlighted state
       ),
     }),
     gridButton: ({ props }: any) => ({
@@ -3469,7 +3474,7 @@ const Tailwind = {
         "w-12 pt-3 pb-3 rounded-lg rounded-l-none",
         props.layout === "grid"
           ? "bg-blue-500 border-blue-500 text-white dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900"
-          : "bg-white border-gray-300 text-blue-gray-700 dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80" // highlighted state
+          : "bg-white border-gray-300 text-blue-gray-700 dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80", // highlighted state
       ),
     }),
   },
@@ -3477,7 +3482,7 @@ const Tailwind = {
     content: {
       className: classNames(
         "bg-white blue-gray-700 border-0 p-0",
-        "dark:bg-gray-900 dark:text-white/80" // Dark Mode
+        "dark:bg-gray-900 dark:text-white/80", // Dark Mode
       ),
     },
     grid: "flex flex-wrap ml-0 mr-0 mt-0 bg-white dark:bg-gray-900",
@@ -3490,14 +3495,14 @@ const Tailwind = {
     node: {
       className: classNames(
         "relative inline-block bg-white border border-gray-300 text-gray-600 p-5",
-        "dark:border-blue-900/40 dark:bg-gray-900 dark:text-white/80" // Dark Mode
+        "dark:border-blue-900/40 dark:bg-gray-900 dark:text-white/80", // Dark Mode
       ),
     },
     lineCell: "text-center align-top py-0 px-3",
     lineDown: {
       className: classNames(
         "mx-auto my-0 w-px h-[20px] bg-gray-300",
-        "dark:bg-blue-900/40" //Dark Mode
+        "dark:bg-blue-900/40", //Dark Mode
       ),
     },
     lineLeft: ({ context }: any) => ({
@@ -3506,7 +3511,7 @@ const Tailwind = {
         "dark:border-blue-900/40", //Dark Mode
         {
           "border-t": context.lineTop,
-        }
+        },
       ),
     }),
     lineRight: ({ context }: any) => ({
@@ -3515,14 +3520,14 @@ const Tailwind = {
         "dark:border-blue-900/40", //Dark Mode
         {
           "border-t border-gray-300": context.lineTop,
-        }
+        },
       ),
     }),
     nodeCell: "text-center align-top py-0 px-3",
     nodeToggler: {
       className: classNames(
         "absolute bottom-[-0.75rem] left-2/4 -ml-3 w-6 h-6 bg-inherit text-inherit rounded-full z-2 cursor-pointer no-underline select-none",
-        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]" // Focus styles
+        "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[0_0_0_0.2rem_rgba(147,197,253,0.5)]", // Focus styles
       ),
     },
     nodeTogglerIcon: "relative inline-block w-4 h-4",
@@ -3541,7 +3546,7 @@ const Tailwind = {
           "dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900", //Dark Mode
           {
             "cursor-default pointer-events-none opacity-60": context.disabled,
-          }
+          },
         ),
       }),
       label: () => ({ className: classNames("flex-initial w-0") }),
@@ -3557,7 +3562,7 @@ const Tailwind = {
           "dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900", //Dark Mode
           {
             "cursor-default pointer-events-none opacity-60": context.disabled,
-          }
+          },
         ),
       }),
       label: () => ({ className: classNames("flex-initial w-0") }),
@@ -3573,7 +3578,7 @@ const Tailwind = {
           "dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900", //Dark Mode
           {
             "cursor-default pointer-events-none opacity-60": context.disabled,
-          }
+          },
         ),
       }),
       label: () => ({ className: classNames("flex-initial w-0") }),
@@ -3589,7 +3594,7 @@ const Tailwind = {
           "dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900", //Dark Mode
           {
             "cursor-default pointer-events-none opacity-60": context.disabled,
-          }
+          },
         ),
       }),
       label: () => ({ className: classNames("flex-initial w-0") }),
@@ -3598,14 +3603,14 @@ const Tailwind = {
     header: {
       className: classNames(
         "bg-slate-50 text-slate-700 border border-gray-300 p-5 font-bold border-b-0 rounded-t-md",
-        "dark:bg-gray-900 dark:text-white/80 dark:border-blue-900/40" //Dark Mode
+        "dark:bg-gray-900 dark:text-white/80 dark:border-blue-900/40", //Dark Mode
       ),
     },
     list: {
       className: classNames(
         "list-none m-0 p-0 overflow-auto min-h-[12rem] max-h-[24rem]",
         "border border-gray-300 bg-white text-gray-600 py-3 px-0 rounded-b-md outline-none",
-        "dark:border-blue-900/40 dark:bg-gray-900 dark:text-white/80" //Dark Mode
+        "dark:border-blue-900/40 dark:bg-gray-900 dark:text-white/80", //Dark Mode
       ),
     },
     item: ({ context }: any) => ({
@@ -3615,7 +3620,7 @@ const Tailwind = {
         "transition duration-200",
         {
           "text-blue-700 bg-blue-500/20 dark:bg-blue-300/20": context.selected,
-        }
+        },
       ),
     }),
   },
@@ -3630,7 +3635,7 @@ const Tailwind = {
           "transition duration-200 ease-in-out",
           "justify-center px-0 py-3", // icon only
           "mr-2 xl:mb-2", // orderlist button
-          "dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900" //Dark Mode
+          "dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900", //Dark Mode
         ),
       },
       label: "flex-initial w-0",
@@ -3643,7 +3648,7 @@ const Tailwind = {
           "transition duration-200 ease-in-out",
           "justify-center px-0 py-3", // icon only
           "mr-2 xl:mb-2", // orderlist button
-          "dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900" //Dark Mode
+          "dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900", //Dark Mode
         ),
       },
       label: "flex-initial w-0",
@@ -3656,7 +3661,7 @@ const Tailwind = {
           "transition duration-200 ease-in-out",
           "justify-center px-0 py-3", // icon only
           "mr-2 xl:mb-2", // orderlist button
-          "dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900" //Dark Mode
+          "dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900", //Dark Mode
         ),
       },
       label: "flex-initial w-0",
@@ -3669,7 +3674,7 @@ const Tailwind = {
           "transition duration-200 ease-in-out",
           "justify-center px-0 py-3", // icon only
           "mr-2 xl:mb-2", // orderlist button
-          "dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900" //Dark Mode
+          "dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900", //Dark Mode
         ),
       },
       label: "flex-initial w-0",
@@ -3678,14 +3683,14 @@ const Tailwind = {
     header: {
       className: classNames(
         "bg-slate-50 text-slate-700 border border-gray-300 p-5 font-bold border-b-0 rounded-t-md",
-        "dark:bg-gray-900 dark:text-white/80 dark:border-blue-900/40" //Dark Mode
+        "dark:bg-gray-900 dark:text-white/80 dark:border-blue-900/40", //Dark Mode
       ),
     },
     list: {
       className: classNames(
         "list-none m-0 p-0 overflow-auto min-h-[12rem] max-h-[24rem]",
         "border border-gray-300 bg-white text-gray-600 py-3 px-0 rounded-b-md outline-none",
-        "dark:border-blue-900/40 dark:bg-gray-900 dark:text-white/80" //Dark Mode
+        "dark:border-blue-900/40 dark:bg-gray-900 dark:text-white/80", //Dark Mode
       ),
     },
     item: ({ context }: any) => ({
@@ -3696,7 +3701,7 @@ const Tailwind = {
         {
           "text-blue-700 bg-blue-500/20 dark:bg-blue-300/20": context.selected,
           "text-gray-600 dark:bg-blue-900/40": !context.selected,
-        }
+        },
       ),
     }),
     buttons: "flex flex-row xl:flex-col justify-center p-5",
@@ -3708,7 +3713,7 @@ const Tailwind = {
           "transition duration-200 ease-in-out",
           "justify-center px-0 py-3", // icon only
           "mb-2", // orderlist button
-          "dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900" //Dark Mode
+          "dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900", //Dark Mode
         ),
       },
       label: "flex-initial w-0",
@@ -3721,7 +3726,7 @@ const Tailwind = {
           "transition duration-200 ease-in-out",
           "justify-center px-0 py-3", // icon only
           "mr-2 xl:mb-2", // orderlist button
-          "dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900" //Dark Mode
+          "dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900", //Dark Mode
         ),
       },
       label: "flex-initial w-0",
@@ -3734,7 +3739,7 @@ const Tailwind = {
           "transition duration-200 ease-in-out",
           "justify-center px-0 py-3", // icon only
           "mr-2 xl:mb-2", // orderlist button
-          "dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900" //Dark Mode
+          "dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900", //Dark Mode
         ),
       },
       label: "flex-initial w-0",
@@ -3747,7 +3752,7 @@ const Tailwind = {
           "transition duration-200 ease-in-out",
           "justify-center px-0 py-3", // icon only
           "mr-2 xl:mb-2", // orderlist button
-          "dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900" //Dark Mode
+          "dark:bg-sky-300 dark:border-sky-300 dark:text-gray-900", //Dark Mode
         ),
       },
       label: "flex-initial w-0",
@@ -3757,14 +3762,14 @@ const Tailwind = {
     targetheader: {
       className: classNames(
         "bg-slate-50 text-slate-700 border border-gray-300 p-5 font-bold border-b-0 rounded-t-md",
-        "dark:bg-gray-900 dark:text-white/80 dark:border-blue-900/40" //Dark Mode
+        "dark:bg-gray-900 dark:text-white/80 dark:border-blue-900/40", //Dark Mode
       ),
     },
     targetlist: {
       className: classNames(
         "list-none m-0 p-0 overflow-auto min-h-[12rem] max-h-[24rem]",
         "border border-gray-300 bg-white text-gray-600 py-3 px-0 rounded-b-md outline-none",
-        "dark:border-blue-900/40 dark:bg-gray-900 dark:text-white/80" //Dark Mode
+        "dark:border-blue-900/40 dark:bg-gray-900 dark:text-white/80", //Dark Mode
       ),
     },
     transition: {
@@ -3782,7 +3787,7 @@ const Tailwind = {
       className: classNames(
         "flex items-center justify-center flex-wrap",
         "bg-white text-gray-500 border-0 px-4 py-2 rounded-md",
-        "dark:bg-gray-900 dark:text-white/60 dark:border-blue-900/40" // Dark Mode
+        "dark:bg-gray-900 dark:text-white/60 dark:border-blue-900/40", // Dark Mode
       ),
     },
     firstPageButton: ({ context }: any) => ({
@@ -3795,7 +3800,7 @@ const Tailwind = {
           "cursor-default pointer-events-none opacity-60": context.disabled,
           "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]":
             !context.disabled, // Focus
-        }
+        },
       ),
     }),
     prevPageButton: ({ context }: any) => ({
@@ -3808,7 +3813,7 @@ const Tailwind = {
           "cursor-default pointer-events-none opacity-60": context.disabled,
           "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]":
             !context.disabled, // Focus
-        }
+        },
       ),
     }),
     nextPageButton: ({ context }: any) => ({
@@ -3821,7 +3826,7 @@ const Tailwind = {
           "cursor-default pointer-events-none opacity-60": context.disabled,
           "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]":
             !context.disabled, // Focus
-        }
+        },
       ),
     }),
     lastPageButton: ({ context }: any) => ({
@@ -3834,7 +3839,7 @@ const Tailwind = {
           "cursor-default pointer-events-none opacity-60": context.disabled,
           "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]":
             !context.disabled, // Focus
-        }
+        },
       ),
     }),
     pageButton: ({ context }: any) => ({
@@ -3847,7 +3852,7 @@ const Tailwind = {
         {
           "bg-blue-50 border-blue-50 text-blue-700 dark:bg-blue-300":
             context.active,
-        }
+        },
       ),
     }),
     RPPDropdown: {
@@ -3863,7 +3868,7 @@ const Tailwind = {
               state.focused && !props.disabled, //Focus
             "border-gray-300": !state.focused,
             "hover:border-blue-500": !props.disabled, //Hover
-          }
+          },
         ),
       }),
       input: {
@@ -3871,19 +3876,19 @@ const Tailwind = {
           "font-sans text-base text-gray-600 p-3 m-0 rounded-md apperance-none",
           "block whitespace-nowrap overflow-hidden flex-auto w-[1%] cursor-pointer text-ellipsis border-0 pr-0",
           "focus:outline-none focus:outline-offset-0",
-          "dark:text-white" //Dark Mode
+          "dark:text-white", //Dark Mode
         ),
       },
       trigger: {
         className: classNames(
           "flex items-center justify-center shrink-0",
-          "text-gray-500 dark:text-white w-12 rounded-r-md"
+          "text-gray-500 dark:text-white w-12 rounded-r-md",
         ),
       },
       panel: {
         className: classNames(
           "bg-white text-gray-600 border-0 rounded-md shadow-[0_2px_12px_rgba(0,0,0,0.1)]",
-          "dark:bg-gray-900 dark:text-white/80 dark:border-blue-900/40" //Dark Mode
+          "dark:bg-gray-900 dark:text-white/80 dark:border-blue-900/40", //Dark Mode
         ),
       },
       wrapper: "overflow-auto",
@@ -3900,7 +3905,7 @@ const Tailwind = {
             "bg-blue-300/40": context.focused && context.selected,
             "text-gray-600 bg-gray-300 dark:text-white/80 dark:bg-blue-900/40":
               context.focused && !context.selected,
-          }
+          },
         ),
       }),
     },
@@ -3912,7 +3917,7 @@ const Tailwind = {
           "block whitespace-nowrap overflow-hidden flex-auto w-[1%] cursor-pointer text-ellipsis border border-gray-300 pr-0",
           "focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] focus:border-blue-300",
           "dark:text-white dark:bg-gray-950 dark:border-blue-900/40", //Dark Mode
-          "m-0 flex-auto max-w-[3rem]"
+          "m-0 flex-auto max-w-[3rem]",
         ),
       },
     },
@@ -3929,7 +3934,7 @@ const Tailwind = {
               state.focused && !props.disabled, //Focus
             "border-gray-300": !state.focused,
             "hover:border-blue-500": !props.disabled, //Hover
-          }
+          },
         ),
       }),
       input: {
@@ -3937,19 +3942,19 @@ const Tailwind = {
           "font-sans text-base text-gray-600 p-3 m-0 rounded-md apperance-none",
           "block whitespace-nowrap overflow-hidden flex-auto w-[1%] cursor-pointer text-ellipsis border-0 pr-0",
           "focus:outline-none focus:outline-offset-0",
-          "dark:text-white" //Dark Mode
+          "dark:text-white", //Dark Mode
         ),
       },
       trigger: {
         className: classNames(
           "flex items-center justify-center shrink-0",
-          "text-gray-500 dark:text-white w-12 rounded-r-md"
+          "text-gray-500 dark:text-white w-12 rounded-r-md",
         ),
       },
       panel: {
         className: classNames(
           "bg-white text-gray-600 border-0 rounded-md shadow-[0_2px_12px_rgba(0,0,0,0.1)]",
-          "dark:bg-gray-900 dark:text-white/80 dark:border-blue-900/40" //Dark Mode
+          "dark:bg-gray-900 dark:text-white/80 dark:border-blue-900/40", //Dark Mode
         ),
       },
       wrapper: "overflow-auto",
@@ -3966,7 +3971,7 @@ const Tailwind = {
             "bg-blue-300/40": context.focused && context.selected,
             "text-gray-600 bg-gray-300 dark:text-white/80 dark:bg-blue-900/40":
               context.focused && !context.selected,
-          }
+          },
         ),
       }),
     },
@@ -3982,14 +3987,14 @@ const Tailwind = {
         "fixed w-full h-full t-0 l-0 bg-gray-100/40",
         "transition duration-200",
         "absolute flex items-center justify-center z-2",
-        "dark:bg-gray-950/40" // Dark Mode
+        "dark:bg-gray-950/40", // Dark Mode
       ),
     },
     loadingIcon: "w-8 h-8",
     header: {
       className: classNames(
         "bg-slate-50 text-slate-700 border border-x-0 border-t-0 border-gray-300 p-4 font-bold",
-        "dark:bg-gray-900 dark:text-white/70 dark:border-blue-900/40" // Dark Mode
+        "dark:bg-gray-900 dark:text-white/70 dark:border-blue-900/40", // Dark Mode
       ),
     },
     scrollableWrapper: ({ props }: any) => ({
@@ -4007,7 +4012,7 @@ const Tailwind = {
     footer: {
       className: classNames(
         "bg-slate-50 text-slate-700 border border-x-0 border-t-0 border-gray-300 p-4 font-bold",
-        "dark:bg-gray-900 dark:text-white/70 dark:border-blue-900/40" // Dark Mode
+        "dark:bg-gray-900 dark:text-white/70 dark:border-blue-900/40", // Dark Mode
       ),
     },
     table: "border-collapse table-fixed w-full",
@@ -4042,7 +4047,7 @@ const Tailwind = {
           "hover:bg-gray-300/20 hover:text-gray-600 dark:hover:bg-gray-950":
             context.selectable && !context.selected, // Hover
           "flex flex-nowrap w-full": context.scrollable,
-        }
+        },
       ),
     }),
     column: {
@@ -4059,7 +4064,7 @@ const Tailwind = {
             "sticky z-[1]": context.scrollable && context.frozen,
             "border-x-0 border-l-0 border-t-0": !context.showGridlines,
             "overflow-hidden relative bg-clip-padding": !context.frozen,
-          }
+          },
         ),
       }),
       bodyCell: ({ context }: any) => ({
@@ -4073,7 +4078,7 @@ const Tailwind = {
             "flex-initial shrink-0": context.scrollable && !context.frozen,
             sticky: context.scrollable && context.frozen,
             "border-x-0 border-l-0": !context.showGridlines,
-          }
+          },
         ),
       }),
       rowToggler: ({ context }: any) => ({
@@ -4084,7 +4089,7 @@ const Tailwind = {
             "text-blue-700": context.selected,
             "text-gray-500": !context.selected,
           },
-          "dark:text-white/70" //Dark Mode
+          "dark:text-white/70", //Dark Mode
         ),
       }),
       sort: {
@@ -4099,7 +4104,7 @@ const Tailwind = {
       sortBadge: {
         className: classNames(
           "h-[1.143rem] min-w-[1.143rem] leading-[1.143rem] text-blue-700 bg-blue-50 ml-2 rounded-[50%]",
-          "dark:text-white/80 dark:bg-blue-500/40" // Dark Mode
+          "dark:text-white/80 dark:bg-blue-500/40", // Dark Mode
         ),
       },
       columnResizer:
@@ -4107,7 +4112,7 @@ const Tailwind = {
       checkboxWrapper: {
         className: classNames(
           "cursor-pointer inline-flex relative select-none align-bottom",
-          "w-6 h-6 mr-2"
+          "w-6 h-6 mr-2",
         ),
       },
       checkbox: ({ context }: any) => ({
@@ -4123,7 +4128,7 @@ const Tailwind = {
           {
             "hover:border-blue-500 dark:hover:border-blue-400 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]":
               !context.disabled,
-          }
+          },
         ),
       }),
       checkboxIcon: ({ context }: any) => ({
@@ -4131,7 +4136,7 @@ const Tailwind = {
           "w-4 h-4 transition-all duration-200 text-base dark:text-gray-900",
           {
             "text-white": context.checked,
-          }
+          },
         ),
       }),
     },
@@ -4149,7 +4154,7 @@ const Tailwind = {
         "fixed w-full h-full t-0 l-0 bg-gray-100/40",
         "transition duration-200",
         "absolute flex items-center justify-center z-2",
-        "dark:bg-gray-950/40" // Dark Mode
+        "dark:bg-gray-950/40", // Dark Mode
       ),
     },
     loadingIcon: "w-8 h-8",
@@ -4166,7 +4171,7 @@ const Tailwind = {
         "dark:border-blue-900/40 dark:text-white/80 dark:bg-gray-900", // Dark Mode
         props.showGridlines
           ? "border-x border-t border-b-0"
-          : "border-y border-x-0"
+          : "border-y border-x-0",
       ),
     }),
     table: "w-full border-spacing-0",
@@ -4188,7 +4193,7 @@ const Tailwind = {
     footer: {
       className: classNames(
         "bg-slate-50 text-slate-700 border-t-0 border-b border-x-0 border-gray-300 font-bold p-4",
-        "dark:border-blue-900/40 dark:text-white/80 dark:bg-gray-900" // Dark Mode
+        "dark:border-blue-900/40 dark:text-white/80 dark:bg-gray-900", // Dark Mode
       ),
     },
     column: {
@@ -4199,8 +4204,8 @@ const Tailwind = {
           context?.size === "small"
             ? "p-2"
             : context?.size === "large"
-            ? "p-5"
-            : "p-4", // Size
+              ? "p-5"
+              : "p-4", // Size
           context.sorted
             ? "bg-blue-50 text-blue-700"
             : "bg-slate-50 text-slate-700", // Sort
@@ -4212,7 +4217,7 @@ const Tailwind = {
             "border-x border-y": context?.showGridlines,
             "overflow-hidden space-nowrap border-y relative bg-clip-padding":
               context.resizable, // Resizable
-          }
+          },
         ),
       }),
       headerContent: "flex items-center",
@@ -4222,13 +4227,13 @@ const Tailwind = {
           context?.size === "small"
             ? "p-2"
             : context?.size === "large"
-            ? "p-5"
-            : "p-4", // Size
+              ? "p-5"
+              : "p-4", // Size
           "dark:text-white/80 dark:border-blue-900/40", // Dark Mode
           {
             "sticky bg-inherit": props && (props.frozen || props.frozen === ""), // Frozen Columns
             "border-x border-y": context.showGridlines,
-          }
+          },
         ),
       }),
       footerCell: ({ context }: any) => ({
@@ -4239,12 +4244,12 @@ const Tailwind = {
           context?.size === "small"
             ? "p-2"
             : context?.size === "large"
-            ? "p-5"
-            : "p-4", // Size
+              ? "p-5"
+              : "p-4", // Size
           "dark:text-white/80 dark:bg-gray-900 dark:border-blue-900/40", // Dark Mode
           {
             "border-x border-y": context.showGridlines,
-          }
+          },
         ),
       }),
       sortIcon: ({ context }: any) => ({
@@ -4252,7 +4257,7 @@ const Tailwind = {
           "ml-2",
           context.sorted
             ? "text-blue-700 dark:text-white/80"
-            : "text-slate-700 dark:text-white/70"
+            : "text-slate-700 dark:text-white/70",
         ),
       }),
       sortBadge: {
@@ -4260,14 +4265,14 @@ const Tailwind = {
           "flex items-center justify-center align-middle",
           "rounded-[50%] w-[1.143rem] leading-[1.143rem] ml-2",
           "text-blue-700 bg-blue-50",
-          "dark:text-white/80 dark:bg-blue-400" // Dark Mode
+          "dark:text-white/80 dark:bg-blue-400", // Dark Mode
         ),
       },
       columnFilter: "inline-flex items-center ml-auto",
       filterOverlay: {
         className: classNames(
           "bg-white text-gray-600 border-0 rounded-md min-w-[12.5rem]",
-          "dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80" //Dark Mode
+          "dark:bg-gray-900 dark:border-blue-900/40 dark:text-white/80", //Dark Mode
         ),
       },
       filterMatchModeDropdown: {
@@ -4280,13 +4285,13 @@ const Tailwind = {
           "transition duration-200",
           context?.highlighted
             ? "text-blue-700 bg-blue-100 dark:text-white/80 dark:bg-blue-300"
-            : "text-gray-600 bg-transparent dark:text-white/80 dark:bg-transparent"
+            : "text-gray-600 bg-transparent dark:text-white/80 dark:bg-transparent",
         ),
       }),
       filterOperator: {
         className: classNames(
           "px-5 py-3 border-b border-solid border-gray-300 text-slate-700 bg-slate-50 rounded-t-md",
-          "dark:border-blue-900/40 dark:text-white/80 dark:bg-gray-900" // Dark Mode
+          "dark:border-blue-900/40 dark:text-white/80 dark:bg-gray-900", // Dark Mode
         ),
       },
       filterOperatorDropdown: {
@@ -4321,7 +4326,7 @@ const Tailwind = {
           "dark:text-white/70 dark:hover:text-white/80 dark:bg-gray-900", // Dark Mode
           {
             "bg-blue-50 text-blue-700": context.active,
-          }
+          },
         ),
       }),
       headerFilterClearButton: ({ context }: any) => ({
@@ -4330,7 +4335,7 @@ const Tailwind = {
           "text-left bg-transparent m-0 p-0 border-none select-none ml-2",
           {
             invisible: !context.hidden,
-          }
+          },
         ),
       }),
       columnResizer:
@@ -4345,7 +4350,7 @@ const Tailwind = {
           "text-slate-700 border-transparent",
           "focus:outline-0 focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]", //Focus
           "hover:text-slate-700 hover:bg-gray-300/20", //Hover
-          "dark:text-white/70" // Dark Mode
+          "dark:text-white/70", // Dark Mode
         ),
       },
       rowEditorSaveButton: {
@@ -4357,7 +4362,7 @@ const Tailwind = {
           "text-slate-700 border-transparent",
           "focus:outline-0 focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]", //Focus
           "hover:text-slate-700 hover:bg-gray-300/20", //Hover
-          "dark:text-white/70" // Dark Mode
+          "dark:text-white/70", // Dark Mode
         ),
       },
       rowEditorCancelButton: {
@@ -4369,20 +4374,20 @@ const Tailwind = {
           "text-slate-700 border-transparent",
           "focus:outline-0 focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]", //Focus
           "hover:text-slate-700 hover:bg-gray-300/20", //Hover
-          "dark:text-white/70" // Dark Mode
+          "dark:text-white/70", // Dark Mode
         ),
       },
       radioButton: {
         className: classNames(
           "relative inline-flex cursor-pointer select-none align-bottom",
-          "w-6 h-6"
+          "w-6 h-6",
         ),
       },
       radioButtonInput: {
         className: classNames(
           "w-full h-full top-0 left-0 absolute appearance-none select-none",
           "p-0 m-0 opacity-0 z-[1] rounded-[50%] outline-none",
-          "cursor-pointer peer"
+          "cursor-pointer peer",
         ),
       },
       radioButtonBox: ({ context }: any) => ({
@@ -4396,7 +4401,7 @@ const Tailwind = {
             "hover:border-blue-500 focus:shadow-input-focus focus:outline-none focus:outline-offset-0 dark:hover:border-blue-400 dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]":
               !context.disabled,
             "cursor-default opacity-60": context.disabled,
-          }
+          },
         ),
       }),
       radioButtonIcon: ({ context }: any) => ({
@@ -4406,13 +4411,13 @@ const Tailwind = {
           {
             "backface-hidden scale-10 invisible": context.checked === false,
             "visible scale-100 transform": context.checked === true,
-          }
+          },
         ),
       }),
       headercheckboxwrapper: {
         className: classNames(
           "cursor-pointer inline-flex relative select-none align-bottom",
-          "w-6 h-6"
+          "w-6 h-6",
         ),
       },
       headerCheckbox: ({ context }: any) => ({
@@ -4426,7 +4431,7 @@ const Tailwind = {
             "hover:border-blue-500 dark:hover:border-blue-400 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]":
               !context.disabled,
             "cursor-default opacity-60": context.disabled,
-          }
+          },
         ),
       }),
       headercheckboxicon:
@@ -4434,7 +4439,7 @@ const Tailwind = {
       checkboxwrapper: {
         className: classNames(
           "cursor-pointer inline-flex relative select-none align-bottom",
-          "w-6 h-6"
+          "w-6 h-6",
         ),
       },
       checkbox: ({ context }: any) => ({
@@ -4448,7 +4453,7 @@ const Tailwind = {
             "hover:border-blue-500 dark:hover:border-blue-400 focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)] dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]":
               !context.disabled,
             "cursor-default opacity-60": context.disabled,
-          }
+          },
         ),
       }),
       checkboxicon:
@@ -4472,7 +4477,7 @@ const Tailwind = {
           "cursor-pointer": context.selectable,
           "hover:bg-gray-300/20 hover:text-gray-600":
             context.selectable && !context.selected, // Hover
-        }
+        },
       ),
     }),
     rowExpansion: "bg-white text-gray-600 dark:bg-gray-900 dark:text-white/80",
@@ -4480,14 +4485,14 @@ const Tailwind = {
       className: classNames(
         "sticky z-[1]",
         "bg-white text-gray-600",
-        "transition duration-200"
+        "transition duration-200",
       ),
     },
     rowgroupFooter: {
       className: classNames(
         "sticky z-[1]",
         "bg-white text-gray-600",
-        "transition duration-200"
+        "transition duration-200",
       ),
     },
     rowgrouptoggler: {
@@ -4496,7 +4501,7 @@ const Tailwind = {
         "inline-flex items-center justify-center overflow-hidden relative",
         "w-8 h-8 text-gray-500 border-0 bg-transparent rounded-[50%]",
         "transition duration-200",
-        "dark:text-white/70" // Dark Mode
+        "dark:text-white/70", // Dark Mode
       ),
     },
     rowgrouptogglericon: "inline-block w-4 h-4",

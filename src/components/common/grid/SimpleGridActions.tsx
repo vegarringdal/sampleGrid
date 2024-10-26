@@ -18,7 +18,6 @@ export function SimpleGridActions<T, U>(props: {
   return (
     <div className="flex flex-col pr-2 pt-1 gap-2 h-full">
       <Button
-     
         pt={pt}
         disabled={cs.isEditmode}
         tooltip="Load/refresh data"

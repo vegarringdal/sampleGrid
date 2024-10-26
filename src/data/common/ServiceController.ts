@@ -41,10 +41,10 @@ export class ServiceController<T, CustomEvent = unknown> {
 export type ServiceEventHandler<T, U> = {
   handleEventCustom?: (
     service: ServiceController<T, U>,
-    event: U
+    event: U,
   ) => Promise<void>;
   handleEvent: (
     service: ServiceController<T, U>,
-    event: ControllerEvent<T>
+    event: ControllerEvent<T>,
   ) => Promise<void>;
 };
