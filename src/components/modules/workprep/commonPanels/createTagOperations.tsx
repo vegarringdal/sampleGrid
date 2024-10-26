@@ -3,8 +3,35 @@ import { gridControllers } from "../../../../data/gridControllers";
 import { SimpleGridActions } from "../../../common/grid/SimpleGridActions";
 import { SimpleHtmlGrid } from "../../../common/grid/SimpleHtmlGrid";
 import { Button } from "primereact/button";
+import { useCurrentEntity } from "../../../../data/common/useCurrentEntity";
+import { useEffect } from "react";
+import { DummyData } from "../../../../utils/mockdata/dummyData";
 
 export function CreatetagOperations() {
+  const currentEntitytemplate = useCurrentEntity<DummyData>(
+    gridControllers.template.getGridDatasource()
+  );
+
+  /**
+   * filter out current template lines
+   * for now I just inject to one with same desc
+   */
+  useEffect(() => {
+    // here we can filter out corret one based on selected
+    // we also need to get current and extract value sin task/workpack
+
+    if (currentEntitytemplate) {
+      gridControllers.templateLineCurrent.getGridDatasource().setData([
+        {
+          id: 1,
+          desc: currentEntitytemplate.desc,
+        },
+      ]);
+    } else {
+      gridControllers.templateLineCurrent.getGridDatasource().setData([]);
+    }
+  }, [currentEntitytemplate]);
+
   return (
     <div className="flex flex-col h-full">
       <Splitter
@@ -78,11 +105,13 @@ export function CreatetagOperations() {
           </div>
 
           <div className="p-2 flex w-full h-full">
-            <SimpleGridActions gridController={gridControllers.templateLines} />
+            <SimpleGridActions
+              gridController={gridControllers.templateLineCurrent}
+            />
             <SimpleHtmlGrid
               id="2"
               className="simple-html-grid w-full h-full"
-              interface={gridControllers.templateLines.getGridInterface()}
+              interface={gridControllers.templateLineCurrent.getGridInterface()}
             />
           </div>
         </SplitterPanel>

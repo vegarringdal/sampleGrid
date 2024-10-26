@@ -57,7 +57,8 @@ export const gridControllers: GridControllerTypes = {
   cabletypeTypeDialog: generateDummyGridController(),
 
   template: generateDummyGridController(),
-  templateLines: generateDummyGridController(),
+  templateLinesAll: generateDummyGridController(),
+  templateLineCurrent: generateDummyGridController(),
 
   mcDialog: generateDummyGridController(),
   comDialog: generateDummyGridController(),
@@ -118,7 +119,8 @@ export type GridControllerTypes = {
   cabletypeTypeDialog: GridController<DummyData>; // for selecting under cableSort
 
   template: GridController<DummyData>;
-  templateLines: GridController<DummyData>;
+  templateLinesAll: GridController<DummyData>;
+  templateLineCurrent: GridController<DummyData>;
 
   // dialogs task
   mcDialog: GridController<DummyData>;
