@@ -1,6 +1,6 @@
 import { relatedDialogStore } from "../../state/relatedDialogStore";
 import { SimpleHtmlGrid } from "./SimpleHtmlGrid";
-import { ResizableDialogContainer } from "./resizableDialogCommon/ResizableDialogContainer";
+import { ResizableDialogContainer } from "./resizableDialog/ResizableDialogContainer";
 import { gridControllers } from "../../data/gridControllers";
 import { useEffect } from "react";
 
