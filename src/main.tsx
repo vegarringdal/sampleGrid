@@ -14,7 +14,7 @@ import { ErrorDialog } from "./components/common/ErrorDialog.tsx";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import TailwindOverride from "./utils/TailwindOverride.tsx";
-import { ImportDialog } from "./components/common/ImportDialog.tsx";
+import { ImportDialog } from "./components/common/importDialog/ImportDialog.tsx";
 
 
 createRoot(document.getElementById("root")!).render(

@@ -1,7 +1,7 @@
 import { openAndReadExcelFile } from "./openAndReadExcelFile";
 import { read, utils } from "xlsx";
 import { importDialogStore } from "../../state/importDialogStore";
-import { importDataStore } from "../../state/importDataStore";
+import { importDataStore } from "../../components/common/importDialog/importDataStore";
 import { Entity } from "@simple-html/grid";
 import { GridController } from "../../data/common/GridController";
 import { GridControllerTypes } from "../../data/gridControllers";

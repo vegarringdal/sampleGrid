@@ -1,7 +1,7 @@
 import { Datasource } from "@simple-html/grid";
 import { GridConfig, GridInterface } from "@simple-html/grid";
-import { GridController } from "../data/common/GridController";
-import { GridControllerTypes } from "../data/gridControllers";
+import { GridController } from "../../../data/common/GridController";
+import { GridControllerTypes } from "../../../data/gridControllers";
 
 const gridConfigChange: GridConfig = {
   cellHeight: 20,
