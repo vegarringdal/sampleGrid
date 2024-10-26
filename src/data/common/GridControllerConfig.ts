@@ -79,7 +79,6 @@ export type GridControllerConfig<T> = {
   importColumns?: Record<keyof T, keyof T | keyof T[]>;
 };
 
-
 export type GridControllerConfigColumn<T> = {
   /**
    * name of attribute
@@ -90,6 +89,13 @@ export type GridControllerConfigColumn<T> = {
    * helper to know if its readonly
    */
   readOnly?: boolean;
+
+  /**
+   * to display in import dialog
+   * before to try will set it before chnage column
+   * orderBy is used to sort if you have multipla
+   */
+  showInImport?: { before: boolean; orderBy: number };
 
   /**
    * what to use in grid/labels

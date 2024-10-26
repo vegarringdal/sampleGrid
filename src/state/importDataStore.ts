@@ -11,8 +11,8 @@ const gridConfigChange: GridConfig = {
   hideFilter: false,
   hideLabels: false,
   selectionMode: "multiple",
-  grouping: [{ title: "Change Type", attribute: "changeType" }],
-  sorting: [{ attribute: "changeType", ascending: true }],
+  grouping: [{ title: "Change Type", attribute: "$$changeType" }],
+  sorting: [{ attribute: "$$changeType", ascending: true }],
   attributes: [],
   columnsCenter: [],
 };
@@ -20,23 +20,23 @@ const gridConfigChange: GridConfig = {
 const defaultChangeColumns = [
   {
     label: "Primary Key Value",
-    attribute: "primaryKeyValue",
+    attribute: "$$primaryKeyValue"
   },
   {
     label: "Change Type",
-    attribute: "changeType",
+    attribute: "$$changeType",
   },
   {
     label: "column changed",
-    attribute: "columnChanged",
+    attribute: "$$columnChanged",
   },
   {
     label: "Old Value",
-    attribute: "oldValue",
+    attribute: "$$oldValue",
   },
   {
     label: "New Value",
-    attribute: "newValue",
+    attribute: "$$newValue",
   },
 ];
 

@@ -7,15 +7,14 @@ import { GridController } from "../../data/common/GridController";
 import { GridControllerTypes } from "../../data/gridControllers";
 
 /**
- * 
- * @param gridController 
- * @returns 
+ *
+ * @param gridController
+ * @returns
  */
 
 export async function readAndCompareData<T, U>(
   gridController: GridController<T, U>
 ) {
-
   // todo, cleanup
   // this is a bit messy and need cleanup
   // just tried to reuse some old project to save time
@@ -32,7 +31,6 @@ export async function readAndCompareData<T, U>(
     return;
   }
 
-  //const gridController = gridControllers[usecontrollerName as keyof typeof gridControllers];
   const apiConfig = gridController.getControllerConfig();
 
   if (!apiConfig.isEditAllowed) {
@@ -80,7 +78,9 @@ export async function readAndCompareData<T, U>(
   const canDelete = apiConfig.isDeleteAllowed;
   const canInsert = apiConfig.isNewAllowed;
   const primaryKeyName = apiConfig.primaryColumn as string;
-  //const importColumns: string[] = [];
+  const importColumns = apiConfig.columns
+    .filter((e) => (e.showInImport ? true : false))
+    .map((e) => structuredClone(e));
 
   // update so we can use this in dialog later
   importDataStore.primaryKeyName = primaryKeyName;
@@ -102,7 +102,6 @@ export async function readAndCompareData<T, U>(
     }
     return "string";
   }
-
 
   dsRows.forEach((row) => {
     const primaryKeyValue = row[primaryKeyName]?.toString();
@@ -131,26 +130,28 @@ export async function readAndCompareData<T, U>(
   });
 
   if (canInsert) {
-    importDataMap.forEach((row: Entity, primaryKeyValue) => {
+    importDataMap.forEach((currentData, primaryKeyValue) => {
       if (!currentDataMap.has(primaryKeyValue)) {
-        row.$dummyPrimary = primaryKeyValue;
-        newRows.set(primaryKeyValue, row);
+        currentData.$dummyPrimary = primaryKeyValue;
+        newRows.set(primaryKeyValue, currentData);
 
-        const changeRow = {
-          primaryKeyName: primaryKeyName,
-          columnDataType: getDataType(primaryKeyName),
-          changeType: "New",
-          primaryKeyValue,
-          columnChanged: "NA",
-          oldValue: "NA",
-          newValue: "NA",
+        const changeRow: Record<string, unknown> = {
+          $$primaryKeyName: primaryKeyName,
+          $$columnDataType: getDataType(primaryKeyName),
+          $$changeType: "New",
+          $$primaryKeyValue: primaryKeyValue,
+          $$columnChanged: "NA",
+          $$oldValue: "NA",
+          $$newValue: "NA",
         };
 
-        // if (importColumns && Array.isArray(importColumns.$columnOrder)) {
-        //   importColumns.$columnOrder.forEach((name) => {
-        //     changeRow[name] = row[name];
-        //   });
-        // }
+        if (importColumns && Array.isArray(importColumns)) {
+          // TODO, this isnt really crash free, prb should add prefix or something
+          importColumns.forEach((col) => {
+            changeRow[col.attribute as string] =
+              currentData[col.attribute as string];
+          });
+        }
 
         changeSet.push(changeRow);
       }
@@ -165,21 +166,23 @@ export async function readAndCompareData<T, U>(
       if (canDelete) {
         deletedRows.set(primaryKeyValue, currentData);
 
-        const changeRow: Record<string, any> = {
-          primaryKeyName: primaryKeyName,
-          columnDataType: getDataType(primaryKeyName),
-          changeType: "Deleted",
-          primaryKeyValue,
-          columnChanged: "NA",
-          oldValue: "NA",
-          newValue: "NA",
+        const changeRow: Record<string, unknown> = {
+          $$primaryKeyName: primaryKeyName,
+          $$columnDataType: getDataType(primaryKeyName),
+          $$changeType: "Deleted",
+          $$primaryKeyValue: primaryKeyValue,
+          $$columnChanged: "NA",
+          $$oldValue: "NA",
+          $$newValue: "NA",
         };
 
-        // if (importColumns && Array.isArray(importColumns.$columnOrder)) {
-        //   importColumns.$columnOrder.forEach((name) => {
-        //     changeRow[name] = currentData[name];
-        //   });
-        // }
+        if (importColumns && Array.isArray(importColumns)) {
+          // TODO, this isnt really crash free, prb should add prefix or something
+          importColumns.forEach((col) => {
+            changeRow[col.attribute as string] =
+              currentData[col.attribute as string];
+          });
+        }
 
         changeSet.push(changeRow);
       }
@@ -189,7 +192,7 @@ export async function readAndCompareData<T, U>(
         const oldValue = currentData[column.attribute as string] || "";
 
         const columnDataType = getDataType(column.attribute as string);
-        let changeRow: Record<string, any> = null as any;
+        let changeRow: Record<string, unknown> | null = null;
 
         switch (columnDataType) {
           case "date":
@@ -212,13 +215,13 @@ export async function readAndCompareData<T, U>(
               // Im not 100% why this is, excel bug on how it reads ISO dates? or sheetjs?
               if (offset > 3000) {
                 changeRow = {
-                  primaryKeyName: primaryKeyName,
-                  columnDataType,
-                  changeType: "Change",
-                  primaryKeyValue,
-                  columnChanged: column.attribute,
-                  oldValue: currentData[column.attribute as string],
-                  newValue: new Date(
+                  $$primaryKeyName: primaryKeyName,
+                  $$columnDataType: columnDataType,
+                  $$changeType: "Change",
+                  $$primaryKeyValue: primaryKeyValue,
+                  $$columnChanged: column.attribute,
+                  $$oldValue: currentData[column.attribute as string],
+                  $$newValue: new Date(
                     importData[column.attribute as string].setHours(
                       importData[column.attribute as string].getHours() -
                         timezoneOffset
@@ -240,13 +243,13 @@ export async function readAndCompareData<T, U>(
 
               if (vOldValue !== newValue) {
                 changeRow = {
-                  primaryKeyName: primaryKeyName,
-                  columnDataType,
-                  changeType: "Change",
-                  primaryKeyValue,
-                  columnChanged: column.attribute,
-                  oldValue: currentData[column.attribute as string],
-                  newValue: importData[column.attribute as string],
+                  $$primaryKeyName: primaryKeyName,
+                  $$columnDataType: columnDataType,
+                  $$changeType: "Change",
+                  $$primaryKeyValue: primaryKeyValue,
+                  $$columnChanged: column.attribute,
+                  $$oldValue: currentData[column.attribute as string],
+                  $$newValue: importData[column.attribute as string],
                 };
               }
             }
@@ -268,13 +271,13 @@ export async function readAndCompareData<T, U>(
 
               if (vOldValueBool !== vNewValue) {
                 changeRow = {
-                  primaryKeyName: primaryKeyName,
-                  columnDataType,
-                  changeType: "Change",
-                  primaryKeyValue,
-                  columnChanged: column.attribute,
-                  oldValue: vOldValueBool,
-                  newValue: vNewValue,
+                  $$primaryKeyName: primaryKeyName,
+                  $$columnDataType: columnDataType,
+                  $$changeType: "Change",
+                  $$primaryKeyValue: primaryKeyValue,
+                  $$columnChanged: column.attribute,
+                  $$oldValue: vOldValueBool,
+                  $$newValue: vNewValue,
                 };
               }
             }
@@ -294,24 +297,25 @@ export async function readAndCompareData<T, U>(
 
             if (vOldValue !== vNewValue) {
               changeRow = {
-                primaryKeyName: primaryKeyName,
-                columnDataType,
-                changeType: "Change",
-                primaryKeyValue,
-                columnChanged: column.attribute,
-                oldValue,
-                newValue,
+                $$primaryKeyName: primaryKeyName,
+                $$columnDataType: columnDataType,
+                $$changeType: "Change",
+                $$primaryKeyValue: primaryKeyValue,
+                $$columnChanged: column.attribute,
+                $$oldValue: oldValue,
+                $$newValue: newValue,
               };
             }
           }
         }
 
         if (changeRow) {
-          //   if (importColumns && Array.isArray(importColumns.$columnOrder)) {
-          //     importColumns.$columnOrder.forEach((name) => {
-          //       changeRow[name] = currentData[name];
-          //     });
-          //   }
+          if (importColumns && Array.isArray(importColumns)) {
+            importColumns.forEach((col) => {
+              changeRow[col.attribute as string] =
+                currentData[col.attribute as string];
+            });
+          }
 
           changeSet.push(changeRow);
         }
@@ -323,20 +327,46 @@ export async function readAndCompareData<T, U>(
 
   importDataStore.gridInterfaceChange.getDatasource().setData(changeSet);
 
-  const defaultChangeColumns: any[] = JSON.parse(
-    JSON.stringify(importDataStore.defaultChangeColumns)
-  ); // intentinally skipped structuredClone
+  const defaultChangeColumns: { attribute: string; label: string }[] =
+    JSON.parse(JSON.stringify(importDataStore.defaultChangeColumns)); // intentinally skipped structuredClone
 
   // add additional columns if any
   const settings = importDataStore.gridInterfaceChange.saveConfig();
-  //   if (importColumns && Array.isArray(importColumns.$columnOrder)) {
-  //     importColumns.$columnOrder.reverse().forEach((name) => {
-  //       defaultChangeColumns.splice(1, 0, {
-  //         label: importColumns[name],
-  //         attribute: name,
-  //       });
-  //     });
-  //   }
+
+  // after primary value
+  const before = importColumns
+    .filter((e) => e.showInImport?.before)
+    .sort((a, b) => {
+      const x = a.showInImport?.orderBy || 0;
+      const y = b.showInImport?.orderBy || 0;
+
+      return x < y ? 0 : 1;
+    });
+
+  before.forEach((c) => {
+    defaultChangeColumns.splice(1, 0, {
+      label: c.label || (c.attribute as string),
+      attribute: c.attribute as string,
+    });
+  });
+
+  // after new/old values
+
+  const after = importColumns
+    .filter((e) => !e.showInImport?.before)
+    .sort((a, b) => {
+      const x = a.showInImport?.orderBy || 0;
+      const y = b.showInImport?.orderBy || 0;
+
+      return x < y ? 0 : 1;
+    });
+
+  after.forEach((c) => {
+    defaultChangeColumns.push({
+      label: c.label || (c.attribute as string),
+      attribute: c.attribute as string,
+    });
+  });
 
   settings.attributes = defaultChangeColumns;
   settings.columnsCenter = defaultChangeColumns.map((e) => {
@@ -352,7 +382,7 @@ export async function readAndCompareData<T, U>(
   // need to build map so we can find it fast
   const changeRowRefs = importDataStore.dataSourceChange.getAllData();
   changeRowRefs.forEach((row) => {
-    changedRows.set(row["primaryKeyValue"], row);
+    changedRows.set(row["$$primaryKeyValue"], row);
   });
 
   importDataStore.gridInterfaceNew.loadConfig(defaultGridConfig, true);

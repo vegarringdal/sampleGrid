@@ -3,7 +3,10 @@ import { CreateTagoperationsEvent } from "../customEvents/createTagOperations";
 import { CableEntity } from "../entities/cableEntity";
 import { cableServiceController } from "../serviceControllers/cableServiceController";
 
-export const cableGridController = new GridController<CableEntity, CreateTagoperationsEvent>(
+export const cableGridController = new GridController<
+  CableEntity,
+  CreateTagoperationsEvent
+>(
   {
     isDeleteAllowed: true,
     isNewAllowed: true,
@@ -20,6 +23,7 @@ export const cableGridController = new GridController<CableEntity, CreateTagoper
         attribute: "tag",
         type: "text",
         mandatory: true,
+        showInImport: { before: true, orderBy: 0 },
       },
       {
         attribute: "fromTag",
@@ -40,10 +44,12 @@ export const cableGridController = new GridController<CableEntity, CreateTagoper
       {
         attribute: "const",
         type: "text",
+        showInImport: { before: false, orderBy: 0 },
       },
       {
         attribute: "design",
         type: "text",
+        showInImport: { before: false, orderBy: 1 },
       },
       {
         attribute: "site",
@@ -92,7 +98,7 @@ export const cableGridController = new GridController<CableEntity, CreateTagoper
       {
         attribute: "com",
         type: "text",
-        clearIfCopy: true
+        clearIfCopy: true,
       },
       {
         attribute: "op01",
@@ -273,7 +279,7 @@ export const cableGridController = new GridController<CableEntity, CreateTagoper
       ["extString01", "extString02", "extString03", "extString04"],
       ["extString05", "extString06", "extString07", "extString08"],
       ["created", "createdBy", "modified", "modifiedBy"],
-      ["id"]
+      ["id"],
     ],
   },
   cableServiceController
