@@ -6,6 +6,7 @@ import { ResizableDialogContainer } from "../ResizableDialogContainer";
 import { addImportedData } from "./addImportedData";
 import { deleteSelectedRows } from "./deleteSelectedRows";
 import { TabView, TabPanel } from "primereact/tabview";
+import { Button } from "primereact/button";
 
 /**
  * this is controlled by importDialogStore, to be loaded on application startup
@@ -57,7 +58,7 @@ export function ImportDialog() {
             className="flex flex-col flex-1 text-xs"
           >
             <TabPanel
-              header="Cables"
+              header="All Changes"
               className="h-full flex"
               pt={{
                 headerAction: { className: "p-3" },
@@ -68,7 +69,7 @@ export function ImportDialog() {
             </TabPanel>
 
             <TabPanel
-              header="Cables"
+              header="New Rows"
               className="h-full flex"
               pt={{
                 headerAction: { className: "p-3" },
@@ -79,7 +80,7 @@ export function ImportDialog() {
             </TabPanel>
 
             <TabPanel
-              header="Equipment"
+              header="Deleted Rows"
               className="h-full flex"
               pt={{
                 headerAction: { className: "p-3" },
@@ -95,36 +96,40 @@ export function ImportDialog() {
 
             {/* DELETE SELECTED ROWS */}
 
-            <button
-              className="ml-1  block w-36 bg-gray-300 p-2 font-semibold text-indigo-600 hover:bg-gray-400 focus:outline-none dark:bg-gray-700 dark:text-blue-400 dark:hover:bg-gray-600"
-              onClick={async () => {
+            <Button
+              title="Open"
+              pt={{
+                root: { className: "p-1 text-sm m-2" },
+              }}
+              onClick={() => {
                 deleteSelectedRows(reg);
               }}
             >
               Remove from import
-            </button>
-
-            {/* APPEND DATA BUTTON */}
-
-            <button
-              className="ml-1  block w-36 bg-gray-300 p-2 font-semibold text-indigo-600 hover:bg-gray-400 focus:outline-none dark:bg-gray-700 dark:text-blue-400 dark:hover:bg-gray-600"
+            </Button>
+            <Button
+              title="Open"
+              pt={{
+                root: { className: "p-1 text-sm m-2" },
+              }}
               onClick={() => {
                 addImportedData();
-                //close dialog
+              }}
+            >
+              Import into main grid
+            </Button>
+
+            <Button
+              title="Open"
+              pt={{
+                root: { className: "p-1 text-sm m-2" },
+              }}
+              onClick={() => {
                 state.close();
               }}
             >
-              Update grid with data
-            </button>
-
-            {/* CLOSE BUTTON */}
-
-            <button
-              className="ml-1  mr-1 block w-36 bg-gray-300 p-2 font-semibold text-indigo-600 hover:bg-gray-400 focus:outline-none dark:bg-gray-700 dark:text-blue-400 dark:hover:bg-gray-600"
-              onClick={() => state.close()}
-            >
               Close
-            </button>
+            </Button>
           </div>
         </div>
       </ResizableDialogContainer>
