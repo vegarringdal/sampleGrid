@@ -91,7 +91,17 @@ export function ModuleSelector() {
   const projects = [
     { name: "007943 - some project description", code: "007943" },
     { name: "005469 - some project description", code: "005469" },
+    { name: "002437 - some project description", code: "002437" },
+    { name: "002157 - some project description", code: "002157" },
+    { name: "254015 - some project description", code: "254015" },
     { name: "002457 - some project description", code: "002457" },
+    { name: "002437 - some project description", code: "002437" },
+    { name: "002437 - some project description", code: "002437" },
+    { name: "002437 - some project description", code: "002437" },
+    { name: "002347 - some project description", code: "002347" },
+    { name: "004572 - some project description", code: "004572" },
+    { name: "007957 - some project description", code: "007957" },
+    { name: "007957 - some project description", code: "007957" },
   ];
 
   // somethign weird happening with select in unstyled mode
@@ -104,13 +114,13 @@ export function ModuleSelector() {
         <label htmlFor="dd-select" className="text-sm">Select a Project</label>
         <Dropdown
           inputId="dd-select"
-       
+          filter
           value={selectedProject}
           onChange={(e) => setSelectedProject(e.value)}
           options={projects}
           optionLabel="name"
           className="w-full text-sm"
-          pt={{wrapper:{className:"border-1 bg-gray-100 dark:bg-gray-700" },input:{className: "text-sm"}, item:{className: "p-2"},itemLabel:{className: "text-sm"}}}
+          pt={{wrapper:{className:"border-1 bg-gray-100 dark:bg-gray-700 scrollbar" },input:{className: "text-sm"}, item:{className: "p-2 outline-none"},itemLabel:{className: "text-sm"},}}
         />
       </div>
 
