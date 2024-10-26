@@ -1,6 +1,6 @@
 import { Button, ButtonPassThroughOptions } from "primereact/button";
-import { GridController } from "../../data/common/GridController";
-import { readAndCompareData } from "../../utils/excel/readAndCompareData";
+import { GridController } from "../../../data/common/GridController";
+import { readAndCompareData } from "../../../utils/excel/readAndCompareData";
 
 export function SimpleGridActions<T, U>(props: {
   gridController: GridController<T, U>;
@@ -151,19 +151,15 @@ export function SimpleGridActions<T, U>(props: {
 
       <Button
         pt={pt}
-    
         tooltip="Generate excel file from current list"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={async () => {
-          await props.gridController.createExcel()
-        
+          await props.gridController.createExcel();
         }}
         aria-label="generate excel"
       >
         <i className="pi pi-file-excel"></i>
       </Button>
-
-   
     </div>
   );
 }

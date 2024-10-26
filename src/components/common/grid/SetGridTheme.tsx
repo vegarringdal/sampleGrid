@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useRef } from "react";
-import { themeStore } from "../../state/theme";
+import { themeStore } from "../../../state/theme";
 
 /**
  * dark theme helper for grid

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { importDataStore } from "./importDataStore";
 import { importDialogStore } from "../../../state/importDialogStore";
-import { SimpleHtmlGrid } from "../SimpleHtmlGrid";
+import { SimpleHtmlGrid } from "../grid/SimpleHtmlGrid";
 import { ResizableDialogContainer } from "../resizableDialog/ResizableDialogContainer";
 import { addImportedData } from "./addImportedData";
 import { deleteSelectedRows } from "./deleteSelectedRows";

@@ -1,9 +1,9 @@
-import { SetGridTheme } from "./components/common/SetGridTheme";
+import { SetGridTheme } from "./components/common/grid/SetGridTheme";
 import { Menubar } from "primereact/menubar";
 import { Router } from "./components/router";
 import { initDarkTheme, toggleDarkTheme } from "./utils/darkThemeHelpers";
 import { Button } from "primereact/button";
-import { RelatedDataDialog } from "./components/common/RelatedDataDialog";
+import { RelatedDataDialog } from "./components/common/grid/RelatedDataDialog";
 
 initDarkTheme();
 ////////////////////////////////////////////////////////////////////////

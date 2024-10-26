@@ -1,8 +1,9 @@
-import { relatedDialogStore } from "../../state/relatedDialogStore";
+import { relatedDialogStore } from "../../../state/relatedDialogStore";
 import { SimpleHtmlGrid } from "./SimpleHtmlGrid";
-import { ResizableDialogContainer } from "./resizableDialog/ResizableDialogContainer";
-import { gridControllers } from "../../data/gridControllers";
+import { ResizableDialogContainer } from "../resizableDialog/ResizableDialogContainer";
+import { gridControllers } from "../../../data/gridControllers";
 import { useEffect } from "react";
+import { Button } from "primereact/button";
 
 /**
  * this is controlled by relatedDialogStore, to be loaded on application startup
@@ -37,7 +38,8 @@ export function RelatedDataDialog() {
     return null;
   }
 
-  const gridInterface = gridControllers[dataState.fromSource].getGridInterface();
+  const gridInterface =
+    gridControllers[dataState.fromSource].getGridInterface();
   return (
     <ResizableDialogContainer
       adjustOnLoad={true}
@@ -62,9 +64,12 @@ export function RelatedDataDialog() {
 
           {/* RELOAD BUTTON */}
 
-          <button
-            className="ml-1 block w-36 bg-gray-300 p-2 font-semibold text-indigo-600 hover:bg-gray-400 focus:outline-none dark:bg-gray-700 dark:text-blue-400 dark:hover:bg-gray-600"
-            onClick={async () => {
+          <Button
+            title="Open"
+            pt={{
+              root: { className: "p-1 text-sm m-2" },
+            }}
+            onClick={() => {
               if (!dataState.fromSource) {
                 return null;
               }
@@ -73,12 +78,15 @@ export function RelatedDataDialog() {
             }}
           >
             Reload
-          </button>
+          </Button>
 
           {/* SELECT BUTTON */}
 
-          <button
-            className="ml-1 block w-36 bg-gray-300 p-2 font-semibold text-indigo-600 hover:bg-gray-400 focus:outline-none dark:bg-gray-700 dark:text-blue-400 dark:hover:bg-gray-600"
+          <Button
+            title="Open"
+            pt={{
+              root: { className: "p-1 text-sm m-2" },
+            }}
             onClick={() => {
               if (!dataState.fromSource) {
                 return null;
@@ -87,47 +95,53 @@ export function RelatedDataDialog() {
               if (!dataState.toSource) {
                 return null;
               }
-              
-              const currentEntityFrom =  gridControllers[dataState.fromSource].getGridDatasource().currentEntity;
 
-              if(!currentEntityFrom) {
+              const currentEntityFrom =
+                gridControllers[dataState.fromSource].getGridDatasource()
+                  .currentEntity;
+
+              if (!currentEntityFrom) {
                 alert("select one first");
                 return;
               }
 
-
-              const currentEntityto =  gridControllers[dataState.toSource].getGridDatasource().currentEntity;
-              
+              const currentEntityto =
+                gridControllers[dataState.toSource].getGridDatasource()
+                  .currentEntity;
 
               // we need to update linked, but just the "to" part
               // maybe we also
               dataState.columnsFromTo?.forEach(([from, to]) => {
-                if(!currentEntityFrom) return;
-                if(!currentEntityto) return;
+                if (!currentEntityFrom) return;
+                if (!currentEntityto) return;
 
                 currentEntityto[to] = currentEntityFrom[from];
-               
               });
-
 
               dataState.deactivateRelatedDialog();
 
               //force rerendering
-              gridControllers[dataState.toSource].getGridInterface().triggerScrollEvent();
-              
+              gridControllers[dataState.toSource]
+                .getGridInterface()
+                .triggerScrollEvent();
             }}
           >
             Select
-          </button>
+          </Button>
 
           {/* CLOSE BUTTON */}
 
-          <button
-            className="ml-1 mr-1 block w-36 bg-gray-300 p-2 font-semibold text-indigo-600 hover:bg-gray-400 focus:outline-none dark:bg-gray-700 dark:text-blue-400 dark:hover:bg-gray-600"
-            onClick={() => dataState.deactivateRelatedDialog()}
+          <Button
+            title="Open"
+            pt={{
+              root: { className: "p-1 text-sm m-2" },
+            }}
+            onClick={() => {
+              dataState.deactivateRelatedDialog();
+            }}
           >
             Close
-          </button>
+          </Button>
         </div>
       </div>
     </ResizableDialogContainer>

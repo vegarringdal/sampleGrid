@@ -1,8 +1,8 @@
 import { TabView, TabPanel } from "primereact/tabview";
 import { generatePath, useNavigate, useParams } from "react-router";
 import { gridControllers } from "../../../data/gridControllers";
-import { SimpleGridActions } from "../../common/SimpleGridActions";
-import { SimpleHtmlGrid } from "../../common/SimpleHtmlGrid";
+import { SimpleGridActions } from "../../common/grid/SimpleGridActions";
+import { SimpleHtmlGrid } from "../../common/grid/SimpleHtmlGrid";
 
 export function WorkprepCableEquipment() {
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import { TabView, TabPanel } from "primereact/tabview";
-import { SimpleGridActions } from "../../common/SimpleGridActions";
-import { SimpleHtmlGrid } from "../../common/SimpleHtmlGrid";
+import { SimpleGridActions } from "../../common/grid/SimpleGridActions";
+import { SimpleHtmlGrid } from "../../common/grid/SimpleHtmlGrid";
 import { gridControllers } from "../../../data/gridControllers";
 
 export function WorkprepCommonPanel() {
@@ -9,8 +9,7 @@ export function WorkprepCommonPanel() {
       className="flex flex-col flex-1 text-xs"
       pt={{ panelContainer: { className: "h-full p-0 w-full" } }}
     >
-
-    {/* ======= WORKPACK ========*/}
+      {/* ======= WORKPACK ========*/}
 
       <TabPanel
         header="Tag Operations"

@@ -27,9 +27,7 @@ export function SimpleHtmlGrid(props: {
         ref.current.connectInterface(props.interface);
       }, 0);
     }
-    return () => {
-        
-    };
+    return () => {};
   });
 
   return (
