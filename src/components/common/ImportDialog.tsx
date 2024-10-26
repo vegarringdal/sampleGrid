@@ -128,8 +128,8 @@ export function ImportDialog() {
                   selectedRows.forEach((entity: Record<string, unknown>) => {
                     // we need to keep new adn deleted row map in sync..
                     // maybe I should do this after ?
-                    const primaryKey = entity.primaryKeyValue;
-                    const changeType = entity.changeType;
+                    const primaryKey = entity.$$primaryKeyValue;
+                    const changeType = entity.$$changeType;
 
                     if (changeType === "Deleted") {
                       const row = importDataStore.deletedRows.get(primaryKey);
@@ -243,27 +243,25 @@ export function ImportDialog() {
                   .getGridDatasource()
                   .getRows(true);
                 const primaryKeyName = importDataStore.primaryKeyName;
+               
                 const primaryKeyMap = new Map<
                   unknown,
-                  Record<string, unknown>
+                  Record<string, unknown> // better typing could be useful here, since we know default with $$
                 >();
                 dsRows.forEach((row) => {
                   primaryKeyMap.set(row[primaryKeyName].toString(), row);
                 });
 
-                //////////////////////////////////////////////////
-                // NEW ROWS
-                //////////////////////////////////////////////////
-
-                const changedRows =
+                 const changedRows =
                   importDataStore.dataSourceChange.getRows(true);
 
                 changedRows.forEach((row) => {
                   const controllerNameRow = primaryKeyMap.get(
-                    row.primaryKeyValue
+                    row.$$primaryKeyValue
                   );
                   if (controllerNameRow) {
-                    controllerNameRow[row.columnChanged] = row.newValue;
+                    controllerNameRow[row.$$columnChanged] = row.$$newValue;
+                    // related columns ? maybe accept import wont be perfect for all, not not allow import on these ?
                   }
                 });
 
