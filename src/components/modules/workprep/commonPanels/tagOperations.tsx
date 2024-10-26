@@ -7,7 +7,7 @@ export function TagOperations() {
   return (
     <div className="p-2 flex flex-col w-full h-full">
       <div className="flex flex-col">
-        <div className="flex pl-2">
+        <div className="flex pl-2 pt-2 gap-2">
           <Button
             tooltip="Filters out based on selected"
             tooltipOptions={{ position: "top" }}
@@ -18,6 +18,28 @@ export function TagOperations() {
             onClick={() => alert("not implemented")}
           >
             Filter Cable/Equipment
+          </Button>
+          <Button
+            tooltip="Filters out based on selected cables"
+            tooltipOptions={{ position: "top" }}
+            className="m-auto"
+            pt={{
+              root: { className: "p-0 pl-1 pr-1 text-sm " },
+            }}
+            onClick={() => alert("not implemented")}
+          >
+            Filter TagOperations from Cables
+          </Button>
+          <Button
+            tooltip="Filters out based on selected cables"
+            tooltipOptions={{ position: "top" }}
+            className="m-auto"
+            pt={{
+              root: { className: "p-0 pl-1 pr-1 text-sm " },
+            }}
+            onClick={() => alert("not implemented")}
+          >
+            Filter TagOperations from Equipment
           </Button>
           <div className="flex-1"></div>
         </div>

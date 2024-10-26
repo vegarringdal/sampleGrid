@@ -7,7 +7,7 @@ export function RoutingAll() {
   return (
     <div className="p-2 flex flex-col w-full h-full">
       <div className="flex flex-col">
-        <div className="flex pl-2">
+        <div className="flex pl-2 pt-2 gap-2">
           <Button
             tooltip="Filters out based on selected"
             tooltipOptions={{ position: "top" }}

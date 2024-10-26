@@ -7,7 +7,7 @@ export function Workpack() {
   return (
     <div className="p-2 flex flex-col w-full h-full">
       <div className="flex flex-col">
-        <div className="flex pl-2 gap-2">
+        <div className="flex pl-2 pt-2 gap-2">
           <Button
             tooltip="Filters out based on selected, this uses loaded tag operations, so its important this is loaded"
             tooltipOptions={{ position: "top" }}

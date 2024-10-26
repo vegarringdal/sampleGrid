@@ -21,13 +21,30 @@ export function CreatetagOperations() {
           minSize={10}
           size={60}
         >
-          <span className="text-base">Templates</span>
+          <div className="flex flex-col">
+            <span className="text-base p-1">Templates</span>
+            <div className="flex pl-2">
+              <Button
+                tooltip="Create a duplicate with template lines from current"
+                tooltipOptions={{ position: "top" }}
+                className="m-auto"
+                pt={{
+                  root: { className: "p-0 pl-1 pr-1 text-sm " },
+                }}
+                onClick={() => alert("not implemented")}
+              >
+                Duplicate with template lines
+              </Button>
+              <div className="flex-1"></div>
+            </div>
+          </div>
+
           <div className="p-2 flex w-full h-full">
-            <SimpleGridActions gridController={gridControllers.template} />
+            <SimpleGridActions gridController={gridControllers.templateLines} />
             <SimpleHtmlGrid
               id="2"
               className="simple-html-grid w-full h-full"
-              interface={gridControllers.template.getGridInterface()}
+              interface={gridControllers.templateLines.getGridInterface()}
             />
           </div>
         </SplitterPanel>
