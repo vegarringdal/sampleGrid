@@ -9,16 +9,17 @@ class CableMockData {
   counter = 1;
 
   constructor() {
-    for (let i = 1; i < 150; i++) {
+    for (let i = 1; i < 9999; i++) {
       this.counter = i;
       const c = this.counter;
+      const n = String(c).padStart(4, "0");
       this.cache.set(c, {
         id: c,
-        tag: "JSK75FD" + String(c).padStart(4, "0"),
-        fromTag: "7589FD" + +String(c).padStart(4, "0"),
-        areaFrom: "P" + String(c).padStart(4, "0"),
-        toTag: "7589JB" + String(c).padStart(4, "0"),
-        areaTo: "T" + String(c).padStart(4, "0"),
+        tag: "JSK75FD" + n,
+        fromTag: "7589FD" + n,
+        areaFrom: "P" + n,
+        toTag: "7589JB" + n,
+        areaTo: "T" + n,
         const: "EQUINOR",
         design: "HAUHE",
         site: "THAI",
@@ -32,10 +33,10 @@ class CableMockData {
         status: "TS",
         partAddressFrom: "A01:X1:245",
         partAddressTo: "B01:X1:245",
-        termFrom: "E0785-XA-" + String(c).padStart(4, "0"),
-        termTo: "E0775-XA-" + String(c).padStart(4, "0"),
-        mc: "M01E" + String(c).padStart(4, "0"),
-        com: "C02E" + String(c).padStart(4, "0"),
+        termFrom: "E0785-XA-" + n,
+        termTo: "E0775-XA-" + n,
+        mc: "M01E" + n,
+        com: "C02E" + n,
         op01: "PU:0",
         op02: "TF:0",
         op03: "TT:0",
