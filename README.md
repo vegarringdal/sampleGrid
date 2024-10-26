@@ -24,7 +24,9 @@ Need to be able to handle very large data sets, cable 20k, equipment 20k, tagope
   * [x] copy/paste cell into selected rows (with related data)
   * [x] duplicate row
     * [ ] need to fix releated
-  * [ ] export/import data from excel
+  * [x] export
+  * [x] import data from excel
+  *   [ ] import/export will need work with better labels
   * [ ] save (just send data to service)
   * [ ] how to show nice error message if save fails, stop of row ? use own column ?
 
