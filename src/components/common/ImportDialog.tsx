@@ -25,8 +25,8 @@ export function ImportDialog() {
         uniqueName={`import`}
         title={"Import data"}
         isOpen={true}
-        width={window.innerWidth*0.8}
-        height={window.innerHeight*0.8}
+        width={window.innerWidth * 0.8}
+        height={window.innerHeight * 0.8}
         onClose={() => state.close()}
       >
         <div className="flex flex-col flex-1">
@@ -232,8 +232,13 @@ export function ImportDialog() {
             <button
               className="ml-1  block w-36 bg-gray-300 p-2 font-semibold text-indigo-600 hover:bg-gray-400 focus:outline-none dark:bg-gray-700 dark:text-blue-400 dark:hover:bg-gray-600"
               onClick={() => {
-                // loop controllerName and make primary key map
-                const inputGridController = importDataStore.currentGridController;
+                //////////////////////////////////////////////////
+                // CHANGED ROWS
+                //////////////////////////////////////////////////
+
+                const inputGridController =
+                  importDataStore.currentGridController;
+
                 const dsRows = inputGridController
                   .getGridDatasource()
                   .getRows(true);
@@ -246,10 +251,14 @@ export function ImportDialog() {
                   primaryKeyMap.set(row[primaryKeyName].toString(), row);
                 });
 
-                // loop changeset
-                const changeSet =
+                //////////////////////////////////////////////////
+                // NEW ROWS
+                //////////////////////////////////////////////////
+
+                const changedRows =
                   importDataStore.dataSourceChange.getRows(true);
-                changeSet.forEach((row) => {
+
+                changedRows.forEach((row) => {
                   const controllerNameRow = primaryKeyMap.get(
                     row.primaryKeyValue
                   );
@@ -258,40 +267,68 @@ export function ImportDialog() {
                   }
                 });
 
+                //////////////////////////////////////////////////
+                // DELETED ROWS
+                //////////////////////////////////////////////////
+
                 // if change -> get row from primary key map and update
-                const deletedRows = importDataStore.deletedRows;
+                const deleteMap = importDataStore.deletedRows;
                 const toMarkAsDeleted: unknown[] = [];
-                deletedRows.forEach((_, primarykey) => {
+                deleteMap.forEach((_, primarykey) => {
                   toMarkAsDeleted.push(primaryKeyMap.get(primarykey));
                 });
                 inputGridController
                   .getGridDatasource()
                   .markForDeletion(toMarkAsDeleted);
 
-                const newRows = importDataStore.newRows;
+                //////////////////////////////////////////////////
+                // NEW ROWS
+                //////////////////////////////////////////////////
 
-                // todo: there is room for improvement in guitools and grid on this part
+                const newRowsMap = importDataStore.newRows;
 
-                newRows.forEach((row) => {
-                  // to not trigger events in grid etc we go directly to datacontainer
-                  const result = inputGridController
-                    .getGridDatasource()
-                    .setData([{}], true, true);
-                  if (Array.isArray(result)) {
-                    const x = result[0] as Record<string, unknown>;
-                    const c = JSON.parse(JSON.stringify(row));
+                // build up empty batch array
+                const tempArr: unknown[] = [];
+                newRowsMap.forEach(() => tempArr.push({}));
 
-                    // we want to register change/let it go through our entity handler, so columns act correctly in grid
-                    const keys = Object.keys(c);
-                    keys.forEach((key) => {
-                      x[key] = c[key];
-                    });
-                  }
+                // add batch arrat to dataContainer directly so we get proxy elements
+                // this will stop us from triggering all event etc
+                const newRowsArray = inputGridController
+                  .getGridDatasource()
+                  .getDataContainer()
+                  .setData(tempArr, true, true);
+
+                // if not data, no need to continue
+                if (!Array.isArray(newRowsArray)) {
+                  //close dialog
+                  state.close();
+                  return;
+                }
+
+                // now we just need to update data
+
+                let i = 0;
+                newRowsMap.forEach((row) => {
+                  const x = newRowsArray[i] as Record<string, unknown>;
+                  const c = JSON.parse(JSON.stringify(row));
+
+                  // we want to register change &
+                  // let it go through our entity handler
+                  // so columns act correctly in grid
+                  const keys = Object.keys(c);
+                  keys.forEach((key) => {
+                    x[key] = c[key];
+                  });
+
+                  i++;
                 });
 
-                state.close();
+                // trick grid to rerun filter
+                // TODO, there should prb be own method for this
+                inputGridController.getGridDatasource().setData([], true, true);
 
-                //set state to edit mode
+                //close dialog
+                state.close();
               }}
             >
               Update grid with data

@@ -103,7 +103,7 @@ export async function readAndCompareData<T, U>(
     return "string";
   }
 
-  debugger;
+
   dsRows.forEach((row) => {
     const primaryKeyValue = row[primaryKeyName]?.toString();
     if (primaryKeyValue) {
