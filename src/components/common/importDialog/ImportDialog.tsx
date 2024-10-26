@@ -2,10 +2,10 @@ import { useState } from "react";
 import { importDataStore } from "./importDataStore";
 import { importDialogStore } from "../../../state/importDialogStore";
 import { SimpleHtmlGrid } from "../SimpleHtmlGrid";
-import { classes, classIfTrue } from "../../../utils/tailwindhelpers";
 import { ResizableDialogContainer } from "../ResizableDialogContainer";
 import { addImportedData } from "./addImportedData";
 import { deleteSelectedRows } from "./deleteSelectedRows";
+import { TabView, TabPanel } from "primereact/tabview";
 
 /**
  * this is controlled by importDialogStore, to be loaded on application startup
@@ -14,6 +14,7 @@ import { deleteSelectedRows } from "./deleteSelectedRows";
  */
 export function ImportDialog() {
   const state = importDialogStore();
+  const [index, setindex] = useState<number>(1);
   const [reg, setReg] = useState<"change" | "new" | "deleted">("change");
 
   if (!state.activated) {
@@ -31,84 +32,63 @@ export function ImportDialog() {
         height={window.innerHeight * 0.8}
         onClose={() => state.close()}
       >
-        <div className="flex flex-col flex-1">
-          <div className="mb-1 mt-1 flex">
-            <button
-              className={classes([
-                /* Defaults */
-                "ml-1 w-36 p-2 font-semibold focus:outline-none",
-                "hover:bg-gray-400 dark:hover:bg-gray-600",
-                "text-indigo-600 dark:text-blue-400",
-
-                /* selected */
-                classIfTrue(
-                  reg === "change",
-                  "block bg-gray-400 dark:bg-gray-500 dark:text-gray-900"
-                ),
-
-                /* not selected */
-                classIfTrue(
-                  reg !== "change",
-                  "block bg-gray-300 dark:bg-gray-700 dark:text-blue-400"
-                ),
-              ])}
-              onClick={() => setReg("change")}
+        <div className="flex flex-col flex-1 pt-2">
+          <TabView
+            activeIndex={index}
+            pt={{
+              panelContainer: {
+                className: "h-full flex",
+              },
+            }}
+            onTabChange={(e) => {
+              if (e.index === 0) {
+                setindex(e.index);
+                setReg("change");
+              }
+              if (e.index === 1) {
+                setindex(e.index);
+                setReg("new");
+              }
+              if (e.index === 2) {
+                setindex(e.index);
+                setReg("deleted");
+              }
+            }}
+            className="flex flex-col flex-1 text-xs"
+          >
+            <TabPanel
+              header="Cables"
+              className="h-full flex"
+              pt={{
+                headerAction: { className: "p-3" },
+                content: { className: "h-full p-2 flex w-full" },
+              }}
             >
-              All Changes
-            </button>
+              <GridChange></GridChange>
+            </TabPanel>
 
-            <button
-              className={classes([
-                /* Defaults */
-                "ml-1 w-36 p-2 font-semibold focus:outline-none",
-                "hover:bg-gray-400 dark:hover:bg-gray-600",
-                "text-indigo-600 dark:text-blue-400",
-
-                /* selected */
-                classIfTrue(
-                  reg === "new",
-                  "block bg-gray-400 dark:bg-gray-500 dark:text-gray-900"
-                ),
-
-                /* not selected */
-                classIfTrue(
-                  reg !== "new",
-                  "block bg-gray-300 dark:bg-gray-700 dark:text-blue-400"
-                ),
-              ])}
-              onClick={() => setReg("new")}
+            <TabPanel
+              header="Cables"
+              className="h-full flex"
+              pt={{
+                headerAction: { className: "p-3" },
+                content: { className: "h-full p-2 flex w-full" },
+              }}
             >
-              New Rows
-            </button>
+              <GridNew></GridNew>
+            </TabPanel>
 
-            <button
-              className={classes([
-                /* Defaults */
-                "ml-1 w-36 p-2 font-semibold focus:outline-none",
-                "hover:bg-gray-400 dark:hover:bg-gray-600",
-                "text-indigo-600 dark:text-blue-400",
-
-                /* selected */
-                classIfTrue(
-                  reg === "deleted",
-                  "block bg-gray-400 dark:bg-gray-500 dark:text-gray-900"
-                ),
-
-                /* not selected */
-                classIfTrue(
-                  reg !== "deleted",
-                  "block bg-gray-300 dark:bg-gray-700 dark:text-blue-400"
-                ),
-              ])}
-              onClick={() => setReg("deleted")}
+            <TabPanel
+              header="Equipment"
+              className="h-full flex"
+              pt={{
+                headerAction: { className: "p-3" },
+                content: { className: "h-full p-2 flex w-full" },
+              }}
             >
-              Deleted Rows
-            </button>
-          </div>
-
-          <div className="flex flex-grow">
-            <GridType gridtype={reg}></GridType>
-          </div>
+              <GridDeleted></GridDeleted>
+            </TabPanel>
+          </TabView>
 
           <div className="bottom-2 left-0 right-0 mb-1 mt-1 flex">
             <div className="bottom-2 left-0 right-0 flex flex-1"></div>
@@ -152,23 +132,6 @@ export function ImportDialog() {
   );
 }
 
-/**
- * helper for grid type
- * @param props
- * @returns
- */
-function GridType(props: { gridtype: "new" | "change" | "deleted" }) {
-  if (props.gridtype === "deleted") {
-    return <GridDeleted></GridDeleted>;
-  }
-
-  if (props.gridtype === "new") {
-    return <GridNew></GridNew>;
-  }
-
-  return <GridChange></GridChange>;
-}
-
 // needed to split into own to force rerender
 
 function GridNew() {
@@ -200,5 +163,3 @@ function GridDeleted() {
     ></SimpleHtmlGrid>
   );
 }
-
-
