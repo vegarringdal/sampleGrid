@@ -15,7 +15,7 @@ import { Button } from "primereact/button";
  */
 export function ImportDialog() {
   const state = importDialogStore();
-  const [index, setindex] = useState<number>(1);
+  const [index, setindex] = useState<number>(0);
   const [reg, setReg] = useState<"change" | "new" | "deleted">("change");
 
   if (!state.activated) {
