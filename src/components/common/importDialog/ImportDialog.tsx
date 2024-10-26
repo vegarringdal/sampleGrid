@@ -2,7 +2,7 @@ import { useState } from "react";
 import { importDataStore } from "./importDataStore";
 import { importDialogStore } from "../../../state/importDialogStore";
 import { SimpleHtmlGrid } from "../SimpleHtmlGrid";
-import { ResizableDialogContainer } from "../ResizableDialogContainer";
+import { ResizableDialogContainer } from "../resizableDialogCommon/ResizableDialogContainer";
 import { addImportedData } from "./addImportedData";
 import { deleteSelectedRows } from "./deleteSelectedRows";
 import { TabView, TabPanel } from "primereact/tabview";
