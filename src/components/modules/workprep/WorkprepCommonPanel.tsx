@@ -11,6 +11,7 @@ import { RoutingSelected } from "./commonPanels/routingSelected";
 import { DocumentAll } from "./commonPanels/documentAll";
 import { DocumentCable } from "./commonPanels/documentCable";
 import { DocumentEquipment } from "./commonPanels/documentEquipment";
+import { CreatetagOperations } from "./commonPanels/createTagOperations";
 
 export function WorkprepCommonPanel() {
   const commonPt: TabPanelPassThroughOptions = {
@@ -23,6 +24,10 @@ export function WorkprepCommonPanel() {
       className="flex flex-col flex-1 text-xs"
       pt={{ panelContainer: { className: "h-full p-0 w-full" } }}
     >
+      <TabPanel header="Create Tag Operations" className="h-full" pt={commonPt}>
+        <CreatetagOperations />
+      </TabPanel>
+
       <TabPanel header="Tag Operations" className="h-full" pt={commonPt}>
         <TagOperations />
       </TabPanel>

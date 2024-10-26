@@ -8,7 +8,7 @@ export function SimpleGridActions<T, U>(props: {
   const cs = props.gridController.storeHook();
 
   const pt: ButtonPassThroughOptions = {
-    root: { className: "p-1" },
+    root: { className: "p-1 min-h-6" },
     tooltip: {
       root: { className: "text-xs" },
       text: { className: "p-1" },
@@ -18,6 +18,7 @@ export function SimpleGridActions<T, U>(props: {
   return (
     <div className="flex flex-col pr-2 pt-1 gap-2 h-full">
       <Button
+     
         pt={pt}
         disabled={cs.isEditmode}
         tooltip="Load/refresh data"
