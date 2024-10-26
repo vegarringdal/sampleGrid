@@ -25,7 +25,7 @@ export function MinMaximizeIcon(props: {
 
   if (props.state.height === 40) {
     return (
-      <div className="h-6 w-6 cursor-pointer bg-gray-700 font-semibold text-blue-600 hover:bg-gray-600 focus:outline-none">
+      <div className="h-6 w-6 cursor-pointer dark:bg-gray-700 font-semibold text-blue-600 dark:hover:bg-gray-600 focus:outline-none">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -54,7 +54,7 @@ export function MinMaximizeIcon(props: {
     );
   } else {
     return (
-      <div className="h-6 w-6 cursor-pointer bg-gray-700 font-semibold text-blue-600 hover:bg-gray-600 focus:outline-none">
+      <div className="h-6 w-6 cursor-pointer dark:bg-gray-700 font-semibold text-blue-600 dark:hover:bg-gray-600 focus:outline-none">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

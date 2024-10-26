@@ -29,6 +29,7 @@ export const cableServiceController = new ServiceController<
     if (event.type === "FETCH_ALL") {
       //
       serviceStore.setState({
+        loadingDataDialogActivated: true,
         loadingDataDialogContent: "loading data, please wait",
       });
 

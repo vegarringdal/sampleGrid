@@ -136,21 +136,17 @@ export function ResizableDialogContainer(props: {
             <div
                 ref={refMain}
                 style={style}
-                className="floating-dialog absolute mb-2 flex select-none flex-col overflow-hidden border border-gray-900 bg-gray-800 p-1 shadow-2xl shadow-black"
+                className="floating-dialog absolute mb-2 flex select-none flex-col overflow-hidden border bg-white dark:border-gray-900 dark:bg-gray-800 p-1 shadow-2xl shadow-black"
             >
                 <div
-                    className="z-50 flex cursor-move bg-gray-700"
+                    className="z-50 flex cursor-move bg-gray-100 dark:bg-gray-700"
                     onPointerDown={(e) => {
-                        /**
-                         * quick workaround to trigger new window to be on top
-                         * resizable window needs to be extracted into own utillity function
-                         */
-                        // look into later mouseDownHandler({ target: refMain.current } as any);
+                        // mostly just have 1 dialog open at once, so prob dont need any bring to front logic
 
                         resizeHandler(e, "position", sizeState, setDataState);
                     }}
                 >
-                    <span className="m-auto p-1 text-white">{props.title}</span>
+                    <span className="m-auto p-1 text-base dark:text-white">{props.title}</span>
                     <div className="absolute right-1 flex gap-2">
                         <MinMaximizeIcon
                             uniqueName={props.uniqueName}
@@ -159,7 +155,7 @@ export function ResizableDialogContainer(props: {
                         ></MinMaximizeIcon>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="h-6 w-6 bg-gray-700 font-semibold text-blue-600 hover:bg-gray-600 focus:outline-none"
+                            className="h-6 w-6 dark:bg-gray-700 font-semibold text-blue-600 hover:bg-gray-200 dark:hover:bg-gray-600 focus:outline-none"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
