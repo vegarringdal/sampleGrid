@@ -61,7 +61,9 @@ export class GridController<T, U = unknown> {
   }
 
   /**
-   * will use dataInterface to generate gridConfig
+   * all logic to build standard gridConfig
+   * gridController config helps us abstract away default 
+   * gridconfig so its easier to add workarounds/newer gird
    * @returns
    */
   #generateGridConfig() {
@@ -72,18 +74,8 @@ export class GridController<T, U = unknown> {
       attributes: [],
     } as GridConfig;
 
-    // a LOT to do here, having it very simple for now
-    // logic for popup on related source to select item- event "cell-focus-button-click"
-    // copy/past values, + events "copy-cell" & "paste"
-    // removed from grid (dynamic column for logic only)
-    // double click on cell should open for edit
-    // readonly if logic
-    // also have minior changes I want to add to the grid component
-    // - reset cell / reset row / reset selection
-    // - option to show deleted rows, but just tag them
-    // entity handler override, to add dynamic columns
-
-    this.#gridControllerConfig.columns.forEach((c, i) => {
+    
+   this.#gridControllerConfig.columns.forEach((c, i) => {
       const primaryCol = this.#gridControllerConfig.primaryColumn;
 
       const attribute: Attribute = {
@@ -143,7 +135,8 @@ export class GridController<T, U = unknown> {
   }
 
   /**
-   * will add event listners etc to do most of logic here
+   * All logic to controll grid will be here
+   * Mostly to save us for a lot of work
    */
   #init() {
     /**

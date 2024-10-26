@@ -6,6 +6,7 @@ import type { GridControllerTypes } from "../gridControllers";
 /**
  * configuration for dataController/service
  * want to try and have most as optional
+ * this will help us extract away most logic on behavior for grid
  */
 export type GridControllerConfig<T> = {
   /**
@@ -25,11 +26,13 @@ export type GridControllerConfig<T> = {
   /**
    * todo - will disable button
    * maybe option to hide by default?
+   * will also diable this option in import
    */
   isDeleteAllowed: boolean;
   /**
    * todo - will disable button, including duplicate
    * maybe option to hide by default?
+   * will also diable this option in import
    */
   isNewAllowed: boolean;
 
@@ -109,19 +112,23 @@ export type GridControllerConfigColumn<T> = {
   type: DataTypes | undefined;
 
   /**
-   *  default false
-   *  for hiding data from user/helper columns
+   * default false
+   * for hiding data from user/helper columns
+   * like maybe foreign keys
+   * NOT IMPLEMENTED
    */
   removeFromGrid?: boolean;
 
   /**
-   *  default false
+   * default false
+   * NOT IMPLEMENTED
    */
   setAsOptionalInGrid?: boolean;
 
   /**
    * read only in grid (column)
    * default false
+   * NOT IMPLEMENTED
    */
   readOnlyGrid?: boolean;
 
