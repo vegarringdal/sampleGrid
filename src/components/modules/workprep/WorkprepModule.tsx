@@ -28,7 +28,7 @@ export function WorkprepModule() {
 
         {/* RIGHT SIDE */}
 
-        <SplitterPanel className="flex overflow-hidden p-2" minSize={10} size={40}>
+        <SplitterPanel className="flex overflow-x-auto scrollbar p-2 ml-1" minSize={10} size={40}>
           <WorkprepCommonPanel />
         </SplitterPanel>
       </Splitter>

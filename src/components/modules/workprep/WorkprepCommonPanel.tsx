@@ -1,4 +1,8 @@
-import { TabView, TabPanel, TabPanelPassThroughOptions } from "primereact/tabview";
+import {
+  TabView,
+  TabPanel,
+  TabPanelPassThroughOptions,
+} from "primereact/tabview";
 import { Workpack } from "./commonPanels/workpack";
 import { TagOperations } from "./commonPanels/tagOperations";
 import { Task } from "./commonPanels/task";
