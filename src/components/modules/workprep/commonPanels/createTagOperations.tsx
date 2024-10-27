@@ -9,7 +9,7 @@ import { TemplateEntity } from "../../../../data/entities/TemplateEntity";
 
 export function CreatetagOperations() {
   const currentEntitytemplate = useCurrentEntity<TemplateEntity>(
-    gridControllers.template.getGridDatasource(),
+    gridControllers.template.getGridDatasource()
   );
 
   /**
@@ -73,6 +73,11 @@ export function CreatetagOperations() {
 
           <div className="p-2 flex w-full h-full">
             <SimpleGridActions gridController={gridControllers.template} />
+             {/* 
+          
+                TODO, memo this, niticed it looses focus when curent entity hook triggers ?
+          
+          */}
             <SimpleHtmlGrid
               id="2"
               className="simple-html-grid w-full h-full"
@@ -82,10 +87,15 @@ export function CreatetagOperations() {
         </SplitterPanel>
 
         <SplitterPanel
-          className="flex  flex-col overflow-y-auto scrollbar p-2 ml-1"
+          className="flex  flex-col  p-2 ml-1"
           minSize={10}
           size={40}
         >
+          {/* 
+          
+          TODO, maybe add scroll or hide option ? 
+          
+          */}
           <div className="flex flex-col">
             <span className="text-base p-1">Template Lines</span>
             <div className="flex pl-2">
