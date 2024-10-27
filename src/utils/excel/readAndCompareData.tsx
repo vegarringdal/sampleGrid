@@ -15,7 +15,7 @@ import { flushSync } from "react-dom";
  */
 
 export async function readAndCompareData<T, U>(
-  gridController: GridController<T, U>
+  gridController: GridController<T, U>,
 ) {
   // todo, cleanup
   // this is a bit messy and need cleanup
@@ -68,23 +68,23 @@ export async function readAndCompareData<T, U>(
   const dsRows = gridController.getGridDatasource().getRows(true) as Entity[];
   const gridConfig = gridController.getGridInterface().saveConfig();
   const updatableColumns = new Set(
-    apiConfig.columns.filter((c) => !c.readOnly)
+    apiConfig.columns.filter((c) => !c.readOnly),
   );
 
   const dateColumns = new Set(
     gridConfig.attributes
       .filter((e) => e.type === "date")
-      .map((e) => e.attribute)
+      .map((e) => e.attribute),
   );
   const numberColumns = new Set(
     gridConfig.attributes
       .filter((e) => e.type === "number")
-      .map((e) => e.attribute)
+      .map((e) => e.attribute),
   );
   const booleanColumns = new Set(
     gridConfig.attributes
       .filter((e) => e.type === "boolean")
-      .map((e) => e.attribute)
+      .map((e) => e.attribute),
   );
   const canDelete = apiConfig.isDeleteAllowed;
   const canInsert = apiConfig.isNewAllowed;
@@ -235,8 +235,8 @@ export async function readAndCompareData<T, U>(
                   $$newValue: new Date(
                     importData[column.attribute as string].setHours(
                       importData[column.attribute as string].getHours() -
-                        timezoneOffset
-                    )
+                        timezoneOffset,
+                    ),
                   ),
                 };
               }

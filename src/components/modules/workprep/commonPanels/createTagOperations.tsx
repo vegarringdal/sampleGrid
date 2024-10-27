@@ -9,7 +9,7 @@ import { DummyData } from "../../../../utils/mockdata/dummyData";
 
 export function CreatetagOperations() {
   const currentEntitytemplate = useCurrentEntity<DummyData>(
-    gridControllers.template.getGridDatasource()
+    gridControllers.template.getGridDatasource(),
   );
 
   /**
