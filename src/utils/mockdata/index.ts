@@ -1,6 +1,6 @@
 // src/mocks/handlers.js
 import { setupWorker } from "msw/browser";
-import { cableMockData } from "./cable";
+import { cableMockData } from "./cableMockData";
 
 export const worker = setupWorker(...cableMockData.generateHandlers());
 worker.start({
