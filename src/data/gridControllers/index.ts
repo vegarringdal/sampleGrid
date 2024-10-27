@@ -5,7 +5,7 @@ import { CableEntity } from "../entities/CableEntity";
 import { generateDummyGridController } from "../../utils/mockdata/dummyController";
 import { equipmentGridController } from "./equipmentGridController";
 import { EquipmentEntity } from "../entities/EquipmentEntity";
-import { CreateTagoperationsEvent } from "../customEvents/createTagOperations";
+import { CreateTagoperationsEvent } from "../customEvents/CreateTagoperationsEvent";
 
 ///////////////////////////////////////////////////////////////////
 // for now we generate some dummy gridControllers

@@ -1,6 +1,6 @@
 import { serviceStore } from "../../state/serviceStore";
 import { ServiceController } from "../common/ServiceController";
-import { CreateTagoperationsEvent } from "../customEvents/createTagOperations";
+import { CreateTagoperationsEvent } from "../customEvents/CreateTagoperationsEvent";
 import { CableEntity } from "../entities/CableEntity";
 import { cableService } from "../services/cableService";
 

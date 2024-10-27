@@ -1,5 +1,5 @@
 import { GridController } from "../common/GridController";
-import { DuplicateTemplateLineEvent } from "../customEvents/duplicateTemplate";
+import { DuplicateTemplateLineEvent } from "../customEvents/DuplicateTemplateLineEvent";
 import { TemplateEntity } from "../entities/TemplateEntity";
 import { templateServiceController } from "../serviceControllers/templateServiceController";
 

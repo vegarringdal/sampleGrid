@@ -1,5 +1,5 @@
 import { GridController } from "../common/GridController";
-import { CreateTagoperationsEvent } from "../customEvents/createTagOperations";
+import { CreateTagoperationsEvent } from "../customEvents/CreateTagoperationsEvent";
 import { CableEntity } from "../entities/CableEntity";
 import { cableServiceController } from "../serviceControllers/cableServiceController";
 

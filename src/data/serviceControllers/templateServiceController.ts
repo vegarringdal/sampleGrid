@@ -1,6 +1,6 @@
 import { serviceStore } from "../../state/serviceStore";
 import { ServiceController } from "../common/ServiceController";
-import { DuplicateTemplateLineEvent } from "../customEvents/duplicateTemplate";
+import { DuplicateTemplateLineEvent } from "../customEvents/DuplicateTemplateLineEvent";
 import { TemplateEntity } from "../entities/TemplateEntity";
 import { templateService } from "../services/templateService";
 
