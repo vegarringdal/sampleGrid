@@ -6,6 +6,11 @@ import { generateDummyGridController } from "../../utils/mockdata/dummyControlle
 import { equipmentGridController } from "./equipmentGridController";
 import { EquipmentEntity } from "../entities/EquipmentEntity";
 import { CreateTagoperationsEvent } from "../customEvents/CreateTagoperationsEvent";
+import { templateGridController } from "./templateGridController";
+import { DuplicateTemplateLineEvent } from "../customEvents/DuplicateTemplateLineEvent";
+import { templateLineGridController } from "./templateLineGridController";
+import { TemplateEntity } from "../entities/TemplateEntity";
+import { TemplateLineEntity } from "../entities/TemplateLineEntity";
 
 ///////////////////////////////////////////////////////////////////
 // for now we generate some dummy gridControllers
@@ -56,8 +61,8 @@ export const gridControllers: GridControllerTypes = {
   cabletypeType: generateDummyGridController(),
   cabletypeTypeDialog: generateDummyGridController(),
 
-  template: generateDummyGridController(),
-  templateLinesAll: generateDummyGridController(),
+  template: templateGridController,
+  templateLinesAll: templateLineGridController,
   templateLineCurrent: generateDummyGridController(),
 
   mcDialog: generateDummyGridController(),
@@ -118,8 +123,11 @@ export type GridControllerTypes = {
   cabletypeType: GridController<DummyData>;
   cabletypeTypeDialog: GridController<DummyData>; // for selecting under cableSort
 
-  template: GridController<DummyData>;
-  templateLinesAll: GridController<DummyData>;
+  template: GridController<TemplateEntity, DuplicateTemplateLineEvent>;
+  templateLinesAll: GridController<
+    TemplateLineEntity,
+    CreateTagoperationsEvent
+  >;
   templateLineCurrent: GridController<DummyData>;
 
   // dialogs task

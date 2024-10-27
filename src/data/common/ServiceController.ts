@@ -9,8 +9,8 @@ export class ServiceController<T, CustomEvent = unknown> {
   #gridController: GridController<T, CustomEvent>[] = [];
   #eventHandler: ServiceEventHandler<T, CustomEvent>;
 
-  connectDataSource(dataController: GridController<T, CustomEvent>) {
-    this.#gridController.push(dataController);
+  connectDataSource(gridController: GridController<T, CustomEvent>) {
+    this.#gridController.push(gridController);
   }
 
   async callEventHandlerCustom(event: CustomEvent) {

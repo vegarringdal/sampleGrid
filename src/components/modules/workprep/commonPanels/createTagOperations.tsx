@@ -5,10 +5,10 @@ import { SimpleHtmlGrid } from "../../../common/grid/SimpleHtmlGrid";
 import { Button } from "primereact/button";
 import { useCurrentEntity } from "../../../../data/common/useCurrentEntity";
 import { useEffect } from "react";
-import { DummyData } from "../../../../utils/mockdata/dummyData";
+import { TemplateEntity } from "../../../../data/entities/TemplateEntity";
 
 export function CreatetagOperations() {
-  const currentEntitytemplate = useCurrentEntity<DummyData>(
+  const currentEntitytemplate = useCurrentEntity<TemplateEntity>(
     gridControllers.template.getGridDatasource(),
   );
 
