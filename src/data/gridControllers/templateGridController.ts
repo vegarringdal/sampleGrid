@@ -14,16 +14,13 @@ export const templateGridController = new GridController<
     primaryColumn: "id",
     columns: [
       {
-        attribute: "id",
-        type: "number",
-      },
-      {
         attribute: "desc",
         type: "text",
       },
       {
         attribute: "createdBy",
         type: "text",
+        hide: true,
       },
       {
         attribute: "modifiedBy",
@@ -36,8 +33,15 @@ export const templateGridController = new GridController<
       {
         attribute: "created",
         type: "date",
+        hide: true,
+      },
+      {
+        attribute: "id",
+        type: "number",
+        hide: true,
       },
     ],
+    colWidth: [350],
   },
   templateServiceController,
 );

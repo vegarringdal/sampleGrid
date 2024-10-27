@@ -9,7 +9,7 @@ import { TemplateEntity } from "../../../../data/entities/TemplateEntity";
 
 export function CreatetagOperations() {
   const currentEntitytemplate = useCurrentEntity<TemplateEntity>(
-    gridControllers.template.getGridDatasource()
+    gridControllers.template.getGridDatasource(),
   );
 
   /**
@@ -73,7 +73,7 @@ export function CreatetagOperations() {
 
           <div className="p-2 flex w-full h-full">
             <SimpleGridActions gridController={gridControllers.template} />
-             {/* 
+            {/* 
           
                 TODO, memo this, niticed it looses focus when curent entity hook triggers ?
           

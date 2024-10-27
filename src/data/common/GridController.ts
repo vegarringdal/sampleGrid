@@ -107,10 +107,12 @@ export class GridController<T, U = unknown> {
           this.#gridControllerConfig?.colWidth[i]) ||
         100;
 
-      config.columnsCenter.push({
-        width: colWidth,
-        rows: [c.attribute as string],
-      });
+      if (!c.hide) {
+        config.columnsCenter.push({
+          width: colWidth,
+          rows: [c.attribute as string],
+        });
+      }
 
       config.attributes.push(attribute);
     });

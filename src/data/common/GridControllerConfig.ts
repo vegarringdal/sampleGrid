@@ -112,6 +112,12 @@ export type GridControllerConfigColumn<T> = {
   type: DataTypes | undefined;
 
   /**
+   * hides by default
+   * groupCells will override this one
+   */
+  hide?: boolean;
+
+  /**
    * default false
    * for hiding data from user/helper columns
    * like maybe foreign keys
