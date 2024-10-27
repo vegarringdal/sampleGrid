@@ -77,5 +77,5 @@ export const templateLineGridController = new GridController<
       },
     ],
   },
-  templateLineServiceController
+  templateLineServiceController,
 );

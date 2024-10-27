@@ -8,7 +8,7 @@ export const worker = setupWorker(
   ...cableMockData
     .generateHandlers()
     .concat(templateLineMockData.generateHandlers())
-    .concat(templateMockData.generateHandlers())
+    .concat(templateMockData.generateHandlers()),
 );
 worker.start({
   serviceWorker: {

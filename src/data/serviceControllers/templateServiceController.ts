@@ -4,7 +4,6 @@ import { DuplicateTemplateLineEvent } from "../customEvents/DuplicateTemplateLin
 import { TemplateEntity } from "../entities/TemplateEntity";
 import { templateService } from "../services/templateService";
 
-
 export const templateServiceController = new ServiceController<
   TemplateEntity,
   DuplicateTemplateLineEvent

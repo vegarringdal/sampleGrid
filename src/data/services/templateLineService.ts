@@ -17,11 +17,11 @@ class TemplateLineService {
    */
   async getAll(project: string): Promise<TemplateLineEntity[]> {
     const result = await fetch(
-      `https://example.com/api/templateline/${project}`
+      `https://example.com/api/templateline/${project}`,
     );
     if (result.ok) {
       return ((await result.json()) as TemplateLineEntity[]).map((d) =>
-        this.transformResult(d)
+        this.transformResult(d),
       );
     } else {
       return [];

@@ -4,7 +4,6 @@ import { CreateTagoperationsEvent } from "../customEvents/CreateTagoperationsEve
 import { TemplateLineEntity } from "../entities/TemplateLineEntity";
 import { templateLineService } from "../services/templateLineService";
 
-
 export const templateLineServiceController = new ServiceController<
   TemplateLineEntity,
   CreateTagoperationsEvent

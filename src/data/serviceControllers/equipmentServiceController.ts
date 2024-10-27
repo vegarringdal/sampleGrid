@@ -2,7 +2,6 @@ import { getDummyData } from "../../utils/mockdata/dummyData";
 import { ServiceController } from "../common/ServiceController";
 import { EquipmentEntity } from "../entities/EquipmentEntity";
 
-
 export const equipmentServiceController =
   new ServiceController<EquipmentEntity>({
     handleEvent: async (service, event) => {

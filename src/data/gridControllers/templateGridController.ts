@@ -39,5 +39,5 @@ export const templateGridController = new GridController<
       },
     ],
   },
-  templateServiceController
+  templateServiceController,
 );
