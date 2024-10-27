@@ -4,12 +4,13 @@ import { cableMockData } from "./cableMockData";
 import { templateLineMockData } from "./templateLineMockData";
 import { templateMockData } from "./templateMockData";
 
-export const worker = setupWorker(
-  ...cableMockData
-    .generateHandlers()
-    .concat(templateLineMockData.generateHandlers())
-    .concat(templateMockData.generateHandlers()),
-);
+const all = cableMockData
+  .generateHandlers()
+  .concat(templateLineMockData.generateHandlers())
+  .concat(templateMockData.generateHandlers());
+
+export const worker = setupWorker(...all);
+
 worker.start({
   serviceWorker: {
     url: location.origin.includes("github")

@@ -112,7 +112,7 @@ class CableMockData {
 
     const handlers = [
       http.get(`${url}/${reg}/:project`, async ({ params }) => {
-        console.log(`Captured a "GET /cables/${params.project}" request`);
+        console.log(`Captured a "GET /${reg}/${params.project}" request`);
         await that.wait();
         const data = await that.reqGetAll();
         return HttpResponse.json(data, { status: 200 });

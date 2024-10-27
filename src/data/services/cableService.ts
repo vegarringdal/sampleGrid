@@ -16,7 +16,7 @@ class CableService {
    * @returns
    */
   async getAll(project: string): Promise<CableEntity[]> {
-    const result = await fetch(`https://example.com/api/cables/${project}`);
+    const result = await fetch(`https://example.com/api/cable/${project}`);
     if (result.ok) {
       return ((await result.json()) as CableEntity[]).map((d) =>
         this.transformResult(d),

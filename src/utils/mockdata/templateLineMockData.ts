@@ -118,11 +118,11 @@ class TemplateLineMockData {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const that = this;
     const url = "https://example.com/api";
-    const reg = "cable";
+    const reg = "templateline";
 
     const handlers = [
       http.get(`${url}/${reg}/:project`, async ({ params }) => {
-        console.log(`Captured a "GET /cables/${params.project}" request`);
+        console.log(`Captured a "GET  /${reg}/${params.project}" request`);
         await that.wait();
         const data = await that.reqGetAll();
         return HttpResponse.json(data, { status: 200 });

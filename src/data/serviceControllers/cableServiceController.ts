@@ -30,7 +30,7 @@ export const cableServiceController = new ServiceController<
       });
 
       // add error handling, really want all services to return Result<OK, ERRORSTRING> kinda like rust
-      const result = await cableService.getAll("TODO:PROJECT_CODE");
+      const result = await cableService.getAll("dummyProjectCode");
 
       // update all related datasources
       service.getLinkedGridControllers().forEach((dc) => {
