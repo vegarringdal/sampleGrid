@@ -1,6 +1,6 @@
 import { GridController } from "../common/GridController";
 import { CreateTagoperationsEvent } from "../customEvents/createTagOperations";
-import { CableEntity } from "../entities/cableEntity";
+import { CableEntity } from "../entities/CableEntity";
 import { cableServiceController } from "../serviceControllers/cableServiceController";
 
 export const cableGridController = new GridController<

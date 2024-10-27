@@ -1,13 +1,13 @@
 import { getDummyData } from "../../utils/mockdata/dummyData";
 import { ServiceController } from "../common/ServiceController";
-import { equipmentEntity } from "../entities/equipmentEntity";
+import { EquipmentEntity } from "../entities/EquipmentEntity";
 
 /**
  * handles event from dataController
  * use this to call service
  */
 export const equipmentServiceController =
-  new ServiceController<equipmentEntity>({
+  new ServiceController<EquipmentEntity>({
     handleEvent: async (service, event) => {
       // loop changes
       console.log("EVENT_TYPE", event.type);

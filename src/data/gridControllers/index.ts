@@ -1,10 +1,10 @@
 import { DummyData } from "../../utils/mockdata/dummyData";
 import { GridController } from "../common/GridController";
 import { cableGridController } from "./cableGridController";
-import { CableEntity } from "../entities/cableEntity";
+import { CableEntity } from "../entities/CableEntity";
 import { generateDummyGridController } from "../../utils/mockdata/dummyController";
 import { equipmentGridController } from "./equipmentGridController";
-import { equipmentEntity } from "../entities/equipmentEntity";
+import { EquipmentEntity } from "../entities/EquipmentEntity";
 import { CreateTagoperationsEvent } from "../customEvents/createTagOperations";
 
 ///////////////////////////////////////////////////////////////////
@@ -77,7 +77,7 @@ export const gridControllers: GridControllerTypes = {
 
 export type GridControllerTypes = {
   cable: GridController<CableEntity, CreateTagoperationsEvent>;
-  equipment: GridController<equipmentEntity>;
+  equipment: GridController<EquipmentEntity>;
 
   workpack: GridController<DummyData>;
   workpackDialog: GridController<DummyData>;

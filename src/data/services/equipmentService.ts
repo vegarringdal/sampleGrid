@@ -1,7 +1,7 @@
-import { equipmentEntity } from "../entities/equipmentEntity";
+import { EquipmentEntity } from "../entities/EquipmentEntity";
 
 class CableService<T> {
-  transformResult(row: equipmentEntity) {
+  transformResult(row: EquipmentEntity) {
     // for transforming/fixing
 
     return row.ID;
@@ -23,7 +23,7 @@ class CableService<T> {
    * @param project
    * @param data
    */
-  async post(project: string, data: equipmentEntity) {
+  async post(project: string, data: EquipmentEntity) {
     console.log("service patch", project, data);
 
     return {} as T;
@@ -43,9 +43,9 @@ class CableService<T> {
    * @param project
    * @param data
    */
-  async patch(project: string, data: equipmentEntity) {
+  async patch(project: string, data: EquipmentEntity) {
     console.log("service patch", project, data);
   }
 }
 
-export const cableService = new CableService<equipmentEntity>();
+export const cableService = new CableService<EquipmentEntity>();

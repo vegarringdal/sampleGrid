@@ -1,8 +1,8 @@
 import { GridController } from "../common/GridController";
-import { equipmentEntity } from "../entities/equipmentEntity";
+import { EquipmentEntity } from "../entities/EquipmentEntity";
 import { equipmentServiceController } from "../serviceControllers/equipmentServiceController";
 
-export const equipmentGridController = new GridController<equipmentEntity>(
+export const equipmentGridController = new GridController<EquipmentEntity>(
   {
     isDeleteAllowed: true,
     isNewAllowed: true,

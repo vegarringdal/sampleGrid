@@ -1,4 +1,4 @@
-import { CableEntity } from "../entities/cableEntity";
+import { CableEntity } from "../entities/CableEntity";
 
 class CableService {
   transformResult(row: CableEntity) {

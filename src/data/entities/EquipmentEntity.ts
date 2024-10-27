@@ -1,4 +1,4 @@
-export type equipmentEntity = {
+export type EquipmentEntity = {
   ID: string;
   STATUS: string;
   DATE: Date;
