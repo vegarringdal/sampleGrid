@@ -67,7 +67,7 @@ export class GridController<T, U = unknown> {
    * @returns
    */
   #generateGridConfig() {
-    console.log("TODO, generate gridConfig", this.#gridControllerConfig);
+    //console.log("TODO, generate gridConfig", this.#gridControllerConfig);
 
     const config = {
       columnsCenter: [] as unknown,
