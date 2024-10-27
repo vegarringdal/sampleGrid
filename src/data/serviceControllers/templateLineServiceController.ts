@@ -1,13 +1,13 @@
 import { serviceStore } from "../../state/serviceStore";
 import { ServiceController } from "../common/ServiceController";
-import { DuplicateTemplateLineEvent } from "../customEvents/DuplicateTemplateLineEvent";
-import { TemplateEntity } from "../entities/TemplateEntity";
-import { templateService } from "../services/templateService";
+import { CreateTagoperationsEvent } from "../customEvents/CreateTagoperationsEvent";
+import { TemplateLineEntity } from "../entities/TemplateLineEntity";
+import { templateLineService } from "../services/templateLineService";
 
 
-export const templateServiceController = new ServiceController<
-  TemplateEntity,
-  DuplicateTemplateLineEvent
+export const templateLineServiceController = new ServiceController<
+  TemplateLineEntity,
+  CreateTagoperationsEvent
 >({
   handleEventCustom: async (service, event) => {
     console.log("EVENT_TYPE", event.type);
@@ -31,7 +31,7 @@ export const templateServiceController = new ServiceController<
       });
 
       // add error handling, really want all services to return Result<OK, ERRORSTRING> kinda like rust
-      const result = await templateService.getAll("TODO:PROJECT_CODE");
+      const result = await templateLineService.getAll("TODO:PROJECT_CODE");
 
       // update all related datasources
       service.getLinkedGridControllers().forEach((dc) => {

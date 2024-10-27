@@ -4,10 +4,6 @@ import { CreateTagoperationsEvent } from "../customEvents/CreateTagoperationsEve
 import { CableEntity } from "../entities/CableEntity";
 import { cableService } from "../services/cableService";
 
-/**
- * handles event from dataController
- * use this to call service
- */
 export const cableServiceController = new ServiceController<
   CableEntity,
   CreateTagoperationsEvent

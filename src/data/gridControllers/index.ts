@@ -71,7 +71,7 @@ export const gridControllers: GridControllerTypes = {
 
 /////////////////////////////////////////////////////////////
 // need type declaration,
-// since we want to ref to sources in datacontroller config
+// since we want to ref to sources in gridcontroller config
 // we cant have direct ref due to circular depencency
 /////////////////////////////////////////////////////////////
 

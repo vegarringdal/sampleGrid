@@ -4,7 +4,7 @@ import { DataTypes } from "@simple-html/grid";
 import type { GridControllerTypes } from "../gridControllers";
 
 /**
- * configuration for dataController/service
+ * configuration for gridController/service
  * want to try and have most as optional
  * this will help us extract away most logic on behavior for grid
  */
