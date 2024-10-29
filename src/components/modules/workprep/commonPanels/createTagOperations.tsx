@@ -9,7 +9,7 @@ import { TemplateEntity } from "../../../../data/entities/TemplateEntity";
 
 export function CreatetagOperations() {
   const currentEntitytemplate = useCurrentEntity<TemplateEntity>(
-    gridControllers.template.getGridDatasource(),
+    gridControllers.template.getGridDatasource()
   );
 
   /**
@@ -24,7 +24,19 @@ export function CreatetagOperations() {
       gridControllers.templateLineCurrent.getGridDatasource().setData([
         {
           id: 1,
-          desc: currentEntitytemplate.desc,
+          desc: "PU... todo update gridcontroller etc",
+        },
+        {
+          id: 2,
+          desc: "TF... todo update gridcontroller etc",
+        },
+        {
+          id: 3,
+          desc: "TT... todo update gridcontroller etc",
+        },
+        {
+          id: 4,
+          desc: "TC... todo update gridcontroller etc",
         },
       ]);
     } else {
@@ -116,6 +128,7 @@ export function CreatetagOperations() {
 
           <div className="p-2 flex w-full h-full">
             <SimpleGridActions
+              hideButton={{ export: true, import: true, refresh: true }}
               gridController={gridControllers.templateLineCurrent}
             />
             <SimpleHtmlGrid

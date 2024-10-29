@@ -4,6 +4,12 @@ import { readAndCompareData } from "../../../utils/excel/readAndCompareData";
 
 export function SimpleGridActions<T, U>(props: {
   gridController: GridController<T, U>;
+  hideButton?: {
+    refresh?: boolean;
+    import: boolean;
+    export: boolean;
+    reset: boolean;
+  };
 }) {
   const cs = props.gridController.storeHook();
 
@@ -19,7 +25,8 @@ export function SimpleGridActions<T, U>(props: {
     <div className="flex flex-col pr-2 pt-1 gap-2 h-full">
       <Button
         pt={pt}
-        disabled={cs.isEditmode}
+        visible={!props.hideButton?.refresh}
+        disabled={cs.isEditmode || props.hideButton?.refresh}
         tooltip="Load/refresh data"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
@@ -73,6 +80,7 @@ export function SimpleGridActions<T, U>(props: {
       <Button
         pt={pt}
         disabled={!cs.isEditmode}
+        visible={!props.hideButton?.refresh}
         tooltip="Reset all edits"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
@@ -139,6 +147,7 @@ export function SimpleGridActions<T, U>(props: {
       <Button
         pt={pt}
         disabled={!cs.isEditmode}
+        visible={!props.hideButton?.import}
         tooltip="Open import helper, for dumping data from excel"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={() => {
@@ -151,6 +160,7 @@ export function SimpleGridActions<T, U>(props: {
 
       <Button
         pt={pt}
+        visible={!props.hideButton?.export}
         tooltip="Generate excel file from current list"
         tooltipOptions={{ showDelay: 1000 }}
         onClick={async () => {
