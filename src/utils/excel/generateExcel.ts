@@ -71,8 +71,11 @@ export function generateExcel(
       return;
     }
 
+    //TODO: I want report name and maybe callback to set this in gridConfig
+    const d = new Date();
+    const report_name = "my report";
     const fileSystemAccessOptions = {
-      suggestedName: "todo",
+      suggestedName: `${report_name}_${d.getFullYear()}_${String(d.getMonth() + 1).padStart(2, "0")}_${String(d.getDate()).padStart(2, "0")}.xlsx`,
       types: [
         {
           description: "Excel files",
