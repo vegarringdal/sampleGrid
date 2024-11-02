@@ -6,9 +6,9 @@ export function SimpleGridActions<T, U>(props: {
   gridController: GridController<T, U>;
   hideButton?: {
     refresh?: boolean;
-    import: boolean;
-    export: boolean;
-    reset: boolean;
+    import?: boolean;
+    export?: boolean;
+    reset?: boolean;
   };
 }) {
   const cs = props.gridController.storeHook();

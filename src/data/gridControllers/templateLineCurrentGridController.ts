@@ -3,12 +3,10 @@ import { CreateTagoperationsEvent } from "../customEvents/CreateTagoperationsEve
 import { TemplateLineEntity } from "../entities/TemplateLineEntity";
 import { templateLineServiceController } from "../serviceControllers/templateLineServiceController";
 
-// todo:
-// need to figure out how I want this one to work
-// it will be mostly a background controller, since TemplateLineCurrent will be the one user sees
-// templateLine and template line currrent should also share grid config
+// todo, share between templateline and templatelinecurrent
+// just need to create workpack, task, factor and op codes api first to see how I want this
 
-export const templateLineGridController = new GridController<
+export const templateLineCurrentGridController = new GridController<
   TemplateLineEntity,
   CreateTagoperationsEvent
 >(
@@ -21,12 +19,10 @@ export const templateLineGridController = new GridController<
       {
         attribute: "id",
         type: "number",
-        readOnly: true,
       },
       {
         attribute: "templateID",
         type: "number",
-        readOnly: true,
       },
       {
         attribute: "opNo",
@@ -88,5 +84,5 @@ export const templateLineGridController = new GridController<
       },
     ],
   },
-  templateLineServiceController,
+  templateLineServiceController, //  I might want to have a own service controller here
 );

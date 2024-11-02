@@ -22,6 +22,8 @@ class TemplateMockData {
         modifiedBy: "OTGEJSHE",
         created: new Date(),
         modified: new Date(),
+        isDeleted: false,
+        lastModified: new Date(),
       });
     }
   }

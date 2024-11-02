@@ -30,6 +30,8 @@ class TemplateLineMockData {
         modifiedBy: "OTGEJSHE",
         created: new Date(),
         modified: new Date(),
+        isDeleted: false,
+        lastModified: new Date(),
       });
       this.cache.set(c, {
         id: c + 1,
@@ -46,6 +48,8 @@ class TemplateLineMockData {
         modifiedBy: "OTGEJSHE",
         created: new Date(),
         modified: new Date(),
+        isDeleted: false,
+        lastModified: new Date(),
       });
       this.cache.set(c, {
         id: c + 2,
@@ -62,6 +66,8 @@ class TemplateLineMockData {
         modifiedBy: "OTGEJSHE",
         created: new Date(),
         modified: new Date(),
+        isDeleted: false,
+        lastModified: new Date(),
       });
       this.cache.set(c, {
         id: c + 3,
@@ -78,6 +84,8 @@ class TemplateLineMockData {
         modifiedBy: "OTGEJSHE",
         created: new Date(),
         modified: new Date(),
+        isDeleted: false,
+        lastModified: new Date(),
       });
     }
   }
