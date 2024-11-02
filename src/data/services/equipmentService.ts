@@ -20,7 +20,7 @@ class EquipmentService<T> {
     console.log(result);
     if (result.ok) {
       return ((await result.json()) as EquipmentEntity[]).map((d) =>
-        this.transformResult(d)
+        this.transformResult(d),
       );
     } else {
       return [];

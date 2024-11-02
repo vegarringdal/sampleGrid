@@ -171,6 +171,16 @@ export const cableGridController = new GridController<
         readOnly: true,
       },
       {
+        attribute: "op15",
+        type: "text",
+        readOnly: true,
+      },
+      {
+        attribute: "op16",
+        type: "text",
+        readOnly: true,
+      },
+      {
         attribute: "modified",
         type: "date",
         readOnly: true,
