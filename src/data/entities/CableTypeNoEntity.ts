@@ -1,9 +1,15 @@
-export type DocumentEntity = {
+export type CableTypeNoEntity = {
   id: number;
-  tag: string | null;
-  documentId: string | null;
-  documentDesc: string | null;
-  documentRev: string | null;
+  ctypno: string | null;
+  discription: string | null;
+
+  //related
+  typeId: number | null;
+  type: string | null;
+
+  //related
+  dimId: number | null;
+  dim: number | null;
 
   //audit
   createdBy: string | null;

@@ -15,10 +15,27 @@ export type CableEntity = {
   dicipline: string | null;
   source: string | null;
   status: string | null;
+
   partAddressFrom: string | null;
   partAddressTo: string | null;
   termFrom: string | null;
   termTo: string | null;
+
+  fromTagDescription: string | null;
+  toTagDescription: string | null;
+  allocatedDrum: string | null;
+  estimatedLength: number | null;
+  preEstimatedLength: number | null;
+  pulledLength: number | null;
+  fromTareLength: number | null;
+  toTareLength: number | null;
+  fromNode: string | null;
+  toNode: string | null;
+  coilFromNode: string | null;
+  coilToNode: string | null;
+  fromGlandType: string | null;
+  toGlandType: string | null;
+
   mc: string | null;
   com: string | null;
   op01: string | null;

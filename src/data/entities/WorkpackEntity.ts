@@ -4,16 +4,25 @@ export type WorkpackEntity = {
   description: string | null;
   printDesciption: string | null;
   status: string | null;
+  workprepStatus: string | null;
+  completed: boolean | null;
+  owner: string | null;
 
   // agg
   plannedMhr: number | null;
-  installedMhr: number | null;
+  earnedMhr: number | null;
 
   // holds
   workprepHoldTitle: string | null;
   workprepHoldDecription: string | null;
+  workprepComment: string | null;
   formanHoldTitle: string | null;
   formanHoldDesctiption: string | null;
+  formanCommen: string | null;
+
+  //related
+  formanId: number | null;
+  forman: string | null;
 
   // audit
   createdBy: string | null;

@@ -3,6 +3,9 @@ export type TagOperationEntity = {
   tag: string | null;
 
   desc: string | null; //for cable it would be cable, for equipment its
+  mc: string | null;
+  com: string | null;
+  taskActivity: string | null;
 
   //related
   workpackId: number | null;
@@ -35,7 +38,7 @@ export type TagOperationEntity = {
 
   // agg
   plannedMhr: number | null;
-  installMhr: number | null;
+  earnedMhr: number | null;
 
   // hold/comments
   isHold: boolean | null;

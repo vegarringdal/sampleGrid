@@ -16,6 +16,17 @@ export type EquipmentEntity = {
   areaCode: string | null;
   systemCode: string | null;
 
+  eqCode: string | null;
+  parentTag: string | null;
+  dummyRef: string | null;
+  reportGroup: string | null;
+  package: string | null;
+  fireArea: string | null;
+  weigthDry: string | null;
+  globX: number | null;
+  globY: number | null;
+  globZ: number | null;
+
   mc: string | null;
   com: string | null;
   op01: string | null;

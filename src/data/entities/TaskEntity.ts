@@ -3,13 +3,24 @@ export type TaskEntity = {
   name: string | null;
   description: string | null;
 
+  activityID: number | null;
   activity: string | null;
   earlyStart: Date | null;
   earlyFinish: Date | null;
 
+  state: string | null;
+  progressmethod: string | null;
+  buildingBlock: string | null;
+  site: string | null;
+
+  //related
+  mcId: number;
+  mc: string;
+  com: string;
+
   // agg
   plannedMhr: number | null;
-  installedMhr: number | null;
+  earnedMhr: number | null;
 
   //audit
   createdBy: string | null;
