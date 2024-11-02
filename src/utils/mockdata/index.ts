@@ -3,11 +3,13 @@ import { setupWorker } from "msw/browser";
 import { cableMockData } from "./cableMockData";
 import { templateLineMockData } from "./templateLineMockData";
 import { templateMockData } from "./templateMockData";
+import { equipmentMockData } from "./equipmentMockData";
 
 const all = cableMockData
   .generateHandlers()
   .concat(templateLineMockData.generateHandlers())
-  .concat(templateMockData.generateHandlers());
+  .concat(templateMockData.generateHandlers())
+  .concat(equipmentMockData.generateHandlers());
 
 export const worker = setupWorker(...all);
 

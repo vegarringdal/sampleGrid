@@ -1,6 +1,7 @@
-import { getDummyData } from "../../utils/mockdata/dummyData";
+import { serviceStore } from "../../state/serviceStore";
 import { ServiceController } from "../common/ServiceController";
 import { EquipmentEntity } from "../entities/EquipmentEntity";
+import { equipmentService } from "../services/equipmentService";
 
 export const equipmentServiceController =
   new ServiceController<EquipmentEntity>({
@@ -13,11 +14,21 @@ export const equipmentServiceController =
       // dunno what events I want yet
 
       if (event.type === "FETCH_ALL") {
-        // call get all and update service connected datasources
-
-        service.getLinkedGridControllers().forEach((dc) => {
-          dc.getGridDatasource().setData(getDummyData());
+        //
+        serviceStore.setState({
+          loadingDataDialogActivated: true,
+          loadingDataDialogContent: "loading data, please wait",
         });
+
+        // add error handling, really want all services to return Result<OK, ERRORSTRING> kinda like rust
+        const result = await equipmentService.getAll("dummyProjectCode");
+
+        // update all related datasources
+        service.getLinkedGridControllers().forEach((dc) => {
+          dc.getGridDatasource().setData(result);
+        });
+
+        serviceStore.setState({ loadingDataDialogActivated: false });
       }
 
       if (event.type === "REFRESH_ALL") {

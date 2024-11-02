@@ -2,50 +2,42 @@
 // maybe make a wrapper class later, so its ewasuer to create many
 
 import { http, HttpResponse } from "msw";
-import { CableEntity } from "../../data/entities/CableEntity";
+import { EquipmentEntity } from "../../data/entities/EquipmentEntity";
 
-type DEFAULT_ENTITY = CableEntity;
+type DEFAULT_ENTITY = EquipmentEntity;
 
-class CableMockData {
+class EquipmentMockData {
   cache = new Map<number, DEFAULT_ENTITY>();
   counter = 1;
 
   constructor() {
-    for (let i = 1; i < 9999; i++) {
+    for (let i = 1; i < 20000; i++) {
       this.counter = i;
       const c = this.counter;
       const n = String(c).padStart(4, "0");
       this.cache.set(c, {
         id: c,
-        tag: "JSK75FD" + n,
-        fromTag: "7589FD" + n,
-        areaFrom: "P" + n,
-        toTag: "7589JB" + n,
-        areaTo: "T" + n,
+        tag: "22-FD" + n,
+        serviceDescription1: "desc 1",
+        serviceDescription2: "desc 2",
+        area: "T" + n,
         const: "EQUINOR",
         design: "HAUHE",
         site: "THAI",
-        cableId: "cid" + String(c).padStart(8, "0"),
-        cableDesc:
-          c % 2 === 0 ? "BFOU(i) - 1x2x0.75mm2" : "BFOU(c) - 2x2x1.50mm2",
-        cableType: c % 2 === 0 ? "BFOU(i)" : "BFOU(c)",
-        cableTypeDim: c % 2 === 0 ? "1x2x0.75mm2" : "2x2x1.50mm2",
-        source: "ES",
         dicipline: "LJ",
-        status: "TS",
-        partAddressFrom: "A01:X1:245",
-        partAddressTo: "B01:X1:245",
-        termFrom: "E0785-XA-" + n,
-        termTo: "E0775-XA-" + n,
+        designCode: "C2",
+        areaCode: "B2",
+        systemCode: "C1",
+        source: "ES",
         mc: "M01E" + n,
         com: "C02E" + n,
-        op01: "PU:0",
-        op02: "TF:0",
-        op03: "TT:0",
-        op04: "TC:0",
+        op01: "IE:0",
+        op02: null,
+        op03: null,
+        op04: null,
         op05: null,
         op06: null,
-        op07: null,
+        op07: "MT:0",
         op08: null,
         op09: null,
         op10: null,
@@ -112,7 +104,7 @@ class CableMockData {
     // eslint-disable-next-line @typescript-eslint/no-this-alias
     const that = this;
     const url = "https://example.com/api";
-    const reg = "cable";
+    const reg = "equipment";
 
     const handlers = [
       http.get(`${url}/${reg}/:project`, async ({ params }) => {
@@ -129,7 +121,7 @@ class CableMockData {
       }),
       http.put(`${url}/${reg}/:project/:id`, async ({ params, request }) => {
         console.log(
-          `Captured a "PUT /${reg}/${params.project}/${params.id}" request`,
+          `Captured a "PUT /${reg}/${params.project}/${params.id}" request`
         );
         const newData = (await request.json()) as DEFAULT_ENTITY;
         const data = await that.reqPut(parseInt(params.id as string), newData);
@@ -137,7 +129,7 @@ class CableMockData {
       }),
       http.delete(`${url}/${reg}/:project/:id`, async ({ params }) => {
         console.log(
-          `Captured a "DELETE /${reg}/${params.project}/${params.id}" request`,
+          `Captured a "DELETE /${reg}/${params.project}/${params.id}" request`
         );
         const data = await that.reqDelete(parseInt(params.id as string));
         return HttpResponse.json(data, {
@@ -150,4 +142,4 @@ class CableMockData {
   }
 }
 
-export const cableMockData = new CableMockData();
+export const equipmentMockData = new EquipmentMockData();

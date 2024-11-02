@@ -1,10 +1,13 @@
 import { EquipmentEntity } from "../entities/EquipmentEntity";
 
-class CableService<T> {
+class EquipmentService<T> {
   transformResult(row: EquipmentEntity) {
     // for transforming/fixing
 
-    return row.ID;
+    row.created = row.created ? new Date(row.created) : null;
+    row.modified = row.modified ? new Date(row.modified) : null;
+
+    return row;
   }
 
   /**
@@ -12,10 +15,16 @@ class CableService<T> {
    * @param project
    * @returns
    */
-  async getAll(project: string) {
-    console.log("service getAll", project);
-
-    return [] as T[];
+  async getAll(project: string): Promise<EquipmentEntity[]> {
+    const result = await fetch(`https://example.com/api/equipment/${project}`);
+    console.log(result);
+    if (result.ok) {
+      return ((await result.json()) as EquipmentEntity[]).map((d) =>
+        this.transformResult(d)
+      );
+    } else {
+      return [];
+    }
   }
 
   /**
@@ -48,4 +57,4 @@ class CableService<T> {
   }
 }
 
-export const cableService = new CableService<EquipmentEntity>();
+export const equipmentService = new EquipmentService<EquipmentEntity>();

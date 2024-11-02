@@ -264,7 +264,7 @@ export const cableGridController = new GridController<
       },
     ],
     // maybe groupcells should have these ?
-    colWidth: [130, 80, 180, 130, 100, 150, 120, 65, 65, 65, 200, 200, 120],
+    colWidth: [130, 80, 180, 130, 100, 150, 120, 65, 65, 65, 65, 200, 200, 120],
     groupCells: [
       ["tag", "comment"],
       ["status", "dicipline", "source"],
@@ -276,6 +276,7 @@ export const cableGridController = new GridController<
       ["op01", "op02", "op03", "op04"],
       ["op05", "op06", "op07", "op08"],
       ["op09", "op10", "op11", "op12"],
+      ["op13", "op14", "op15", "op16"],
       ["extString01", "extString02", "extString03", "extString04"],
       ["extString05", "extString06", "extString07", "extString08"],
       ["created", "createdBy", "modified", "modifiedBy"],
