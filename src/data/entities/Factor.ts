@@ -1,11 +1,8 @@
-export type EquipmentEntity = {
-  // todo: add fields we really need, just dummy datasource atm
-  ID: string;
-  STATUS: string;
-  DATE: Date;
-
-  LINE_EQUIPMENT: string;
-  TAG_NO: string;
+export type FactorEntity = {
+  id: number;
+  name: string | null;
+  description: string | null;
+  factor: number | null;
 
   //audit
   createdBy: string | null;

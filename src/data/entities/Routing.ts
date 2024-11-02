@@ -1,11 +1,10 @@
-export type EquipmentEntity = {
-  // todo: add fields we really need, just dummy datasource atm
-  ID: string;
-  STATUS: string;
-  DATE: Date;
-
-  LINE_EQUIPMENT: string;
-  TAG_NO: string;
+export type RoutingEntity = {
+  id: number;
+  tag: string | null;
+  seq: number | null; //order
+  segment: string | null;
+  nodeFrom: string | null;
+  nodeTo: string | null;
 
   //audit
   createdBy: string | null;

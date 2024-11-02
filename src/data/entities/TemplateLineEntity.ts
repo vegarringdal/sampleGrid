@@ -11,9 +11,14 @@ export type TemplateLineEntity = {
   task: string | null; //not really something we save, service controller shoudl remove or part of grid config ?
   workpack: string | null; //see above
   quantity: string | null; //se above
-  // readonly
+
+  // audit
   createdBy: string | null;
   modifiedBy: string | null;
   created: Date | null;
   modified: Date | null;
+
+  // for smartUpdate, so we can cache
+  isDeleted: boolean | null;
+  lastModified: Date | null;
 };

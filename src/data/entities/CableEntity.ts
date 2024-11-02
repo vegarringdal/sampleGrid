@@ -46,8 +46,14 @@ export type CableEntity = {
   extString09: string | null;
   extString10: string | null;
   comment: string | null;
+
+  // audit
   createdBy: string | null;
   modifiedBy: string | null;
   created: Date | null;
   modified: Date | null;
+
+  // for smartUpdate, so we can cache
+  isDeleted: boolean | null;
+  lastModified: Date | null;
 };
