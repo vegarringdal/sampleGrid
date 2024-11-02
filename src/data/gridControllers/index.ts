@@ -50,6 +50,8 @@ export const gridControllers: GridControllerTypes = {
 
   progress: generateDummyGridController(),
 
+  factor: generateDummyGridController(),
+
   drum: generateDummyGridController(),
   drumSelectCableSort: generateDummyGridController(),
 
@@ -111,6 +113,8 @@ export type GridControllerTypes = {
   foremanDialog: GridController<DummyData>; // for selecting under workpack
 
   progress: GridController<DummyData>;
+
+  factor: GridController<DummyData>;
 
   drum: GridController<DummyData>;
   drumSelectCableSort: GridController<DummyData>;
