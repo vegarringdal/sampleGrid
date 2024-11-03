@@ -28,11 +28,11 @@ export function WorkprepCommonPanel() {
       className="flex flex-col flex-1 text-xs"
       pt={{ panelContainer: { className: "h-full p-0 w-full" } }}
     >
-      <TabPanel header="Create Tag Operations" className="h-full" pt={commonPt}>
+      <TabPanel header="Create Tag Op." className="h-full" pt={commonPt}>
         <CreatetagOperations />
       </TabPanel>
 
-      <TabPanel header="Tag Operations" className="h-full" pt={commonPt}>
+      <TabPanel header="Tag Op." className="h-full" pt={commonPt}>
         <TagOperations />
       </TabPanel>
 
@@ -40,46 +40,72 @@ export function WorkprepCommonPanel() {
         <Workpack />
       </TabPanel>
 
-      <TabPanel header="Task" className="h-full" pt={commonPt}>
-        <Task />
-      </TabPanel>
+      <TabPanel header="Routing" className="h-full" pt={commonPt}>
+        <TabView
+          className="h-full flex flex-col flex-1 text-xs"
+          pt={{ panelContainer: { className: "h-full p-0 w-full" } }}
+        >
+          <TabPanel header="Routing all" className="h-full" pt={commonPt}>
+            <RoutingAll />
+          </TabPanel>
 
-      <TabPanel header="Routing all" className="h-full" pt={commonPt}>
-        <RoutingAll />
-      </TabPanel>
-
-      <TabPanel header="Routing selected" className="h-full" pt={commonPt}>
-        <RoutingSelected />
+          <TabPanel header="Routing selected" className="h-full" pt={commonPt}>
+            <RoutingSelected />
+          </TabPanel>
+        </TabView>
       </TabPanel>
 
       {/* maybe sub tab for this section */}
-      <TabPanel header="Documents all" className="h-full" pt={commonPt}>
-        <DocumentAll />
+
+      <TabPanel header="Docs" className="h-full" pt={commonPt}>
+        <TabView
+          className="h-full flex flex-col flex-1 text-xs"
+          pt={{ panelContainer: { className: "h-full p-0 w-full" } }}
+        >
+          <TabPanel
+            header="Documents all"
+            className="h-full w-full"
+            pt={commonPt}
+          >
+            <DocumentAll />
+          </TabPanel>
+
+          <TabPanel header="Documents Cable" className="h-full" pt={commonPt}>
+            <DocumentCable />
+          </TabPanel>
+
+          <TabPanel header="Documents Equip" className="h-full" pt={commonPt}>
+            <DocumentEquipment />
+          </TabPanel>
+        </TabView>
       </TabPanel>
 
-      <TabPanel header="Documents Cable" className="h-full" pt={commonPt}>
-        <DocumentCable />
-      </TabPanel>
+      <TabPanel header="Misc" className="h-full" pt={commonPt}>
+        <TabView
+          className="h-full flex flex-col flex-1 text-xs"
+          pt={{ panelContainer: { className: "h-full p-0 w-full" } }}
+        >
+          <TabPanel header="Task" className="h-full" pt={commonPt}>
+            <Task />
+          </TabPanel>
 
-      <TabPanel header="Documents Equip" className="h-full" pt={commonPt}>
-        <DocumentEquipment />
-      </TabPanel>
+          <TabPanel header="Op Codes" className="h-full" pt={commonPt}>
+            <OpCodes />
+          </TabPanel>
 
-      {/* <TabPanel header="Op Codes" className="h-full" pt={commonPt}>
-        <OpCodes />
-      </TabPanel>
+          <TabPanel header="Comp Codes" className="h-full" pt={commonPt}>
+            <CompCodes />
+          </TabPanel>
 
-      <TabPanel header="Comp Codes" className="h-full" pt={commonPt}>
-        <CompCodes />
-      </TabPanel>
+          <TabPanel header="Factor" className="h-full" pt={commonPt}>
+            <Factor />
+          </TabPanel>
 
-      <TabPanel header="Factor" className="h-full" pt={commonPt}>
-        <Factor />
+          <TabPanel header="Foreman" className="h-full" pt={commonPt}>
+            <Foreman />
+          </TabPanel>
+        </TabView>
       </TabPanel>
-
-      <TabPanel header="Foreman" className="h-full" pt={commonPt}>
-        <Foreman />
-      </TabPanel> */}
     </TabView>
   );
 }
