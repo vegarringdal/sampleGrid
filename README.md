@@ -1,45 +1,21 @@
 # PTOC sample app using grid and primereact with tailwind.
 
-Im going to try and build a simple frontend for the application I would like to have at work when I worked with this. 
+> PTOC = Project Tag Operation Control.
 
-> PTOC = Project Tag Operation Control. Workprep module for creating tag(work) operations for cables/equipment. From import of tag to progress reporting on drum etc.
+Trying to desktop app, similar to what I wanted a app at work to be like. Its an application with a lot of grids, so perfect for what I want to test my grid/datasource on. 
+
+Progress will be slow, and I might change/refactor a lot. Mock data will be bad until I add something more then just static lists/maps of data. Plan is to look into sqllite
 
 
 Demo link might not be up to date.
 https://vegarringdal.github.io/sampleGridInReact/
 
 
+# why primereact
 
-First focus is cable register under workprep
-Will add some simple mock data as I get further,main goes is to find out if data folder stucture will work.
+Wanted something that allowed me to use tailwindcss, and was mostly out of the box.
+Plan was to use shadcn/ui, but found prime react. Their docs look good, supported tailwindcss, and `pt` prop looked like a nice way to override default styling when needed.
 
-Need to be able to handle very large data sets, cable 20k, equipment 20k, tagoperations 300k, workpack 10k, task 10k, progress 300k +50k misc
-
-
-
-* [ ] common grid traits for gridController
-  * [x] edit mode
-  * [x] simple dialog for releated data configured as part of gridController
-    * cable
-  * [x] copy/paste cell into selected rows (with related data)
-  * [x] duplicate row
-    * [ ] need to fix releated
-  * [x] export
-  * [x] import data from excel
-  *   [ ] import/export will need work with better labels
-  * [ ] save (just send data to service)
-  * [ ] how to show nice error message if save fails, stop of row ? use own column ?
-
-* [ ] create tag operation gui
-  * [ ] dummy data
-  * [ ] call custom event to ServiceController with selected tag/cables and operations to create
-
-* [ ] filter tag/cables from selected tag operations
-* [ ] filter tag/cable from selected workpacks
-* [ ] filter tagoperations from selected workpacks
-* [ ] filter docs from selected tags or cables
-* [ ] filter tag/cables from documents
-* ... later
 
 
 # About data folder
@@ -64,7 +40,7 @@ Need to be able to handle very large data sets, cable 20k, equipment 20k, tagope
     * allow to delete, multiselect, columns etc, primary ID/column, releated gridControllers
 * Grid controller will call `ServiceController` when user ask for refresh or save
 
-### entities
+### Entities
 * Row data, usually 1-1 per service/dataset
 
 ### Common
