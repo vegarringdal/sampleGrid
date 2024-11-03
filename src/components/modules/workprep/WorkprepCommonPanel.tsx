@@ -45,6 +45,8 @@ export function WorkprepCommonPanel() {
           className="h-full flex flex-col flex-1 text-xs"
           pt={{ panelContainer: { className: "h-full p-0 w-full" } }}
         >
+          {/* dunno if having 2 is useful atm, just an idea */}
+
           <TabPanel header="Routing all" className="h-full" pt={commonPt}>
             <RoutingAll />
           </TabPanel>
@@ -55,13 +57,13 @@ export function WorkprepCommonPanel() {
         </TabView>
       </TabPanel>
 
-      {/* maybe sub tab for this section */}
-
       <TabPanel header="Docs" className="h-full" pt={commonPt}>
         <TabView
           className="h-full flex flex-col flex-1 text-xs"
           pt={{ panelContainer: { className: "h-full p-0 w-full" } }}
         >
+          {/* dunno if having 3 is useful atm, just an idea */}
+
           <TabPanel
             header="Documents all"
             className="h-full w-full"
