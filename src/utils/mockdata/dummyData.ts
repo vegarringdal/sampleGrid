@@ -23,8 +23,8 @@ export function getDummyData() {
     type: "BFOU(i)",
     dim: "1x2x0.75mm2",
     comment: "",
-    createdBy: "OFTYHGE",
-    modifiedBy: "OFTYHGE",
+    createdBy: "TODO",
+    modifiedBy: "TODO",
     created: new Date(),
     modified: new Date(),
   });
@@ -35,8 +35,8 @@ export function getDummyData() {
     type: "BFOU(c)",
     dim: "2x2x1.50mm2",
     comment: "",
-    createdBy: "OFTYHGE",
-    modifiedBy: "OFTYHGE",
+    createdBy: "TODO",
+    modifiedBy: "TODO",
     created: new Date(),
     modified: new Date(),
   });
@@ -48,8 +48,8 @@ export function getDummyData() {
       type: "BFOU(c)",
       dim: `2x4x1${String(i).padStart(2, "0")}.mm2`,
       comment: "",
-      createdBy: "OFTYHGE",
-      modifiedBy: "OFTYHGE",
+      createdBy: "TODO",
+      modifiedBy: "TODO",
       created: new Date(),
       modified: new Date(),
     });

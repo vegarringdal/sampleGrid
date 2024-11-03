@@ -52,6 +52,7 @@ export function WorkprepCommonPanel() {
         <RoutingSelected />
       </TabPanel>
 
+      {/* maybe sub tab for this section */}
       <TabPanel header="Documents all" className="h-full" pt={commonPt}>
         <DocumentAll />
       </TabPanel>
@@ -64,7 +65,7 @@ export function WorkprepCommonPanel() {
         <DocumentEquipment />
       </TabPanel>
 
-      <TabPanel header="Op Codes" className="h-full" pt={commonPt}>
+      {/* <TabPanel header="Op Codes" className="h-full" pt={commonPt}>
         <OpCodes />
       </TabPanel>
 
@@ -78,7 +79,7 @@ export function WorkprepCommonPanel() {
 
       <TabPanel header="Foreman" className="h-full" pt={commonPt}>
         <Foreman />
-      </TabPanel>
+      </TabPanel> */}
     </TabView>
   );
 }

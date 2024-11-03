@@ -19,10 +19,12 @@ export const templateLineCurrentGridController = new GridController<
       {
         attribute: "id",
         type: "number",
+        readOnly: true,
       },
       {
         attribute: "templateID",
         type: "number",
+        readOnly: true,
       },
       {
         attribute: "opNo",
@@ -32,31 +34,67 @@ export const templateLineCurrentGridController = new GridController<
       {
         attribute: "op",
         type: "text",
-        // todo, add need related
+        // missing dummy data
+        parentDataInterface: {
+          ref: "opCodesDialog",
+          title: "Select Operation Code",
+          columnFrom: "modifiedBy",
+          columnTo: "op",
+          columnsFromTo: [["modifiedBy", "op"]],
+        },
       },
       {
         attribute: "compcode",
         type: "text",
-        // todo, add need related
+        // missing dummy data
+        parentDataInterface: {
+          ref: "compcodesDialog",
+          title: "Select Compensation Code",
+          columnFrom: "modifiedBy",
+          columnTo: "compcode",
+          columnsFromTo: [["modifiedBy", "compcode"]],
+        },
       },
       {
         attribute: "compDesc",
         type: "text",
+        readOnly: true,
       },
       {
         attribute: "factor",
         type: "text",
-        // todo, add need related
+        //missing dummy data
+        parentDataInterface: {
+          ref: "factorDialog",
+          title: "Select Compensation factor",
+          columnFrom: "modifiedBy",
+          columnTo: "factor",
+          columnsFromTo: [["modifiedBy", "factor"]],
+        },
       },
       {
         attribute: "task",
         type: "text",
-        // todo, add need related
+        //missing dummy data
+        parentDataInterface: {
+          ref: "taskDialog",
+          title: "Select Task",
+          columnFrom: "modifiedBy",
+          columnTo: "task",
+          columnsFromTo: [["modifiedBy", "task"]],
+        },
       },
       {
         attribute: "workpack",
         type: "text",
-        // todo, add need related
+        //missing dummy data
+        parentDataInterface: {
+          ref: "workpackDialog",
+          title: "Select Workpack",
+          columnFrom: "modifiedBy",
+          columnTo: "workpack",
+          columnsFromTo: [["modifiedBy", "workpack"]],
+        },
       },
       {
         attribute: "quantity",
@@ -83,6 +121,15 @@ export const templateLineCurrentGridController = new GridController<
         readOnly: true,
       },
     ],
+    colWidth: [85, 120, 120, 120, 250],
+    groupCells: [
+      ["op", "opNo"],
+      ["task", "workpack"],
+      ["compcode", "factor"],
+      ["quantity"],
+      ["compDesc"],
+      ["id"],
+    ],
   },
-  templateLineServiceController, //  I might want to have a own service controller here
+  templateLineServiceController //  I might want to have a own service controller here
 );

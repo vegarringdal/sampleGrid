@@ -9,7 +9,7 @@ import { TemplateEntity } from "../../../../data/entities/TemplateEntity";
 
 export function CreatetagOperations() {
   const currentEntitytemplate = useCurrentEntity<TemplateEntity>(
-    gridControllers.template.getGridDatasource(),
+    gridControllers.template.getGridDatasource()
   );
 
   /**
@@ -24,19 +24,31 @@ export function CreatetagOperations() {
       gridControllers.templateLineCurrent.getGridDatasource().setData([
         {
           id: 1,
-          desc: "PU... todo update gridcontroller etc",
+          op: "PU",
+          opNo: 1,
+          compcode: "J01020382",
+          compDesc: "Pull ... blabla",
         },
         {
           id: 2,
-          desc: "TF... todo update gridcontroller etc",
+          op: "TF",
+          opNo: 2,
+          compcode: "J01020383",
+          compDesc: "Term ... blabla",
         },
         {
           id: 3,
-          desc: "TT... todo update gridcontroller etc",
+          op: "TT",
+          opNo: 3,
+          compcode: "J01020383",
+          compDesc: "Term ... blabla",
         },
         {
           id: 4,
-          desc: "TC... todo update gridcontroller etc",
+          op: "TC",
+          opNo: 4,
+          compcode: "J01020384",
+          compDesc: "Test ... blabla",
         },
       ]);
     } else {

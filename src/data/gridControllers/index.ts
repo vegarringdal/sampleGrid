@@ -11,6 +11,7 @@ import { DuplicateTemplateLineEvent } from "../customEvents/DuplicateTemplateLin
 import { templateLineGridController } from "./templateLineGridController";
 import { TemplateEntity } from "../entities/TemplateEntity";
 import { TemplateLineEntity } from "../entities/TemplateLineEntity";
+import { templateLineCurrentGridController } from "./templateLineCurrentGridController";
 
 ///////////////////////////////////////////////////////////////////
 // for now we generate some dummy gridControllers
@@ -51,6 +52,7 @@ export const gridControllers: GridControllerTypes = {
   progress: generateDummyGridController(),
 
   factor: generateDummyGridController(),
+  factorDialog: generateDummyGridController(),
 
   drum: generateDummyGridController(),
   drumSelectCableSort: generateDummyGridController(),
@@ -65,7 +67,7 @@ export const gridControllers: GridControllerTypes = {
 
   template: templateGridController,
   templateLinesAll: templateLineGridController,
-  templateLineCurrent: generateDummyGridController(),
+  templateLineCurrent: templateLineCurrentGridController,
 
   mcDialog: generateDummyGridController(),
   comDialog: generateDummyGridController(),
@@ -115,6 +117,7 @@ export type GridControllerTypes = {
   progress: GridController<DummyData>;
 
   factor: GridController<DummyData>;
+  factorDialog: GridController<DummyData>;
 
   drum: GridController<DummyData>;
   drumSelectCableSort: GridController<DummyData>;
@@ -132,7 +135,10 @@ export type GridControllerTypes = {
     TemplateLineEntity,
     CreateTagoperationsEvent
   >;
-  templateLineCurrent: GridController<DummyData>;
+  templateLineCurrent: GridController<
+    TemplateLineEntity,
+    CreateTagoperationsEvent
+  >;
 
   // dialogs task
   mcDialog: GridController<DummyData>;
