@@ -1,4 +1,4 @@
-import { themeStore } from "../state/theme";
+import { themeStore } from "../../state/theme";
 
 let init = false; // so we dont end up in endless loop
 
