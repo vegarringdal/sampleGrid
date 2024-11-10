@@ -9,7 +9,7 @@ import { TemplateEntity } from "../../../../data/entities/TemplateEntity";
 
 export function CreatetagOperations() {
   const currentEntitytemplate = useCurrentEntity<TemplateEntity>(
-    gridControllers.template.getGridDatasource(),
+    gridControllers.template.getGridDatasource()
   );
 
   /**
@@ -18,6 +18,7 @@ export function CreatetagOperations() {
    */
   useEffect(() => {
     if (currentEntitytemplate) {
+      //
       // get existing row, so we can collect parts user have set, so we can reuse it
       const existingRows = gridControllers.templateLineCurrent
         .getGridDatasource()
@@ -30,6 +31,7 @@ export function CreatetagOperations() {
         .getSelection()
         .getSelectedRows();
 
+      // create dummy map to hold temp data so we can inject it to same OPNO+OP as prev
       const opMap = new Map<
         string,
         {
@@ -40,6 +42,7 @@ export function CreatetagOperations() {
         }
       >();
 
+      // update map
       existingRows.forEach((v) => {
         const id = v.opNo + "-" + v.op;
         opMap.set(id, {
@@ -50,54 +53,34 @@ export function CreatetagOperations() {
         });
       });
 
-      // todo, here we would need to filter out correct row, not use dummy data like I do here
+      // filter rows from all entities based on the one we have selectd
+      gridControllers.templateLinesAll.getGridDatasource().filter({
+        attribute: "templateID",
+        operator: "EQUAL",
+        attributeType: "number",
+        value: currentEntitytemplate.id,
+      });
 
-      gridControllers.templateLineCurrent.getGridDatasource().setData([
-        {
-          id: 1,
-          op: "PU",
-          opNo: 1,
-          factor: opMap.get(1 + "-PU")?.factor,
-          task: opMap.get(1 + "-PU")?.task,
-          workpack: opMap.get(1 + "-PU")?.workpack,
-          quantity: opMap.get(1 + "-PU")?.quantity,
-          compcode: "J01020382" + Math.random() * 10,
-          compDesc: "Pull ... blabla",
-        },
-        {
-          id: 2,
-          op: "TF",
-          opNo: 2,
-          factor: opMap.get(2 + "-TF")?.factor,
-          task: opMap.get(2 + "-TF")?.task,
-          workpack: opMap.get(2 + "-TF")?.workpack,
-          quantity: opMap.get(2 + "-TF")?.quantity,
-          compcode: "J01020383" + Math.random() * 10,
-          compDesc: "Term ... blabla",
-        },
-        {
-          id: 3,
-          op: "TT",
-          opNo: 3,
-          factor: opMap.get(3 + "-TT")?.factor,
-          task: opMap.get(3 + "-TT")?.task,
-          workpack: opMap.get(3 + "-TT")?.workpack,
-          quantity: opMap.get(3 + "-TT")?.quantity,
-          compcode: "J01020383" + Math.random() * 10,
-          compDesc: "Term ... blabla",
-        },
-        {
-          id: 4,
-          op: "TC",
-          opNo: 4,
-          factor: opMap.get(4 + "-TC")?.factor,
-          task: opMap.get(4 + "-TC")?.task,
-          workpack: opMap.get(4 + "-TC")?.workpack,
-          quantity: opMap.get(4 + "-TC")?.quantity,
-          compcode: "J01020384" + Math.random() * 10,
-          compDesc: "Test ... blabla",
-        },
-      ]);
+      // sort by opNo
+      gridControllers.templateLinesAll
+        .getGridDatasource()
+        .sort({ attribute: "opNo", ascending: true });
+
+      // gets filtered rows
+      const rows = gridControllers.templateLinesAll
+        .getGridDatasource()
+        .getRows();
+
+      // update user data
+      rows.forEach((row) => {
+        row.factor = opMap.get(row.opNo + "-" + row.op)?.factor || null;
+        row.task = opMap.get(row.opNo + "-" + row.op)?.task || null;
+        row.workpack = opMap.get(row.opNo + "-" + row.op)?.workpack || null;
+        row.quantity = opMap.get(row.opNo + "-" + row.op)?.quantity || null;
+      });
+
+      // update current templine
+      gridControllers.templateLineCurrent.getGridDatasource().setData(rows);
 
       // highlight same rows
       // todo, maybe add a setSelectedRows method ?
@@ -112,6 +95,9 @@ export function CreatetagOperations() {
     }
   }, [currentEntitytemplate]);
 
+  /**
+   * render
+   */
   return (
     <div className="flex flex-col h-full">
       <Splitter
@@ -177,6 +163,7 @@ export function CreatetagOperations() {
           {/* 
           
           TODO, maybe add scroll or hide option ? 
+          atm I hide some of the buttons I dont think is usefull here, so maybe scroll is not needed ?
           
           */}
           <div className="flex flex-col">

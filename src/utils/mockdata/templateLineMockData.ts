@@ -11,16 +11,19 @@ class TemplateLineMockData {
   counter = 1;
 
   constructor() {
-    for (let i = 1; i < 400; i += 4) {
-      this.counter = i;
+    for (let i = 1; i < 400; i += 1) {
+      this.counter = i * 4;
       const c = this.counter;
+
+      const x = Math.floor(Math.random() * 999);
+      const y = Math.floor(Math.random() * 9554);
 
       this.cache.set(c, {
         id: c,
         templateID: i, //parent ref
         opNo: 1,
         op: "PU",
-        compcode: "E21.005.0511",
+        compcode: `E21.${String(x).padStart(3, "0")}.${String(y + 1).padStart(3, "0")}`,
         compDesc: "Pull cable BFOU(c) 1x2X0.75mm",
         factor: "F1",
         task: null,
@@ -33,12 +36,12 @@ class TemplateLineMockData {
         isDeleted: false,
         lastModified: new Date(),
       });
-      this.cache.set(c, {
+      this.cache.set(c + 1, {
         id: c + 1,
         templateID: i, //parent ref
         opNo: 2,
         op: "TF",
-        compcode: "E21.003.0512",
+        compcode: `E21.${String(x).padStart(3, "0")}.${String(y + 3).padStart(3, "0")}`,
         compDesc: "Term cable BFOU(c) 1x2X0.75mm",
         factor: "F1",
         task: null,
@@ -51,12 +54,12 @@ class TemplateLineMockData {
         isDeleted: false,
         lastModified: new Date(),
       });
-      this.cache.set(c, {
+      this.cache.set(c + 2, {
         id: c + 2,
         templateID: i, //parent ref
         opNo: 3,
-        op: "PU",
-        compcode: "E21.003.0512",
+        op: "TT",
+        compcode: `E21.${String(x).padStart(3, "0")}.${String(y + 3).padStart(3, "0")}`,
         compDesc: "Term cable BFOU(c) 1x2X0.75mm",
         factor: "TT",
         task: null,
@@ -69,12 +72,12 @@ class TemplateLineMockData {
         isDeleted: false,
         lastModified: new Date(),
       });
-      this.cache.set(c, {
+      this.cache.set(c + 3, {
         id: c + 3,
         templateID: i, //parent ref
         opNo: 4,
         op: "TC",
-        compcode: "E21.003.0514",
+        compcode: `E21.${String(x).padStart(3, "0")}.${String(y + 4).padStart(3, "0")}`,
         compDesc: "Test cable BFOU(c) 1x2X0.75mm",
         factor: "F1",
         task: null,
@@ -143,7 +146,7 @@ class TemplateLineMockData {
       }),
       http.put(`${url}/${reg}/:project/:id`, async ({ params, request }) => {
         console.log(
-          `Captured a "PUT /${reg}/${params.project}/${params.id}" request`,
+          `Captured a "PUT /${reg}/${params.project}/${params.id}" request`
         );
         const newData = (await request.json()) as DEFAULT_ENTITY;
         const data = await that.reqPut(parseInt(params.id as string), newData);
@@ -151,7 +154,7 @@ class TemplateLineMockData {
       }),
       http.delete(`${url}/${reg}/:project/:id`, async ({ params }) => {
         console.log(
-          `Captured a "DELETE /${reg}/${params.project}/${params.id}" request`,
+          `Captured a "DELETE /${reg}/${params.project}/${params.id}" request`
         );
         const data = await that.reqDelete(parseInt(params.id as string));
         return HttpResponse.json(data, {

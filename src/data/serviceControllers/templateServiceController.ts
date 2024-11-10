@@ -2,7 +2,9 @@ import { serviceStore } from "../../state/serviceStore";
 import { ServiceController } from "../common/ServiceController";
 import { DuplicateTemplateLineEvent } from "../customEvents/DuplicateTemplateLineEvent";
 import { TemplateEntity } from "../entities/TemplateEntity";
+import { templateLineService } from "../services/templateLineService";
 import { templateService } from "../services/templateService";
+import { templateLineServiceController } from "./templateLineServiceController";
 
 export const templateServiceController = new ServiceController<
   TemplateEntity,
@@ -30,14 +32,20 @@ export const templateServiceController = new ServiceController<
       });
 
       // add error handling, really want all services to return Result<OK, ERRORSTRING> kinda like rust
-      const result = await templateService.getAll("dummyProjectCode");
+      const resultTemplates = await templateService.getAll("dummyProjectCode");
 
-      // TODO, maybe cache all template lines too here ?
-      // so its quicker ?
+      // fetch template lines at the same time when refreshing
+      // since it will be very few rows, fetching from service sould prb be just as good..
+      // and I should fetch them in parallel
+      const resultTemplatesLines =
+        await templateLineService.getAll("dummyProjectCode");
 
-      // update all related datasources
+      templateLineServiceController.getLinkedGridControllers().forEach((dc) => {
+        dc.getGridDatasource().setData(resultTemplatesLines);
+      });
+
       serviceController.getLinkedGridControllers().forEach((dc) => {
-        dc.getGridDatasource().setData(result);
+        dc.getGridDatasource().setData(resultTemplates);
       });
 
       serviceStore.setState({ loadingDataDialogActivated: false });
