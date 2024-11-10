@@ -10,7 +10,7 @@ export type TemplateLineEntity = {
 
   task: string | null; //not really something we save, service controller shoudl remove or part of grid config ?
   workpack: string | null; //see above
-  quantity: string | null; //se above
+  quantity: number | null; //se above
 
   // audit
   createdBy: string | null;

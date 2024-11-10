@@ -17,40 +17,96 @@ export function CreatetagOperations() {
    * for now I just inject to one with same desc
    */
   useEffect(() => {
-    // here we can filter out corret one based on selected
-    // we also need to get current and extract value sin task/workpack
-
     if (currentEntitytemplate) {
+      // get existing row, so we can collect parts user have set, so we can reuse it
+      const existingRows = gridControllers.templateLineCurrent
+        .getGridDatasource()
+        .getAllData();
+
+      // get seleted so we can highlight same rows
+      // use rows or OP code ?
+      const selectedRows = gridControllers.templateLineCurrent
+        .getGridDatasource()
+        .getSelection()
+        .getSelectedRows();
+
+      const opMap = new Map<
+        string,
+        {
+          factor: string | null;
+          task: string | null;
+          workpack: string | null;
+          quantity: number | null;
+        }
+      >();
+
+      existingRows.forEach((v) => {
+        const id = v.opNo + "-" + v.op;
+        opMap.set(id, {
+          factor: v.factor,
+          task: v.task,
+          workpack: v.workpack,
+          quantity: v.quantity,
+        });
+      });
+
+      // todo, here we would need to filter out correct row, not use dummy data like I do here
+
       gridControllers.templateLineCurrent.getGridDatasource().setData([
         {
           id: 1,
           op: "PU",
           opNo: 1,
-          compcode: "J01020382",
+          factor: opMap.get(1 + "-PU")?.factor,
+          task: opMap.get(1 + "-PU")?.task,
+          workpack: opMap.get(1 + "-PU")?.workpack,
+          quantity: opMap.get(1 + "-PU")?.quantity,
+          compcode: "J01020382" + Math.random() * 10,
           compDesc: "Pull ... blabla",
         },
         {
           id: 2,
           op: "TF",
           opNo: 2,
-          compcode: "J01020383",
+          factor: opMap.get(2 + "-TF")?.factor,
+          task: opMap.get(2 + "-TF")?.task,
+          workpack: opMap.get(2 + "-TF")?.workpack,
+          quantity: opMap.get(2 + "-TF")?.quantity,
+          compcode: "J01020383" + Math.random() * 10,
           compDesc: "Term ... blabla",
         },
         {
           id: 3,
           op: "TT",
           opNo: 3,
-          compcode: "J01020383",
+          factor: opMap.get(3 + "-TT")?.factor,
+          task: opMap.get(3 + "-TT")?.task,
+          workpack: opMap.get(3 + "-TT")?.workpack,
+          quantity: opMap.get(3 + "-TT")?.quantity,
+          compcode: "J01020383" + Math.random() * 10,
           compDesc: "Term ... blabla",
         },
         {
           id: 4,
           op: "TC",
           opNo: 4,
-          compcode: "J01020384",
+          factor: opMap.get(4 + "-TC")?.factor,
+          task: opMap.get(4 + "-TC")?.task,
+          workpack: opMap.get(4 + "-TC")?.workpack,
+          quantity: opMap.get(4 + "-TC")?.quantity,
+          compcode: "J01020384" + Math.random() * 10,
           compDesc: "Test ... blabla",
         },
       ]);
+
+      // highlight same rows
+      // todo, maybe add a setSelectedRows method ?
+      selectedRows.forEach((r) => {
+        gridControllers.templateLineCurrent
+          .getGridDatasource()
+          .getSelection()
+          .selectRowRange(r, r, true);
+      });
     } else {
       gridControllers.templateLineCurrent.getGridDatasource().setData([]);
     }
