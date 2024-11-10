@@ -146,7 +146,7 @@ class TemplateLineMockData {
       }),
       http.put(`${url}/${reg}/:project/:id`, async ({ params, request }) => {
         console.log(
-          `Captured a "PUT /${reg}/${params.project}/${params.id}" request`
+          `Captured a "PUT /${reg}/${params.project}/${params.id}" request`,
         );
         const newData = (await request.json()) as DEFAULT_ENTITY;
         const data = await that.reqPut(parseInt(params.id as string), newData);
@@ -154,7 +154,7 @@ class TemplateLineMockData {
       }),
       http.delete(`${url}/${reg}/:project/:id`, async ({ params }) => {
         console.log(
-          `Captured a "DELETE /${reg}/${params.project}/${params.id}" request`
+          `Captured a "DELETE /${reg}/${params.project}/${params.id}" request`,
         );
         const data = await that.reqDelete(parseInt(params.id as string));
         return HttpResponse.json(data, {

@@ -9,7 +9,7 @@ import { TemplateEntity } from "../../../../data/entities/TemplateEntity";
 
 export function CreatetagOperations() {
   const currentEntitytemplate = useCurrentEntity<TemplateEntity>(
-    gridControllers.template.getGridDatasource()
+    gridControllers.template.getGridDatasource(),
   );
 
   /**
