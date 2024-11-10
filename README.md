@@ -20,6 +20,9 @@ Plan was to use shadcn/ui, but found prime react. Their docs look good, supporte
 
 # About data folder
 
+Plan is to try and basic part with grid/edit as simple as possible.
+Mostly just special stuff like create tag operations/misc filtering that would be out of the box with grid/service config
+
 
 ### Services
 * Responsible for calling api and return data/errors etc
