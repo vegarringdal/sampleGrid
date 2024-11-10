@@ -9,6 +9,7 @@ export function SimpleGridActions<T, U>(props: {
     import?: boolean;
     export?: boolean;
     reset?: boolean;
+    duplicate?: boolean;
   };
 }) {
   const cs = props.gridController.storeHook();
@@ -115,6 +116,7 @@ export function SimpleGridActions<T, U>(props: {
 
       <Button
         pt={pt}
+        visible={!props.hideButton?.duplicate}
         disabled={!cs.isEditmode}
         tooltip="Duplicates current"
         tooltipOptions={{ showDelay: 1000 }}

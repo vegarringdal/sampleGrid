@@ -62,7 +62,7 @@ export function CreatetagOperations() {
         layout="vertical"
         className="flex w-full h-full bg-inherit"
         pt={{
-          root: { className: "border-" },
+          root: { className: "border-0" },
           gutter: { className: "dark:bg-gray-600" },
           gutterHandler: { className: "dark:bg-gray-700" },
         }}
@@ -96,10 +96,13 @@ export function CreatetagOperations() {
           </div>
 
           <div className="p-2 flex w-full h-full">
-            <SimpleGridActions gridController={gridControllers.template} />
+            <SimpleGridActions
+              gridController={gridControllers.template}
+              hideButton={{ duplicate: true, export: true, import: true }}
+            />
             {/* 
           
-                TODO, memo this, niticed it looses focus when curent entity hook triggers ?
+                TODO, memo this, noticed it looses focus when curent entity hook triggers ?
           
           */}
             <SimpleHtmlGrid
