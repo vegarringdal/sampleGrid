@@ -32,6 +32,9 @@ export const templateServiceController = new ServiceController<
       // add error handling, really want all services to return Result<OK, ERRORSTRING> kinda like rust
       const result = await templateService.getAll("dummyProjectCode");
 
+      // TODO, maybe cache all template lines too here ?
+      // so its quicker ?
+
       // update all related datasources
       service.getLinkedGridControllers().forEach((dc) => {
         dc.getGridDatasource().setData(result);
