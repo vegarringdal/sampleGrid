@@ -8,17 +8,17 @@ export const cableServiceController = new ServiceController<
   CableEntity,
   CreateTagoperationsEvent
 >({
-  handleEventCustom: async (service, event) => {
+  handleEventCustom: async (serviceController, event) => {
     console.log("EVENT_TYPE", event.type);
     console.log("EVENT_DATA", event.data);
-    console.log("EVENT_SERVICE", service);
+    console.log("EVENT_SERVICE", serviceController);
   },
 
-  handleEvent: async (service, event) => {
+  handleEvent: async (serviceController, event) => {
     // loop changes
     console.log("EVENT_TYPE", event.type);
     console.log("EVENT_DATA", event.data);
-    console.log("EVENT_SERVICE", service);
+    console.log("EVENT_SERVICE", serviceController);
 
     // dunno what events I want yet
 
@@ -33,7 +33,7 @@ export const cableServiceController = new ServiceController<
       const result = await cableService.getAll("dummyProjectCode");
 
       // update all related datasources
-      service.getLinkedGridControllers().forEach((dc) => {
+      serviceController.getLinkedGridControllers().forEach((dc) => {
         dc.getGridDatasource().setData(result);
       });
 

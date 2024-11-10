@@ -131,5 +131,5 @@ export const templateLineCurrentGridController = new GridController<
       ["id"],
     ],
   },
-  templateLineServiceController //  I might want to have a own service controller here
+  templateLineServiceController, //  I might want to have a own service controller here
 );

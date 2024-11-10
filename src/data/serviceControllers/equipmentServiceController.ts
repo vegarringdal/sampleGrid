@@ -5,11 +5,11 @@ import { equipmentService } from "../services/equipmentService";
 
 export const equipmentServiceController =
   new ServiceController<EquipmentEntity>({
-    handleEvent: async (service, event) => {
+    handleEvent: async (serviceController, event) => {
       // loop changes
       console.log("EVENT_TYPE", event.type);
       console.log("EVENT_DATA", event.data);
-      console.log("EVENT_SERVICE", service);
+      console.log("EVENT_SERVICE", serviceController);
 
       // dunno what events I want yet
 
@@ -24,7 +24,7 @@ export const equipmentServiceController =
         const result = await equipmentService.getAll("dummyProjectCode");
 
         // update all related datasources
-        service.getLinkedGridControllers().forEach((dc) => {
+        serviceController.getLinkedGridControllers().forEach((dc) => {
           dc.getGridDatasource().setData(result);
         });
 
