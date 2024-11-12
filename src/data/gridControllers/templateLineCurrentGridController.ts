@@ -87,7 +87,6 @@ export const templateLineCurrentGridController = new GridController<
       {
         attribute: "workpack",
         type: "text",
-        //missing dummy data
         parentDataInterface: {
           ref: "workpackDialog",
           title: "Select Workpack",
