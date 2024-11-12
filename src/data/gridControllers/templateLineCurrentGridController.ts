@@ -91,9 +91,9 @@ export const templateLineCurrentGridController = new GridController<
         parentDataInterface: {
           ref: "workpackDialog",
           title: "Select Workpack",
-          columnFrom: "modifiedBy",
+          columnFrom: "name",
           columnTo: "workpack",
-          columnsFromTo: [["modifiedBy", "workpack"]],
+          columnsFromTo: [["name", "workpack"]],
         },
       },
       {

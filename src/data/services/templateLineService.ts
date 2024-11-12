@@ -1,7 +1,9 @@
 import { TemplateLineEntity } from "../entities/TemplateLineEntity";
 
+type DEFAULT_ENTITY = TemplateLineEntity;
+
 class TemplateLineService {
-  transformResult(row: TemplateLineEntity) {
+  transformResult(row: DEFAULT_ENTITY) {
     // for transforming/fixing
 
     row.created = row.created ? new Date(row.created) : null;
@@ -15,12 +17,12 @@ class TemplateLineService {
    * @param project
    * @returns
    */
-  async getAll(project: string): Promise<TemplateLineEntity[]> {
+  async getAll(project: string): Promise<DEFAULT_ENTITY[]> {
     const result = await fetch(
       `https://example.com/api/templateline/${project}`,
     );
     if (result.ok) {
-      return ((await result.json()) as TemplateLineEntity[]).map((d) =>
+      return ((await result.json()) as DEFAULT_ENTITY[]).map((d) =>
         this.transformResult(d),
       );
     } else {
@@ -33,10 +35,10 @@ class TemplateLineService {
    * @param project
    * @param data
    */
-  async post(project: string, data: TemplateLineEntity) {
+  async post(project: string, data: DEFAULT_ENTITY) {
     console.log("service patch", project, data);
 
-    return {} as TemplateLineEntity;
+    return {} as DEFAULT_ENTITY;
   }
 
   /**
@@ -53,7 +55,7 @@ class TemplateLineService {
    * @param project
    * @param data
    */
-  async patch(project: string, data: TemplateLineEntity) {
+  async patch(project: string, data: DEFAULT_ENTITY) {
     console.log("service patch", project, data);
   }
 }

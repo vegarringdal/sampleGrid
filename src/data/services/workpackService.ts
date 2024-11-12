@@ -1,8 +1,8 @@
-import { TemplateEntity } from "../entities/TemplateEntity";
+import { WorkpackEntity } from "../entities/WorkpackEntity";
 
-type DEFAULT_ENTITY = TemplateEntity;
+type DEFAULT_ENTITY = WorkpackEntity;
 
-class TemplateService {
+class WorkpackService {
   transformResult(row: DEFAULT_ENTITY) {
     // for transforming/fixing
 
@@ -18,7 +18,7 @@ class TemplateService {
    * @returns
    */
   async getAll(project: string): Promise<DEFAULT_ENTITY[]> {
-    const result = await fetch(`https://example.com/api/template/${project}`);
+    const result = await fetch(`https://example.com/api/workpack/${project}`);
     if (result.ok) {
       return ((await result.json()) as DEFAULT_ENTITY[]).map((d) =>
         this.transformResult(d),
@@ -58,4 +58,4 @@ class TemplateService {
   }
 }
 
-export const templateService = new TemplateService();
+export const workpackService = new WorkpackService();

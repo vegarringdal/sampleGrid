@@ -1,7 +1,9 @@
 import { CableEntity } from "../entities/CableEntity";
 
+type DEFAULT_ENTITY = CableEntity;
+
 class CableService {
-  transformResult(row: CableEntity) {
+  transformResult(row: DEFAULT_ENTITY) {
     // for transforming/fixing
 
     row.created = row.created ? new Date(row.created) : null;
@@ -15,10 +17,10 @@ class CableService {
    * @param project
    * @returns
    */
-  async getAll(project: string): Promise<CableEntity[]> {
+  async getAll(project: string): Promise<DEFAULT_ENTITY[]> {
     const result = await fetch(`https://example.com/api/cable/${project}`);
     if (result.ok) {
-      return ((await result.json()) as CableEntity[]).map((d) =>
+      return ((await result.json()) as DEFAULT_ENTITY[]).map((d) =>
         this.transformResult(d),
       );
     } else {
@@ -31,10 +33,10 @@ class CableService {
    * @param project
    * @param data
    */
-  async post(project: string, data: CableEntity) {
+  async post(project: string, data: DEFAULT_ENTITY) {
     console.log("service patch", project, data);
 
-    return {} as CableEntity;
+    return {} as DEFAULT_ENTITY;
   }
 
   /**
@@ -51,7 +53,7 @@ class CableService {
    * @param project
    * @param data
    */
-  async patch(project: string, data: CableEntity) {
+  async patch(project: string, data: DEFAULT_ENTITY) {
     console.log("service patch", project, data);
   }
 }

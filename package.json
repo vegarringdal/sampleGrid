@@ -26,6 +26,7 @@
     "@types/react-dom": "18.3.1",
     "@types/wicg-file-system-access": "2023.10.5",
     "@vitejs/plugin-react": "4.3.3",
+    "@sqlite.org/sqlite-wasm": "3.46.0-build2",
     "autoprefixer": "10.4.20",
     "esbuild-helpers": "2.0.1",
     "eslint": "9.13.0",

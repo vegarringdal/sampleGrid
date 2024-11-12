@@ -4,12 +4,14 @@ import { cableMockData } from "./cableMockData";
 import { templateLineMockData } from "./templateLineMockData";
 import { templateMockData } from "./templateMockData";
 import { equipmentMockData } from "./equipmentMockData";
+import { workpackMockData } from "./workpackMockData";
 
 const all = cableMockData
   .generateHandlers()
   .concat(templateLineMockData.generateHandlers())
   .concat(templateMockData.generateHandlers())
-  .concat(equipmentMockData.generateHandlers());
+  .concat(equipmentMockData.generateHandlers())
+  .concat(workpackMockData.generateHandlers());
 
 export const worker = setupWorker(...all);
 

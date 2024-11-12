@@ -12,6 +12,10 @@ import { templateLineGridController } from "./templateLineGridController";
 import { TemplateEntity } from "../entities/TemplateEntity";
 import { TemplateLineEntity } from "../entities/TemplateLineEntity";
 import { templateLineCurrentGridController } from "./templateLineCurrentGridController";
+import { workpackGridController } from "./workpackGridController";
+import { workpackDialogGridController } from "./workpackDialogGridController";
+import { WorkpackEntity } from "../entities/WorkpackEntity";
+import { PrintWorkpackEvent } from "../customEvents/PrintWorkpackEvent";
 
 ///////////////////////////////////////////////////////////////////
 // for now we generate some dummy gridControllers
@@ -23,8 +27,8 @@ export const gridControllers: GridControllerTypes = {
   cable: cableGridController,
   equipment: equipmentGridController,
 
-  workpack: generateDummyGridController(),
-  workpackDialog: generateDummyGridController(),
+  workpack: workpackGridController,
+  workpackDialog: workpackDialogGridController,
 
   task: generateDummyGridController(),
   taskDialog: generateDummyGridController(),
@@ -36,8 +40,6 @@ export const gridControllers: GridControllerTypes = {
   compcodesDialog: generateDummyGridController(),
 
   tagOperations: generateDummyGridController(),
-  tagOperationsSelectedWorkpack: generateDummyGridController(),
-  tagOperationsSelectedTask: generateDummyGridController(),
 
   routingAll: generateDummyGridController(),
   routingSelected: generateDummyGridController(),
@@ -88,8 +90,8 @@ export type GridControllerTypes = {
   cable: GridController<CableEntity, CreateTagoperationsEvent>;
   equipment: GridController<EquipmentEntity>;
 
-  workpack: GridController<DummyData>;
-  workpackDialog: GridController<DummyData>;
+  workpack: GridController<WorkpackEntity, PrintWorkpackEvent>;
+  workpackDialog: GridController<WorkpackEntity, PrintWorkpackEvent>;
 
   task: GridController<DummyData>;
   taskDialog: GridController<DummyData>;
@@ -101,8 +103,6 @@ export type GridControllerTypes = {
   compcodesDialog: GridController<DummyData>;
 
   tagOperations: GridController<DummyData>;
-  tagOperationsSelectedWorkpack: GridController<DummyData>;
-  tagOperationsSelectedTask: GridController<DummyData>;
 
   routingAll: GridController<DummyData>;
   routingSelected: GridController<DummyData>;

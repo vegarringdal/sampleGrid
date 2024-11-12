@@ -1,7 +1,9 @@
 import { EquipmentEntity } from "../entities/EquipmentEntity";
 
+type DEFAULT_ENTITY = EquipmentEntity;
+
 class EquipmentService<T> {
-  transformResult(row: EquipmentEntity) {
+  transformResult(row: DEFAULT_ENTITY) {
     // for transforming/fixing
 
     row.created = row.created ? new Date(row.created) : null;
@@ -15,11 +17,11 @@ class EquipmentService<T> {
    * @param project
    * @returns
    */
-  async getAll(project: string): Promise<EquipmentEntity[]> {
+  async getAll(project: string): Promise<DEFAULT_ENTITY[]> {
     const result = await fetch(`https://example.com/api/equipment/${project}`);
     console.log(result);
     if (result.ok) {
-      return ((await result.json()) as EquipmentEntity[]).map((d) =>
+      return ((await result.json()) as DEFAULT_ENTITY[]).map((d) =>
         this.transformResult(d),
       );
     } else {
@@ -32,7 +34,7 @@ class EquipmentService<T> {
    * @param project
    * @param data
    */
-  async post(project: string, data: EquipmentEntity) {
+  async post(project: string, data: DEFAULT_ENTITY) {
     console.log("service patch", project, data);
 
     return {} as T;
@@ -52,7 +54,7 @@ class EquipmentService<T> {
    * @param project
    * @param data
    */
-  async patch(project: string, data: EquipmentEntity) {
+  async patch(project: string, data: DEFAULT_ENTITY) {
     console.log("service patch", project, data);
   }
 }

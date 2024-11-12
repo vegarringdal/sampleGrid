@@ -18,7 +18,7 @@ export type WorkpackEntity = {
   workprepComment: string | null;
   formanHoldTitle: string | null;
   formanHoldDesctiption: string | null;
-  formanCommen: string | null;
+  formanComment: string | null;
 
   //related
   formanId: number | null;
